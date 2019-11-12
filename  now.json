@@ -1,7 +1,7 @@
 {
 	"version": 2,
 	"name": "faris-group",
-	// "alias": "www.gingco-estate.com",
+	"alias": "www.faris-group.com",
 	"builds": [
 		{
 			"src": "next.config.js",

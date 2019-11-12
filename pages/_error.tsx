@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Flex, Text, Icon } from '@chakra-ui/core';
 
-import { MinimalLayout } from '@components/layouts';
-
 const Error = ({ statusCode }) => {
 	return (
 		<Flex
@@ -29,7 +27,5 @@ Error.getInitialProps = ({ res, err }) => {
 	const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
 	return { statusCode };
 };
-
-Error.Layout = MinimalLayout;
 
 export default Error;

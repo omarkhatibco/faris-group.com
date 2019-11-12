@@ -9,7 +9,10 @@
 		"test": "jest",
 		"test:update": "jest --updateSnapshot ",
 		"test:watch": "jest --watch",
-		"test:cov": "jest --coverage"
+		"test:cov": "jest --coverage",
+		"now-build": "next build",
+		"now-prelive": "now --target staging",
+		"now-live": "now --target production"
 	},
 	"dependencies": {
 		"@babel/core": "^7.7.2",

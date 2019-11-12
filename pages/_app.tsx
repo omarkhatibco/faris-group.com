@@ -1,20 +1,10 @@
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
-import { PreflightCSS } from '@components';
-import theme from '../theme';
+import { Layout } from '@components';
 
 const MyApp = ({ Component, pageProps }) => {
-	const { Layout } = Component;
 	return (
-		<ThemeProvider theme={theme}>
-			<PreflightCSS />
-			{Layout ? (
-				<Component.Layout>
-					<Component {...pageProps} />
-				</Component.Layout>
-			) : (
-				<Component {...pageProps} />
-			)}
-		</ThemeProvider>
+		<Layout>
+			<Component {...pageProps} />
+		</Layout>
 	);
 };
 
