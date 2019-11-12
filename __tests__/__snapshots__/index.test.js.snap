@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With React Testing Library Snapshot Should match Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="jsx-2880368761"
+  >
+    <nav
+      class="jsx-3661331558"
+    >
+      <ul
+        class="jsx-3661331558"
+      >
+        <li
+          class="jsx-3661331558"
+        >
+          <a
+            class="jsx-3661331558"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <ul
+          class="jsx-3661331558"
+        >
+          <li
+            class="jsx-3661331558"
+          >
+            <a
+              class="jsx-3661331558"
+              href="https://github.com/segmentio/create-next-app"
+            >
+              Github
+            </a>
+          </li>
+        </ul>
+      </ul>
+    </nav>
+    <div
+      class="jsx-2880368761 hero"
+    >
+      <h1
+        class="jsx-2880368761 title"
+      >
+        Welcome to Next!
+      </h1>
+      <p
+        class="jsx-2880368761 description"
+      >
+        To get started, edit 
+        <code
+          class="jsx-2880368761"
+        >
+          pages/index.js
+        </code>
+         and save to reload.
+      </p>
+      <div
+        class="jsx-2880368761 row"
+      >
+        <a
+          class="jsx-2880368761 card"
+          href="https://github.com/zeit/next.js#getting-started"
+        >
+          <h3
+            class="jsx-2880368761"
+          >
+            Getting Started →
+          </h3>
+          <p
+            class="jsx-2880368761"
+          >
+            Learn more about Next on Github and in their examples
+          </p>
+        </a>
+        <a
+          class="jsx-2880368761 card"
+          href="https://open.segment.com/create-next-app"
+        >
+          <h3
+            class="jsx-2880368761"
+          >
+            Examples →
+          </h3>
+          <p
+            class="jsx-2880368761"
+          >
+            Find other example boilerplates on the 
+            <code
+              class="jsx-2880368761"
+            >
+              create-next-app
+            </code>
+             site
+          </p>
+        </a>
+        <a
+          class="jsx-2880368761 card"
+          href="https://github.com/segmentio/create-next-app"
+        >
+          <h3
+            class="jsx-2880368761"
+          >
+            Create Next App →
+          </h3>
+          <p
+            class="jsx-2880368761"
+          >
+            Was this tool helpful? Let us know how we can improve it
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
