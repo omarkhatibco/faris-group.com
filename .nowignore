@@ -1,3 +1,5 @@
 .next
 node_modules
 dist
+__tests__
+.vscode
