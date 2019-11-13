@@ -1,9 +1,13 @@
 import React from 'react';
-import { NextPage, NextPageContext } from 'next';
+import { NextPage } from 'next';
 
 import { Flex, Text, Icon } from '@chakra-ui/core';
 
-const ErrorPage = ({ statusCode }) => {
+type Props = {
+	statusCode: Number;
+};
+
+const ErrorPage: NextPage<Props> = ({ statusCode }) => {
 	return (
 		<Flex
 			maxW='sm'
@@ -24,7 +28,7 @@ const ErrorPage = ({ statusCode }) => {
 	);
 };
 
-ErrorPage.getInitialProps = ({ res, err }) => {
+ErrorPage.getInitialProps = async ({ res, err }) => {
 	const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
 	return { statusCode };
 };
