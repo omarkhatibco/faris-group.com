@@ -1,6 +1,7 @@
+import { NextPage } from 'next';
 import { Box } from '@chakra-ui/core';
 
-const Home = () => (
+const Home: NextPage = () => (
 	<Box bg='red.500' color='white'>
 		<h1 className='title'>Welcome to Next!</h1>
 		<p className='description'>
