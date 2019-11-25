@@ -5,7 +5,7 @@
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": false,
-		"forceConsistentCasingInFileNames": true,
+		"forceConsistentCasingInFileNames": false,
 		"noEmit": true,
 		"esModuleInterop": true,
 		"module": "esnext",
@@ -14,12 +14,13 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"allowSyntheticDefaultImports": true,
-
+		"sourceMap": true,
 		"baseUrl": "./",
 		"paths": {
-			"@*": ["./*"]
-		}
+			"~*": ["./*"]
+		},
+		"typeRoots": ["node_modules/@types", "src/@types"]
 	},
-	"exclude": ["node_modules"],
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+	"exclude": ["node_modules", "__tests__", ".next"],
+	"include": ["next-env.d.ts", "@types/*.d.ts", "**/*.ts", "**/*.tsx"]
 }

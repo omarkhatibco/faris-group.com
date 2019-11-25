@@ -1,10 +1,21 @@
-import { Layout } from '@components';
+import { ThemeProvider } from '@chakra-ui/core';
+import { PreflightCSS } from '~components';
+import theme from '../theme';
+// import App from 'next/app';
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, error }) => {
+	const { Layout, isProtected } = Component;
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<ThemeProvider theme={theme}>
+			<PreflightCSS />
+			{Layout ? (
+				<Layout>
+					<Component {...pageProps} error={error} />
+				</Layout>
+			) : (
+				<Component {...pageProps} />
+			)}
+		</ThemeProvider>
 	);
 };
 

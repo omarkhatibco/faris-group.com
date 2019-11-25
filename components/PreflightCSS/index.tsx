@@ -1,7 +1,7 @@
 import { CSSReset } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 
-const PreflightCSS = ({}) => {
+export const PreflightCSS: React.FC = () => {
 	return (
 		<>
 			<CSSReset />
@@ -15,5 +15,3 @@ const PreflightCSS = ({}) => {
 		</>
 	);
 };
-
-export default PreflightCSS;
