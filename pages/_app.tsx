@@ -3,14 +3,14 @@ import { PreflightCSS } from '~components';
 import theme from '../theme';
 // import App from 'next/app';
 
-const MyApp = ({ Component, pageProps, error }) => {
+const MyApp = ({ Component, pageProps }) => {
 	const { Layout, isProtected } = Component;
 	return (
 		<ThemeProvider theme={theme}>
 			<PreflightCSS />
 			{Layout ? (
 				<Layout>
-					<Component {...pageProps} error={error} />
+					<Component {...pageProps} />
 				</Layout>
 			) : (
 				<Component {...pageProps} />

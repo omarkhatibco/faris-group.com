@@ -9,7 +9,9 @@ export const Footer: React.FC = () => {
 			bg='gray.50'
 			alignItems='center'
 			justifyContent='center'
-			py='8'>
+			py='8'
+			borderTop='1px'
+			borderTopColor='gray.100'>
 			<Text>Logo</Text>
 			<Stack mt='4' isInline>
 				<Link href='https://www.facebook.com/farisgrouptr/' target='_blank'>
@@ -53,7 +55,7 @@ export const Footer: React.FC = () => {
 					/>
 				</Link>
 			</Stack>
-			<Text fontSize='sm' color='gray.500' mt='4'>
+			<Text fontSize='sm' color='gray.500' mt='4' textAlign='center'>
 				Copyright to Al-faris Group 2020 | powered by{' '}
 				<Link href='https://omarkhatib.co' target='_blank'>
 					Omar Khatib
