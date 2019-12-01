@@ -11,11 +11,11 @@ const ContactUs: AppPage = () => {
 			<Map />
 			<Box py='16'>
 				<Container>
-					<Heading as='h1' color='green.500' fontSize='5xl' mb='12'>
-						Contact Us
-					</Heading>
 					<Flex flexWrap='wrap'>
 						<Box width={['100%', 2 / 3]} pr={['0', '12']} pb={['12', '0']}>
+							<Heading as='h1' color='green.500' pb='4'>
+								Drop us a line
+							</Heading>
 							<Form
 								onSubmit={values => {
 									console.log({ values });
