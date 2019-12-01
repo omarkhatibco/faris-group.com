@@ -1,5 +1,5 @@
 import { AspectRatioBox, Box } from '@chakra-ui/core';
-import useMedia from 'react-use/esm/useMedia';
+import useMedia from 'react-use/lib/useMedia';
 export const Map = () => {
 	const isLg = useMedia('(min-width: 768px)');
 
