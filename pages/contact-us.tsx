@@ -14,8 +14,8 @@ const ContactUs: AppPage = () => {
 					<Heading as='h1' color='green.500' fontSize='5xl' mb='12'>
 						Contact Us
 					</Heading>
-					<Stack isInline spacing='16'>
-						<Box width={[1 / 1, 2 / 3]}>
+					<Flex flexWrap='wrap'>
+						<Box width={['100%', 2 / 3]} pr={['0', '12']} pb={['12', '0']}>
 							<Form
 								onSubmit={values => {
 									console.log({ values });
@@ -65,7 +65,7 @@ const ContactUs: AppPage = () => {
 								</Stack>
 							</Form>
 						</Box>
-						<Box width={[1 / 1, 1 / 3]}>
+						<Box width={['100%', 1 / 3]}>
 							<Heading as='h2' color='green.500'>
 								Social Media
 							</Heading>
@@ -147,7 +147,7 @@ const ContactUs: AppPage = () => {
 								</Flex>
 							</Stack>
 						</Box>
-					</Stack>
+					</Flex>
 				</Container>
 			</Box>
 		</Box>
