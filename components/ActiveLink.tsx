@@ -12,7 +12,8 @@ export const ActiveLink: React.FC<IProps> = ({ children, ...rest }) => {
 		<Link {...rest}>
 			<Button
 				textTransform='uppercase'
-				variantColor={pathname === rest.href ? 'green' : 'gray'}
+				variant='ghost'
+				variantColor={pathname === rest.href ? 'teal' : 'gray'}
 				fontSize='sm'>
 				{children}
 			</Button>

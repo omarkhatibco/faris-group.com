@@ -2,14 +2,7 @@ import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Validate } from 'react-hook-form/dist/types';
 
-import {
-	InputGroup,
-	Input,
-	InputRightElement,
-	InputLeftElement,
-	IconButton,
-	InputProps,
-} from '@chakra-ui/core';
+import { InputGroup, Textarea, InputLeftElement, InputProps } from '@chakra-ui/core';
 import { MyCustomFormControl } from './FormControl';
 
 interface IProps extends InputProps {
@@ -21,19 +14,20 @@ interface IProps extends InputProps {
 	helperText?: string;
 	validate?: Validate;
 	icon?: React.ReactNode;
+	size;
 }
 
-export const Field: React.FC<IProps> = ({
+export const TextareaField: React.FC<IProps> = ({
 	name,
 	type = 'text',
 	autoComplete = 'none',
-	size,
 	placeholder,
 	isRequired,
 	isDisabled,
 	isReadOnly,
 	validate,
 	icon,
+	size,
 }) => {
 	const [show, setShow] = useState<boolean>(false);
 
@@ -48,8 +42,7 @@ export const Field: React.FC<IProps> = ({
 		<MyCustomFormControl name={name} isRequired={isRequired} isDisabled={isDisabled}>
 			<InputGroup size={size}>
 				{icon && <InputLeftElement children={icon} />}
-
-				<Input
+				<Textarea
 					type={show ? 'text' : type}
 					id={name}
 					name={name}
@@ -63,19 +56,11 @@ export const Field: React.FC<IProps> = ({
 					autoComplete={autoComplete}
 					errorBorderColor='red.500'
 					focusBorderColor='green.500'
+					resize='vertical'
+					minHeight='10rem'
+					paddingLeft={icon ? '12' : '4'}
+					paddingTop='3'
 				/>
-
-				{type === 'password' && (
-					<InputRightElement width='2.5rem'>
-						<IconButton
-							variant='ghost'
-							variantColor='green'
-							aria-label='Show Password'
-							icon={show ? 'view-off' : 'view'}
-							onClick={() => setShow(!show)}
-						/>
-					</InputRightElement>
-				)}
 			</InputGroup>
 		</MyCustomFormControl>
 	);
