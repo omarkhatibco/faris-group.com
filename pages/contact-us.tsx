@@ -14,7 +14,7 @@ const ContactUs: AppPage = () => {
 					<Flex flexWrap='wrap'>
 						<Box width={['100%', 2 / 3]} pr={['0', '12']} pb={['12', '0']}>
 							<Heading as='h1' color='green.500' pb='4'>
-								Drop us a line
+								Drop us a message
 							</Heading>
 							<Form
 								onSubmit={values => {
