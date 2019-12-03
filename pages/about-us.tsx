@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Heading } from '@chakra-ui/core';
+import { Box, Flex, Text, Heading, Image, List, ListItem, ListIcon } from '@chakra-ui/core';
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
 
@@ -16,19 +16,37 @@ const AboutUs: AppPage = () => {
 				</Heading>
 				<Text>Lorem IpsumLorem IpsumLorem IpsumLorem Ipsum</Text>
 			</Box>
-			<Box width='100%' px='16'>
-				<Heading
-					as='h2'
-					textAlign='center'
-					borderBottom='1px'
-					borderBottomColor='black'
-					lineHeight='0.1rem'
-					m='10px 0 20px'>
-					<Text background='#fff' d='inline'>
-						Our Services?
-					</Text>
-				</Heading>
-			</Box>
+
+			<Flex my={16}>
+				<Box width={6 / 12}>
+					<Image src='https://source.unsplash.com/1600x900/?real,estate' alt='services Picture' />
+				</Box>
+				<Box width={6 / 12}>
+					<Box width='100%' px='32' py='16'>
+						<Heading
+							as='h2'
+							textAlign='center'
+							borderBottom='1px'
+							borderBottomColor='teal.500'
+							lineHeight='0.1em'
+							m='20px 0 20px'>
+							<Text background='#fff' d='inline' color='gray.500' as='span' fontSize='32px'>
+								Services
+							</Text>
+						</Heading>
+					</Box>
+					<List>
+						<List>
+							<ListItem>1or sit amet</ListItem>
+							<ListItem>2sum dolor sit amet</ListItem>
+						</List>
+						<List>
+							<ListItem>Lorem ipsum dolor sit amet</ListItem>
+							<ListItem>Lorem ipsum dolor sit amet</ListItem>
+						</List>
+					</List>
+				</Box>
+			</Flex>
 			<style jsx>{``}</style>
 		</Flex>
 	);
