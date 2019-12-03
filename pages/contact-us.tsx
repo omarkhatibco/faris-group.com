@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Spinner, Flex, Text, Box, Stack, Heading, Link, IconButton, Icon } from '@chakra-ui/core';
 import { AppPage } from '~@types/global';
 import { Map, Container, Form, Submit, Field, TextareaField } from '~components';
