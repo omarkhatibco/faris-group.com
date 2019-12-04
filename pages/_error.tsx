@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppPage } from '~@types/global';
 import { Flex, Text, Icon } from '@chakra-ui/core';
 
