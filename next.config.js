@@ -1,8 +1,6 @@
-const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production';
 const withPlugins = require('next-compose-plugins');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const withReactSvg = require('next-react-svg');
 
 const nextConfiguration = {
 	webpack: config => {
@@ -24,14 +22,4 @@ const nextConfiguration = {
 	target: 'serverless',
 };
 
-module.exports = withPlugins(
-	[
-		[
-			withReactSvg,
-			{
-				include: path.resolve(__dirname, 'public/assets/svg/'),
-			},
-		],
-	],
-	nextConfiguration
-);
+module.exports = withPlugins([], nextConfiguration);
