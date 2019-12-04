@@ -15,7 +15,7 @@ import { FaBuilding } from 'react-icons/fa';
 
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
-import BuildingSVG from '-!svg-react-loader!../assets/svg/house.svg';
+import Building from '!svg-react-loader!../public/assets/svg';
 
 const AboutUs: AppPage = () => {
 	return (
@@ -57,7 +57,7 @@ const AboutUs: AppPage = () => {
 					</Box>
 					<List d='flex' width={6 / 12} padding={8}>
 						<ListIcon icon={FaBuilding} aria-label='Building' size='4rem' color='green.500' />
-						<BuildingSVG /> 
+						<Building />
 						<ListItem>
 							Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
 						</ListItem>
