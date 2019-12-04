@@ -1,8 +1,8 @@
 import React from 'react';
 
 const SvgDocumentation = props => (
-	<svg height={661} viewBox='0 0 496 496' width={661} {...props}>
-		<g fill='#f0bc5e'>
+	<svg height={661} viewBox='0 0 496 496' fill='#bad800' width={661} {...props}>
+		<g fill='#ccc'>
 			<path d='M32 200h64v160H32zm112 0h64v160h-64zm112-32v192h64V240h144v-72zm144-24H208V32h192zm0 0' />
 			<path d='M464 368H336V256h128zm0 0' />
 		</g>
