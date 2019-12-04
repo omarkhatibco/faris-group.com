@@ -1,4 +1,16 @@
-import { Box, Flex, Text, Heading, Image, List, ListItem, ListIcon } from '@chakra-ui/core';
+import {
+	Box,
+	Flex,
+	Text,
+	Heading,
+	Image,
+	List,
+	ListItem,
+	ListIcon,
+	IconButton,
+} from '@chakra-ui/core';
+import { FaBuilding } from 'react-icons/fa';
+
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
 
@@ -19,7 +31,7 @@ const AboutUs: AppPage = () => {
 
 			<Flex my={16}>
 				<Box width={6 / 12}>
-					<Image src='https://source.unsplash.com/1600x900/?real,estate' alt='services Picture' />
+					<Image src='https://source.unsplash.com/1600x900/?istanbul' alt='services Picture' />
 				</Box>
 				<Box width={6 / 12}>
 					<Box width='100%' px='32' py='16'>
@@ -28,22 +40,23 @@ const AboutUs: AppPage = () => {
 							textAlign='center'
 							borderBottom='1px'
 							borderBottomColor='teal.500'
-							lineHeight='0.1em'
-							m='20px 0 20px'>
-							<Text background='#fff' d='inline' color='gray.500' as='span' fontSize='32px'>
+							lineHeight='0.1em'>
+							<Text
+								background='#fff'
+								d='inline'
+								color='gray.500'
+								as='span'
+								fontSize='32px'
+								padding='12px'>
 								Services
 							</Text>
 						</Heading>
 					</Box>
-					<List>
-						<List>
-							<ListItem>1or sit amet</ListItem>
-							<ListItem>2sum dolor sit amet</ListItem>
-						</List>
-						<List>
-							<ListItem>Lorem ipsum dolor sit amet</ListItem>
-							<ListItem>Lorem ipsum dolor sit amet</ListItem>
-						</List>
+					<List d='flex' width={6 / 12} padding={8}>
+						<ListIcon icon={FaBuilding} aria-label='Building' size='4rem' color='green.500' />
+						<ListItem>
+							Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+						</ListItem>
 					</List>
 				</Box>
 			</Flex>
