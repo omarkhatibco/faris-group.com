@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
 	Box,
 	Flex,
@@ -13,7 +15,7 @@ import { FaBuilding } from 'react-icons/fa';
 
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
-import BuildingSVG from '../assets/svgs/004-house.svg';
+import BuildingSVG from '-!svg-react-loader!../assets/svg/house.svg';
 
 const AboutUs: AppPage = () => {
 	return (
