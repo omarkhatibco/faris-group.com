@@ -57,7 +57,7 @@ const AboutUs: AppPage = () => {
 					</Box>
 					<List d='flex' width={6 / 12} padding={8}>
 						<ListIcon icon={FaBuilding} aria-label='Building' size='4rem' color='green.500' />
-						<BuildingSVG></BuildingSVG>
+						<BuildingSVG /> 
 						<ListItem>
 							Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
 						</ListItem>
