@@ -33,18 +33,6 @@
   resolved "https://registry.yarnpkg.com/@ampproject/toolbox-script-csp/-/toolbox-script-csp-1.1.1.tgz#0b049a1c86c99f300162a10e1b9ce83c6e354a45"
   integrity sha512-gACGfsVKinCy/977FSrlVgo6jxTZ0lcTCvCnRlNwvSOcxJVm+jJR3sP7/F43fpak9Gsq/EwFaatfnNMbunPc+w==
 
-"@animated-burgers/burger-slide@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@animated-burgers/burger-slide/-/burger-slide-1.1.2.tgz#9a1ecbe646ae40da1cfd72a75e4f623093d817a7"
-  integrity sha512-Q8ZVuLyvqd+6H9auAzaLTXo2w5JbMSln4kqhv0mYBxlqC11IrbAzkPJsI9pTEDarn1L/r+j+5b0cBtyFXdpN7g==
-  dependencies:
-    "@animated-burgers/burger" "^1.1.2"
-
-"@animated-burgers/burger@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@animated-burgers/burger/-/burger-1.1.2.tgz#a75f7147f9d4041b8bfd510e0097a1500c4fa009"
-  integrity sha512-hErU9dlOcEeYbmbhhngBMXSDtqOaXfFEnKoodfs6vCFWD8dVLMNVbFFpZ0eV7/Wa9kKTGLPeLtDeP0vWYAcY7w==
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.5.5.tgz#bc0782f6d69f7b7d49531219699b988f669a8f9d"
@@ -2811,7 +2799,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5, classnames@^2.2.6:
+classnames@^2.2.5:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -7627,10 +7615,10 @@ react-focus-lock@^2.1.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-hook-form@^3.28.11:
-  version "3.28.11"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.28.11.tgz#1b291ccf26e0596bcb7ca60ad30f6f6559c4d5f2"
-  integrity sha512-laAE0w40+q5fq/Dz/F2LFLbjl8vd1cpkeLu6s3VwbJ7TJ+D02VZPaN0PHnXp59dlu6+SiTkshPDqa7GKWkD0gQ==
+react-hook-form@^3.28.12:
+  version "3.28.12"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.28.12.tgz#387173543ab8e89b47ed076ba7ad9886848d94f4"
+  integrity sha512-5bHttMAehOgUHeJhbCVzXguRljFrl2ZK+ydLBqsfLCOtS4++p34vp4/Hkqle5waGojZpNbDSaGUEee24WwfGQg==
 
 react-icons@^3.8.0:
   version "3.8.0"

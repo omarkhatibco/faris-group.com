@@ -9,7 +9,7 @@ import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
 const AboutUs: AppPage = () => {
 	return (
 		<Flex w='full' flexDirection='column'>
-			<Box px={[16, 32]} py={32} width={['full', 6 / 12]} h='30vh'>
+			<Box px={[16, 32]} py={32} width={['100%']} h='30vh'>
 				<Heading>
 					We are{' '}
 					<Text color='green.500' d='inline'>
@@ -22,92 +22,70 @@ const AboutUs: AppPage = () => {
 			</Box>
 
 			<Flex py={32} flexDir={['row']} flexWrap={['wrap']}>
-				<Box width={['100%', 1 / 2]}>
+				<Box width={['100%', '100%', '100%', 1 / 2]}>
 					<Image src='https://source.unsplash.com/960x600/?istanbul' alt='services Picture' />
 				</Box>
-				<Box width={['100%', 1 / 2]}>
-					<Box width='100%' px={[8, 32]} py='16'>
-						<Heading
-							as='h2'
-							textAlign='center'
-							borderBottom='1px'
-							borderBottomColor='teal.500'
-							lineHeight='0.1em'>
-							<Text
-								background='#fff'
-								d='inline'
-								color='gray.500'
-								as='span'
-								fontSize='32px'
-								px='12px'>
-								Services
-							</Text>
+				<Box width={['100%', '100%', '100%', 1 / 2]}>
+					<Box width='100%' px={4} py={[8, 8, 0]}>
+						<Heading as='h2' color='teal.500'>
+							Services
 						</Heading>
 					</Box>
-					<Flex width='100%' flexWrap={['wrap', 'unset']}>
-						<Box
-							d='inline-flex'
-							px={[4, 8]}
-							py={[4, 0]}
-							justifyContent='center'
-							alignItems='center'>
-							<Box as={Office} size={16} d='inline' />
-							<Text mx={2} width='50%'>
-								TEST :PREMTEST :PREMTEST :PREM
+					<Flex flexWrap='wrap' width='100%' px={4}>
+						<Box width={['100%', '100%', '50%', '50%']} px={2} my={6}>
+							<Box as={Office} size={20} display='block' />
+							<Heading color='teal.500' size='md'>
+								Lorem Ipsum
+							</Heading>
+							<Text>
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type and scrambled it to make
 							</Text>
 						</Box>
-						<Box
-							d='inline-flex'
-							px={[4, 8]}
-							py={[4, 0]}
-							justifyContent='center'
-							alignItems='center'>
-							<Box as={CheckList} size={16} d='inline' />
-							<Text mx={2} width='50%'>
-								TEST :PREMTEST :PREMTEST :PREM
+						<Box width={['100%', '100%', '50%', '50%']} px={2} my={6}>
+							<Box as={Office} size={20} display='block' />
+							<Heading color='teal.500' size='md'>
+								Lorem Ipsum
+							</Heading>
+							<Text>
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type and scrambled it to make
 							</Text>
 						</Box>
-					</Flex>
-					<Flex width='100%' flexWrap={['wrap', 'unset']} py={[4, 24]}>
-						<Box
-							d='inline-flex'
-							px={[4, 8]}
-							py={[4, 0]}
-							justifyContent='center'
-							alignItems='center'>
-							<Box as={Search} size={16} d='inline' />
-							<Text mx={2} width='50%'>
-								TEST :PREMTEST :PREMTEST :PREM
+						<Box width={['100%', '100%', '50%', '50%']} px={2} my={6}>
+							<Box as={Office} size={20} display='block' />
+							<Heading color='teal.500' size='md'>
+								Lorem Ipsum
+							</Heading>
+							<Text>
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type and scrambled it to make
 							</Text>
 						</Box>
-						<Box
-							d='inline-flex'
-							px={[4, 8]}
-							py={[4, 0]}
-							justifyContent='center'
-							alignItems='center'>
-							<Box as={Planning} size={16} d='inline' />
-							<Text mx={2} width='50%'>
-								TEST :PREMTEST :PREMTEST :PREM
+						<Box width={['100%', '100%', '50%', '50%']} px={2} my={6}>
+							<Box as={Office} size={20} display='block' />
+							<Heading color='teal.500' size='md'>
+								Lorem Ipsum
+							</Heading>
+							<Text>
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+								Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+								unknown printer took a galley of type and scrambled it to make
 							</Text>
 						</Box>
 					</Flex>
 				</Box>
 			</Flex>
 			<Flex w='100%' flexDirection='column'>
-				<Box width={['100%', '50%']} px={[4, 32]} py='8'>
-					<Heading
-						as='h2'
-						textAlign='center'
-						borderBottom='1px'
-						borderBottomColor='teal.500'
-						lineHeight='0.1em'>
-						<Text background='#fff' d='inline' color='gray.500' as='span' fontSize='32px' px='12px'>
-							About us
-						</Text>
+				<Box width='100%' px={4}>
+					<Heading as='h2' color='teal.500'>
+						Services
 					</Heading>
 				</Box>
-				<Box width={['100%', 4 / 6]} px={[4, 32]}>
+				<Box width={['100%']} px={4}>
 					<Heading
 						color='teal.500'
 						borderBottom='1px'
@@ -117,13 +95,10 @@ const AboutUs: AppPage = () => {
 						Philosophy
 					</Heading>
 					<Text py={2}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-						has been the industry's standard dummy text ever since the 1500s, when an unknown
-						printer took a galley of type and scrambled it to make a type specimen book. It has
-						survived not only five centuries, but also the leap into electronic typesetting,
-						remaining essentially unchanged. It was popularised in the 1960s with the release of
-						Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-						publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						We look at Turkey as the next investment paradise, and as it is the paradise of the land
+						where tourists are staying, investors are also looking forward to it. We believe in the
+						principle of the brotherhood of the countries, the friendship of the people, wherever
+						you are, Turkey, your second home, the people of your family, and your country.
 					</Text>
 					<Heading
 						color='teal.500'
@@ -134,13 +109,10 @@ const AboutUs: AppPage = () => {
 						Real Estate Education
 					</Heading>
 					<Text py={2}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-						has been the industry's standard dummy text ever since the 1500s, when an unknown
-						printer took a galley of type and scrambled it to make a type specimen book. It has
-						survived not only five centuries, but also the leap into electronic typesetting,
-						remaining essentially unchanged. It was popularised in the 1960s with the release of
-						Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-						publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						We publish a series of seminars on real estate ownership in Turkey. We also publish and
+						publish specialized articles on the Turkish economy, the latest developments in
+						infrastructure, the new laws relating to real estate, and all that matters to the
+						investor and who wants to own or live in Turkey.
 					</Text>
 					<Heading
 						color='teal.500'
@@ -151,13 +123,14 @@ const AboutUs: AppPage = () => {
 						Why Turkey?
 					</Heading>
 					<Text py={2}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-						has been the industry's standard dummy text ever since the 1500s, when an unknown
-						printer took a galley of type and scrambled it to make a type specimen book. It has
-						survived not only five centuries, but also the leap into electronic typesetting,
-						remaining essentially unchanged. It was popularised in the 1960s with the release of
-						Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-						publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						The new Turkey is a rapidly rising and confident country, and its growth index is known
+						only to jump and rise, coinciding with the revolution of infrastructure, government
+						facilities, industrial and medical development, and giant projects that take Turkey from
+						past to future quickly! Such as the Istanbul III Airport Project, located in the Arnaout
+						Cui area north of Istanbul, with an area of about 7,500 hectares, accommodating 200
+						million passengers annually and reaching 350 world points.
+						<br /> As the people and power harmonize, the country enters the era of stability,
+						Investors.
 					</Text>
 				</Box>
 			</Flex>

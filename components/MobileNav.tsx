@@ -11,30 +11,24 @@ import {
 	DrawerCloseButton,
 	useDisclosure,
 	DrawerHeader,
+	IconButton,
 } from '@chakra-ui/core';
 import { ActiveLink } from './ActiveLink';
-import styled from '@emotion/styled';
-
+import { GiHamburgerMenu } from 'react-icons/gi';
 // Burger Menu
-import Burger from '@animated-burgers/burger-slide';
-import '@animated-burgers/burger-slide/dist/styles.css';
-
-const BurgerStyled = styled(Burger)`
-	.burger-lines,
-	.burger-lines:after,
-	.burger-lines:before {
-		background-color: ${({ color }) => color};
-	}
-`;
-
 export const MobileNav: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
 	return (
 		<>
-			<Flex display={['flex', 'none']}>
+			<Flex display={['flex', 'flex', 'flex', 'none']}>
 				<Box ref={btnRef} onClick={onOpen}>
-					<BurgerStyled color='black' />
+					<IconButton
+						aria-label='Burger Menu'
+						icon={GiHamburgerMenu}
+						background='transparent'
+						size='lg'
+					/>
 				</Box>
 			</Flex>
 			<Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef} size='lg'>
@@ -42,37 +36,39 @@ export const MobileNav: React.FC = () => {
 				<DrawerContent>
 					<DrawerCloseButton size='lg' />
 
-					<DrawerBody alignSelf='center' display='inline-flex'>
-						<Stack
-							as='ul'
-							listStyleType='none'
-							flexDir='column'
-							alignItems='center'
-							justifyContent='center'
-							my='auto'>
+					<DrawerBody width='100%' alignSelf='center' display='inline-flex'>
+						<Stack as='nav' width='100%' my='auto' display='flex' flexDir='column'>
 							<Image
 								src='https://www.faris-group.com/wp-content/uploads/2019/05/fg-web.png'
 								maxHeight='16'
 							/>
-							<Box as='li' w='100%'>
-								<ActiveLink width='100%' href='/'>
-									Home
-								</ActiveLink>
-							</Box>
-							<Box as='li' w='100%'>
-								<ActiveLink width='100%' href='/about-us'>
-									About Us
-								</ActiveLink>
-							</Box>
-							<Box as='li' w='100%'>
-								<ActiveLink width='100%' href='/properties'>
-									Properties
-								</ActiveLink>
-							</Box>
-							<Box as='li' w='100%'>
-								<ActiveLink href='/contact-us' width='100%'>
-									Contact Us
-								</ActiveLink>
+							<Box
+								as='ul'
+								listStyleType='none'
+								width='100%'
+								display='flex'
+								flexDir='column'
+								alignItems='flex-start'>
+								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
+									<ActiveLink width='100%' href='/' justifyContent='flex-start'>
+										Home
+									</ActiveLink>
+								</Box>
+								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
+									<ActiveLink width='100%' href='/about-us' justifyContent='flex-start'>
+										About Us
+									</ActiveLink>
+								</Box>
+								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
+									<ActiveLink width='100%' href='/properties' justifyContent='flex-start'>
+										Properties
+									</ActiveLink>
+								</Box>
+								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
+									<ActiveLink width='100%' href='/contact-us' justifyContent='flex-start'>
+										Contact Us
+									</ActiveLink>
+								</Box>
 							</Box>
 						</Stack>
 					</DrawerBody>

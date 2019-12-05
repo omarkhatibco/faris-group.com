@@ -4,15 +4,17 @@ import { useRouter } from 'next/router';
 
 interface IProps extends LinkProps {
 	children: React.ReactNode;
-	width?: string
+	width?: string;
+	justifyContent?: string;
 }
 
-export const ActiveLink: React.FC<IProps> = ({ children, width, ...rest }) => {
+export const ActiveLink: React.FC<IProps> = ({ children, width, justifyContent, ...rest }) => {
 	const { pathname } = useRouter();
 	return (
 		<Link {...rest}>
 			<Button
 				width={width}
+				justifyContent={justifyContent}
 				textTransform='uppercase'
 				variant='ghost'
 				variantColor={pathname === rest.href ? 'teal' : 'gray'}

@@ -24,7 +24,7 @@ export const Header: React.FC = ({}) => {
 						/>
 					</Box>
 
-					<Box as='nav' d={['none', 'block']}>
+					<Box as='nav' display={['none', 'none', 'none', 'block']}>
 						<Stack as='ul' listStyleType='none' isInline>
 							<Box as='li'>
 								<ActiveLink href='/'>Home</ActiveLink>
