@@ -15,12 +15,15 @@
 		"now-live": "now --target production"
 	},
 	"dependencies": {
+		"@animated-burgers/burger-slide": "^1.1.2",
 		"@babel/core": "^7.7.4",
 		"@babel/plugin-proposal-optional-chaining": "^7.7.4",
 		"@chakra-ui/core": "^0.4.1",
 		"@emotion/core": "^10.0.22",
 		"@emotion/styled": "^10.0.23",
 		"@svgr/cli": "^4.3.3",
+		"@zeit/next-css": "^1.0.1",
+		"classnames": "^2.2.6",
 		"emotion-theming": "^10.0.19",
 		"isomorphic-unfetch": "^3.0.0",
 		"ky": "^0.16.1",
