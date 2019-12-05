@@ -4,10 +4,7 @@ import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
 
 // ICONS
-import House from '../assets/svgComp/House';
-import Apartment from '../assets/svgComp/Apartment';
-import Document from '../assets/svgComp/Documentation';
-import Negotiation from '../assets/svgComp/Negotiation';
+import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
 
 const AboutUs: AppPage = () => {
 	return (
@@ -54,7 +51,7 @@ const AboutUs: AppPage = () => {
 							py={[4, 0]}
 							justifyContent='center'
 							alignItems='center'>
-							<Box as={House} size={16} d='inline' />
+							<Box as={Office} size={16} d='inline' />
 							<Text mx={2} width='50%'>
 								TEST :PREMTEST :PREMTEST :PREM
 							</Text>
@@ -65,7 +62,7 @@ const AboutUs: AppPage = () => {
 							py={[4, 0]}
 							justifyContent='center'
 							alignItems='center'>
-							<Box as={Apartment} size={16} d='inline' />
+							<Box as={CheckList} size={16} d='inline' />
 							<Text mx={2} width='50%'>
 								TEST :PREMTEST :PREMTEST :PREM
 							</Text>
@@ -78,7 +75,7 @@ const AboutUs: AppPage = () => {
 							py={[4, 0]}
 							justifyContent='center'
 							alignItems='center'>
-							<Box as={Document} size={16} d='inline' />
+							<Box as={Search} size={16} d='inline' />
 							<Text mx={2} width='50%'>
 								TEST :PREMTEST :PREMTEST :PREM
 							</Text>
@@ -89,7 +86,7 @@ const AboutUs: AppPage = () => {
 							py={[4, 0]}
 							justifyContent='center'
 							alignItems='center'>
-							<Box as={Negotiation} size={16} d='inline' />
+							<Box as={Planning} size={16} d='inline' />
 							<Text mx={2} width='50%'>
 								TEST :PREMTEST :PREMTEST :PREM
 							</Text>
@@ -98,7 +95,7 @@ const AboutUs: AppPage = () => {
 				</Box>
 			</Flex>
 			<Flex w='100%' flexDirection='column'>
-				<Box width='50%' px={[4, 32]} py='8'>
+				<Box width={['100%', '50%']} px={[4, 32]} py='8'>
 					<Heading
 						as='h2'
 						textAlign='center'
@@ -110,9 +107,48 @@ const AboutUs: AppPage = () => {
 						</Text>
 					</Heading>
 				</Box>
-				<Box width='50%' px={[4, 32]}>
-					<Heading color='teal.500' borderBottom='1px' borderBottomColor='#ccc' width='50%' py={2}>
+				<Box width={['100%', 4 / 6]} px={[4, 32]}>
+					<Heading
+						color='teal.500'
+						borderBottom='1px'
+						borderBottomColor='#ccc'
+						py={2}
+						textTransform='uppercase'>
 						Philosophy
+					</Heading>
+					<Text py={2}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+						has been the industry's standard dummy text ever since the 1500s, when an unknown
+						printer took a galley of type and scrambled it to make a type specimen book. It has
+						survived not only five centuries, but also the leap into electronic typesetting,
+						remaining essentially unchanged. It was popularised in the 1960s with the release of
+						Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+						publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</Text>
+					<Heading
+						color='teal.500'
+						borderBottom='1px'
+						borderBottomColor='#ccc'
+						py={2}
+						textTransform='uppercase'>
+						Real Estate Education
+					</Heading>
+					<Text py={2}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+						has been the industry's standard dummy text ever since the 1500s, when an unknown
+						printer took a galley of type and scrambled it to make a type specimen book. It has
+						survived not only five centuries, but also the leap into electronic typesetting,
+						remaining essentially unchanged. It was popularised in the 1960s with the release of
+						Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+						publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</Text>
+					<Heading
+						color='teal.500'
+						borderBottom='1px'
+						borderBottomColor='#ccc'
+						py={2}
+						textTransform='uppercase'>
+						Why Turkey?
 					</Heading>
 					<Text py={2}>
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
@@ -125,7 +161,6 @@ const AboutUs: AppPage = () => {
 					</Text>
 				</Box>
 			</Flex>
-			<style jsx>{``}</style>
 		</Flex>
 	);
 };
