@@ -26,7 +26,7 @@ export const MobileNav: React.FC = () => {
 		<>
 			<Flex display={['flex', 'none']}>
 				<Box ref={btnRef} onClick={onOpen}>
-					<Burger isOpen={false} />
+					<Burger isOpen={false} color='black' />
 				</Box>
 			</Flex>
 			<Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef}>
