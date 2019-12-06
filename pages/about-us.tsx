@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Heading, Image, Grid, Stack } from '@chakra-ui/core';
+import { Box, Flex, Text, Heading, Image, Grid, Stack, PseudoBox, Scale } from '@chakra-ui/core';
 
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
@@ -127,36 +127,48 @@ const AboutUs: AppPage = () => {
 					alignItems='center'
 					order={[1, 1, 2, 2]}>
 					<Grid templateColumns='repeat(1, 1fr)' gap={4} m={4}>
-						<Box w='100%'>
+						<PseudoBox
+							w='100%'
+							_hover={{ transform: 'scale(0.75)', mx: 4 }}
+							transition='all .2s ease-in-out'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
 								alt='services Picture'
 								shadow='md'
 							/>
-						</Box>
-						<Box w='100%'>
+						</PseudoBox>
+						<PseudoBox
+							w='100%'
+							_hover={{ transform: 'scale(0.75)', mx: 4 }}
+							transition='all .2s ease-in-out'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
 								alt='services Picture'
 								shadow='md'
 							/>
-						</Box>
+						</PseudoBox>
 					</Grid>
 					<Grid templateColumns='repeat(1, 1fr)' gap={4} mt={8}>
-						<Box w='100%'>
+						<PseudoBox
+							w='100%'
+							_hover={{ transform: 'scale(1.25)', mx: 4 }}
+							transition='all .2s ease-in-out'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
 								alt='services Picture'
 								shadow='md'
 							/>
-						</Box>
-						<Box w='100%' shadow='md'>
+						</PseudoBox>
+						<PseudoBox
+							w='100%'
+							_hover={{ transform: 'scale(0.75)', mx: 4 }}
+							transition='all .2s ease-in-out'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
 								alt='services Picture'
 								shadow='md'
 							/>
-						</Box>
+						</PseudoBox>
 					</Grid>
 				</Box>
 			</Flex>
