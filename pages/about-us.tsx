@@ -129,7 +129,7 @@ const AboutUs: AppPage = () => {
 					<Grid templateColumns='repeat(1, 1fr)' gap={4} m={4}>
 						<PseudoBox
 							w='100%'
-							_hover={{ transform: 'scale(0.75)', mx: 4 }}
+							_hover={{ transform: 'scale(1.25)', mx: 4 }}
 							transition='all .2s ease-in-out'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
@@ -139,7 +139,7 @@ const AboutUs: AppPage = () => {
 						</PseudoBox>
 						<PseudoBox
 							w='100%'
-							_hover={{ transform: 'scale(0.75)', mx: 4 }}
+							_hover={{ transform: 'scale(1.25)', mx: 4 }}
 							transition='all .2s ease-in-out'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
@@ -161,7 +161,7 @@ const AboutUs: AppPage = () => {
 						</PseudoBox>
 						<PseudoBox
 							w='100%'
-							_hover={{ transform: 'scale(0.75)', mx: 4 }}
+							_hover={{ transform: 'scale(1.25)', mx: 4 }}
 							transition='all .2s ease-in-out'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
