@@ -35,7 +35,7 @@ export const MobileNav: React.FC = () => {
 						<Stack as='nav' width='100%' my='auto' display='flex' flexDir='column'>
 							<Image
 								src='https://www.faris-group.com/wp-content/uploads/2019/05/fg-web.png'
-								// maxHeight='20'
+								maxHeight='24'
 								objectFit='cover'
 							/>
 							<Box
