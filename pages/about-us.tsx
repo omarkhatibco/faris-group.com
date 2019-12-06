@@ -85,14 +85,9 @@ const AboutUs: AppPage = () => {
 					</Stack>
 				</Box>
 
-				<Box width={['100%', '100%', '100%', 1 / 2]} order={[2, 2, 1, 1]}>
+				<Box width={['100%', '100%', '100%', 1 / 2]} order={[2, 2, 1, 1]} mt={2}>
 					<Box width={['100%']} px={4}>
-						<Heading
-							color='teal.500'
-							borderBottom='1px'
-							borderBottomColor='#ccc'
-							py={2}
-							textTransform='uppercase'>
+						<Heading color='teal.500' py={2} textTransform='uppercase'>
 							Philosophy
 						</Heading>
 						<Text py={2}>
@@ -102,12 +97,7 @@ const AboutUs: AppPage = () => {
 							wherever you are, Turkey, your second home, the people of your family, and your
 							country.
 						</Text>
-						<Heading
-							color='teal.500'
-							borderBottom='1px'
-							borderBottomColor='#ccc'
-							py={2}
-							textTransform='uppercase'>
+						<Heading color='teal.500' py={2} textTransform='uppercase'>
 							Real Estate Education
 						</Heading>
 						<Text py={2}>
@@ -116,12 +106,7 @@ const AboutUs: AppPage = () => {
 							infrastructure, the new laws relating to real estate, and all that matters to the
 							investor and who wants to own or live in Turkey.
 						</Text>
-						<Heading
-							color='teal.500'
-							borderBottom='1px'
-							borderBottomColor='#ccc'
-							py={2}
-							textTransform='uppercase'>
+						<Heading color='teal.500' py={2} textTransform='uppercase'>
 							Why Turkey?
 						</Heading>
 						<Text py={2}>
