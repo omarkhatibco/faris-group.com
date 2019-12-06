@@ -1,7 +1,6 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const withPlugins = require('next-compose-plugins');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const withCSS = require('@zeit/next-css');
 
 const nextConfiguration = {
 	webpack: config => {
@@ -23,4 +22,4 @@ const nextConfiguration = {
 	target: 'serverless',
 };
 
-module.exports = withPlugins([withCSS], nextConfiguration);
+module.exports = withPlugins([], nextConfiguration);

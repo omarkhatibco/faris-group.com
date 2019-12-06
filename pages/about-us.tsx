@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Heading, Image, Grid, Stack, PseudoBox, Scale } from '@chakra-ui/core';
+import { Box, Flex, Text, Heading, Image, Grid, Stack, PseudoBox } from '@chakra-ui/core';
 
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
