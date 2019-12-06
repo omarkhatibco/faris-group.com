@@ -142,7 +142,7 @@ const AboutUs: AppPage = () => {
 							/>
 						</Box>
 					</Grid>
-					<Grid templateColumns='repeat(1, 1fr)' gap={4} mt={6}>
+					<Grid templateColumns='repeat(1, 1fr)' gap={4} mt={8}>
 						<Box w='100%'>
 							<Image
 								src='https://source.unsplash.com/960x900/?istanbul'
