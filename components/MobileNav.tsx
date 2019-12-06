@@ -14,7 +14,7 @@ import {
 	IconButton,
 } from '@chakra-ui/core';
 import { ActiveLink } from './ActiveLink';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { FiMenu } from 'react-icons/fi';
 // Burger Menu
 export const MobileNav: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -23,12 +23,7 @@ export const MobileNav: React.FC = () => {
 		<>
 			<Flex display={['flex', 'flex', 'flex', 'none']}>
 				<Box ref={btnRef} onClick={onOpen}>
-					<IconButton
-						aria-label='Burger Menu'
-						icon={GiHamburgerMenu}
-						background='transparent'
-						size='lg'
-					/>
+					<IconButton aria-label='Burger Menu' icon={FiMenu} background='transparent' size='lg' />
 				</Box>
 			</Flex>
 			<Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef} size='lg'>
@@ -40,7 +35,8 @@ export const MobileNav: React.FC = () => {
 						<Stack as='nav' width='100%' my='auto' display='flex' flexDir='column'>
 							<Image
 								src='https://www.faris-group.com/wp-content/uploads/2019/05/fg-web.png'
-								maxHeight='16'
+								// maxHeight='20'
+								objectFit='cover'
 							/>
 							<Box
 								as='ul'

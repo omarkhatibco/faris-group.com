@@ -7615,10 +7615,10 @@ react-focus-lock@^2.1.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-hook-form@^3.28.12:
-  version "3.28.12"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.28.12.tgz#387173543ab8e89b47ed076ba7ad9886848d94f4"
-  integrity sha512-5bHttMAehOgUHeJhbCVzXguRljFrl2ZK+ydLBqsfLCOtS4++p34vp4/Hkqle5waGojZpNbDSaGUEee24WwfGQg==
+react-hook-form@^3.28.13:
+  version "3.28.13"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.28.13.tgz#04d6cd012bf4b759e5d8c28f70b6d9797a43cc32"
+  integrity sha512-9FZ1j6dsEcd2QgT5rXGVvbwm0y4tQCUVuEsxPpSU58d9mOrkSO8EXDk0bQCh2y2i9qaDkkxgPQh6KX24fqmJMQ==
 
 react-icons@^3.8.0:
   version "3.8.0"
@@ -7645,10 +7645,10 @@ react-spring@^8.0.27:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-use@^13.10.1:
-  version "13.10.1"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.10.1.tgz#07e0432f02a22755f8883c52b94bb7410e3c9f51"
-  integrity sha512-ZCH86HfPVFZcHZVKQYToGLECLGVts//KiBCGdaZpK9bwbXoWw/yEls/uL4mGSLDlyoOKLSWnzNlBTKLtGiHAQw==
+react-use@^13.10.2:
+  version "13.10.2"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.10.2.tgz#4250d258ca9068662943299c01794a136408c8e9"
+  integrity sha512-z3VFSiPHW6arViGVnajO7YKY5OD+Z9LWcImoJdYHkau23cLSoTctxM3XENLpGxjhJlHaYiQZ6pPgq7pwGTqSZA==
   dependencies:
     copy-to-clipboard "^3.2.0"
     nano-css "^5.2.1"
