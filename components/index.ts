@@ -7,3 +7,4 @@ export * from './Map';
 export * from './Container';
 export * from './MobileNav';
 export * from './BgImage';
+export * from './LongPromo';
