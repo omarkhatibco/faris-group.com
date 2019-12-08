@@ -13,7 +13,7 @@ const AboutUs: AppPage = () => {
 			<Flex width='100%' h={['100vh', 'auto']} overflow='hidden' position='relative'>
 				<BgImage src='/images/about.us.bg.jpg' alt='Istanbul bridge' />
 				<Container py={['4', '32']} zIndex={1} color='white'>
-					<Heading mb='4' textTransform='uppercase'>
+					<Heading as='h1' mb='4' fontSize={['2xl', '5xl']} textTransform='uppercase'>
 						We are{' '}
 						<Text as='span' color='yellow.500'>
 							EVERYTHING
@@ -32,16 +32,14 @@ const AboutUs: AppPage = () => {
 				</Container>
 			</Flex>
 
-			<Flex flexWrap={['wrap']}>
+			<Flex as='section' flexWrap='wrap' width='100%'>
 				<Box
-					display='flex'
-					width={['100%', '100%', 1 / 2]}
-					justifyContent='stetch'
+					width={['100%', '100%', 2 / 5]}
 					height={['100vh', '100vh', 'auto']}
 					position='relative'>
 					<Image
-						src='https://source.unsplash.com/960x600/?istanbul'
-						alt='services Picture'
+						src='/images/our.service.3.jpg'
+						alt='Modern real estate'
 						objectFit='cover'
 						position='absolute'
 						top='0'
@@ -52,51 +50,56 @@ const AboutUs: AppPage = () => {
 						height='100%'
 					/>
 				</Box>
-				<Box width={['100%', '100%', 1 / 2]} p='8'>
-					<Box width='100%'>
-						<Heading as='h2' color='green.500'>
-							Services
-						</Heading>
-					</Box>
-					<Stack flexDir='row' flexWrap='wrap' width='100%' position='relative' spacing={2}>
-						<Box width={['100%', '100%', '50%', '50%']}>
-							<Box as={Office} size={20} />
-							<Heading color='green.500' size='md'>
+				<Box width={['100%', '100%', 3 / 5]} p='12'>
+					<Heading
+						as='h2'
+						fontSize={['xl', '5xl']}
+						color='green.500'
+						textTransform='uppercase'
+						mb='4'>
+						Our Services
+					</Heading>
+					<Stack isInline mb='8' spacing={4}>
+						<Box width={1 / 2}>
+							<Box as={Office} size={16} mb='4' />
+							<Heading as='h3' color='green.500' size='md' mb='2'>
 								Real Estate Marketing
 							</Heading>
-							<Text>
+							<Text fontSize='sm'>
 								Real Estate Marketing in Turkey, Tomorrow is a study that examines the needs and
 								desires of current and future clients in real estate ownership.
 							</Text>
 						</Box>
-						<Box width={['100%', '100%', '50%', '50%']}>
-							<Box as={Planning} size={20} />
-							<Heading color='green.500' size='md'>
+						<Box width={1 / 2}>
+							<Box as={Planning} size={16} mb='4' />
+							<Heading as='h3' color='green.500' size='md' mb='2'>
 								Real Estate Consulting
 							</Heading>
-							<Text>
+							<Text fontSize='sm'>
 								Turkey’s real estate consultancy provides information and initial expectations for
 								investors in the Turkish real estate sector, both on the cost of investment projects
 								and the expected yield
 							</Text>
 						</Box>
-						<Box width={['100%', '100%', '50%', '50%']}>
-							<Box as={Search} size={20} />
-							<Heading color='green.500' size='md'>
+					</Stack>
+					<Stack isInline spacing={4}>
+						<Box width={1 / 2}>
+							<Box as={Search} size={16} mb='4' />
+							<Heading as='h3' color='green.500' size='md' mb='2'>
 								Real Estate Management
 							</Heading>
-							<Text>
+							<Text fontSize='sm'>
 								When the real estate management service is requested in Turkey, Al Fares Real Estate
 								Group will offer a range of services including design, decoration, leasing and even
 								real estate appraisal.
 							</Text>
 						</Box>
-						<Box width={['100%', '100%', '50%', '50%']}>
-							<Box as={CheckList} size={20} />
-							<Heading color='green.500' size='md'>
+						<Box width={1 / 2}>
+							<Box as={CheckList} size={16} mb='4' />
+							<Heading as='h3' color='green.500' size='md' mb='2'>
 								Real Estate Tours
 							</Heading>
-							<Text>
+							<Text fontSize='sm'>
 								Al-Faris Real Estate Services includes transportation to and from the airport,
 								bridges and tourist attractions in Istanbul by providing modern and luxurious cars
 								and vans with specialized drivers
@@ -105,92 +108,62 @@ const AboutUs: AppPage = () => {
 					</Stack>
 				</Box>
 
-				<Box width={['100%', '100%', '100%', 1 / 2]} order={[2, 2, 1, 1]} mt={2}>
-					<Box width={['100%']} px={4}>
-						<Heading color='green.500' py={2} textTransform='uppercase'>
-							Philosophy
-						</Heading>
-						<Text py={2}>
-							We look at Turkey as the next investment paradise, and as it is the paradise of the
-							land where tourists are staying, investors are also looking forward to it. We believe
-							in the principle of the brotherhood of the countries, the friendship of the people,
-							wherever you are, Turkey, your second home, the people of your family, and your
-							country.
-						</Text>
-						<Heading color='green.500' py={2} textTransform='uppercase'>
-							Real Estate Education
-						</Heading>
-						<Text py={2}>
-							We publish a series of seminars on real estate ownership in Turkey. We also publish
-							and publish specialized articles on the Turkish economy, the latest developments in
-							infrastructure, the new laws relating to real estate, and all that matters to the
-							investor and who wants to own or live in Turkey.
-						</Text>
-						<Heading color='green.500' py={2} textTransform='uppercase'>
-							Why Turkey?
-						</Heading>
-						<Text py={2}>
-							The new Turkey is a rapidly rising and confident country, and its growth index is
-							known only to jump and rise, coinciding with the revolution of infrastructure,
-							government facilities, industrial and medical development, and giant projects that
-							take Turkey from past to future quickly! Such as the Istanbul III Airport Project,
-							located in the Arnaout Cui area north of Istanbul, with an area of about 7,500
-							hectares, accommodating 200 million passengers annually and reaching 350 world points.
-							<br /> As the people and power harmonize, the country enters the era of stability,
-							Investors.
-						</Text>
+				<Flex as='section' flexWrap='wrap' width='100%'>
+					<Box width={['100%', '100%', 3 / 5]} p='12'>
+						<Container>
+							<Heading color='green.500' textTransform='uppercase' mb='2' mt='8'>
+								Philosophy
+							</Heading>
+							<Text>
+								We look at Turkey as the next investment paradise, and as it is the paradise of the
+								land where tourists are staying, investors are also looking forward to it. We
+								believe in the principle of the brotherhood of the countries, the friendship of the
+								people, wherever you are, Turkey, your second home, the people of your family, and
+								your country.
+							</Text>
+							<Heading color='green.500' textTransform='uppercase' mb='2' mt='8'>
+								Real Estate Education
+							</Heading>
+							<Text>
+								We publish a series of seminars on real estate ownership in Turkey. We also publish
+								and publish specialized articles on the Turkish economy, the latest developments in
+								infrastructure, the new laws relating to real estate, and all that matters to the
+								investor and who wants to own or live in Turkey.
+							</Text>
+							<Heading color='green.500' textTransform='uppercase' mb='2' mt='8'>
+								Why Turkey?
+							</Heading>
+							<Text>
+								The new Turkey is a rapidly rising and confident country, and its growth index is
+								known only to jump and rise, coinciding with the revolution of infrastructure,
+								government facilities, industrial and medical development, and giant projects that
+								take Turkey from past to future quickly! Such as the Istanbul III Airport Project,
+								located in the Arnaout Cui area north of Istanbul, with an area of about 7,500
+								hectares, accommodating 200 million passengers annually and reaching 350 world
+								points.
+								<br /> As the people and power harmonize, the country enters the era of stability,
+								Investors.
+							</Text>
+						</Container>
 					</Box>
-				</Box>
-				<Box
-					width={['100%', '100%', '100%', 1 / 2]}
-					display='flex'
-					alignItems='center'
-					order={[1, 1, 2, 2]}>
-					<Grid templateColumns='repeat(1, 1fr)' gap={4} m={4}>
-						<PseudoBox
-							w='100%'
-							_hover={{ transform: 'scale(1.25)', mx: 4 }}
-							transition='all .2s ease-in-out'>
-							<Image
-								src='https://source.unsplash.com/960x900/?istanbul'
-								alt='services Picture'
-								shadow='md'
-							/>
-						</PseudoBox>
-						<PseudoBox
-							w='100%'
-							_hover={{ transform: 'scale(1.25)', mx: 4 }}
-							transition='all .2s ease-in-out'>
-							<Image
-								src='https://source.unsplash.com/960x900/?istanbul'
-								alt='services Picture'
-								shadow='md'
-							/>
-						</PseudoBox>
-					</Grid>
-					<Grid templateColumns='repeat(1, 1fr)' gap={4} mt={8}>
-						<PseudoBox
-							w='100%'
-							_hover={{ transform: 'scale(1.25)', mx: 4 }}
-							transition='all .2s ease-in-out'>
-							<Image
-								src='https://source.unsplash.com/960x900/?istanbul'
-								alt='services Picture'
-								shadow='md'
-							/>
-						</PseudoBox>
-						<PseudoBox
-							w='100%'
-							_hover={{ transform: 'scale(1.25)', mx: 4 }}
-							transition='all .2s ease-in-out'>
-							<Image
-								src='https://source.unsplash.com/960x900/?istanbul'
-								alt='services Picture'
-								shadow='md'
-							/>
-						</PseudoBox>
-					</Grid>
-				</Box>
+					<Box
+						width={['100%', '100%', 2 / 5]}
+						height={['100vh', '100vh', 'auto']}
+						position='relative'>
+						<Image
+							src='/images/why.turkey.jpg'
+							alt='turkey flag on Dolmabahçe Sarayı'
+							objectFit='cover'
+							position='absolute'
+							top='0'
+							bottom='0'
+							right='0'
+							left='0'
+							width='100%'
+							height='100%'
+						/>
+					</Box>
+				</Flex>
 			</Flex>
 		</Flex>
 	);
