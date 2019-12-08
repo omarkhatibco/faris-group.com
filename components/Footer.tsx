@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
 			<Container>
 				<Flex flexDirection='column' alignItems='center' justifyContent='center' textAlign='center'>
 					<Text>Faris Group Logo</Text>
-					<Text fontWeight='bold' my='2'>
+					<Text fontWeight='bold' my='2' textTransform='uppercase'>
 						Real Estate & Consultations
 					</Text>
 					<Text fontWeight='bold' my='2' color='gray.600'>
@@ -64,8 +64,8 @@ export const Footer: React.FC = () => {
 					</Stack>
 					<Text fontSize='sm' color='gray.500' my='2'>
 						Copyright to Al-faris Group 2020 | powered by{' '}
-						<Link href='https://omarkhatib.co' target='_blank'>
-							Omar Khatib
+						<Link href='https://loewen.dev' target='_blank'>
+							löwen.dev
 						</Link>
 					</Text>
 				</Flex>

@@ -13,7 +13,7 @@ const ContactUs: AppPage = () => {
 				<Container>
 					<Flex flexWrap='wrap'>
 						<Box width={['100%', 2 / 3]} pr={['0', '12']} pb={['12', '0']}>
-							<Heading as='h1' color='green.500' pb='4'>
+							<Heading as='h1' color='green.500' pb='4' textTransform='uppercase'>
 								Drop us a message
 							</Heading>
 							<Form
@@ -66,7 +66,7 @@ const ContactUs: AppPage = () => {
 							</Form>
 						</Box>
 						<Box width={['100%', 1 / 3]}>
-							<Heading as='h2' color='green.500'>
+							<Heading as='h2' color='green.500' textTransform='uppercase'>
 								Social Media
 							</Heading>
 							<Stack my='2' isInline>
@@ -111,7 +111,7 @@ const ContactUs: AppPage = () => {
 									/>
 								</Link>
 							</Stack>
-							<Heading as='h2' color='green.500'>
+							<Heading as='h2' color='green.500' textTransform='uppercase'>
 								Contact Info
 							</Heading>
 							<Stack my='2'>
