@@ -37,7 +37,7 @@ const AboutUs: AppPage = () => {
 			<Flex as='section' flexWrap='wrap' width='100%'>
 				<Box width={['100%', '100%', 2 / 5]} height={['50vh', '50vh', 'auto']} position='relative'>
 					<Image
-						src='/images/our.service.3.jpg'
+						src='/images/our.service.1.jpg'
 						alt='Modern real estate'
 						objectFit='cover'
 						position='absolute'
@@ -61,7 +61,7 @@ const AboutUs: AppPage = () => {
 					<Stack isInline mb='8' spacing={4}>
 						<Box width={1 / 2}>
 							<Box as={Office} size={16} mb='4' />
-							<Heading as='h3' color='green.500' size='md' mb='2'>
+							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Marketing
 							</Heading>
 							<Text fontSize='sm'>
@@ -71,7 +71,7 @@ const AboutUs: AppPage = () => {
 						</Box>
 						<Box width={1 / 2}>
 							<Box as={Planning} size={16} mb='4' />
-							<Heading as='h3' color='green.500' size='md' mb='2'>
+							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Consulting
 							</Heading>
 							<Text fontSize='sm'>
@@ -84,7 +84,7 @@ const AboutUs: AppPage = () => {
 					<Stack isInline spacing={4}>
 						<Box width={1 / 2}>
 							<Box as={Search} size={16} mb='4' />
-							<Heading as='h3' color='green.500' size='md' mb='2'>
+							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Management
 							</Heading>
 							<Text fontSize='sm'>
@@ -95,7 +95,7 @@ const AboutUs: AppPage = () => {
 						</Box>
 						<Box width={1 / 2}>
 							<Box as={CheckList} size={16} mb='4' />
-							<Heading as='h3' color='green.500' size='md' mb='2'>
+							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Tours
 							</Heading>
 							<Text fontSize='sm'>
@@ -113,7 +113,7 @@ const AboutUs: AppPage = () => {
 						p={[6, 12]}
 						order={[1, 0]}
 						backgroundColor='gray.50'>
-						<Heading color='green.500' textTransform='uppercase' mb='2' mt='8'>
+						<Heading as='h3' color='green.500' textTransform='uppercase' mb='2' mt='8'>
 							Philosophy
 						</Heading>
 						<Text>
@@ -123,7 +123,7 @@ const AboutUs: AppPage = () => {
 							wherever you are, Turkey, your second home, the people of your family, and your
 							country.
 						</Text>
-						<Heading color='green.500' textTransform='uppercase' mb='2' mt='8'>
+						<Heading as='h3' color='green.500' textTransform='uppercase' mb='2' mt='8'>
 							Real Estate Education
 						</Heading>
 						<Text>
@@ -132,7 +132,7 @@ const AboutUs: AppPage = () => {
 							infrastructure, the new laws relating to real estate, and all that matters to the
 							investor and who wants to own or live in Turkey.
 						</Text>
-						<Heading color='green.500' textTransform='uppercase' mb='2' mt='8'>
+						<Heading as='h3' color='green.500' textTransform='uppercase' mb='2' mt='8'>
 							Why Turkey?
 						</Heading>
 						<Text>

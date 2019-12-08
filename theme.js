@@ -8,12 +8,18 @@ import { theme } from '@chakra-ui/core';
 // 		// If the icon's viewBox is `0 0 24 24`, you can ignore `viewBox`
 // 		// viewBox: '0 0 40 40',
 // 	},
-// };
+// };]
+
+console.log({ theme });
 
 const customTheme = {
 	...theme,
 	colors: {
 		...theme.colors,
+		gray: {
+			...theme.colors.gray,
+			100: '#EFEFEF',
+		},
 		green: {
 			...theme.colors.green,
 			500: '#00a75a',
@@ -30,6 +36,10 @@ const customTheme = {
 			whatsapp: '#25D366',
 			twitter: '#1DA1F2',
 		},
+	},
+	shadows: {
+		...theme.shadows,
+		'2xl': '0 25px 50px -12px rgba(0,0,0,0.75)',
 	},
 	icons: {
 		...theme.icons,

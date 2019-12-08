@@ -3,6 +3,7 @@ import { Flex, Box, Image, IconButton, Stack } from '@chakra-ui/core';
 import { MdTranslate } from 'react-icons/md';
 import { Container, MobileNav } from '~components';
 import { ActiveLink } from './ActiveLink';
+import Link from 'next/link';
 
 export const Header: React.FC = ({}) => {
 	return (
@@ -18,10 +19,14 @@ export const Header: React.FC = ({}) => {
 			<Container>
 				<Flex justifyContent='space-between' alignItems='center'>
 					<Box w={['50%']}>
-						<Image
-							src='https://www.faris-group.com/wp-content/uploads/2019/05/fg-web.png'
-							maxHeight='16'
-						/>
+						<Link href='/'>
+							<Image
+								src='https://www.faris-group.com/wp-content/uploads/2019/05/fg-web.png'
+								maxHeight='16'
+								alt='faris group logo'
+								cursor='pointer'
+							/>
+						</Link>
 					</Box>
 
 					<Box as='nav' display={['none', 'none', 'none', 'block']}>
