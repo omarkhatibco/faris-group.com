@@ -1,47 +1,67 @@
-import { Box, Flex, Text, Heading, Image, Grid, Stack, PseudoBox } from '@chakra-ui/core';
+import { Box, Flex, Text, Heading, Image, Grid, Stack, PseudoBox, css } from '@chakra-ui/core';
 
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
 
 // ICONS
 import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
+import { Container, BgImage } from '~components';
 
 const AboutUs: AppPage = () => {
 	return (
-		<Flex w='full' flexDirection='column' justifyItems='center' alignItems='center'>
-			<Box
-				width={['100%']}
-				h='50vh'
-				display='flex'
-				justifyContent='center'
-				flexDir='column'
-				px={16}>
-				<Heading>
-					We are
-					<Text color='green.500' d='inline'>
-						{' '}
-						EVERYTHING
-					</Text>
-					<br />
-					real estate needs
-				</Heading>
-				<Text>Lorem IpsumLorem IpsumLorem IpsumLorem Ipsum</Text>
-			</Box>
+		<Flex as='main' w='full' flexDirection='column' justifyItems='center' alignItems='center'>
+			<Flex width='100%' h={['100vh', 'auto']} overflow='hidden' position='relative'>
+				<BgImage src='/images/about.us.bg.jpg' alt='Istanbul bridge' />
+				<Container py={['4', '32']} zIndex={1} color='white'>
+					<Heading mb='4' textTransform='uppercase'>
+						We are{' '}
+						<Text as='span' color='yellow.500'>
+							EVERYTHING
+						</Text>
+						<br />
+						real estate needs
+					</Heading>
+					<Box width={['100%', 1 / 2]}>
+						<Text fontSize={['sm', 'md']}>
+							Faris Group specializes in real estate consultancy and brokerage, based in Istanbul,
+							has dealings in other cities in Turkey, as agents in several Arab cities, and many
+							agreements with major construction companies in Istanbul, focused on foreign real
+							estate investors, and those wishing to own in Turkey
+						</Text>
+					</Box>
+				</Container>
+			</Flex>
 
-			<Flex flexDir={['row']} flexWrap={['wrap']} my={16}>
-				<Box display='flex' width={['100%', '100%', '100%', 1 / 2]} justifyContent='stetch'>
-					<Image src='https://source.unsplash.com/960x600/?istanbul' alt='services Picture' />
+			<Flex flexWrap={['wrap']}>
+				<Box
+					display='flex'
+					width={['100%', '100%', 1 / 2]}
+					justifyContent='stetch'
+					height={['100vh', '100vh', 'auto']}
+					position='relative'>
+					<Image
+						src='https://source.unsplash.com/960x600/?istanbul'
+						alt='services Picture'
+						objectFit='cover'
+						position='absolute'
+						top='0'
+						bottom='0'
+						right='0'
+						left='0'
+						width='100%'
+						height='100%'
+					/>
 				</Box>
-				<Box width={['100%', '100%', '100%', 1 / 2]}>
-					<Box width='100%' px={4} py={[8, 8, 0]}>
-						<Heading as='h2' color='teal.500'>
+				<Box width={['100%', '100%', 1 / 2]} p='8'>
+					<Box width='100%'>
+						<Heading as='h2' color='green.500'>
 							Services
 						</Heading>
 					</Box>
-					<Stack flexDir='row' flexWrap='wrap' width='100%' position='relative' spacing={4}>
-						<Box width={['100%', '100%', '50%', '50%']} px={4}>
-							<Box as={Office} size={20} display='block' />
-							<Heading color='teal.500' size='md'>
+					<Stack flexDir='row' flexWrap='wrap' width='100%' position='relative' spacing={2}>
+						<Box width={['100%', '100%', '50%', '50%']}>
+							<Box as={Office} size={20} />
+							<Heading color='green.500' size='md'>
 								Real Estate Marketing
 							</Heading>
 							<Text>
@@ -49,9 +69,9 @@ const AboutUs: AppPage = () => {
 								desires of current and future clients in real estate ownership.
 							</Text>
 						</Box>
-						<Box width={['100%', '100%', '50%', '50%']} px={4}>
-							<Box as={Planning} size={20} display='block' />
-							<Heading color='teal.500' size='md'>
+						<Box width={['100%', '100%', '50%', '50%']}>
+							<Box as={Planning} size={20} />
+							<Heading color='green.500' size='md'>
 								Real Estate Consulting
 							</Heading>
 							<Text>
@@ -60,9 +80,9 @@ const AboutUs: AppPage = () => {
 								and the expected yield
 							</Text>
 						</Box>
-						<Box width={['100%', '100%', '50%', '50%']} px={4}>
-							<Box as={Search} size={20} display='block' />
-							<Heading color='teal.500' size='md'>
+						<Box width={['100%', '100%', '50%', '50%']}>
+							<Box as={Search} size={20} />
+							<Heading color='green.500' size='md'>
 								Real Estate Management
 							</Heading>
 							<Text>
@@ -71,9 +91,9 @@ const AboutUs: AppPage = () => {
 								real estate appraisal.
 							</Text>
 						</Box>
-						<Box width={['100%', '100%', '50%', '50%']} px={4}>
-							<Box as={CheckList} size={20} display='block' />
-							<Heading color='teal.500' size='md'>
+						<Box width={['100%', '100%', '50%', '50%']}>
+							<Box as={CheckList} size={20} />
+							<Heading color='green.500' size='md'>
 								Real Estate Tours
 							</Heading>
 							<Text>
@@ -87,7 +107,7 @@ const AboutUs: AppPage = () => {
 
 				<Box width={['100%', '100%', '100%', 1 / 2]} order={[2, 2, 1, 1]} mt={2}>
 					<Box width={['100%']} px={4}>
-						<Heading color='teal.500' py={2} textTransform='uppercase'>
+						<Heading color='green.500' py={2} textTransform='uppercase'>
 							Philosophy
 						</Heading>
 						<Text py={2}>
@@ -97,7 +117,7 @@ const AboutUs: AppPage = () => {
 							wherever you are, Turkey, your second home, the people of your family, and your
 							country.
 						</Text>
-						<Heading color='teal.500' py={2} textTransform='uppercase'>
+						<Heading color='green.500' py={2} textTransform='uppercase'>
 							Real Estate Education
 						</Heading>
 						<Text py={2}>
@@ -106,7 +126,7 @@ const AboutUs: AppPage = () => {
 							infrastructure, the new laws relating to real estate, and all that matters to the
 							investor and who wants to own or live in Turkey.
 						</Text>
-						<Heading color='teal.500' py={2} textTransform='uppercase'>
+						<Heading color='green.500' py={2} textTransform='uppercase'>
 							Why Turkey?
 						</Heading>
 						<Text py={2}>

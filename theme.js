@@ -14,6 +14,14 @@ const customTheme = {
 	...theme,
 	colors: {
 		...theme.colors,
+		green: {
+			...theme.colors.green,
+			500: '#00a75a',
+		},
+		yellow: {
+			...theme.colors.yellow,
+			500: '#bbd700',
+		},
 		social: {
 			facebook: '#4267B2',
 			instagram: '#405DE6',

@@ -7,7 +7,7 @@ import { MdPlace, MdPhone, MdEmail, MdPerson, MdSubject } from 'react-icons/md';
 
 const ContactUs: AppPage = () => {
 	return (
-		<Box width='Full'>
+		<Box as='main' width='Full'>
 			<Map />
 			<Box py='16'>
 				<Container>

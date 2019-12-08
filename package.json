@@ -18,6 +18,7 @@
 		"@babel/core": "^7.7.4",
 		"@babel/plugin-proposal-optional-chaining": "^7.7.4",
 		"@chakra-ui/core": "^0.4.1",
+		"@emotion/babel-preset-css-prop": "^10.0.23",
 		"@emotion/core": "^10.0.22",
 		"@emotion/styled": "^10.0.23",
 		"@svgr/cli": "^4.3.3",
