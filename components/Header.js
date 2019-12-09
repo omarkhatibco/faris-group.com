@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
-import { Flex, Box, Image, IconButton, Stack } from '@chakra-ui/core';
+import React from 'react';
+import { Flex, Box, Image, IconButton, Stack, css } from '@chakra-ui/core';
 import { MdTranslate } from 'react-icons/md';
 import { Container, MobileNav } from '~components';
 import { ActiveLink } from './ActiveLink';
 import Link from 'next/link';
 
-export const Header: React.FC = ({}) => {
+export const Header = ({}) => {
 	return (
 		<Box
 			as='header'
-			backgroundColor='white'
-			py='4'
-			position='sticky'
+			backgroundColor='rgba(255,255,255,0.5)'
+			py='2'
+			position='fixed'
+			left='0'
+			right='0'
 			top='0'
-			borderBottom='1px'
-			borderBottomColor='gray.100'
+			css={css({
+				backdropFilter: 'blur(8px)',
+			})}
 			zIndex={10}>
 			<Container>
 				<Flex justifyContent='space-between' alignItems='center'>

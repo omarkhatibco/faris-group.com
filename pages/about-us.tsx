@@ -10,26 +10,40 @@ import { Container, BgImage, LongPromo } from '~components';
 const AboutUs: AppPage = () => {
 	return (
 		<Flex as='main' w='full' flexDirection='column' justifyItems='center' alignItems='center'>
-			<Flex width='100%' h={['100vh', 'auto']} overflow='hidden' position='relative'>
+			<Flex
+				width='100%'
+				h={['100vh', '90vh']}
+				overflow='hidden'
+				position='relative'
+				justifyItems='center'
+				alignItems='center'>
 				<BgImage src='/images/about.us.bg.jpg' alt='Istanbul bridge' />
-				<Container py={['4', '32']} zIndex={1} color='white' display='flex' alignItems='flex-end'>
-					<Box>
+				<Container
+					zIndex={1}
+					display='flex'
+					flexWrap='wrap'
+					alignItems='center'
+					justifyContent='center'>
+					<Box width={['100%', 1 / 2]} pr={[0, 4]} py='4'>
 						<Heading as='h1' mb='4' fontSize={['2xl', '5xl']} textTransform='uppercase'>
 							We are{' '}
-							<Text as='span' color='yellow.500'>
+							<Text as='span' color='green.500'>
 								EVERYTHING
 							</Text>
 							<br />
 							real estate needs
 						</Heading>
-						<Box width={['100%', 1 / 2]}>
+						<Box>
 							<Text fontSize={['sm', 'md']}>
 								Faris Group specializes in real estate consultancy and brokerage, based in Istanbul,
 								has dealings in other cities in Turkey, as agents in several Arab cities, and many
 								agreements with major construction companies in Istanbul, focused on foreign real
-								estate investors, and those wishing to own in Turkey
+								estate investors, and those wishing to own in Turkey.
 							</Text>
 						</Box>
+					</Box>
+					<Box width={['100%', 1 / 2]} pl={[0, 4]}>
+						<LongPromo />
 					</Box>
 				</Container>
 			</Flex>
@@ -58,55 +72,59 @@ const AboutUs: AppPage = () => {
 						mb='4'>
 						Our Services
 					</Heading>
-					<Stack isInline mb='8' spacing={4}>
-						<Box width={1 / 2}>
+					<Flex flexWrap='wrap' mb='4'>
+						<Box width={['100%', 1 / 2]} pr={[0, 4]} mb={[4, 0]}>
 							<Box as={Office} size={16} mb='4' />
+
 							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Marketing
 							</Heading>
-							<Text fontSize='sm'>
+							<Text fontSize='sm' textAlign='justify'>
 								Real Estate Marketing in Turkey, Tomorrow is a study that examines the needs and
 								desires of current and future clients in real estate ownership.
 							</Text>
 						</Box>
-						<Box width={1 / 2}>
+						<Box width={['100%', 1 / 2]} pl={[0, 4]}>
 							<Box as={Planning} size={16} mb='4' />
+
 							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Consulting
 							</Heading>
-							<Text fontSize='sm'>
+							<Text fontSize='sm' textAlign='justify'>
 								Turkey’s real estate consultancy provides information and initial expectations for
 								investors in the Turkish real estate sector, both on the cost of investment projects
 								and the expected yield
 							</Text>
 						</Box>
-					</Stack>
-					<Stack isInline spacing={4}>
-						<Box width={1 / 2}>
+					</Flex>
+					<Flex flexWrap='wrap'>
+						<Box width={['100%', 1 / 2]} pr={[0, 4]} mb={[4, 0]}>
 							<Box as={Search} size={16} mb='4' />
+
 							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Management
 							</Heading>
-							<Text fontSize='sm'>
+							<Text fontSize='sm' textAlign='justify'>
 								When the real estate management service is requested in Turkey, Al Fares Real Estate
 								Group will offer a range of services including design, decoration, leasing and even
 								real estate appraisal.
 							</Text>
 						</Box>
-						<Box width={1 / 2}>
+						<Box width={['100%', 1 / 2]} pl={[0, 4]}>
 							<Box as={CheckList} size={16} mb='4' />
+
 							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
 								Real Estate Tours
 							</Heading>
-							<Text fontSize='sm'>
+							<Text fontSize='sm' textAlign='justify'>
 								Al-Faris Real Estate Services includes transportation to and from the airport,
 								bridges and tourist attractions in Istanbul by providing modern and luxurious cars
 								and vans with specialized drivers
 							</Text>
 						</Box>
-					</Stack>
+					</Flex>
 				</Box>
-				<LongPromo />
+
 				<Flex as='section' flexWrap='wrap' width='100%'>
 					<Box
 						width={['100%', '100%', 4 / 7, 3 / 5]}

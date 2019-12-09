@@ -22,5 +22,12 @@
 		"typeRoots": ["node_modules/@types", "src/@types"]
 	},
 	"exclude": ["node_modules", "__tests__", ".next"],
-	"include": ["next-env.d.ts", "@types/*.d.ts", "**/*.ts", "**/*.tsx", "assets/svg/template.js"]
+	"include": [
+		"next-env.d.ts",
+		"@types/*.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.js",
+		"assets/svg/template.js"
+	]
 }

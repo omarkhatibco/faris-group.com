@@ -3,7 +3,7 @@ export const BgImage = ({ src, alt }) => {
 	return (
 		<Image
 			css={css({
-				filter: 'blur(3px)',
+				filter: 'blur(6px)',
 			})}
 			src={src}
 			position='absolute'
@@ -15,6 +15,7 @@ export const BgImage = ({ src, alt }) => {
 			height='100%'
 			width='100%'
 			objectFit={['cover', 'cover']}
-			objectPosition='center'></Image>
+			// transform='scaleX(-1)'
+			objectPosition='top'></Image>
 	);
 };
