@@ -12,6 +12,7 @@ export const PreflightCSS: React.FC = () => {
 					}
 					html,
 					body {
+						scroll-behavior: smooth;
 						font-family: 'Dubai', Helvetica Neue, sans-serif;
 					}
 
