@@ -1,5 +1,6 @@
 /**jsx @jsx */
-import { Flex, Box, Image, IconButton, Stack, css } from '@chakra-ui/core';
+import { Flex, Box, Image, IconButton, Stack } from '@chakra-ui/core';
+import { css } from '@emotion/core';
 import React from 'react';
 import { MdTranslate } from 'react-icons/md';
 import { Container, MobileNav } from '~components';

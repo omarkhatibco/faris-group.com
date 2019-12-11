@@ -25,7 +25,7 @@ export const CheckBoxField: React.FC<IProps> = ({ name, isRequired, children }) 
 				ref={register(registerObj)}
 				aria-invalid={Boolean(errors && errors[name])}
 				isInvalid={Boolean(errors && errors[name])}
-				variantColor='blau'>
+				variantColor='green'>
 				{children}
 			</Checkbox>
 			{message && (

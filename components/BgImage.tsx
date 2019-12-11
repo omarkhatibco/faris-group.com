@@ -1,6 +1,7 @@
 /**jsx @jsx */
 
-import { css, Image } from '@chakra-ui/core';
+import { Image } from '@chakra-ui/core';
+import { css } from '@emotion/core';
 export const BgImage = ({ src, alt }) => {
 	return (
 		<Image
