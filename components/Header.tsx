@@ -1,5 +1,6 @@
-import React from 'react';
+/**jsx @jsx */
 import { Flex, Box, Image, IconButton, Stack, css } from '@chakra-ui/core';
+import React from 'react';
 import { MdTranslate } from 'react-icons/md';
 import { Container, MobileNav } from '~components';
 import { ActiveLink } from './ActiveLink';

@@ -1,3 +1,5 @@
+/**jsx @jsx */
+
 import { css, Image } from '@chakra-ui/core';
 export const BgImage = ({ src, alt }) => {
 	return (
