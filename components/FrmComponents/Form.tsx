@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/core';
-import useForm, { FormContext } from 'react-hook-form';
+import { FormContext, useForm } from 'react-hook-form';
 import { UseFormOptions, OnSubmit } from 'react-hook-form/dist/types';
 
 interface IProps {

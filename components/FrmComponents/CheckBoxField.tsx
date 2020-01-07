@@ -11,7 +11,7 @@ interface IProps {
 export const CheckBoxField: React.FC<IProps> = ({ name, isRequired, children }) => {
 	const { register, errors } = useFormContext();
 
-	const { message } = (errors && errors[name]) || {};
+	const isError = (errors && errors[name]) || {};
 
 	const registerObj = {
 		required: isRequired ? 'Pflichtfeld' : false,
