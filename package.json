@@ -15,8 +15,8 @@
 		"now-live": "now --target production"
 	},
 	"dependencies": {
-		"@babel/core": "^7.7.7",
-		"@babel/plugin-proposal-optional-chaining": "^7.7.5",
+		"@babel/core": "^7.8.0",
+		"@babel/plugin-proposal-optional-chaining": "^7.8.0",
 		"@chakra-ui/core": "^0.5.2",
 		"@emotion/babel-preset-css-prop": "^10.0.27",
 		"@emotion/core": "^10.0.27",
@@ -29,18 +29,18 @@
 		"ky-universal": "^0.3.0",
 		"next": "^9.1.7",
 		"next-compose-plugins": "^2.2.0",
-		"object-delete-key": "^1.9.13",
+		"object-delete-key": "^1.9.15",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
-		"react-hook-form": "^4.4.5",
+		"react-hook-form": "^4.4.8",
 		"react-icons": "^3.8.0",
-		"react-use": "^13.14.1",
+		"react-use": "^13.14.3",
 		"typescript": "^3.7.4",
 		"yup": "^0.28.0"
 	},
 	"devDependencies": {
 		"@testing-library/react": "^9.4.0",
-		"@types/node": "^13.1.4",
+		"@types/node": "^13.1.6",
 		"@types/react": "^16.9.17",
 		"@typescript-eslint/eslint-plugin": "^2.15.0",
 		"@typescript-eslint/parser": "^2.15.0",
