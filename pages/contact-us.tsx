@@ -20,7 +20,7 @@ const ContactUs: AppPage = () => {
 								color='green.500'
 								pb='4'
 								textTransform='uppercase'
-								fontFamily='Dubai'>
+								fontFamily='inherit'>
 								دعنا نتحدث
 							</Heading>
 							<Form
@@ -63,7 +63,7 @@ const ContactUs: AppPage = () => {
 							</Form>
 						</Box>
 						<Box width={['100%', 1 / 3]}>
-							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='Dubai'>
+							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='inherit'>
 								وسائل التواصل
 							</Heading>
 							<Flex my='2' gridGap='2'>
@@ -108,7 +108,7 @@ const ContactUs: AppPage = () => {
 									/>
 								</Link>
 							</Flex>
-							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='Dubai'>
+							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='inherit'>
 								بيانات الإتصال
 							</Heading>
 							<Stack my='2'>
@@ -116,7 +116,7 @@ const ContactUs: AppPage = () => {
 									<Box ml='4' color='green.200' borderRadius='100%'>
 										<Box as={MdPlace} width='1.5rem' height='1.5rem'></Box>
 									</Box>
-									<Text fontWeight='bold' color='gray.600'>
+									<Text fontWeight='bold' color='gray.600' fontFamily='inherit'>
 										Molla Gürani,
 										<br />
 										Turgut Özal Millet Cd No:72
@@ -130,7 +130,7 @@ const ContactUs: AppPage = () => {
 									<Box ml='4' color='green.200' borderRadius='100%'>
 										<Box as={MdEmail} width='1.5rem' height='1.5rem'></Box>
 									</Box>
-									<Text fontWeight='bold' color='gray.600'>
+									<Text fontWeight='bold' color='gray.600' fontFamily='inherit'>
 										<Link href='mailto:info@faris-group.com'>info@faris-group.com</Link>
 									</Text>
 								</Flex>
@@ -141,6 +141,7 @@ const ContactUs: AppPage = () => {
 									<Text
 										fontWeight='bold'
 										color='gray.600'
+										fontFamily='inherit'
 										css={css({
 											direction: 'ltr',
 										})}>

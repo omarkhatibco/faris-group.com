@@ -25,24 +25,28 @@ const AboutUs: AppPage = () => {
 					alignItems='center'
 					justifyContent='center'>
 					<Box width={['100%', 1 / 2]} pr={[0, 4]} py='4'>
-						<Heading as='h1' mb='4' fontSize={['2xl', '5xl']} textTransform='uppercase'>
-							We are{' '}
-							<Text as='span' color='green.500'>
-								EVERYTHING
+						<Heading
+							as='h1'
+							mb='4'
+							fontSize={['2xl', '5xl']}
+							textTransform='uppercase'
+							fontFamily='inherit'>
+							نحن دليلك{' '}
+							<Text as='span' color='green.500' fontFamily='inherit'>
+								في كل شيء
 							</Text>
 							<br />
-							real estate needs
+							يتعلق باستشاراتك العقارية
 						</Heading>
 						<Box>
-							<Text fontSize={['sm', 'md']}>
-								Faris Group specializes in real estate consultancy and brokerage, based in Istanbul,
-								has dealings in other cities in Turkey, as agents in several Arab cities, and many
-								agreements with major construction companies in Istanbul, focused on foreign real
-								estate investors, and those wishing to own in Turkey.
+							<Text fontSize={['sm', 'md']} fontFamily='inherit'>
+								مجموعة الفارس متخصصة بالاستشارات العقارية والوساطة، مقرها في إسطنبول ، ولديها تعامل
+								في مدن أخرى في تركيا، واتفاقيات عديدة مع شركات الإنشاء الكبرى في إسطنبول، تركّز
+								اهتمامها على المستثمرين العقاريين الأجانب، والراغبين بالتملك في تركيا
 							</Text>
 						</Box>
 					</Box>
-					<Box width={['100%', 1 / 2]} pl={[0, 4]}>
+					<Box width={['100%', 1 / 2]} pr={[0, 4]}>
 						<LongPromo />
 					</Box>
 				</Container>
@@ -69,57 +73,79 @@ const AboutUs: AppPage = () => {
 						fontSize={['xl', '5xl']}
 						color='green.500'
 						textTransform='uppercase'
-						mb='4'>
-						Our Services
+						mb='4'
+						fontFamily='inherit'>
+						خدماتنا
 					</Heading>
 					<Flex flexWrap='wrap' mb='4'>
-						<Box width={['100%', 1 / 2]} pr={[0, 4]} mb={[4, 0]}>
+						<Box width={['100%', 1 / 2]} pl={[0, 4]} mb={[4, 0]}>
 							<Box as={Office} size={16} mb='4' />
 
-							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
-								Real Estate Marketing
+							<Heading
+								as='h3'
+								color='green.500'
+								size='md'
+								mb='2'
+								fontWeight='medium'
+								fontFamily='inherit'>
+								التسويق العقاري
 							</Heading>
-							<Text fontSize='sm' textAlign='justify'>
-								Real Estate Marketing in Turkey, Tomorrow is a study that examines the needs and
-								desires of current and future clients in real estate ownership.
+							<Text fontSize='sm' textAlign='justify' fontFamily='inherit'>
+								التسويق العقاري في تركيا، غدا علماً يبحث في حاجات ورغبات العملاء الحالية والمستقبلية
+								بالتملك العقاري، حيث نعمل – في مجموعة الفارس – على تحقيقها مقابل ربح مناسب للشركة.
 							</Text>
 						</Box>
-						<Box width={['100%', 1 / 2]} pl={[0, 4]}>
+						<Box width={['100%', 1 / 2]} pr={[0, 4]}>
 							<Box as={Planning} size={16} mb='4' />
 
-							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
-								Real Estate Consulting
+							<Heading
+								as='h3'
+								color='green.500'
+								size='md'
+								mb='2'
+								fontWeight='medium'
+								fontFamily='inherit'>
+								الإستشارات العقارية
 							</Heading>
-							<Text fontSize='sm' textAlign='justify'>
-								Turkey’s real estate consultancy provides information and initial expectations for
-								investors in the Turkish real estate sector, both on the cost of investment projects
-								and the expected yield
+							<Text fontSize='sm' textAlign='justify' fontFamily='inherit'>
+								توفر الاستشارات العقارية في تركيا، المعلومات والتوقعات المبدئية اللازمة للمستثمرين
+								في قطاع العقارات التركية سواء حول تكاليف المشاريع الاستثمارية، أو المردود المتوقع.
 							</Text>
 						</Box>
 					</Flex>
 					<Flex flexWrap='wrap'>
-						<Box width={['100%', 1 / 2]} pr={[0, 4]} mb={[4, 0]}>
+						<Box width={['100%', 1 / 2]} pl={[0, 4]} mb={[4, 0]}>
 							<Box as={Search} size={16} mb='4' />
 
-							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
-								Real Estate Management
+							<Heading
+								as='h3'
+								color='green.500'
+								size='md'
+								mb='2'
+								fontWeight='medium'
+								fontFamily='inherit'>
+								إدارة الأملاك العقارية
 							</Heading>
-							<Text fontSize='sm' textAlign='justify'>
-								When the real estate management service is requested in Turkey, Al Fares Real Estate
-								Group will offer a range of services including design, decoration, leasing and even
-								real estate appraisal.
+							<Text fontSize='sm' textAlign='justify' fontFamily='inherit'>
+								عند طلب خدمة إدارة الأملاك العقارية في تركيا سوف تقوم مجموعة الفارس العقارية بتقديم
+								باقات مميزة من الخدمات، تتضمن التصميم والديكور، والتأجير، وحتى التقييم العقاري.
 							</Text>
 						</Box>
-						<Box width={['100%', 1 / 2]} pl={[0, 4]}>
+						<Box width={['100%', 1 / 2]} pr={[0, 4]}>
 							<Box as={CheckList} size={16} mb='4' />
 
-							<Heading as='h3' color='green.500' size='md' mb='2' fontWeight='medium'>
-								Real Estate Tours
+							<Heading
+								as='h3'
+								color='green.500'
+								size='md'
+								mb='2'
+								fontWeight='medium'
+								fontFamily='inherit'>
+								الجولات العقارية
 							</Heading>
-							<Text fontSize='sm' textAlign='justify'>
-								Al-Faris Real Estate Services includes transportation to and from the airport,
-								bridges and tourist attractions in Istanbul by providing modern and luxurious cars
-								and vans with specialized drivers
+							<Text fontSize='sm' textAlign='justify' fontFamily='inherit'>
+								تشمل خدمات الفارس العقارية المواصلات من وإلى المطار والجسور والأماكن السياحية في
+								اسطنبول من خلال توفيرها سيارات وفانات حديثة وفاخرة مع السائقين المختصين.
 							</Text>
 						</Box>
 					</Flex>
@@ -131,37 +157,47 @@ const AboutUs: AppPage = () => {
 						p={[6, 12]}
 						order={[1, 0]}
 						backgroundColor='gray.50'>
-						<Heading as='h3' color='green.500' textTransform='uppercase' mb='2' mt='8'>
-							Philosophy
+						<Heading
+							as='h3'
+							color='green.500'
+							textTransform='uppercase'
+							mb='2'
+							mt='8'
+							fontFamily='inherit'>
+							فلسفتنا
 						</Heading>
-						<Text>
-							We look at Turkey as the next investment paradise, and as it is the paradise of the
-							land where tourists are staying, investors are also looking forward to it. We believe
-							in the principle of the brotherhood of the countries, the friendship of the people,
-							wherever you are, Turkey, your second home, the people of your family, and your
-							country.
+						<Text fontFamily='inherit'>
+							ننظر إلى تركيا على أنها جنة الاستثمار القادم، وكما أنها جنة الأرض يأوي إليها السائحون،
+							كذلك تتطلع إليها آمال المستثمرين. ونؤمن بمبدأ أخوة البلدان، وصداقة الشعوب، وأينما كنت
+							فتركيا بيتك الثاني، والناس فيها أهلك، والبلد بلدك.
 						</Text>
-						<Heading as='h3' color='green.500' textTransform='uppercase' mb='2' mt='8'>
-							Real Estate Education
+						<Heading
+							as='h3'
+							color='green.500'
+							textTransform='uppercase'
+							mb='2'
+							mt='8'
+							fontFamily='inherit'>
+							التثقيف العقاري
 						</Heading>
-						<Text>
-							We publish a series of seminars on real estate ownership in Turkey. We also publish
-							and publish specialized articles on the Turkish economy, the latest developments in
-							infrastructure, the new laws relating to real estate, and all that matters to the
-							investor and who wants to own or live in Turkey.
+						<Text fontFamily='inherit'>
+							نقوم بنشر سلسلة حلقات عن التملك العقاري في تركيا، كما نترجم وننشر مقالات متخصصة عن
+							الاقتصاد التركي، وأهم مستجدات البنية التحتية، والقوانين الجديدة المتعلقة بالعقار،
+							وسائر ما يهم المستثمر والراغب بالتملك أو العيش في تركيا.
 						</Text>
-						<Heading as='h3' color='green.500' textTransform='uppercase' mb='2' mt='8'>
-							Why Turkey?
+						<Heading
+							as='h3'
+							color='green.500'
+							textTransform='uppercase'
+							mb='2'
+							mt='8'
+							fontFamily='inherit'>
+							لماذا تركيا؟
 						</Heading>
-						<Text>
-							The new Turkey is a rapidly rising and confident country, and its growth index is
-							known only to jump and rise, coinciding with the revolution of infrastructure,
-							government facilities, industrial and medical development, and giant projects that
-							take Turkey from past to future quickly! Such as the Istanbul III Airport Project,
-							located in the Arnaout Cui area north of Istanbul, with an area of about 7,500
-							hectares, accommodating 200 million passengers annually and reaching 350 world points.
-							<br /> As the people and power harmonize, the country enters the era of stability,
-							Investors.
+						<Text fontFamily='inherit'>
+							تركيا الجديدة بلد صاعد بسرعة وثقة، ومؤشر النمو فيه لم يعرف سوى القفز والصعود، تزامناً
+							مع ثورة البنى التحتية، والتسهيلات الحكومية، والتطور الصناعي والطبي، والمشاريع العملاقة
+							التي تأخذ تركيا من الماضي إلى المستقبل بسرعة النور.
 						</Text>
 					</Box>
 					<Box
