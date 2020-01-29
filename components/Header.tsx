@@ -35,28 +35,28 @@ export const Header = ({}) => {
 					</Box>
 
 					<Box as='nav' display={['none', 'none', 'none', 'block']}>
-						<Stack as='ul' listStyleType='none' isInline>
+						<Flex as='ul' listStyleType='none' gridGap='2'>
 							<Box as='li'>
-								<ActiveLink href='/'>Home</ActiveLink>
+								<ActiveLink href='/'>الرئيسية</ActiveLink>
 							</Box>
 							<Box as='li'>
-								<ActiveLink href='/about-us'>About Us</ActiveLink>
+								<ActiveLink href='/about-us'>من نحن</ActiveLink>
 							</Box>
 							<Box as='li'>
-								<ActiveLink href='/properties'>Properties</ActiveLink>
+								<ActiveLink href='/properties'>العقارات</ActiveLink>
 							</Box>
 							<Box as='li'>
-								<ActiveLink href='/contact-us'>Contact Us</ActiveLink>
+								<ActiveLink href='/contact-us'>تواصل معنا</ActiveLink>
 							</Box>
-							<Box>
+							{/* <Box>
 								<IconButton
 									aria-label='Choose Language'
 									variant='outline'
 									variantColor='teal'
 									icon={MdTranslate}
 								/>
-							</Box>
-						</Stack>
+							</Box> */}
+						</Flex>
 					</Box>
 					<MobileNav />
 				</Flex>

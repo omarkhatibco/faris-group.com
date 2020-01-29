@@ -47,7 +47,7 @@ export const Field: React.FC<IProps> = ({
 	return (
 		<MyCustomFormControl name={name} isRequired={isRequired} isDisabled={isDisabled}>
 			<InputGroup size={size}>
-				{icon && <InputLeftElement children={icon} />}
+				{icon && <InputRightElement children={icon} />}
 
 				<Input
 					type={show ? 'text' : type}

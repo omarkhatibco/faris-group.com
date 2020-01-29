@@ -1,4 +1,6 @@
+/**jsx @jsx */
 import { Flex, Box, Text, Link, IconButton, Stack } from '@chakra-ui/core';
+import { css } from '@emotion/core';
 import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 import { Container } from './Container';
 
@@ -11,7 +13,13 @@ export const Footer: React.FC = () => {
 					<Text fontWeight='bold' my='2' textTransform='uppercase'>
 						Real Estate & Consultations
 					</Text>
-					<Text fontWeight='bold' my='2' color='gray.600'>
+					<Text
+						fontWeight='bold'
+						my='2'
+						color='gray.600'
+						css={css({
+							direction: 'ltr',
+						})}>
 						Molla Gürani,
 						<br />
 						Turgut Özal Millet Cd No:72
