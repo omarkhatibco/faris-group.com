@@ -10,13 +10,14 @@ export const Footer: React.FC = () => {
 			<Container>
 				<Flex flexDirection='column' alignItems='center' justifyContent='center' textAlign='center'>
 					<Text>Faris Group Logo</Text>
-					<Text fontWeight='bold' my='2' textTransform='uppercase'>
-						Real Estate & Consultations
+					<Text fontWeight='bold' my='2' textTransform='uppercase' fontFamily='inherit'>
+						 للإنشاءات و العقارات
 					</Text>
 					<Text
 						fontWeight='bold'
 						my='2'
 						color='gray.600'
+						fontFamily='inherit'
 						css={css({
 							direction: 'ltr',
 						})}>
@@ -70,8 +71,8 @@ export const Footer: React.FC = () => {
 							/>
 						</Link>
 					</Stack>
-					<Text fontSize='sm' color='gray.500' my='2'>
-						Copyright to Al-faris Group 2020 | powered by{' '}
+					<Text fontSize='sm' color='gray.500' my='2' fontFamily='inherit'>
+						جميع الحقوق محفوظة لفارس غروب | تم التطوير من قبل{' '}
 						<Link href='https://loewen.dev' target='_blank'>
 							löwen.dev
 						</Link>
