@@ -43,9 +43,8 @@ const SingleProperties: AppPage = () => {
 					searchParams: gallerySearchParam,
 				})
 				.json();
-
 			const sortedGalleries = chunk(
-				[...gallery].sort((a, b) => (a.source_url > b.source_url ? 1 : -1)),
+				[...gallery].sort((a, b) => b.source_url - a.source_url).reverse(),
 				9
 			);
 			setData(data);
@@ -99,6 +98,7 @@ const SingleProperties: AppPage = () => {
 							gap={4}
 							templateColumns='repeat(3,minmax(0, 1fr))'
 							templateRows='repeat(3,minmax(0, 1fr))'
+							autoFlow='column'
 							height='100%'>
 							{[...gallery]
 								.sort((a, b) => (a.source_url > b.source_url ? 1 : -1))
