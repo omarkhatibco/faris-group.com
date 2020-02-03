@@ -1,6 +1,6 @@
 /**jsx @jsx */
 import { useEffect, useState } from 'react';
-import { Spinner, Flex, Box, Grid, Image } from '@chakra-ui/core';
+import { Spinner, Flex, Box, Grid, Image, IconButton } from '@chakra-ui/core';
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
 import { useRouter } from 'next/router';
@@ -74,7 +74,7 @@ const SingleProperties: AppPage = () => {
 
 	return (
 		<Box as='main' width='Full' pt='20'>
-			<Box p={2}>
+			<Box p={2} position='relative'>
 				{galleries.length > 0 && (
 					<EmblaCarouselReact
 						emblaRef={setEmbla}
@@ -133,10 +133,39 @@ const SingleProperties: AppPage = () => {
 						</Flex>
 					</EmblaCarouselReact>
 				)}
+				<Flex
+					position='absolute'
+					width='100%'
+					height='100%'
+					top='0'
+					right='0'
+					left='0'
+					bottom='0'
+					justifyContent='space-between'
+					alignItems='center'
+					pointerEvents='none'
+					px='6'>
+					<IconButton
+						variant='solid'
+						variantColor='green'
+						aria-label='Send email'
+						icon='chevron-right'
+						size='lg'
+						pointerEvents='all'
+						onClick={() => embla.scrollNext()}
+					/>
+					<IconButton
+						variant='solid'
+						variantColor='green'
+						aria-label='Send email'
+						icon='chevron-left'
+						size='lg'
+						pointerEvents='all'
+						onClick={() => embla.scrollPrev()}
+					/>
+				</Flex>
 			</Box>
-			<button onClick={() => embla.destroy()}>distroy</button>
-			<button onClick={() => embla.scrollPrev()}>Prev</button>
-			<button onClick={() => embla.scrollNext()}>Next</button>
+
 			<Spinner color='blau.500' />
 			{data?.title?.rendered}
 		</Box>
