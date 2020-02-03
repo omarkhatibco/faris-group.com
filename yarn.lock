@@ -3964,6 +3964,20 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+embla-carousel-react@^1.2.16:
+  version "1.2.16"
+  resolved "https://registry.yarnpkg.com/embla-carousel-react/-/embla-carousel-react-1.2.16.tgz#46e3cb45de97128e84f84d569b17541bca67974f"
+  integrity sha512-Q2ph3k1EhAhBoW4L5GslFbzLQlKeAzIikx7bSp33TJgUBBB8rJ7xUOASMsIHUo3FYvq6QpgrOIwkhhb2TwmNvg==
+  dependencies:
+    embla-carousel "^2.7.3"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
+embla-carousel@^2.7.3:
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-2.7.3.tgz#af04114a651dfdca6d3ec8206a9c4e136a978f6d"
+  integrity sha512-peRqj6hMATmzOJ90VV/Hus8mtTTPyi0VuHOTz15RrmUsEV/R3Kea2u0WoLtxAP6PFWbUTBcemIgiRZDXmksz2A==
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -8087,7 +8101,7 @@ react-clientside-effect@^1.2.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-react-dom@^16.12.0:
+react-dom@^16.12.0, react-dom@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
   integrity sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
@@ -8168,7 +8182,7 @@ react-use@^13.22.4:
     ts-easing "^0.2.0"
     tslib "^1.10.0"
 
-react@^16.12.0:
+react@^16.12.0, react@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
   integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==

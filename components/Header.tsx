@@ -17,6 +17,7 @@ export const Header = ({}) => {
 			left='0'
 			right='0'
 			top='0'
+			boxShadow='0 6px 6px rgba(0,0,0,.1)'
 			css={css({
 				backdropFilter: 'blur(8px)',
 			})}
