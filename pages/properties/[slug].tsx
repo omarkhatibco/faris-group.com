@@ -7,8 +7,10 @@ import { useRouter } from 'next/router';
 import { api } from '~utls/apis';
 import { chunk } from '~utls/chunk';
 import { css } from '@emotion/core';
+import EmblaCarouselReact from 'embla-carousel-react';
 
 const SingleProperties: AppPage = () => {
+	const [embla, setEmbla] = useState(null);
 	const [data, setData] = useState<any>({});
 	const [galleries, setGalleries] = useState<any>([]);
 	const {
@@ -58,65 +60,83 @@ const SingleProperties: AppPage = () => {
 		getData();
 	}, [slug]);
 
+	useEffect(() => {
+		if (embla) {
+			embla.on('init', () => {
+				const startIndex = embla.scrollSnapList().length - 1;
+				embla.changeOptions({ startIndex });
+			});
+			embla.on('select', () => {
+				console.log(`Current index is ${embla.selectedScrollSnap()}`);
+			});
+		}
+	}, [embla]);
+
 	return (
 		<Box as='main' width='Full' pt='20'>
-			<Flex
-				height='60vh'
-				width='100%'
-				flexWrap='nowrap'
-				py={4}
-				overflow='auto'
-				css={css({
-					scrollSnapType: 'x mandatory',
-					scrollPadding: '1rem',
-				})}>
-				<Box
-					minWidth='50vw'
-					height='100%'
-					px='4'
-					css={css({
-						scrollSnapAlign: 'center',
-					})}>
-					<Image
-						borderRadius='0.5rem'
-						boxShadow='lg'
-						width='100%'
-						height='100%'
-						objectFit='cover'
-						src={data?._embedded && data?._embedded['wp:featuredmedia'][0]?.source_url}></Image>
-				</Box>
-				{galleries.map((gallery, index) => (
-					<Box
-						key={index}
-						minWidth='50vw'
-						height='100%'
-						pl='4'
-						css={css({
-							scrollSnapAlign: 'center',
-						})}>
-						<Grid
-							gap={4}
-							templateColumns='repeat(3,minmax(0, 1fr))'
-							templateRows='repeat(3,minmax(0, 1fr))'
-							autoFlow='column'
-							height='100%'>
-							{[...gallery]
-								.sort((a, b) => (a.source_url > b.source_url ? 1 : -1))
-								.map(({ id, source_url }, index) => (
-									<Box key={id}>
-										<Image
-											borderRadius='0.5rem'
-											boxShadow='lg'
-											src={source_url}
-											height='100%'
-											width='100%'
-											objectFit='cover'></Image>
-									</Box>
-								))}
-						</Grid>
-					</Box>
-				))}
-			</Flex>
+			<Box p={4}>
+				{galleries.length > 0 && (
+					<EmblaCarouselReact
+						emblaRef={setEmbla}
+						options={{ loop: false, align: 'start', dragFree: false, containScroll: true }}>
+						<Flex
+							cursor='grab'
+							css={css({
+								direction: 'ltr',
+							})}
+							direction='row-reverse'
+							justifyContent='flex-end'
+							height='60vh'
+							py={4}>
+							<Box flex='0 0 50%' minWidth='50vw' height='100%' pl='4'>
+								<Image
+									borderRadius='0.5rem'
+									boxShadow='lg'
+									width='100%'
+									height='100%'
+									objectFit='cover'
+									src={
+										data?._embedded && data?._embedded['wp:featuredmedia'][0]?.source_url
+									}></Image>
+							</Box>
+							{galleries.map((gallery, index) => (
+								<Box
+									key={index}
+									height='100%'
+									pl='4'
+									flex='0 0 50%'
+									css={css({
+										direction: 'rtl',
+									})}>
+									<Grid
+										gap={4}
+										templateColumns='repeat(3,minmax(0, 1fr))'
+										templateRows='repeat(3,minmax(0, 1fr))'
+										autoFlow='column'
+										height='100%'>
+										{[...gallery]
+											.sort((a, b) => (a.source_url > b.source_url ? 1 : -1))
+											.map(({ id, source_url }, index) => (
+												<Box key={id}>
+													<Image
+														borderRadius='0.5rem'
+														boxShadow='lg'
+														src={source_url}
+														height='100%'
+														width='100%'
+														objectFit='cover'></Image>
+												</Box>
+											))}
+									</Grid>
+								</Box>
+							))}
+						</Flex>
+					</EmblaCarouselReact>
+				)}
+			</Box>
+			<button onClick={() => embla.destroy()}>distroy</button>
+			<button onClick={() => embla.scrollPrev()}>Prev</button>
+			<button onClick={() => embla.scrollNext()}>Next</button>
 			<Spinner color='blau.500' />
 			{data?.title?.rendered}
 		</Box>
