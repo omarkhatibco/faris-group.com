@@ -34,7 +34,7 @@ export const MyCustomFormControl: React.FC<IProps> = ({
 			{children}
 			{isError ? (
 				<FormErrorMessage mt='1'>
-					<ErrorMessage name={name} errors={errors} />
+					<ErrorMessage as='span' name={name} errors={errors} />
 				</FormErrorMessage>
 			) : (
 				helperText && <FormHelperText>{helperText}</FormHelperText>

@@ -30,7 +30,7 @@ export const CheckBoxField: React.FC<IProps> = ({ name, isRequired, children }) 
 			{isError && (
 				<FormControl isInvalid={Boolean(errors && errors[name])}>
 					<FormErrorMessage mt='1'>
-						<ErrorMessage name={name} errors={errors} />
+						<ErrorMessage as='span' name={name} errors={errors} />
 					</FormErrorMessage>
 				</FormControl>
 			)}
