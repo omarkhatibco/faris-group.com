@@ -74,7 +74,7 @@ const SingleProperties: AppPage = () => {
 
 	return (
 		<Box as='main' width='Full' pt='20'>
-			<Box p={4}>
+			<Box p={2}>
 				{galleries.length > 0 && (
 					<EmblaCarouselReact
 						emblaRef={setEmbla}
