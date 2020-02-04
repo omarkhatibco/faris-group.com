@@ -12,13 +12,13 @@ import {
 	PropertyAmenities,
 } from '~components';
 import { useRouter } from 'next/router';
-import { api } from '~utls/apis';
-import { chunk } from '~utls/chunk';
+import { api, chunk, getCdnUrl } from '~utls';
 import { css } from '@emotion/core';
 
 const SingleProperties: AppPage = () => {
 	const [data, setData] = useState<any>({});
 	const [galleries, setGalleries] = useState<any>([]);
+	const [featuredmedia, setFeaturedmedia] = useState<any>({});
 	const {
 		query: { slug },
 	} = useRouter();
@@ -45,6 +45,12 @@ const SingleProperties: AppPage = () => {
 				// 404 not found
 			}
 
+			const featuredmedia = {
+				...(data?._embedded && data?._embedded['wp:featuredmedia'][0]),
+				source_url: getCdnUrl(data?._embedded && data?._embedded['wp:featuredmedia'][0].source_url),
+			};
+			setFeaturedmedia(featuredmedia);
+
 			const gallerySearchParam = new URLSearchParams();
 			gallerySearchParam.append('per_page', '100');
 			gallerySearchParam.append('include', data.media_gallery.toString());
@@ -54,7 +60,16 @@ const SingleProperties: AppPage = () => {
 				})
 				.json();
 			const sortedGalleries = chunk(
-				[...gallery].sort((a, b) => b.source_url - a.source_url).reverse(),
+				[...gallery]
+					.sort((a, b) => b.source_url - a.source_url)
+					.map(obj => {
+						const source_url = getCdnUrl(obj?.source_url);
+						return {
+							...obj,
+							source_url,
+						};
+					})
+					.reverse(),
 				9
 			);
 			setData(data);
@@ -70,10 +85,7 @@ const SingleProperties: AppPage = () => {
 
 	return (
 		<Box as='main' width='Full' pt='20'>
-			<ImageSlider
-				galleries={galleries}
-				featuredmedia={data?._embedded && data?._embedded['wp:featuredmedia'][0]}
-			/>
+			<ImageSlider galleries={galleries} featuredmedia={featuredmedia} />
 			<Box pt='4' pb='8'>
 				<Container display='flex'>
 					<Box as='article' width={2 / 3} bg='blue' pl={8}>

@@ -46,7 +46,7 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 									width='100%'
 									height='100%'
 									objectFit='cover'
-									src={featuredmedia?.source_url}
+									src={`${featuredmedia?.source_url}?w=750&quality=100`}
 									css={css({
 										':hover': {
 											filter: 'grayscale(100%)',
@@ -83,7 +83,7 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 												cursor='pointer'
 												borderRadius='0.5rem'
 												boxShadow='lg'
-												src={source_url}
+												src={`${source_url}?w=300&quality=100`}
 												height='100%'
 												width='100%'
 												objectFit='cover'
@@ -150,7 +150,7 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 						cursor='pointer'
 						borderRadius='0.5rem'
 						boxShadow='lg'
-						src={overlayData?.source_url}
+						src={`${overlayData?.source_url}?w=1200&quality=100`}
 						width='100%'
 						objectFit='cover'
 						alt={overlayData?.alt_text}
