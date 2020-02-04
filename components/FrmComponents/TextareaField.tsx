@@ -58,8 +58,8 @@ export const TextareaField: React.FC<IProps> = ({
 					focusBorderColor='green.500'
 					resize='vertical'
 					minHeight='10rem'
-					paddingRight={icon ? '12' : '4'}
-					paddingTop='3'
+					paddingRight={icon ? (size === 'md' ? '8' : 12) : '4'}
+					paddingTop={size === 'md' ? '2' : '3'}
 				/>
 			</InputGroup>
 		</MyCustomFormControl>

@@ -1,22 +1,28 @@
 /**jsx @jsx */
 import { useEffect, useState } from 'react';
-import { Spinner, Flex, Box, Grid, Image, IconButton } from '@chakra-ui/core';
+import { Spinner, Flex, Box, Grid, Image, IconButton, Heading, Text } from '@chakra-ui/core';
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
+import {
+	ImageSlider,
+	Container,
+	ContactForm,
+	PropertyHeading,
+	PropertyDescription,
+	PropertyAmenities,
+} from '~components';
 import { useRouter } from 'next/router';
 import { api } from '~utls/apis';
 import { chunk } from '~utls/chunk';
 import { css } from '@emotion/core';
-import EmblaCarouselReact from 'embla-carousel-react';
 
 const SingleProperties: AppPage = () => {
-	const [embla, setEmbla] = useState(null);
 	const [data, setData] = useState<any>({});
 	const [galleries, setGalleries] = useState<any>([]);
 	const {
 		query: { slug },
 	} = useRouter();
-	console.log(slug);
+	// console.log(slug);
 
 	const getData = async () => {
 		if (!slug) {
@@ -33,7 +39,9 @@ const SingleProperties: AppPage = () => {
 				})
 				.json();
 			const data = response.find(item => item.slug === slug);
+			console.log();
 			if (!data) {
+				throw new Error('Property not found');
 				// 404 not found
 			}
 
@@ -60,114 +68,47 @@ const SingleProperties: AppPage = () => {
 		getData();
 	}, [slug]);
 
-	useEffect(() => {
-		if (embla) {
-			embla.on('init', () => {
-				const startIndex = embla.scrollSnapList().length - 1;
-				embla.changeOptions({ startIndex });
-			});
-			embla.on('select', () => {
-				console.log(`Current index is ${embla.selectedScrollSnap()}`);
-			});
-		}
-	}, [embla]);
-
 	return (
 		<Box as='main' width='Full' pt='20'>
-			<Box p={2} position='relative'>
-				{galleries.length > 0 && (
-					<EmblaCarouselReact
-						emblaRef={setEmbla}
-						options={{ loop: false, align: 'start', dragFree: false, containScroll: true }}>
-						<Flex
-							cursor='grab'
-							css={css({
-								direction: 'ltr',
-							})}
-							direction='row-reverse'
-							justifyContent='flex-end'
-							height='60vh'
-							py={4}>
-							<Box flex='0 0 50%' minWidth='50vw' height='100%' pl='4'>
-								<Image
-									borderRadius='0.5rem'
-									boxShadow='lg'
-									width='100%'
-									height='100%'
-									objectFit='cover'
-									src={
-										data?._embedded && data?._embedded['wp:featuredmedia'][0]?.source_url
-									}></Image>
-							</Box>
-							{galleries.map((gallery, index) => (
-								<Box
-									key={index}
-									height='100%'
-									pl='4'
-									flex='0 0 50%'
-									css={css({
-										direction: 'rtl',
-									})}>
-									<Grid
-										gap={4}
-										templateColumns='repeat(3,minmax(0, 1fr))'
-										templateRows='repeat(3,minmax(0, 1fr))'
-										autoFlow='column'
-										height='100%'>
-										{[...gallery]
-											.sort((a, b) => (a.source_url > b.source_url ? 1 : -1))
-											.map(({ id, source_url }, index) => (
-												<Box key={id}>
-													<Image
-														borderRadius='0.5rem'
-														boxShadow='lg'
-														src={source_url}
-														height='100%'
-														width='100%'
-														objectFit='cover'></Image>
-												</Box>
-											))}
-									</Grid>
-								</Box>
-							))}
-						</Flex>
-					</EmblaCarouselReact>
-				)}
-				<Flex
-					position='absolute'
-					width='100%'
-					height='100%'
-					top='0'
-					right='0'
-					left='0'
-					bottom='0'
-					justifyContent='space-between'
-					alignItems='center'
-					pointerEvents='none'
-					px='6'>
-					<IconButton
-						variant='solid'
-						variantColor='green'
-						aria-label='Send email'
-						icon='chevron-right'
-						size='lg'
-						pointerEvents='all'
-						onClick={() => embla.scrollNext()}
-					/>
-					<IconButton
-						variant='solid'
-						variantColor='green'
-						aria-label='Send email'
-						icon='chevron-left'
-						size='lg'
-						pointerEvents='all'
-						onClick={() => embla.scrollPrev()}
-					/>
-				</Flex>
+			<ImageSlider
+				galleries={galleries}
+				featuredmedia={data?._embedded && data?._embedded['wp:featuredmedia'][0]}
+			/>
+			<Box pt='4' pb='8'>
+				<Container display='flex'>
+					<Box as='article' width={2 / 3} bg='blue' pl={8}>
+						<PropertyHeading data={data} />
+						<PropertyDescription data={data} />
+						<PropertyAmenities data={data} />
+					</Box>
+					<Box as='aside' width={1 / 3} bg='red' position='relative'>
+						<Box
+							position='sticky'
+							top='6rem'
+							width='100%'
+							boxShadow='xl'
+							borderRadius='0.5rem'
+							borderWidth='1px'
+							borderColor='gray.100'
+							p={6}>
+							<Heading
+								as='h3'
+								mb='2'
+								color='green.500'
+								fontSize={['2xl', '4xl']}
+								textTransform='uppercase'
+								fontFamily='inherit'>
+								دعنا نساعدك
+							</Heading>
+							<Text mb='8' fontFamily='inherit'>
+								تواصل معنا لمساعدتك بإختيار العقار المناسب لك و للعائلة, إذا لم تجد طلبك على الموقع
+								دعنا نطلعك على بعض من أهم عروضنا الحصرية.
+							</Text>
+							<ContactForm />
+						</Box>
+					</Box>
+				</Container>
 			</Box>
-
-			<Spinner color='blau.500' />
-			{data?.title?.rendered}
 		</Box>
 	);
 };
