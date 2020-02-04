@@ -32,14 +32,18 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 						})}
 						direction='row-reverse'
 						justifyContent='flex-end'
-						height='60vh'
-						py={4}>
+						height='60vh'>
 						{galleries.map(({ id, source_url, alt_text, media_details }) => {
 							const { width: orginalWidth, height: orginalHeight } = media_details;
 							const width =
 								(100 * ((orginalWidth * (windowHeight * 60)) / 100)) / orginalHeight / windowWidth;
 							return (
-								<Box flex={`0 0 ${width}%`} width={`${width}%`} height='100%' pl='1' key={id}>
+								<Box
+									flex={['0 0 100%', `0 0 ${width}%`]}
+									width={['100%', `${width}%`]}
+									height='100%'
+									pl={[0, 1]}
+									key={id}>
 									<Image
 										src={`${source_url}?w=750&quality=100`}
 										height='100%'

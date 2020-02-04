@@ -3,10 +3,6 @@ import { useFormContext } from 'react-hook-form';
 import { Select } from '@chakra-ui/core';
 import { MyCustomFormControl } from './FormControl';
 
-const HelperId = Math.random()
-	.toString(36)
-	.substr(2, 5);
-
 export const SelectField = props => {
 	const [hasValue, setHasValue] = useState(false);
 	const { register, errors, getValues } = useFormContext();
@@ -38,7 +34,11 @@ export const SelectField = props => {
 	};
 
 	return (
-		<MyCustomFormControl name={name} HelperId={HelperId} isRequired={isRequired} {...rest}>
+		<MyCustomFormControl
+			name={name}
+			HelperId={`${name}-helper-text`}
+			isRequired={isRequired}
+			{...rest}>
 			<Select
 				id={name}
 				name={name}
@@ -52,7 +52,7 @@ export const SelectField = props => {
 					fontSize: 'sm',
 				}}
 				ref={register(registerObj)}
-				aria-describedby={HelperId}
+				aria-describedby={`${name}-helper-text`}
 				placeholder={isRequired ? `${placeholder}*` : placeholder}
 				isInvalid={Boolean(errors && errors[name])}
 				onChange={handleChange}>
