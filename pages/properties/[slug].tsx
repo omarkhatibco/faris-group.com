@@ -13,7 +13,7 @@ import {
 	PropertyVideo,
 } from '~components';
 import { useRouter } from 'next/router';
-import { api, chunk, getCdnUrl } from '~utls';
+import { wp, chunk, getCdnUrl } from '~utls';
 import { css } from '@emotion/core';
 
 const SingleProperties: AppPage = () => {
@@ -34,7 +34,7 @@ const SingleProperties: AppPage = () => {
 		searchParams.append('_embed', '');
 
 		try {
-			const response: any = await api
+			const response: any = await wp
 				.get('property', {
 					searchParams,
 				})
@@ -55,7 +55,7 @@ const SingleProperties: AppPage = () => {
 			const gallerySearchParam = new URLSearchParams();
 			gallerySearchParam.append('per_page', '100');
 			gallerySearchParam.append('include', data.media_gallery.toString());
-			const gallery: any = await api
+			const gallery: any = await wp
 				.get('media', {
 					searchParams: gallerySearchParam,
 				})

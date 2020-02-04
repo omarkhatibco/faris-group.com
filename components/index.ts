@@ -1,4 +1,5 @@
 export * from './PreflightCSS';
+export * from './ConfigProvider';
 export * from './layouts';
 export * from './FrmComponents';
 export * from './Footer';
