@@ -14,3 +14,4 @@ export * from './PropertyHeading';
 export * from './ContactForm';
 export * from './PropertyDescription';
 export * from './PropertyAmenities';
+export * from './PropertyVideo';

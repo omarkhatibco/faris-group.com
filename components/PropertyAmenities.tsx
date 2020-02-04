@@ -24,8 +24,8 @@ export const PropertyAmenities = ({ data }) => {
 				مزايا المشروع
 			</Heading>
 			<List spacing={2} display='grid' gridTemplateColumns='repeat(3,calc(100% / 3))'>
-				{data?.features?.map(({ title }) => (
-					<ListItem fontWeight='bold'>
+				{data?.features?.map(({ title }, index) => (
+					<ListItem fontWeight='bold' key={index}>
 						<ListIcon icon='check' color='green.400' mr={0} ml={2} />
 						{title}
 					</ListItem>

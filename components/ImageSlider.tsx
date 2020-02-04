@@ -1,29 +1,26 @@
 /**jsx @jsx */
 import { useEffect, useState } from 'react';
-import { Flex, Box, Grid, Image, IconButton, useDisclosure } from '@chakra-ui/core';
+import { Flex, Box, Image, IconButton } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import EmblaCarouselReact from 'embla-carousel-react';
-import { Overlay } from './';
+import { useWindowSize } from 'react-use';
 
 export const ImageSlider = ({ galleries, featuredmedia }) => {
 	const [embla, setEmbla] = useState(null);
-	const { isOpen, onOpen, onClose } = useDisclosure();
-	const [overlayData, setOverlayData] = useState(null);
+	const { width: windowWidth, height: windowHeight } = useWindowSize();
 
 	useEffect(() => {
 		if (embla) {
 			embla.on('init', () => {
 				const startIndex = embla.scrollSnapList().length - 1;
+				console.log(embla.scrollSnapList());
 				embla.changeOptions({ startIndex });
 			});
-			// embla.on('select', () => {
-			// 	console.log(`Current index is ${embla.selectedScrollSnap()}`);
-			// });
 		}
 	}, [embla]);
 
 	return (
-		<Box p={2} position='relative'>
+		<Box position='relative'>
 			{galleries.length > 0 && (
 				<EmblaCarouselReact
 					emblaRef={setEmbla}
@@ -37,75 +34,22 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 						justifyContent='flex-end'
 						height='60vh'
 						py={4}>
-						{featuredmedia?.source_url && (
-							<Box flex='0 0 50%' minWidth='50vw' height='100%' pl='4'>
-								<Image
-									cursor='pointer'
-									borderRadius='0.5rem'
-									boxShadow='lg'
-									width='100%'
-									height='100%'
-									objectFit='cover'
-									src={`${featuredmedia?.source_url}?w=750&quality=100`}
-									css={css({
-										':hover': {
-											filter: 'grayscale(100%)',
-											transition: '.3s ease-in-out;',
-										},
-									})}
-									onClick={() => {
-										setOverlayData({
-											source_url: featuredmedia?.source_url,
-											alt_text: featuredmedia?.alt_text,
-										});
-									}}
-								/>
-							</Box>
-						)}
-						{galleries.map((gallery, index) => (
-							<Box
-								key={index}
-								height='100%'
-								pl='4'
-								flex='0 0 50%'
-								css={css({
-									direction: 'rtl',
-								})}>
-								<Grid
-									gap={4}
-									templateColumns='repeat(3,minmax(0, 1fr))'
-									templateRows='repeat(3,minmax(0, 1fr))'
-									autoFlow='column'
-									height='100%'>
-									{[...gallery].map(({ id, source_url, alt_text }, index) => (
-										<Box key={id}>
-											<Image
-												cursor='pointer'
-												borderRadius='0.5rem'
-												boxShadow='lg'
-												src={`${source_url}?w=300&quality=100`}
-												height='100%'
-												width='100%'
-												objectFit='cover'
-												alt={alt_text}
-												css={css({
-													':hover': {
-														filter: 'grayscale(100%)',
-														transition: '.3s ease-in-out;',
-													},
-												})}
-												onClick={() => {
-													setOverlayData({
-														source_url,
-														alt_text,
-													});
-												}}
-											/>
-										</Box>
-									))}
-								</Grid>
-							</Box>
-						))}
+						{galleries.map(({ id, source_url, alt_text, media_details }) => {
+							const { width: orginalWidth, height: orginalHeight } = media_details;
+							const width =
+								(100 * ((orginalWidth * (windowHeight * 60)) / 100)) / orginalHeight / windowWidth;
+							return (
+								<Box flex={`0 0 ${width}%`} width={`${width}%`} height='100%' pl='1' key={id}>
+									<Image
+										src={`${source_url}?w=750&quality=100`}
+										height='100%'
+										width='100%'
+										objectFit='cover'
+										alt={alt_text}
+									/>
+								</Box>
+							);
+						})}
 					</Flex>
 				</EmblaCarouselReact>
 			)}
@@ -143,19 +87,6 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 						onClick={() => embla.scrollPrev()}
 					/>
 				</Flex>
-			)}
-			{overlayData && (
-				<Overlay isOpen={overlayData} onClose={() => setOverlayData(null)}>
-					<Image
-						cursor='pointer'
-						borderRadius='0.5rem'
-						boxShadow='lg'
-						src={`${overlayData?.source_url}?w=1200&quality=100`}
-						width='100%'
-						objectFit='cover'
-						alt={overlayData?.alt_text}
-					/>
-				</Overlay>
 			)}
 		</Box>
 	);

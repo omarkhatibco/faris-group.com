@@ -8,6 +8,7 @@ const MyApp = ({ Component, pageProps }) => {
 	return (
 		<ThemeProvider theme={theme}>
 			<PreflightCSS />
+
 			{Layout ? (
 				<Layout>
 					<Component {...pageProps} />

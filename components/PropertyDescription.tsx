@@ -15,16 +15,16 @@ export const PropertyDescription = ({ data }) => {
 				fontFamily='inherit'>
 				لماذا هذا المشروع
 			</Heading>
-			<Text fontFamily='inherit'>
-				<List spacing={2}>
-					{data?.features?.map(({ title }) => (
-						<ListItem>
-							<ListIcon icon='chevron-left' color='green.500' mr={0} ml={2} />
-							{title}
-						</ListItem>
-					))}
-				</List>
-			</Text>
+
+			<List spacing={2}>
+				{data?.features?.map(({ title }, index) => (
+					<ListItem key={index}>
+						<ListIcon icon='chevron-left' color='green.500' mr={0} ml={2} />
+						{title}
+					</ListItem>
+				))}
+			</List>
+
 			<Box as='hr' my={8}></Box>
 		</Box>
 	);

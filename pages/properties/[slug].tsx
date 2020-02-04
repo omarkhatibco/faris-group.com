@@ -10,6 +10,7 @@ import {
 	PropertyHeading,
 	PropertyDescription,
 	PropertyAmenities,
+	PropertyVideo,
 } from '~components';
 import { useRouter } from 'next/router';
 import { api, chunk, getCdnUrl } from '~utls';
@@ -59,19 +60,29 @@ const SingleProperties: AppPage = () => {
 					searchParams: gallerySearchParam,
 				})
 				.json();
-			const sortedGalleries = chunk(
-				[...gallery]
-					.sort((a, b) => b.source_url - a.source_url)
-					.map(obj => {
-						const source_url = getCdnUrl(obj?.source_url);
-						return {
-							...obj,
-							source_url,
-						};
-					})
-					.reverse(),
-				9
-			);
+			// const sortedGalleries = chunk(
+			// 	[...gallery]
+			// 		.sort((a, b) => b.source_url - a.source_url)
+			// 		.map(obj => {
+			// 			const source_url = getCdnUrl(obj?.source_url);
+			// 			return {
+			// 				...obj,
+			// 				source_url,
+			// 			};
+			// 		})
+			// 		.reverse(),
+			// 	9
+			// );
+			const sortedGalleries = [...gallery]
+				.sort((a, b) => b.source_url - a.source_url)
+				.map(obj => {
+					const source_url = getCdnUrl(obj?.source_url);
+					return {
+						...obj,
+						source_url,
+					};
+				})
+				.reverse();
 			setData(data);
 			setGalleries(sortedGalleries);
 		} catch (error) {
@@ -84,16 +95,17 @@ const SingleProperties: AppPage = () => {
 	}, [slug]);
 
 	return (
-		<Box as='main' width='Full' pt='20'>
+		<Box as='main' width='Full' pt='16'>
 			<ImageSlider galleries={galleries} featuredmedia={featuredmedia} />
 			<Box pt='4' pb='8'>
-				<Container display='flex'>
-					<Box as='article' width={2 / 3} bg='blue' pl={8}>
+				<Container display='flex' flexWrap='wrap'>
+					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
 						<PropertyHeading data={data} />
 						<PropertyDescription data={data} />
 						<PropertyAmenities data={data} />
+						<PropertyVideo data={data} />
 					</Box>
-					<Box as='aside' width={1 / 3} bg='red' position='relative'>
+					<Box as='aside' width={['100%', 1 / 3]} bg='red' position='relative'>
 						<Box
 							position='sticky'
 							top='6rem'
