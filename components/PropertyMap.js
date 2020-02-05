@@ -34,5 +34,3 @@ export const PropertyMap = ({ data }) => {
 		</Box>
 	) : null;
 };
-
-// https://www.google.com/maps/embed/v1/place?q=41.004686,28.6536052&key=AIzaSyDKXWaTLHVu0rdDet0Zgcon1j5C9c_8gtE
