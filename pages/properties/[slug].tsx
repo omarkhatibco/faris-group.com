@@ -11,6 +11,7 @@ import {
 	PropertyDescription,
 	PropertyAmenities,
 	PropertyVideo,
+	PropertyMap,
 } from '~components';
 import { useRouter } from 'next/router';
 import { wp, chunk, getCdnUrl } from '~utls';
@@ -104,6 +105,7 @@ const SingleProperties: AppPage = () => {
 						<PropertyDescription data={data} />
 						<PropertyAmenities data={data} />
 						<PropertyVideo data={data} />
+						<PropertyMap data={data} />
 					</Box>
 					<Box as='aside' width={['100%', 1 / 3]} bg='red' position='relative'>
 						<Box

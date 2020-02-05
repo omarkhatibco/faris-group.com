@@ -13,7 +13,6 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 		if (embla) {
 			embla.on('init', () => {
 				const startIndex = embla.scrollSnapList().length - 1;
-				console.log(embla.scrollSnapList());
 				embla.changeOptions({ startIndex });
 			});
 		}

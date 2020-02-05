@@ -7,6 +7,6 @@ export const wp = ky.extend({
 
 export const api = ky.extend({
 	prefixUrl: 'https://api.faris-group.xyz/api/',
-	mode: 'no-cors',
+	// mode: 'no-cors',
 	timeout: 30000,
 });
