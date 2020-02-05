@@ -31,11 +31,16 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 						})}
 						direction='row-reverse'
 						justifyContent='flex-end'
-						height='60vh'>
+						height={'60vh'}>
 						{galleries.map(({ id, source_url, alt_text, media_details }) => {
 							const { width: orginalWidth, height: orginalHeight } = media_details;
-							const width =
-								(100 * ((orginalWidth * (windowHeight * 60)) / 100)) / orginalHeight / windowWidth;
+							const widthInPx = (orginalWidth * (windowHeight * 60)) / 100 / orginalHeight;
+							const width = (100 * widthInPx) / windowWidth;
+							const imgSrc =
+								parseInt(Number(widthInPx).toFixed(0), 10) > windowWidth
+									? `${source_url}?h=${Number((windowHeight * 60) / 100).toFixed(0)}&quality=100`
+									: `${source_url}?w=${Number(widthInPx).toFixed(0)}&quality=100`;
+
 							return (
 								<Box
 									flex={['0 0 100%', `0 0 ${width}%`]}
@@ -43,13 +48,7 @@ export const ImageSlider = ({ galleries, featuredmedia }) => {
 									height='100%'
 									pl={[0, 1]}
 									key={id}>
-									<Image
-										src={`${source_url}?w=750&quality=100`}
-										height='100%'
-										width='100%'
-										objectFit='cover'
-										alt={alt_text}
-									/>
+									<Image src={imgSrc} height='100%' width='100%' objectFit='cover' alt={alt_text} />
 								</Box>
 							);
 						})}

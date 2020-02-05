@@ -26,7 +26,10 @@ export const PropertyAmenities = ({ data }) => {
 				fontFamily='inherit'>
 				مزايا المشروع
 			</Heading>
-			<List spacing={2} display='grid' gridTemplateColumns='repeat(3,calc(100% / 3))'>
+			<List
+				spacing={2}
+				display='grid'
+				gridTemplateColumns={['repeat(2,calc(100% / 2))', 'repeat(3,calc(100% / 3))']}>
 				{amenities &&
 					data?.amenities?.map((key, index) => {
 						const { title } = amenities?.find(({ slug }) => slug === key);
@@ -39,7 +42,10 @@ export const PropertyAmenities = ({ data }) => {
 					})}
 			</List>
 			<p>version 2</p>
-			<List spacing={2} display='grid' gridTemplateColumns='repeat(3,calc(100% / 3))'>
+			<List
+				spacing={2}
+				display='grid'
+				gridTemplateColumns={['repeat(2,calc(100% / 2))', 'repeat(3,calc(100% / 3))']}>
 				{amenities?.map(({ title, slug }, index) => {
 					const isChecked = data?.amenities?.includes(slug);
 					return (
