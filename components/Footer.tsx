@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
 				<Flex flexDirection='column' alignItems='center' justifyContent='center' textAlign='center'>
 					<Text>Faris Group Logo</Text>
 					<Text fontWeight='bold' my='2' textTransform='uppercase' fontFamily='inherit'>
-						 للإنشاءات و العقارات
+						للإستشارات العقارية
 					</Text>
 					<Text
 						fontWeight='bold'

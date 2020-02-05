@@ -17,3 +17,4 @@ export * from './PropertyDescription';
 export * from './PropertyAmenities';
 export * from './PropertyVideo';
 export * from './PropertyMap';
+export * from './PropertyApartments';

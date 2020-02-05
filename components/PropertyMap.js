@@ -23,6 +23,7 @@ export const PropertyMap = ({ data }) => {
 				fontFamily='inherit'>
 				الموقع
 			</Heading>
+			<p>TBD</p>
 			<p>المسافات إلي المطار مول مدرسة</p>
 
 			<AspectRatioBox ratio={16 / 9} borderRadius='0.5rem'>

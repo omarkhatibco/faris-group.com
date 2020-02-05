@@ -41,26 +41,6 @@ export const PropertyAmenities = ({ data }) => {
 						);
 					})}
 			</List>
-			<p>version 2</p>
-			<List
-				spacing={2}
-				display='grid'
-				gridTemplateColumns={['repeat(2,calc(100% / 2))', 'repeat(3,calc(100% / 3))']}>
-				{amenities?.map(({ title, slug }, index) => {
-					const isChecked = data?.amenities?.includes(slug);
-					return (
-						<ListItem fontWeight='bold' color={isChecked ? 'black' : 'gray.200'} key={slug}>
-							{isChecked ? (
-								<ListIcon icon='check' color='green.400' mr={0} ml={2} />
-							) : (
-								<ListIcon icon='check' color='gray.200' mr={0} ml={2} />
-							)}
-
-							{title}
-						</ListItem>
-					);
-				})}
-			</List>
 			<Box as='hr' my={8}></Box>
 		</Box>
 	);
