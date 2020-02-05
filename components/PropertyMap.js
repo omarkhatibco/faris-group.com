@@ -8,7 +8,11 @@ export const PropertyMap = ({ data }) => {
 
 	const { map } = data;
 
-	return map ? (
+	console.log(
+		`https://www.google.com/maps/embed/v1/place?q=${map?.value}+([$urlencodedcustomnamehere])&language=ar&zoom=${map?.zoom}&key=${apiKeys?.googleMap}`
+	);
+
+	return map && apiKeys ? (
 		<Box>
 			<Heading
 				as='h2'
@@ -19,11 +23,12 @@ export const PropertyMap = ({ data }) => {
 				fontFamily='inherit'>
 				الموقع
 			</Heading>
+			<p>المسافات إلي المطار مول مدرسة</p>
 
 			<AspectRatioBox ratio={16 / 9} borderRadius='0.5rem'>
 				<Box
 					as='iframe'
-					src={`https://www.google.com/maps/embed/v1/place?q=${map?.value}&language=ar&zoom=${map.zoom}&key=${apiKeys?.googleMap}`}
+					src={`https://www.google.com/maps/embed/v1/place?q=${map?.value}+&language=ar&zoom=${map?.zoom}&key=${apiKeys?.googleMap}`}
 					frameBorder='0'
 					borderRadius='0.5rem'
 					boxShadow='lg'
