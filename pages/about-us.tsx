@@ -5,7 +5,7 @@ import { DefaultLayout } from '~components/layouts';
 
 // ICONS
 import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
-import { Container, BgImage, LongPromo } from '~components';
+import { Container, BgImage, Video } from '~components';
 
 const AboutUs: AppPage = () => {
 	return (
@@ -47,7 +47,7 @@ const AboutUs: AppPage = () => {
 						</Box>
 					</Box>
 					<Box width={['100%', 1 / 2]} pr={[0, 4]}>
-						<LongPromo />
+						<Video url='https://www.youtube.com/watch?v=7XrVC45aAsU' />
 					</Box>
 				</Container>
 			</Flex>
