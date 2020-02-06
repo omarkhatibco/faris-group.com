@@ -66,8 +66,8 @@ export const PropertyMap = ({ data }) => {
 						variantColor='green'
 						as='a'
 						target='_blank'
-						href={isMobile ? `geo:${map?.value}` : `https://maps.google.com/?q=${map?.address}`}>
-						فتح الخريطة في غوغل ماب
+						href={isMobile ? `geo://?${map?.value}` : `https://maps.google.com/?q=${map?.address}`}>
+						فتح في برنامج الخرائط
 					</Button>
 				</Flex>
 			</AspectRatioBox>
