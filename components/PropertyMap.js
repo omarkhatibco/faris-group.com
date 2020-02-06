@@ -4,8 +4,6 @@ import { ConfigContext } from '~components';
 import { Box, Heading, AspectRatioBox, Image, Flex, Button } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 
-import { isMobile } from '~utls';
-
 export const PropertyMap = ({ data }) => {
 	const { apiKeys } = useContext(ConfigContext);
 
@@ -66,7 +64,7 @@ export const PropertyMap = ({ data }) => {
 						variantColor='green'
 						as='a'
 						target='_blank'
-						href={isMobile ? `geo://?${map?.value}` : `https://maps.google.com/?q=${map?.address}`}>
+						href={`https://maps.google.com/?q=${map?.address}`}>
 						فتح في برنامج الخرائط
 					</Button>
 				</Flex>
