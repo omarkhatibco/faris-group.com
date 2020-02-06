@@ -9,8 +9,8 @@ export const BgImage = ({ src, alt }) => {
 				filter: 'blur(6px)',
 			})}
 			src={src}
-			position='absolute'
 			alt={alt}
+			position='absolute'
 			top='0'
 			bottom='0'
 			left='0'
