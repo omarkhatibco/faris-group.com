@@ -6,11 +6,13 @@ import { Map, Container, Form, Submit, Field, TextareaField } from '~components'
 import { DefaultLayout } from '~components/layouts';
 import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 import { MdPlace, MdPhone, MdEmail, MdPerson, MdSubject } from 'react-icons/md';
+import useMedia from 'react-use/lib/useMedia';
 
 const ContactUs: AppPage = () => {
+	const isMd = useMedia('(max-width: 768px)');
 	return (
 		<Box as='main' width='Full' pt='20'>
-			<Map />
+			<Map search='faris group istanbul Turkey' ratio={isMd ? 1 : 4 / 1} />
 			<Box py='16'>
 				<Container>
 					<Flex flexWrap='wrap'>

@@ -26,7 +26,9 @@ export const Video = ({ url }) => {
 						overflow='hidden'
 						frameBorder='0'
 						borderRadius='0.5rem'
-						boxShadow='lg'>
+						boxShadow='lg'
+						cursor='pointer'
+						onClick={() => setShowVideo(true)}>
 						<Image
 							src={video?.imageUrl}
 							width='100%'
@@ -42,7 +44,6 @@ export const Video = ({ url }) => {
 							borderRadius='100%'
 							aria-label='عرض الفيديو'
 							variantColor='green'
-							onClick={() => setShowVideo(true)}
 							icon={FaPlay}
 						/>
 					</Flex>

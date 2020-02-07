@@ -107,7 +107,7 @@ const SingleProperties: AppPage = () => {
 						<PropertyApartments data={data} />
 						<PropertyAmenities data={data} />
 						<PropertyVideo url={data?.oembed} />
-						<PropertyMap data={data} />
+						<PropertyMap map={data?.map} />
 					</Box>
 					<Box as='aside' width={['100%', 1 / 3]} bg='red' position='relative'>
 						<Box
