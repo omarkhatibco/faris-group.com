@@ -6,7 +6,7 @@ import { DefaultLayout } from '~components/layouts';
 import {
 	ImageSlider,
 	Container,
-	ContactForm,
+	PropertyContactForm,
 	PropertyHeading,
 	PropertyDescription,
 	PropertyAmenities,
@@ -132,7 +132,7 @@ const SingleProperties: AppPage = () => {
 								تواصل معنا لمساعدتك بإختيار العقار المناسب لك و للعائلة, إذا لم تجد طلبك على الموقع
 								دعنا نطلعك على بعض من أهم عروضنا الحصرية.
 							</Text>
-							<ContactForm />
+							<PropertyContactForm />
 						</Box>
 					</Box>
 				</Container>

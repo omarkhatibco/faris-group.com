@@ -1,13 +1,18 @@
+import { useContext } from 'react';
+import { ConfigContext } from '~components';
 import { Box, Flex, Text, Heading, Image, Grid, Stack, PseudoBox } from '@chakra-ui/core';
-
+import { useWindowSize } from 'react-use';
 import { AppPage } from '~@types/global';
 import { DefaultLayout } from '~components/layouts';
+import { getCdnUrl } from '~utls';
 
 // ICONS
 import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
 import { Container, BgImage, Video } from '~components';
 
 const AboutUs: AppPage = () => {
+	const { aboutUs } = useContext<any>(ConfigContext);
+	const { width: windowWidth, height: windowHeight } = useWindowSize();
 	return (
 		<Flex as='main' w='full' flexDirection='column' justifyItems='center' alignItems='center'>
 			<Flex
@@ -17,7 +22,10 @@ const AboutUs: AppPage = () => {
 				position='relative'
 				justifyItems='center'
 				alignItems='center'>
-				<BgImage src='/images/about.us.bg.jpg' alt='Istanbul bridge' />
+				<BgImage
+					src={`${getCdnUrl(aboutUs?.IntroImage)}?w=${windowWidth}&quality=100`}
+					alt='Istanbul bridge'
+				/>
 				<Container
 					zIndex={1}
 					display='flex'
@@ -47,7 +55,7 @@ const AboutUs: AppPage = () => {
 						</Box>
 					</Box>
 					<Box width={['100%', 1 / 2]} pr={[0, 4]}>
-						<Video url='https://www.youtube.com/watch?v=7XrVC45aAsU' />
+						<Video url={aboutUs?.introVideo} />
 					</Box>
 				</Container>
 			</Flex>
@@ -55,7 +63,7 @@ const AboutUs: AppPage = () => {
 			<Flex as='section' flexWrap='wrap' width='100%'>
 				<Box width={['100%', '100%', 2 / 5]} height={['50vh', '50vh', 'auto']} position='relative'>
 					<Image
-						src='/images/our.service.1.jpg'
+						src={aboutUs?.ServiceImage}
 						alt='Modern real estate'
 						objectFit='cover'
 						position='absolute'
@@ -206,7 +214,7 @@ const AboutUs: AppPage = () => {
 						position='relative'
 						order={[0, 1]}>
 						<Image
-							src='/images/why.turkey.jpg'
+							src={aboutUs?.whyUsImage}
 							alt='turkey flag on Dolmabahçe Sarayı'
 							objectFit='cover'
 							position='absolute'

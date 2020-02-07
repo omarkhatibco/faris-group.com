@@ -2,7 +2,7 @@
 
 import { Box, Heading, AspectRatioBox, Image, Flex, Button } from '@chakra-ui/core';
 
-import { Map } from './';
+import { Map } from '.';
 
 export const PropertyMap = ({ map }) => {
 	return map ? (

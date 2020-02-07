@@ -1,7 +1,7 @@
 /**jsx @jsx */
 import { useState, useEffect } from 'react';
 import { Box, Heading, AspectRatioBox, Flex, Button, Image, IconButton } from '@chakra-ui/core';
-import { Video } from './';
+import { Video } from '.';
 
 export const PropertyVideo = ({ url }) => {
 	return url ? (
