@@ -27,8 +27,8 @@ export const SocialLinks = ({ size }) => {
 
 	return (
 		<Stack my='2' isInline>
-			{social?.map(({ type, link: { url } }, index) => (
-				<Link key={index} href={url} target='_blank'>
+			{social?.map(({ type, link }, index) => (
+				<Link key={index} href={link?.url} target='_blank'>
 					<IconButton
 						variant='ghost'
 						size={size}
