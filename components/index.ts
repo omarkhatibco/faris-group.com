@@ -22,3 +22,4 @@ export * from './PropertyMap';
 export * from './PropertyVideo';
 export * from './SocialLinks';
 export * from './Video';
+export * from './CurrencyProvider';

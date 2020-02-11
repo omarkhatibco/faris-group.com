@@ -14,12 +14,12 @@ export const formatMoney = (number, currency) => {
 		currencyDisplay: 'name',
 	}).format(number);
 };
-export const formatMoneyPart = (number, currency) => {
+export const formatMoneyPart = (number, currency, currencyDisplay = 'name') => {
 	return new Intl.NumberFormat('ar-SY', {
 		minimumFractionDigits: 0,
 		maximumFractionDigits: 0,
 		style: 'currency',
 		currency,
-		currencyDisplay: 'name',
+		currencyDisplay,
 	}).formatToParts(number);
 };

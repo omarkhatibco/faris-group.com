@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@chakra-ui/core';
-import { PreflightCSS, ConfigProvider } from '~components';
+import { PreflightCSS, ConfigProvider, CurrencyProvider } from '~components';
 import theme from '../theme';
 // import App from 'next/app';
 
@@ -8,15 +8,17 @@ const MyApp = ({ Component, pageProps }) => {
 	return (
 		<ThemeProvider theme={theme}>
 			<PreflightCSS />
-			<ConfigProvider>
-				{Layout ? (
-					<Layout>
+			<CurrencyProvider>
+				<ConfigProvider>
+					{Layout ? (
+						<Layout>
+							<Component {...pageProps} />
+						</Layout>
+					) : (
 						<Component {...pageProps} />
-					</Layout>
-				) : (
-					<Component {...pageProps} />
-				)}
-			</ConfigProvider>
+					)}
+				</ConfigProvider>
+			</CurrencyProvider>
 		</ThemeProvider>
 	);
 };
