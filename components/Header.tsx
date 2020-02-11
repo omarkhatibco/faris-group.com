@@ -1,11 +1,10 @@
 /**jsx @jsx */
-import { Flex, Box, Image, IconButton, Stack } from '@chakra-ui/core';
+import { Box, Flex, Image } from '@chakra-ui/core';
 import { css } from '@emotion/core';
-import React from 'react';
-import { MdTranslate } from 'react-icons/md';
-import { Container, MobileNav } from '~components';
-import { ActiveLink } from './ActiveLink';
 import Link from 'next/link';
+import React from 'react';
+import { Container, CurrencyConverter, MobileNav } from '~components';
+import { ActiveLink } from './ActiveLink';
 
 export const Header = ({}) => {
 	return (
@@ -49,14 +48,7 @@ export const Header = ({}) => {
 							<Box as='li'>
 								<ActiveLink href='/contact-us'>تواصل معنا</ActiveLink>
 							</Box>
-							{/* <Box>
-								<IconButton
-									aria-label='Choose Language'
-									variant='outline'
-									variantColor='teal'
-									icon={MdTranslate}
-								/>
-							</Box> */}
+							<CurrencyConverter />
 						</Flex>
 					</Box>
 					<MobileNav />
