@@ -58,7 +58,9 @@ export const Header = ({}) => {
 									icon={MdFavorite}
 								/>
 							</Box>
-							<CurrencyConverter />
+							<Box as='li'>
+								<CurrencyConverter />
+							</Box>
 						</Flex>
 					</Box>
 					<MobileNav />

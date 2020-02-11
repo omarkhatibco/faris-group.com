@@ -12,32 +12,30 @@ export const CurrencyConverter = () => {
 	);
 
 	return (
-		<Box as='li'>
-			<Menu autoSelect='false'>
-				<MenuButton
-					as={IconButton}
-					aria-label='اختر العملة المفضلة'
-					borderRadius='100%'
-					variant='ghost'
-					variantColor='teal'
-					icon='currency'>
-					{currencyName?.value}
-				</MenuButton>
-				<MenuList>
-					{currencyArr?.map(key => {
-						const currencyName = formatMoneyPart(0, key)?.find(({ type }) => type === 'currency');
-						return (
-							<MenuItem
-								key={key}
-								onClick={() => setCurrency(key)}
-								value={key}
-								color={key === currency ? 'green.500' : 'black'}>
-								{currencyName?.value}
-							</MenuItem>
-						);
-					})}
-				</MenuList>
-			</Menu>
-		</Box>
+		<Menu autoSelect='false'>
+			<MenuButton
+				as={IconButton}
+				aria-label='اختر العملة المفضلة'
+				borderRadius='100%'
+				variant='ghost'
+				variantColor='teal'
+				icon='currency'>
+				{currencyName?.value}
+			</MenuButton>
+			<MenuList>
+				{currencyArr?.map(key => {
+					const currencyName = formatMoneyPart(0, key)?.find(({ type }) => type === 'currency');
+					return (
+						<MenuItem
+							key={key}
+							onClick={() => setCurrency(key)}
+							value={key}
+							color={key === currency ? 'green.500' : 'black'}>
+							{currencyName?.value}
+						</MenuItem>
+					);
+				})}
+			</MenuList>
+		</Menu>
 	);
 };

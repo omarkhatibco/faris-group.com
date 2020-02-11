@@ -18,6 +18,7 @@ export const PropertyApartments = ({ appartments }) => {
 				fontFamily='inherit'>
 				الشقق المتوفرة ({appartments?.length})
 			</Heading>
+
 			<Grid gridGap={4} gridTemplateColumns={['repeat(1,1fr)', 'repeat(1,1fr)']}>
 				{appartments?.map((obj, index) => {
 					const price = currencyObj
