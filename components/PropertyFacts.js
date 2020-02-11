@@ -17,6 +17,12 @@ export const PropertyFacts = ({ data }) => {
 			<Box px={4}>
 				<ApartmentInfo title='عدد الشقق' icon='bed' value={formatNumber(appartment_count)} />
 			</Box>
+			<Box px={4}>
+				<ApartmentInfo title='تاريخ البناء' icon='bed' value={formatNumber(appartment_count)} />
+			</Box>
+			<Box px={4}>
+				<ApartmentInfo title='تاريخ الإنتهاء' icon='bed' value={formatNumber(appartment_count)} />
+			</Box>
 		</Flex>
 	);
 };
