@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListIcon, Heading, Text } from '@chakra-ui/core';
+import { Box, Heading, List, ListIcon, ListItem, Text } from '@chakra-ui/core';
 export const PropertyDescription = ({ data }) => {
 	return (
 		<Box>

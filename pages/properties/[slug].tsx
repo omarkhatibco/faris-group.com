@@ -1,22 +1,21 @@
 /**jsx @jsx */
-import { useEffect, useState } from 'react';
-import { Spinner, Flex, Box, Grid, Image, IconButton, Heading, Text } from '@chakra-ui/core';
-import { AppPage } from '~@types/global';
-import { DefaultLayout } from '~components/layouts';
-import {
-	ImageSlider,
-	Container,
-	PropertyContactForm,
-	PropertyHeading,
-	PropertyDescription,
-	PropertyAmenities,
-	PropertyVideo,
-	PropertyMap,
-	PropertyApartments,
-} from '~components';
+import { Box, Heading, Text } from '@chakra-ui/core';
 import { useRouter } from 'next/router';
-import { wp, chunk, getCdnUrl } from '~utls';
-import { css } from '@emotion/core';
+import { useEffect, useState } from 'react';
+import { AppPage } from '~@types/global';
+import {
+	Container,
+	ImageSlider,
+	PropertyAmenities,
+	PropertyApartments,
+	PropertyContactForm,
+	PropertyDescription,
+	PropertyHeading,
+	PropertyMap,
+	PropertyVideo,
+} from '~components';
+import { DefaultLayout } from '~components/layouts';
+import { getCdnUrl, wp } from '~utls';
 
 const SingleProperties: AppPage = () => {
 	const [data, setData] = useState<any>({});
@@ -104,8 +103,8 @@ const SingleProperties: AppPage = () => {
 					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
 						<PropertyHeading data={data} />
 						<PropertyDescription data={data} />
-						<PropertyApartments data={data} />
-						<PropertyAmenities data={data} />
+						<PropertyApartments appartments={data?.appartments} />
+						<PropertyAmenities amenities={data?.amenities} />
 						<PropertyVideo url={data?.oembed} />
 						<PropertyMap map={data?.map} />
 					</Box>

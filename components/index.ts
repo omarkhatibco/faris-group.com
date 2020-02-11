@@ -20,3 +20,4 @@ export * from './PropertyApartments';
 export * from './Video';
 export * from './SocialLinks';
 export * from './ContactForm';
+export * from './ApartmentInfo';
