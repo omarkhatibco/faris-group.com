@@ -1,6 +1,5 @@
 import { Box, IconButton, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/core';
 import { useContext } from 'react';
-import { MdAttachMoney } from 'react-icons/md';
 import { ConfigContext, CurrencyContext } from '~components';
 import { formatMoneyPart } from '~utls';
 
@@ -13,13 +12,14 @@ export const CurrencyConverter = () => {
 	);
 
 	return (
-		<Box>
-			<Menu>
+		<Box as='li'>
+			<Menu autoSelect='false'>
 				<MenuButton
 					as={IconButton}
 					aria-label='اختر العملة المفضلة'
 					borderRadius='100%'
-					variantColor='green'
+					variant='ghost'
+					variantColor='teal'
 					icon='currency'>
 					{currencyName?.value}
 				</MenuButton>
@@ -27,7 +27,11 @@ export const CurrencyConverter = () => {
 					{currencyArr?.map(key => {
 						const currencyName = formatMoneyPart(0, key)?.find(({ type }) => type === 'currency');
 						return (
-							<MenuItem onClick={() => setCurrency(key)} value={key}>
+							<MenuItem
+								key={key}
+								onClick={() => setCurrency(key)}
+								value={key}
+								color={key === currency ? 'green.500' : 'black'}>
 								{currencyName?.value}
 							</MenuItem>
 						);
