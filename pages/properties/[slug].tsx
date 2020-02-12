@@ -98,7 +98,7 @@ const SingleProperties: AppPage = () => {
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
 			<ImageSlider galleries={galleries} featuredmedia={featuredmedia} />
-			<Box pt='4' pb='8'>
+			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
 					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
 						<PropertyHeading data={data} />

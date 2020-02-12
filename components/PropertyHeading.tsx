@@ -1,7 +1,15 @@
-import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Heading, Icon } from '@chakra-ui/core';
+import {
+	Box,
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	Flex,
+	Heading,
+	Icon,
+} from '@chakra-ui/core';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { ConfigContext, PropertyFacts } from '~components';
+import { ConfigContext, PropertyFacts, PropertyPrice } from '~components';
 
 export const PropertyHeading = ({ data }) => {
 	const { locations } = useContext<any>(ConfigContext);
@@ -11,32 +19,39 @@ export const PropertyHeading = ({ data }) => {
 
 	return (
 		<Box>
-			<Box mb={2}>
-				<Heading
-					as='h1'
-					mb='2'
-					color='green.500'
-					fontSize={['2xl', '5xl']}
-					textTransform='uppercase'
-					fontFamily='inherit'
-					dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
-			</Box>
-			<Breadcrumb mb={6} spacing='8px' separator={<Icon color='gray.300' name='chevron-left' />}>
-				<BreadcrumbItem>
-					<Link href='/'>
-						<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
-					</Link>
-				</BreadcrumbItem>
-				<BreadcrumbItem>
-					<Link href='/'>
-						<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
-					</Link>
-				</BreadcrumbItem>
+			<Flex mb={2} alignItems='center' flexWrap='wrap'>
+				<Box width={['100%', 'auto']}>
+					<Heading
+						as='h1'
+						mb='2'
+						color='green.500'
+						fontSize='5xl'
+						textTransform='uppercase'
+						fontFamily='inherit'
+						dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
+					<Breadcrumb
+						mb={6}
+						spacing='8px'
+						separator={<Icon color='gray.300' name='chevron-left' />}>
+						<BreadcrumbItem>
+							<Link href='/'>
+								<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
+							</Link>
+						</BreadcrumbItem>
+						<BreadcrumbItem>
+							<Link href='/'>
+								<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
+							</Link>
+						</BreadcrumbItem>
 
-				<BreadcrumbItem isCurrentPage>
-					<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
-				</BreadcrumbItem>
-			</Breadcrumb>
+						<BreadcrumbItem isCurrentPage>
+							<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
+						</BreadcrumbItem>
+					</Breadcrumb>
+				</Box>
+				<PropertyPrice appartments={data?.appartments} />
+			</Flex>
+
 			<PropertyFacts data={data} />
 			<Box as='hr' my={8}></Box>
 		</Box>

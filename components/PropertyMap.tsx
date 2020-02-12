@@ -1,7 +1,6 @@
 /**jsx @jsx */
 
-import { Box, Heading, AspectRatioBox, Image, Flex, Button } from '@chakra-ui/core';
-
+import { Box, Heading } from '@chakra-ui/core';
 import { Map } from '.';
 
 export const PropertyMap = ({ map }) => {
@@ -21,7 +20,6 @@ export const PropertyMap = ({ map }) => {
 			<Box mt='4'>
 				<Map search={map?.address} ratio={16 / 9} borderRadius='0.5rem' boxShadow='lg' />
 			</Box>
-			<Box as='hr' my={8}></Box>
 		</Box>
 	) : null;
 };
