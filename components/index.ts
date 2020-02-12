@@ -1,4 +1,3 @@
-export * from './ApartmentInfo';
 export * from './BgImage';
 export * from './ConfigProvider';
 export * from './ContactForm';
@@ -9,6 +8,7 @@ export * from './Footer';
 export * from './FrmComponents';
 export * from './Header';
 export * from './ImageSlider';
+export * from './InfoBox';
 export * from './layouts';
 export * from './Map';
 export * from './MobileNav';

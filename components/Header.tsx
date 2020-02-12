@@ -1,11 +1,11 @@
 /**jsx @jsx */
-import { Box, Flex, Image, IconButton } from '@chakra-ui/core';
+import { Box, Flex, IconButton, Image } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import Link from 'next/link';
 import React from 'react';
+import { MdFavorite } from 'react-icons/md';
 import { Container, CurrencyConverter, MobileNav } from '~components';
 import { ActiveLink } from './ActiveLink';
-import { MdFavorite } from 'react-icons/md';
 
 export const Header = ({}) => {
 	return (
@@ -36,20 +36,20 @@ export const Header = ({}) => {
 					</Box>
 
 					<Box as='nav' display={['none', 'none', 'none', 'block']}>
-						<Flex as='ul' listStyleType='none' gridGap='2'>
-							<Box as='li'>
+						<Flex as='ul' listStyleType='none' mx={-2}>
+							<Box px={1} as='li'>
 								<ActiveLink href='/'>الرئيسية</ActiveLink>
 							</Box>
-							<Box as='li'>
+							<Box px={1} as='li'>
 								<ActiveLink href='/about-us'>من نحن</ActiveLink>
 							</Box>
-							<Box as='li'>
+							<Box px={1} as='li'>
 								<ActiveLink href='/properties'>العقارات</ActiveLink>
 							</Box>
-							<Box as='li'>
+							<Box px={1} as='li'>
 								<ActiveLink href='/contact-us'>تواصل معنا</ActiveLink>
 							</Box>
-							<Box as='li'>
+							<Box px={1} as='li'>
 								<IconButton
 									aria-label='اختر العملة المفضلة'
 									borderRadius='100%'
@@ -58,7 +58,7 @@ export const Header = ({}) => {
 									icon={MdFavorite}
 								/>
 							</Box>
-							<Box as='li'>
+							<Box px={2} as='li'>
 								<CurrencyConverter />
 							</Box>
 						</Flex>

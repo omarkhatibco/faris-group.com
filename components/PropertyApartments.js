@@ -1,6 +1,6 @@
 import { Badge, Box, Button, Flex, Grid, Heading, IconButton, Image } from '@chakra-ui/core';
-import { useState, useContext } from 'react';
-import { ApartmentInfo, Overlay, ConfigContext, CurrencyContext } from '~components';
+import { useContext, useState } from 'react';
+import { ConfigContext, CurrencyContext, InfoBox, Overlay } from '~components';
 import { formatMoney, formatNumber } from '~utls';
 
 export const PropertyApartments = ({ appartments }) => {
@@ -53,7 +53,7 @@ export const PropertyApartments = ({ appartments }) => {
 							)}
 							<Flex justifyContent='space-between' flexWrap='wrap' width='100%'>
 								{obj.rooms_count && (
-									<ApartmentInfo
+									<InfoBox
 										width={[1 / 3, 'auto']}
 										title='غرف النوم'
 										icon='bed'
@@ -61,7 +61,7 @@ export const PropertyApartments = ({ appartments }) => {
 									/>
 								)}
 								{obj.salons_count && (
-									<ApartmentInfo
+									<InfoBox
 										width={[1 / 3, 'auto']}
 										title='الصالونات'
 										icon='sofa'
@@ -69,7 +69,7 @@ export const PropertyApartments = ({ appartments }) => {
 									/>
 								)}
 								{obj.baths_count && (
-									<ApartmentInfo
+									<InfoBox
 										width={[1 / 3, 'auto']}
 										title='الحمامات'
 										icon='bath'
@@ -77,7 +77,7 @@ export const PropertyApartments = ({ appartments }) => {
 									/>
 								)}
 								{obj.min_size && (
-									<ApartmentInfo
+									<InfoBox
 										width={[1 / 2, 'auto']}
 										title='المساحة (تبدأ من)'
 										icon='area'
@@ -86,7 +86,7 @@ export const PropertyApartments = ({ appartments }) => {
 									/>
 								)}
 								{obj.price && (
-									<ApartmentInfo
+									<InfoBox
 										width={[1 / 2, 'auto']}
 										title='السعر (يبدأ من)'
 										icon='dollar'

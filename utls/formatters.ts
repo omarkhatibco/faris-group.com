@@ -23,3 +23,8 @@ export const formatMoneyPart = (number, currency, currencyDisplay = 'name') => {
 		currencyDisplay,
 	}).formatToParts(number);
 };
+
+export const formatYear = date => {
+	const year = new Date(Date.parse(date)).getFullYear();
+	return formatNumber(year).replace(/٬/g, '');
+};
