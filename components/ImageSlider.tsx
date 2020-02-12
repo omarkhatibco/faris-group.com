@@ -1,11 +1,11 @@
 /**jsx @jsx */
-import { useEffect, useState } from 'react';
-import { Flex, Box, Image, IconButton } from '@chakra-ui/core';
+import { Box, Flex, IconButton, Image } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import EmblaCarouselReact from 'embla-carousel-react';
+import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
-export const ImageSlider = ({ galleries, featuredmedia }) => {
+export const ImageSlider = ({ galleries }) => {
 	const [embla, setEmbla] = useState(null);
 	const { width: windowWidth, height: windowHeight } = useWindowSize();
 

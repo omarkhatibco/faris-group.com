@@ -8,6 +8,7 @@ import {
 	ImageSlider,
 	PropertyAmenities,
 	PropertyApartments,
+	PropertyAttachments,
 	PropertyContactForm,
 	PropertyDescription,
 	PropertyHeading,
@@ -20,6 +21,7 @@ import { getCdnUrl, wp } from '~utls';
 const SingleProperties: AppPage = () => {
 	const [data, setData] = useState<any>({});
 	const [galleries, setGalleries] = useState<any>([]);
+	const [attachments, setAttachments] = useState<any>([]);
 	const [featuredmedia, setFeaturedmedia] = useState<any>({});
 	const {
 		query: { slug },
@@ -61,19 +63,16 @@ const SingleProperties: AppPage = () => {
 					searchParams: gallerySearchParam,
 				})
 				.json();
-			// const sortedGalleries = chunk(
-			// 	[...gallery]
-			// 		.sort((a, b) => b.source_url - a.source_url)
-			// 		.map(obj => {
-			// 			const source_url = getCdnUrl(obj?.source_url);
-			// 			return {
-			// 				...obj,
-			// 				source_url,
-			// 			};
-			// 		})
-			// 		.reverse(),
-			// 	9
-			// );
+
+			const attachmentsSearchParam = new URLSearchParams();
+			attachmentsSearchParam.append('per_page', '100');
+			attachmentsSearchParam.append('include', data.attachments.toString());
+			const attachments: any = await wp
+				.get('media', {
+					searchParams: attachmentsSearchParam,
+				})
+				.json();
+
 			const sortedGalleries = [...gallery]
 				.sort((a, b) => b.source_url - a.source_url)
 				.map(obj => {
@@ -86,6 +85,7 @@ const SingleProperties: AppPage = () => {
 				.reverse();
 			setData(data);
 			setGalleries(sortedGalleries);
+			setAttachments(attachments);
 		} catch (error) {
 			console.error(error);
 		}
@@ -97,15 +97,16 @@ const SingleProperties: AppPage = () => {
 
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
-			<ImageSlider galleries={galleries} featuredmedia={featuredmedia} />
+			<ImageSlider galleries={galleries} />
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
 					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
 						<PropertyHeading data={data} />
 						<PropertyDescription data={data} />
-						<PropertyApartments appartments={data?.appartments} />
 						<PropertyAmenities amenities={data?.amenities} />
+						<PropertyApartments appartments={data?.appartments} />
 						<PropertyVideo url={data?.oembed} />
+						<PropertyAttachments attachments={attachments} />
 						<PropertyMap map={data?.map} />
 					</Box>
 					<Box as='aside' width={['100%', 1 / 3]} bg='red' position='relative'>

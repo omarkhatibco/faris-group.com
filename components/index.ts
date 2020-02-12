@@ -16,6 +16,7 @@ export * from './Overlay';
 export * from './PreflightCSS';
 export * from './PropertyAmenities';
 export * from './PropertyApartments';
+export * from './PropertyAttachments';
 export * from './PropertyContactForm';
 export * from './PropertyDescription';
 export * from './PropertyFacts';
