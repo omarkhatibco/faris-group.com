@@ -1,4 +1,4 @@
-import { Box, IconButton, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/core';
+import { IconButton, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/core';
 import { useContext } from 'react';
 import { ConfigContext, CurrencyContext } from '~components';
 import { formatMoneyPart } from '~utls';
@@ -12,7 +12,7 @@ export const CurrencyConverter = () => {
 	);
 
 	return (
-		<Menu autoSelect='false'>
+		<Menu autoSelect={false}>
 			<MenuButton
 				as={IconButton}
 				aria-label='اختر العملة المفضلة'
