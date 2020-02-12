@@ -22,7 +22,6 @@ const SingleProperties: AppPage = () => {
 	const [data, setData] = useState<any>({});
 	const [galleries, setGalleries] = useState<any>([]);
 	const [attachments, setAttachments] = useState<any>([]);
-	const [featuredmedia, setFeaturedmedia] = useState<any>({});
 	const {
 		query: { slug },
 	} = useRouter();
@@ -42,50 +41,50 @@ const SingleProperties: AppPage = () => {
 					searchParams,
 				})
 				.json();
-			const data = response.find(item => item.slug === slug);
-			console.log();
+			const data = response?.find(item => item.slug === slug);
+
 			if (!data) {
 				throw new Error('Property not found');
 				// 404 not found
 			}
 
-			const featuredmedia = {
-				...(data?._embedded && data?._embedded['wp:featuredmedia'][0]),
-				source_url: getCdnUrl(data?._embedded && data?._embedded['wp:featuredmedia'][0].source_url),
-			};
-			setFeaturedmedia(featuredmedia);
-
-			const gallerySearchParam = new URLSearchParams();
-			gallerySearchParam.append('per_page', '100');
-			gallerySearchParam.append('include', data.media_gallery.toString());
-			const gallery: any = await wp
-				.get('media', {
-					searchParams: gallerySearchParam,
-				})
-				.json();
-
-			const attachmentsSearchParam = new URLSearchParams();
-			attachmentsSearchParam.append('per_page', '100');
-			attachmentsSearchParam.append('include', data.attachments.toString());
-			const attachments: any = await wp
-				.get('media', {
-					searchParams: attachmentsSearchParam,
-				})
-				.json();
-
-			const sortedGalleries = [...gallery]
-				.sort((a, b) => b.source_url - a.source_url)
-				.map(obj => {
-					const source_url = getCdnUrl(obj?.source_url);
-					return {
-						...obj,
-						source_url,
-					};
-				})
-				.reverse();
 			setData(data);
-			setGalleries(sortedGalleries);
-			setAttachments(attachments);
+
+			if (data?.media_gallery?.length > 0) {
+				const gallerySearchParam = new URLSearchParams();
+				gallerySearchParam.append('per_page', '100');
+				gallerySearchParam.append('include', data?.media_gallery?.toString());
+				const gallery: any = await wp
+					.get('media', {
+						searchParams: gallerySearchParam,
+					})
+					.json();
+
+				const sortedGalleries = [...gallery]
+					.sort((a, b) => b.source_url - a.source_url)
+					.map(obj => {
+						const source_url = getCdnUrl(obj?.source_url);
+						return {
+							...obj,
+							source_url,
+						};
+					})
+					.reverse();
+
+				setGalleries(sortedGalleries);
+			}
+
+			if (data?.attachments?.length > 0) {
+				const attachmentsSearchParam = new URLSearchParams();
+				attachmentsSearchParam.append('per_page', '100');
+				attachmentsSearchParam.append('include', data?.attachments?.toString());
+				const attachments: any = await wp
+					.get('media', {
+						searchParams: attachmentsSearchParam,
+					})
+					.json();
+				setAttachments(attachments);
+			}
 		} catch (error) {
 			console.error(error);
 		}
