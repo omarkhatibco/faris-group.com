@@ -1,4 +1,6 @@
-import React, { useState, createContext } from 'react';
+import React, { createContext } from 'react';
+import { useLocalStorage } from 'react-use';
+
 interface IProps {
 	children: React.ReactNode;
 }
@@ -6,7 +8,7 @@ interface IProps {
 export const CurrencyContext = createContext({});
 
 export const CurrencyProvider: React.FC<IProps> = ({ children }) => {
-	const state = useState('usd');
+	const state = useLocalStorage('selected-currency', 'usd');
 
 	return <CurrencyContext.Provider value={state}>{children}</CurrencyContext.Provider>;
 };

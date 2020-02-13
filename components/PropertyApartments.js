@@ -109,6 +109,7 @@ export const PropertyApartments = ({ appartments }) => {
 											onClick={() => {
 												setOverlayImage(obj.image);
 											}}
+											borderRadius='100%'
 											aria-label='عرض المخطط'
 											variantColor='green'
 											icon='view'
