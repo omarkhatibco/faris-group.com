@@ -54,7 +54,7 @@ export const Header = ({}) => {
 									aria-label='اختر العملة المفضلة'
 									borderRadius='100%'
 									variant='ghost'
-									variantColor='teal'
+									variantColor='green'
 									icon={MdFavorite}
 								/>
 							</Box>

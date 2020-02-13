@@ -21,6 +21,7 @@
 		"@emotion/babel-preset-css-prop": "^10.0.27",
 		"@emotion/core": "^10.0.27",
 		"@emotion/styled": "^10.0.27",
+		"@formatjs/intl-unified-numberformat": "^3.2.0",
 		"@svgr/cli": "^5.1.0",
 		"embla-carousel-react": "^1.2.16",
 		"emotion-theming": "^10.0.27",

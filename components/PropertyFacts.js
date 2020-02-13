@@ -28,7 +28,7 @@ export const PropertyFacts = ({ data }) => {
 					<Box px={4}>
 						<InfoBox
 							title='مساحة المشروع'
-							icon='area'
+							icon='area2'
 							value={formatNumber(lot_size)}
 							suffix='متر<sup>٢</sup>'
 						/>
@@ -42,17 +42,17 @@ export const PropertyFacts = ({ data }) => {
 				)}
 				{building_date && (
 					<Box px={4}>
-						<InfoBox title='تاريخ البناء' icon='calender1' value={formatYear(building_date)} />
+						<InfoBox title='تاريخ البناء' icon='calender' value={formatYear(building_date)} />
 					</Box>
 				)}
 				{delivery_date && !is_project_ready && (
 					<Box px={4}>
-						<InfoBox title='تاريخ الإنتهاء' icon='calender2' value={formatYear(delivery_date)} />
+						<InfoBox title='تاريخ الإنتهاء' icon='calender' value={formatYear(delivery_date)} />
 					</Box>
 				)}
 				{is_project_ready && (
 					<Box px={4}>
-						<InfoBox title='تاريخ الإنتهاء' icon='calender2' value='المشروع جاهز للتسليم' />
+						<InfoBox title='تاريخ الإنتهاء' icon='calender' value='المشروع جاهز للتسليم' />
 					</Box>
 				)}
 			</Flex>

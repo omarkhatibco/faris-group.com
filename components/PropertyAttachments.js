@@ -1,5 +1,4 @@
 import { Box, Heading, Link, List, ListIcon, ListItem } from '@chakra-ui/core';
-import { FaFileAlt, FaFilePdf } from 'react-icons/fa';
 
 export const PropertyAttachments = ({ attachments }) => {
 	return attachments?.length > 0 ? (
@@ -16,28 +15,15 @@ export const PropertyAttachments = ({ attachments }) => {
 			<List spacing={2}>
 				{attachments?.map(({ id, source_url, title, mime_type }, index) => {
 					return (
-						<ListItem fontWeight='bold' fontSize='lg' key={id}>
-							{mime_type.includes('pdf') && (
-								<ListIcon
-									icon={FaFilePdf}
-									width='1.25em'
-									height='1.25em'
-									color='green.400'
-									mr={0}
-									ml={2}
-								/>
-							)}
-							{mime_type.includes('doc') && (
-								<ListIcon
-									icon={FaFileAlt}
-									width='1.25em'
-									height='1.25em'
-									color='green.400'
-									mr={0}
-									ml={2}
-								/>
-							)}
-							<Link href={source_url} target='_blank' download>
+						<ListItem display='flex' alignItems='center' fontWeight='bold' fontSize='lg' key={id}>
+							<ListIcon
+								icon={mime_type.includes('pdf') ? 'pdfFile' : 'docFile'}
+								size='1.5rem'
+								color='green.400'
+								mr={0}
+								ml={2}
+							/>
+							<Link href={source_url} color='green.700' target='_blank' download>
 								{title?.rendered}
 							</Link>
 						</ListItem>

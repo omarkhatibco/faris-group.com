@@ -1,9 +1,9 @@
 /**jsx @jsx */
 
-import { Box, Heading } from '@chakra-ui/core';
-import { Map } from '.';
+import { Box, Grid, Heading } from '@chakra-ui/core';
+import { DistanceInfoBox, Map } from '~components';
 
-export const PropertyMap = ({ map }) => {
+export const PropertyMap = ({ map, distances }) => {
 	return map ? (
 		<Box>
 			<Heading
@@ -15,8 +15,12 @@ export const PropertyMap = ({ map }) => {
 				fontFamily='inherit'>
 				الموقع
 			</Heading>
-			<p>TBD</p>
-			<p>المسافات إلي المطار مول مدرسة</p>
+
+			<Grid gridGap={2} gridTemplateColumns={['repeat(1,1fr)', 'repeat(2,1fr)']}>
+				{distances?.map((data, index) => (
+					<DistanceInfoBox key={index} {...data} />
+				))}
+			</Grid>
 			<Box mt='4'>
 				<Map search={map?.address} ratio={16 / 9} borderRadius='0.5rem' boxShadow='lg' />
 			</Box>

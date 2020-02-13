@@ -4,6 +4,7 @@ export * from './ContactForm';
 export * from './Container';
 export * from './CurrencyConverter';
 export * from './CurrencyProvider';
+export * from './DistanceInfoBox';
 export * from './Footer';
 export * from './FrmComponents';
 export * from './Header';

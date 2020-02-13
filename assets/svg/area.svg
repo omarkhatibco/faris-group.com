@@ -1,9 +1,0 @@
-<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-<circle cx="2" cy="2" r="2"/>
-<circle cx="2" cy="22" r="2"/>
-<circle cx="22" cy="2" r="2"/>
-<path d="M1 1h2v22H1z"/>
-<path d="M1 1h22v2H1z"/>
-<path opacity=".5" d="M23 20.277V1h-2v19.277c-.3.175-.548.423-.723.723H1v2h19.277c.347.596.984 1 1.723 1a2 2 0 002-2c0-.738-.404-1.376-1-1.723z"/>
-
-</svg>

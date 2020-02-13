@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Flex, Grid, Heading, IconButton, Image } from '@chakra-ui/core';
+import { Badge, Box, Button, Flex, Heading, IconButton, Image } from '@chakra-ui/core';
 import { useContext, useState } from 'react';
 import { ConfigContext, CurrencyContext, InfoBox, Overlay } from '~components';
 import { formatMoney, formatNumber } from '~utls';
@@ -19,13 +19,14 @@ export const PropertyApartments = ({ appartments }) => {
 				الشقق المتوفرة ({appartments?.length})
 			</Heading>
 
-			<Grid gridGap={4} gridTemplateColumns={['repeat(1,1fr)', 'repeat(1,1fr)']}>
+			<Box>
 				{appartments?.map((obj, index) => {
 					const price = currencyObj
 						? obj.price * currencyObj[currency]
 						: obj.price * 0.16569376809169;
 					return (
 						<Box
+							my={4}
 							key={index}
 							borderWidth='1px'
 							borderColor='gray.100'
@@ -118,7 +119,7 @@ export const PropertyApartments = ({ appartments }) => {
 						</Box>
 					);
 				})}
-			</Grid>
+			</Box>
 			<Box as='hr' my={8}></Box>
 			{overlayImage && (
 				<Overlay isOpen={Boolean(overlayImage)} onClose={() => setOverlayImage(null)}>
