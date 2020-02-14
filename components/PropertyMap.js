@@ -11,24 +11,34 @@ export const PropertyMap = ({ map, distances, location, sublocation }) => {
 
 	return (
 		<Box>
-			<Heading
-				as='h2'
-				mb={6}
-				color='green.500'
-				fontSize={['xl', '3xl']}
-				textTransform='uppercase'
-				fontFamily='inherit'>
-				الموقع
-			</Heading>
+			{(map || distances || location || sublocation) && (
+				<Heading
+					as='h2'
+					mb={6}
+					color='green.500'
+					fontSize={['xl', '3xl']}
+					textTransform='uppercase'
+					fontFamily='inherit'>
+					الموقع
+				</Heading>
+			)}
+
 			<Box>
-				<InfoBox title='العنوان' icon='marker' value={map?.address} width='100%' />
+				{map?.address && (
+					<InfoBox title='العنوان' icon='marker' value={map?.address} width='100%' />
+				)}
+
 				<Flex mx={-4} mt={2} mb={6}>
-					<Box px={4}>
-						<InfoBox title='المدينة' icon='roadSign' value={locationObj?.title} width='auto' />
-					</Box>
-					<Box px={4}>
-						<InfoBox title='الحي' icon='district' value={sublocationObj?.title} width='auto' />
-					</Box>
+					{locationObj?.title && (
+						<Box px={4}>
+							<InfoBox title='المدينة' icon='roadSign' value={locationObj?.title} width='auto' />
+						</Box>
+					)}
+					{sublocationObj?.title && (
+						<Box px={4}>
+							<InfoBox title='الحي' icon='district' value={sublocationObj?.title} width='auto' />
+						</Box>
+					)}
 				</Flex>
 			</Box>
 			{distances?.length > 0 && (

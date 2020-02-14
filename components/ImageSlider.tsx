@@ -20,7 +20,7 @@ export const ImageSlider = ({ galleries }) => {
 
 	return (
 		<Box position='relative'>
-			{galleries.length > 0 && (
+			{galleries && (
 				<EmblaCarouselReact
 					emblaRef={setEmbla}
 					options={{ loop: false, align: 'start', dragFree: false, containScroll: true }}>
@@ -32,7 +32,7 @@ export const ImageSlider = ({ galleries }) => {
 						direction='row-reverse'
 						justifyContent='flex-end'
 						height={'60vh'}>
-						{galleries.map(({ id, source_url, alt_text, media_details }) => {
+						{galleries?.map(({ id, source_url, alt_text, media_details }) => {
 							const { width: orginalWidth, height: orginalHeight } = media_details;
 							const widthInPx = (orginalWidth * (windowHeight * 60)) / 100 / orginalHeight;
 							const width = (100 * widthInPx) / windowWidth;
@@ -55,7 +55,7 @@ export const ImageSlider = ({ galleries }) => {
 					</Flex>
 				</EmblaCarouselReact>
 			)}
-			{galleries.length > 0 && (
+			{galleries && (
 				<Flex
 					position='absolute'
 					width='100%'

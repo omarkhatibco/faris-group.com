@@ -13,9 +13,10 @@ import { ConfigContext, PropertyActions, PropertyFacts, PropertyPrice } from '~c
 
 export const PropertyHeading = ({ data }) => {
 	const { locations } = useContext<any>(ConfigContext);
-	const { location, sublocation } = data;
-	const locationObj = locations?.find(({ slug }) => slug === location);
-	const sublocationObj = locationObj?.fgw_sublocations?.find(({ slug }) => slug === sublocation);
+	const locationObj = locations?.find(({ slug }) => slug === data?.location);
+	const sublocationObj = locationObj?.fgw_sublocations?.find(
+		({ slug }) => slug === data?.sublocation
+	);
 
 	return (
 		<Box>
@@ -61,7 +62,8 @@ export const PropertyHeading = ({ data }) => {
 			</Flex>
 			<PropertyActions data={data} />
 			<PropertyFacts data={data} />
-			<Box as='hr' my={8}></Box>
+
+			{data && <Box as='hr' my={8}></Box>}
 		</Box>
 	);
 };

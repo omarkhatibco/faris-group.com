@@ -1,6 +1,6 @@
 /**jsx @jsx */
 import { Box, Flex, Heading, Spinner, Text } from '@chakra-ui/core';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { AppPage } from '~@types/global';
 import {
@@ -19,14 +19,13 @@ import { DefaultLayout } from '~components/layouts';
 import { getCdnUrl, wp } from '~utls';
 
 const SingleProperties: AppPage = () => {
-	const [data, setData] = useState<any>({});
+	const [data, setData] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
-	const [galleries, setGalleries] = useState<any>([]);
-	const [attachments, setAttachments] = useState<any>([]);
+	const [galleries, setGalleries] = useState<any>(null);
+	const [attachments, setAttachments] = useState<any>(null);
 	const {
 		query: { slug },
 	} = useRouter();
-	// console.log(slug);
 
 	const getData = async () => {
 		if (!slug) {
@@ -47,7 +46,6 @@ const SingleProperties: AppPage = () => {
 
 			if (!data) {
 				throw new Error('Property not found');
-				// 404 not found
 			}
 
 			setData(data);
@@ -89,6 +87,7 @@ const SingleProperties: AppPage = () => {
 			}
 			setLoading(false);
 		} catch (error) {
+			Router.replace('/not_found');
 			console.error(error);
 		}
 	};
