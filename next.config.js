@@ -17,9 +17,7 @@ const nextConfiguration = {
 		return config;
 	},
 	env: {
-		BACKEND_URL: isProduction
-			? 'https://api.faris-group.xyz/wp-json/wp/v2'
-			: 'https://api.faris-group.xyz/wp-json/wp/v2',
+		BACKEND_URL: isProduction ? 'https://api.faris-group.xyz' : 'https://api.faris-group.xyz',
 	},
 	target: 'serverless',
 };

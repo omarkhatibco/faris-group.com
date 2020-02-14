@@ -1,13 +1,10 @@
-import { api } from '~utls';
+import fetch from 'isomorphic-unfetch';
 
 export default async (req, res) => {
-	// const {
-	// 	query: { pid },
-	// } = req;
-
 	try {
-		const config: any = await api.get('config').json();
-		res.status(200).json(config);
+		const config = await fetch(`${process.env.BACKEND_URL}/config}`);
+
+		res.status(200).json(config.json());
 	} catch (error) {
 		res.status(500).json({ message: 'internal server error' });
 	}
