@@ -60,6 +60,7 @@ const AboutUs: NextPage = () => {
 				<Box width={['100%', '100%', 2 / 5]} height={['50vh', '50vh', 'auto']} position='relative'>
 					<Image
 						src={aboutUs?.ServiceImage}
+						fallbackSrc='/images/our.service.1.jpg'
 						alt='Modern real estate'
 						objectFit='cover'
 						position='absolute'
@@ -211,6 +212,7 @@ const AboutUs: NextPage = () => {
 						order={[0, 1]}>
 						<Image
 							src={aboutUs?.whyUsImage}
+							fallbackSrc='/images/why.turkey.jpg'
 							alt='turkey flag on Dolmabahçe Sarayı'
 							objectFit='cover'
 							position='absolute'

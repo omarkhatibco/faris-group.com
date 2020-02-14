@@ -1,7 +1,12 @@
 /**jsx @jsx */
-import { Flex, Box, Text, Link } from '@chakra-ui/core';
+import { Box, Flex, Link, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
-import { Container, SocialLinks } from './';
+import dynamic from 'next/dynamic';
+import { Container } from './';
+
+const SocialLinks = dynamic(() => import('./SocialLinks').then(mod => mod.SocialLinks), {
+	ssr: false,
+});
 
 export const Footer: React.FC = () => {
 	return (
@@ -28,7 +33,7 @@ export const Footer: React.FC = () => {
 						<br />
 						Turkey
 					</Text>
-					<SocialLinks size='lg' />
+					<SocialLinks />
 					<Text fontSize='sm' color='gray.500' my='2' fontFamily='inherit'>
 						جميع الحقوق محفوظة لفارس غروب | تم التطوير من قبل{' '}
 						<Link href='https://loewen.dev' target='_blank'>

@@ -1,7 +1,7 @@
+import { IconButton, Link, Stack } from '@chakra-ui/core';
 import { useContext } from 'react';
+import { FaFacebookF, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ConfigContext } from '~components';
-import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { Link, IconButton, Stack } from '@chakra-ui/core';
 
 const getIcon = type => {
 	switch (type) {
@@ -22,7 +22,7 @@ const getIcon = type => {
 			break;
 	}
 };
-export const SocialLinks = ({ size }) => {
+export const SocialLinks = () => {
 	const { social } = useContext<any>(ConfigContext);
 
 	return (
@@ -31,7 +31,7 @@ export const SocialLinks = ({ size }) => {
 				<Link key={index} href={link?.url} target='_blank'>
 					<IconButton
 						variant='ghost'
-						size={size}
+						size='lg'
 						color={`social.${type}`}
 						aria-label='Facebook Link'
 						isRound

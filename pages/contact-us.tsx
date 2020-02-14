@@ -2,9 +2,17 @@
 import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
 import useMedia from 'react-use/lib/useMedia';
-import { ContactForm, Container, Map, SocialLinks } from '~components';
+import { ContactForm, Container, Map } from '~components';
+
+const SocialLinks = dynamic(
+	() => import('../components/SocialLinks').then(mod => mod.SocialLinks),
+	{
+		ssr: false,
+	}
+);
 
 const ContactUs: NextPage = () => {
 	const isMd = useMedia('(max-width: 768px)');
@@ -29,7 +37,7 @@ const ContactUs: NextPage = () => {
 							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='inherit'>
 								وسائل التواصل
 							</Heading>
-							<SocialLinks size='lg' />
+							<SocialLinks />
 							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='inherit'>
 								بيانات الإتصال
 							</Heading>

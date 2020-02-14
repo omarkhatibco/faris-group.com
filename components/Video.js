@@ -28,17 +28,20 @@ export const Video = ({ url }) => {
 						borderRadius='0.5rem'
 						boxShadow='lg'
 						cursor='pointer'
+						bg='gray.100'
 						onClick={() => setShowVideo(true)}>
-						<Image
-							src={video?.imageUrl}
-							width='100%'
-							position='absolute'
-							top='0'
-							bottom='0'
-							left='0'
-							right='0'
-							objectFit={['cover', 'cover']}
-						/>
+						{video?.imageUrl && (
+							<Image
+								src={video?.imageUrl}
+								width='100%'
+								position='absolute'
+								top='0'
+								bottom='0'
+								left='0'
+								right='0'
+								objectFit={['cover', 'cover']}
+							/>
+						)}
 						<IconButton
 							size='lg'
 							isRound

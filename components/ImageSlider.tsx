@@ -35,7 +35,7 @@ export const ImageSlider = ({ galleries }) => {
 						{galleries?.map(({ id, source_url, alt_text, media_details }) => {
 							const { width: orginalWidth, height: orginalHeight } = media_details;
 							const widthInPx = (orginalWidth * (windowHeight * 60)) / 100 / orginalHeight;
-							const width = (100 * widthInPx) / windowWidth;
+							const width = isFinite(windowWidth) ? (100 * widthInPx) / windowWidth : (100 * 2) / 3;
 							const imgSrc =
 								parseInt(Number(widthInPx).toFixed(0), 10) > windowWidth
 									? `${source_url}?h=${Number((windowHeight * 60) / 100).toFixed(0)}&quality=100`

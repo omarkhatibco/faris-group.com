@@ -9,6 +9,7 @@ export const BgImage = ({ src, alt }) => {
 				filter: 'blur(6px)',
 			})}
 			src={src}
+			fallbackSrc='/images/about.us.bg.jpg'
 			alt={alt}
 			position='absolute'
 			top='0'
