@@ -52,7 +52,7 @@ export const Header = ({}) => {
 							<Box px={1} as='li'>
 								<IconButton
 									aria-label='اختر العملة المفضلة'
-									borderRadius='100%'
+									isRound
 									variant='ghost'
 									variantColor='green'
 									icon={MdFavorite}

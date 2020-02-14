@@ -1,15 +1,7 @@
+import { IconButton, Input, InputGroup, InputProps, InputRightElement } from '@chakra-ui/core';
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Validate } from 'react-hook-form/dist/types';
-
-import {
-	InputGroup,
-	Input,
-	InputRightElement,
-	InputLeftElement,
-	IconButton,
-	InputProps,
-} from '@chakra-ui/core';
 import { MyCustomFormControl } from './FormControl';
 
 interface IProps extends InputProps {

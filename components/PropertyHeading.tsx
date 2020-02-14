@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/core';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { ConfigContext, PropertyFacts, PropertyPrice } from '~components';
+import { ConfigContext, PropertyActions, PropertyFacts, PropertyPrice } from '~components';
 
 export const PropertyHeading = ({ data }) => {
 	const { locations } = useContext<any>(ConfigContext);
@@ -29,29 +29,37 @@ export const PropertyHeading = ({ data }) => {
 						textTransform='uppercase'
 						fontFamily='inherit'
 						dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
+
 					<Breadcrumb
 						mb={6}
 						spacing='8px'
 						separator={<Icon color='gray.300' name='chevron-left' />}>
-						<BreadcrumbItem>
-							<Link href='/'>
-								<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
-							</Link>
-						</BreadcrumbItem>
-						<BreadcrumbItem>
-							<Link href='/'>
-								<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
-							</Link>
-						</BreadcrumbItem>
+						{locationObj?.title && (
+							<BreadcrumbItem>
+								<Link href='/'>
+									<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
+								</Link>
+							</BreadcrumbItem>
+						)}
 
-						<BreadcrumbItem isCurrentPage>
-							<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
-						</BreadcrumbItem>
+						{sublocationObj?.title && (
+							<BreadcrumbItem>
+								<Link href='/'>
+									<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
+								</Link>
+							</BreadcrumbItem>
+						)}
+
+						{data?.title?.rendered && (
+							<BreadcrumbItem isCurrentPage>
+								<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
+							</BreadcrumbItem>
+						)}
 					</Breadcrumb>
 				</Box>
-				<PropertyPrice appartments={data?.appartments} />
+				{data?.appartments?.[0]?.price && <PropertyPrice appartments={data?.appartments} />}
 			</Flex>
-
+			<PropertyActions data={data} />
 			<PropertyFacts data={data} />
 			<Box as='hr' my={8}></Box>
 		</Box>

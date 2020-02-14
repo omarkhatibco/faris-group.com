@@ -79,7 +79,7 @@ export const PropertyApartments = ({ appartments }) => {
 								)}
 								{obj.min_size && (
 									<InfoBox
-										width={[1 / 2, 'auto']}
+										width={['100%', 'auto']}
 										title='المساحة (تبدأ من)'
 										icon='area'
 										value={formatNumber(obj.min_size)}
@@ -88,7 +88,7 @@ export const PropertyApartments = ({ appartments }) => {
 								)}
 								{obj.price && (
 									<InfoBox
-										width={[1 / 2, 'auto']}
+										width={['100%', 'auto']}
 										title='السعر (يبدأ من)'
 										icon='dollar'
 										value={formatMoney(price, currency)}
@@ -109,7 +109,7 @@ export const PropertyApartments = ({ appartments }) => {
 											onClick={() => {
 												setOverlayImage(obj.image);
 											}}
-											borderRadius='100%'
+											isRound
 											aria-label='عرض المخطط'
 											variantColor='green'
 											icon='view'

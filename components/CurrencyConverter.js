@@ -16,7 +16,7 @@ export const CurrencyConverter = () => {
 			<MenuButton
 				as={IconButton}
 				aria-label='اختر العملة المفضلة'
-				borderRadius='100%'
+				isRound
 				variant='ghost'
 				variantColor='green'
 				icon='currency'>

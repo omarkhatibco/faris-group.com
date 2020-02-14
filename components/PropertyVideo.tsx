@@ -1,6 +1,5 @@
 /**jsx @jsx */
-import { useState, useEffect } from 'react';
-import { Box, Heading, AspectRatioBox, Flex, Button, Image, IconButton } from '@chakra-ui/core';
+import { Box, Heading } from '@chakra-ui/core';
 import { Video } from '.';
 
 export const PropertyVideo = ({ url }) => {

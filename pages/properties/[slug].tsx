@@ -1,5 +1,5 @@
 /**jsx @jsx */
-import { Box, Heading, Text } from '@chakra-ui/core';
+import { Box, Flex, Heading, Spinner, Text } from '@chakra-ui/core';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { AppPage } from '~@types/global';
@@ -20,6 +20,7 @@ import { getCdnUrl, wp } from '~utls';
 
 const SingleProperties: AppPage = () => {
 	const [data, setData] = useState<any>({});
+	const [loading, setLoading] = useState<any>(false);
 	const [galleries, setGalleries] = useState<any>([]);
 	const [attachments, setAttachments] = useState<any>([]);
 	const {
@@ -31,6 +32,7 @@ const SingleProperties: AppPage = () => {
 		if (!slug) {
 			return;
 		}
+		setLoading(true);
 		const searchParams = new URLSearchParams();
 		searchParams.append('slug', `${slug}`);
 		searchParams.append('_embed', '');
@@ -85,6 +87,7 @@ const SingleProperties: AppPage = () => {
 					.json();
 				setAttachments(attachments);
 			}
+			setLoading(false);
 		} catch (error) {
 			console.error(error);
 		}
@@ -96,22 +99,31 @@ const SingleProperties: AppPage = () => {
 
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
-			<ImageSlider galleries={galleries} />
+			{!loading && <ImageSlider galleries={galleries} />}
+
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
 					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
-						<PropertyHeading data={data} />
-						<PropertyDescription data={data} />
-						<PropertyAmenities amenities={data?.amenities} />
-						<PropertyApartments appartments={data?.appartments} />
-						<PropertyVideo url={data?.oembed} />
-						<PropertyAttachments attachments={attachments} />
-						<PropertyMap
-							map={data?.map}
-							distances={data?.distances}
-							location={data?.location}
-							sublocation={data?.sublocation}
-						/>
+						{!loading ? (
+							<>
+								<PropertyHeading data={data} />
+								<PropertyDescription data={data} />
+								<PropertyAmenities amenities={data?.amenities} />
+								<PropertyApartments appartments={data?.appartments} />
+								<PropertyVideo url={data?.oembed} />
+								<PropertyAttachments attachments={attachments} />
+								<PropertyMap
+									map={data?.map}
+									distances={data?.distances}
+									location={data?.location}
+									sublocation={data?.sublocation}
+								/>
+							</>
+						) : (
+							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
+								<Spinner size='xl' color='green.500' thickness='3px' />
+							</Flex>
+						)}
 					</Box>
 					<Box as='aside' width={['100%', 1 / 3]} bg='red' position='relative'>
 						<Box

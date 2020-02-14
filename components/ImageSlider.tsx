@@ -73,7 +73,7 @@ export const ImageSlider = ({ galleries }) => {
 						variantColor='green'
 						aria-label='Send email'
 						icon='chevron-right'
-						borderRadius='100%'
+						isRound
 						size='lg'
 						pointerEvents='all'
 						onClick={() => embla.scrollNext()}
@@ -83,7 +83,7 @@ export const ImageSlider = ({ galleries }) => {
 						variantColor='green'
 						aria-label='Send email'
 						icon='chevron-left'
-						borderRadius='100%'
+						isRound
 						size='lg'
 						pointerEvents='all'
 						onClick={() => embla.scrollPrev()}

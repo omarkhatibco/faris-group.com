@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Box, AspectRatioBox, Flex, Button, Image, IconButton } from '@chakra-ui/core';
+import { AspectRatioBox, Box, Flex, IconButton, Image } from '@chakra-ui/core';
+import { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { parseVideo } from '~utls';
 
@@ -41,7 +41,7 @@ export const Video = ({ url }) => {
 						/>
 						<IconButton
 							size='lg'
-							borderRadius='100%'
+							isRound
 							aria-label='عرض الفيديو'
 							variantColor='green'
 							icon={FaPlay}

@@ -9,7 +9,7 @@ export const PropertyMap = ({ map, distances, location, sublocation }) => {
 	const locationObj = locations?.find(({ slug }) => slug === location);
 	const sublocationObj = locationObj?.fgw_sublocations?.find(({ slug }) => slug === sublocation);
 
-	return map ? (
+	return (
 		<Box>
 			<Heading
 				as='h2'
@@ -31,27 +31,30 @@ export const PropertyMap = ({ map, distances, location, sublocation }) => {
 					</Box>
 				</Flex>
 			</Box>
-
-			<Heading
-				as='h3'
-				mb={4}
-				color='green.500'
-				fontSize='xl'
-				textTransform='uppercase'
-				fontFamily='inherit'>
-				يبعد المشروع عن ...
-			</Heading>
+			{distances?.length > 0 && (
+				<Heading
+					as='h3'
+					mb={4}
+					color='green.500'
+					fontSize='xl'
+					textTransform='uppercase'
+					fontFamily='inherit'>
+					يبعد المشروع عن ...
+				</Heading>
+			)}
 
 			<Grid gridGap={2} gridTemplateColumns={['repeat(1,1fr)', 'repeat(2,1fr)']}>
 				{distances?.map((data, index) => (
 					<DistanceInfoBox key={index} {...data} />
 				))}
 			</Grid>
-			<Box mt='4'>
-				<Map search={map?.address} ratio={16 / 9} borderRadius='0.5rem' boxShadow='lg' />
-			</Box>
+			{map && (
+				<Box mt={4} mb={8}>
+					<Map search={map?.address} ratio={16 / 9} borderRadius='0.5rem' boxShadow='lg' />
+				</Box>
+			)}
 		</Box>
-	) : null;
+	);
 };
 
 //

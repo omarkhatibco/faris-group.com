@@ -1,12 +1,11 @@
 /**jsx @jsx */
-import { Spinner, Flex, Text, Box, Stack, Heading, Link, IconButton, Icon } from '@chakra-ui/core';
+import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
-import { AppPage } from '~@types/global';
-import { Map, Container, ContactForm, SocialLinks } from '~components';
-import { DefaultLayout } from '~components/layouts';
-import { MdPlace, MdPhone, MdEmail } from 'react-icons/md';
-
+import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
 import useMedia from 'react-use/lib/useMedia';
+import { AppPage } from '~@types/global';
+import { ContactForm, Container, Map, SocialLinks } from '~components';
+import { DefaultLayout } from '~components/layouts';
 
 const ContactUs: AppPage = () => {
 	const isMd = useMedia('(max-width: 768px)');
