@@ -1,16 +1,12 @@
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/core';
+import { NextPage } from 'next';
 import { useContext } from 'react';
-import { ConfigContext } from '~components';
-import { Box, Flex, Text, Heading, Image, Grid, Stack, PseudoBox } from '@chakra-ui/core';
 import { useWindowSize } from 'react-use';
-import { AppPage } from '~@types/global';
-import { DefaultLayout } from '~components/layouts';
+import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
+import { BgImage, ConfigContext, Container, Video } from '~components';
 import { getCdnUrl } from '~utls';
 
-// ICONS
-import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
-import { Container, BgImage, Video } from '~components';
-
-const AboutUs: AppPage = () => {
+const AboutUs: NextPage = () => {
 	const { aboutUs } = useContext<any>(ConfigContext);
 	const { width: windowWidth, height: windowHeight } = useWindowSize();
 	return (
@@ -231,7 +227,5 @@ const AboutUs: AppPage = () => {
 		</Flex>
 	);
 };
-
-AboutUs.Layout = DefaultLayout;
 
 export default AboutUs;

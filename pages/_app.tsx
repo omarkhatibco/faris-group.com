@@ -1,22 +1,17 @@
 import { ThemeProvider } from '@chakra-ui/core';
-import { PreflightCSS, ConfigProvider, CurrencyProvider } from '~components';
+import { PreflightCSS, ConfigProvider, CurrencyProvider, DefaultLayout } from '~components';
 import theme from '../theme';
 // import App from 'next/app';
 
 const MyApp = ({ Component, pageProps }) => {
-	const { Layout, isProtected } = Component;
 	return (
 		<ThemeProvider theme={theme}>
 			<PreflightCSS />
 			<CurrencyProvider>
 				<ConfigProvider>
-					{Layout ? (
-						<Layout>
-							<Component {...pageProps} />
-						</Layout>
-					) : (
+					<DefaultLayout>
 						<Component {...pageProps} />
-					)}
+					</DefaultLayout>
 				</ConfigProvider>
 			</CurrencyProvider>
 		</ThemeProvider>

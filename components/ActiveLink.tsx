@@ -1,4 +1,4 @@
-import { Flex, Box, Image, IconButton, Stack, List, ListItem, Button } from '@chakra-ui/core';
+import { Button } from '@chakra-ui/core';
 import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 

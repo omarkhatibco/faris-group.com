@@ -1,13 +1,12 @@
 /**jsx @jsx */
 import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
+import { NextPage } from 'next';
 import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
 import useMedia from 'react-use/lib/useMedia';
-import { AppPage } from '~@types/global';
 import { ContactForm, Container, Map, SocialLinks } from '~components';
-import { DefaultLayout } from '~components/layouts';
 
-const ContactUs: AppPage = () => {
+const ContactUs: NextPage = () => {
 	const isMd = useMedia('(max-width: 768px)');
 	return (
 		<Box as='main' width='Full' pt='20'>
@@ -79,7 +78,5 @@ const ContactUs: AppPage = () => {
 		</Box>
 	);
 };
-
-ContactUs.Layout = DefaultLayout;
 
 export default ContactUs;

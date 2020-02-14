@@ -1,12 +1,11 @@
 /**jsx @jsx */
 import { Box, Flex, Heading, Spinner, Text } from '@chakra-ui/core';
+import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { AppPage } from '~@types/global';
 import { Container } from '~components';
-import { DefaultLayout } from '~components/layouts';
 import { wp } from '~utls';
 
-const Properties: AppPage = () => {
+const Properties: NextPage = () => {
 	const [data, setData] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
 
@@ -78,7 +77,5 @@ const Properties: AppPage = () => {
 		</Box>
 	);
 };
-
-Properties.Layout = DefaultLayout;
 
 export default Properties;

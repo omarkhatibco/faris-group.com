@@ -1,8 +1,7 @@
 import { Spinner, Flex } from '@chakra-ui/core';
-import { AppPage } from '~@types/global';
-import { DefaultLayout } from '~components/layouts';
+import { NextPage } from 'next';
 
-const HomePage: AppPage = () => {
+const HomePage: NextPage = () => {
 	return (
 		<Flex as='main' width='Full' height='50vh' justifyContent='center' alignItems='center'>
 			<Spinner color='blau.500' />
@@ -10,7 +9,5 @@ const HomePage: AppPage = () => {
 		</Flex>
 	);
 };
-
-HomePage.Layout = DefaultLayout;
 
 export default HomePage;

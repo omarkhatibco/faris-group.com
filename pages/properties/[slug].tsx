@@ -1,8 +1,8 @@
 /**jsx @jsx */
 import { Box, Flex, Heading, Spinner, Text } from '@chakra-ui/core';
+import { NextPage } from 'next';
 import Router, { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { AppPage } from '~@types/global';
 import {
 	Container,
 	ImageSlider,
@@ -15,10 +15,9 @@ import {
 	PropertyMap,
 	PropertyVideo,
 } from '~components';
-import { DefaultLayout } from '~components/layouts';
 import { getCdnUrl, wp } from '~utls';
 
-const SingleProperties: AppPage = () => {
+const SingleProperties: NextPage = () => {
 	const [data, setData] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
 	const [galleries, setGalleries] = useState<any>(null);
@@ -155,7 +154,5 @@ const SingleProperties: AppPage = () => {
 		</Box>
 	);
 };
-
-SingleProperties.Layout = DefaultLayout;
 
 export default SingleProperties;

@@ -28,6 +28,7 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"**/*.js",
-		"assets/svg/template.js"
+		"assets/svg/template.js",
+		"pages/_error.js"
 	]
 }
