@@ -10,11 +10,7 @@ export const PropertyFacts = ({ data }) => {
 			<Flex flexWrap='wrap' mx={-4}>
 				{data?.payment_methods && (
 					<Box px={4}>
-						<InfoBox
-							title='طرق الدفع'
-							icon='paymentMethod'
-							value={data?.payment_methodsAr?.toString()}
-						/>
+						<InfoBox title='طرق الدفع' icon='paymentMethod' value={payment_methodsAr?.toString()} />
 					</Box>
 				)}
 
