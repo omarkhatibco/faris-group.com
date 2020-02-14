@@ -1,8 +1,7 @@
 /**jsx @jsx */
-import { Box, Flex, Heading, Spinner, Text } from '@chakra-ui/core';
+import { Box, Heading, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
-import Router, { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import Router from 'next/router';
 import {
 	Container,
 	ImageSlider,
@@ -15,113 +14,33 @@ import {
 	PropertyMap,
 	PropertyVideo,
 } from '~components';
-import { getCdnUrl, wp } from '~utls';
+import { getCdnUrl, wpFetch } from '~utls';
 
-const SingleProperties: NextPage = () => {
-	const [data, setData] = useState<any>(null);
-	const [loading, setLoading] = useState<any>(false);
-	const [galleries, setGalleries] = useState<any>(null);
-	const [attachments, setAttachments] = useState<any>(null);
-	const {
-		query: { slug },
-	} = useRouter();
+interface IProps {
+	data?: any;
+	galleries?: any;
+	attachments?: any;
+}
 
-	const getData = async () => {
-		if (!slug) {
-			return;
-		}
-		setLoading(true);
-		const searchParams = new URLSearchParams();
-		searchParams.append('slug', `${slug}`);
-		searchParams.append('_embed', '');
-
-		try {
-			const response: any = await wp
-				.get('property', {
-					searchParams,
-				})
-				.json();
-			const data = response?.find(item => item.slug === slug);
-
-			if (!data) {
-				throw new Error('Property not found');
-			}
-
-			setData(data);
-
-			if (data?.media_gallery?.length > 0) {
-				const gallerySearchParam = new URLSearchParams();
-				gallerySearchParam.append('per_page', '100');
-				gallerySearchParam.append('include', data?.media_gallery?.toString());
-				const gallery: any = await wp
-					.get('media', {
-						searchParams: gallerySearchParam,
-					})
-					.json();
-
-				const sortedGalleries = [...gallery]
-					.sort((a, b) => b.source_url - a.source_url)
-					.map(obj => {
-						const source_url = getCdnUrl(obj?.source_url);
-						return {
-							...obj,
-							source_url,
-						};
-					})
-					.reverse();
-
-				setGalleries(sortedGalleries);
-			}
-
-			if (data?.attachments?.length > 0) {
-				const attachmentsSearchParam = new URLSearchParams();
-				attachmentsSearchParam.append('per_page', '100');
-				attachmentsSearchParam.append('include', data?.attachments?.toString());
-				const attachments: any = await wp
-					.get('media', {
-						searchParams: attachmentsSearchParam,
-					})
-					.json();
-				setAttachments(attachments);
-			}
-			setLoading(false);
-		} catch (error) {
-			Router.replace('/not_found');
-			console.error(error);
-		}
-	};
-
-	useEffect(() => {
-		getData();
-	}, [slug]);
-
+const SingleProperties: NextPage<IProps> = ({ data, galleries, attachments }) => {
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
-			{!loading && <ImageSlider galleries={galleries} />}
-
+			{galleries?.length > 0 && <ImageSlider galleries={galleries} />}
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
 					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
-						{!loading ? (
-							<>
-								<PropertyHeading data={data} />
-								<PropertyDescription data={data} />
-								<PropertyAmenities amenities={data?.amenities} />
-								<PropertyApartments appartments={data?.appartments} />
-								<PropertyVideo url={data?.oembed} />
-								<PropertyAttachments attachments={attachments} />
-								<PropertyMap
-									map={data?.map}
-									distances={data?.distances}
-									location={data?.location}
-									sublocation={data?.sublocation}
-								/>
-							</>
-						) : (
-							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
-								<Spinner size='xl' color='green.500' thickness='3px' />
-							</Flex>
-						)}
+						<PropertyHeading data={data} />
+						<PropertyDescription data={data} />
+						<PropertyAmenities amenities={data?.amenities} />
+						<PropertyApartments appartments={data?.appartments} />
+						<PropertyVideo url={data?.oembed} />
+						<PropertyAttachments attachments={attachments} />
+						<PropertyMap
+							map={data?.map}
+							distances={data?.distances}
+							location={data?.location}
+							sublocation={data?.sublocation}
+						/>
 					</Box>
 					<Box as='aside' width={['100%', 1 / 3]} bg='red' position='relative'>
 						<Box
@@ -153,6 +72,70 @@ const SingleProperties: NextPage = () => {
 			</Box>
 		</Box>
 	);
+};
+
+SingleProperties.getInitialProps = async ctx => {
+	const { slug } = ctx.query;
+
+	const redirectOnError = () =>
+		typeof window !== 'undefined'
+			? Router.push('/not_found')
+			: ctx.res.writeHead(302, { Location: '/not_found' }).end();
+
+	try {
+		const searchParams = new URLSearchParams();
+		searchParams.append('slug', `${slug}`);
+		searchParams.append('_embed', '');
+
+		const response: any = await wpFetch('property', {
+			searchParams,
+		});
+		const data = response?.find(item => item.slug === slug);
+
+		if (!data) {
+			redirectOnError();
+		}
+
+		const gallerySearchParam = new URLSearchParams();
+		gallerySearchParam.append('per_page', '100');
+
+		gallerySearchParam.append('include', data?.media_gallery?.toString());
+
+		const apiGalleries: any =
+			data?.media_gallery?.length > 0
+				? await wpFetch('media', {
+						searchParams: gallerySearchParam,
+				  })
+				: [];
+
+		const galleries = [...apiGalleries]
+			?.sort((a, b) => b.source_url - a.source_url)
+			?.map(obj => {
+				const source_url = getCdnUrl(obj?.source_url);
+				return {
+					...obj,
+					source_url,
+				};
+			})
+			?.reverse();
+
+		const attachmentsSearchParam = new URLSearchParams();
+		attachmentsSearchParam.append('per_page', '100');
+		attachmentsSearchParam.append('include', data?.attachments?.toString());
+		const attachments: any =
+			data?.attachments?.length > 0
+				? await wpFetch('media', {
+						searchParams: attachmentsSearchParam,
+				  })
+				: null;
+
+		return { data, attachments, galleries };
+	} catch (error) {
+		console.log(error);
+		redirectOnError();
+	}
+
+	return {};
 };
 
 export default SingleProperties;

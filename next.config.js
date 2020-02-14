@@ -17,7 +17,9 @@ const nextConfiguration = {
 		return config;
 	},
 	env: {
-		BACKEND_URL: isProduction ? 'http://localhost:3001/' : 'http://localhost:3001/',
+		BACKEND_URL: isProduction
+			? 'https://api.faris-group.xyz/wp-json/wp/v2'
+			: 'https://api.faris-group.xyz/wp-json/wp/v2',
 	},
 	target: 'serverless',
 };
