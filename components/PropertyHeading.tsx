@@ -35,27 +35,17 @@ export const PropertyHeading = ({ data }) => {
 						mb={6}
 						spacing='8px'
 						separator={<Icon color='gray.300' name='chevron-left' />}>
-						{locationObj?.title && (
-							<BreadcrumbItem>
-								<Link href='/'>
-									<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
-								</Link>
-							</BreadcrumbItem>
-						)}
-
-						{sublocationObj?.title && (
-							<BreadcrumbItem>
-								<Link href='/'>
-									<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
-								</Link>
-							</BreadcrumbItem>
-						)}
-
-						{data?.title?.rendered && (
-							<BreadcrumbItem isCurrentPage>
-								<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
-							</BreadcrumbItem>
-						)}
+						<BreadcrumbItem>
+							<Link href='/'>
+								<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
+							</Link>
+						</BreadcrumbItem>
+						<BreadcrumbItem>
+							<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbItem isCurrentPage>
+							<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
+						</BreadcrumbItem>
 					</Breadcrumb>
 				</Box>
 				{data?.appartments?.[0]?.price && <PropertyPrice appartments={data?.appartments} />}
