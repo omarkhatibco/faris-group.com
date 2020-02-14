@@ -90,6 +90,7 @@ SingleProperties.getInitialProps = async ctx => {
 		const response: any = await wpFetch('property', {
 			searchParams,
 		});
+
 		const data = response?.find(item => item.slug === slug);
 
 		if (!data) {

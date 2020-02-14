@@ -10,7 +10,9 @@ export const api = ky.extend({
 });
 
 export const wpFetch = async (url, { searchParams }) => {
-	const res = await fetch(`${process.env.BACKEND_URL}${url}?${searchParams.toString()}`);
-
-	return await res.json();
+	const response = await fetch(
+		`${process.env.BACKEND_URL}/wp-json/wp/v2/${url}?${searchParams.toString()}`
+	);
+	const responseJson = await response.json();
+	return responseJson;
 };
