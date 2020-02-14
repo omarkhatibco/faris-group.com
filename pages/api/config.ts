@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 
 export default async (req, res) => {
 	try {
-		const config = await fetch(`${process.env.BACKEND_URL}/api/config}`);
+		const config = await fetch(`${process.env.BACKEND_URL}/api/config`);
 
 		res.status(200).json(config.json());
 	} catch (error) {
