@@ -14,6 +14,7 @@ export const ActiveLink: React.FC<IProps> = ({ children, width, justifyContent, 
 		<Link {...rest}>
 			<Button
 				as='a'
+				cursor='pointer'
 				width={width}
 				justifyContent={justifyContent}
 				textTransform='uppercase'
