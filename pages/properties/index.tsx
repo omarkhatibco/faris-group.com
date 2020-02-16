@@ -1,11 +1,14 @@
 /**jsx @jsx */
 import { Box, Flex, Grid, Heading, Spinner, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
-import { useEffect, useState } from 'react';
-import { Container, PropertyGrid } from '~components';
+import { useContext, useEffect, useState } from 'react';
+import { useWindowSize } from 'react-use';
+import { BgImage, ConfigContext, Container, PropertyGrid } from '~components';
 import { wp } from '~utls';
 
 const Properties: NextPage = () => {
+	const { properties } = useContext<any>(ConfigContext);
+	const { width: windowWidth, height: windowHeight } = useWindowSize();
 	const [data, setData] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
 
@@ -34,12 +37,45 @@ const Properties: NextPage = () => {
 	}, []);
 
 	return (
-		<Box as='main' width='Full' pt={[16, 20]}>
+		<Box as='main' width='Full'>
+			<Flex
+				width='100%'
+				overflow='hidden'
+				position='relative'
+				justifyItems='center'
+				alignItems='center'>
+				<BgImage src={properties?.IntroImage} alt='Istanbul bridge' />
+				<Container
+					zIndex={1}
+					display='flex'
+					flexWrap='wrap'
+					alignItems='center'
+					justifyContent='center'>
+					<Box textAlign='center' width={[1 / 2]} pt={32} pb={12}>
+						<Heading
+							as='h1'
+							mb='4'
+							fontSize={['2xl', '5xl']}
+							textTransform='uppercase'
+							textShadow='lg'
+							fontFamily='inherit'>
+							ابحث عن عقارك
+						</Heading>
+						<Box>
+							<Text textShadow='lg' fontSize={['sm', 'md']} fontFamily='inherit'>
+								مجموعة الفارس متخصصة بالاستشارات العقارية والوساطة، مقرها في إسطنبول ، ولديها تعامل
+								في مدن أخرى في تركيا، واتفاقيات عديدة مع شركات الإنشاء الكبرى في إسطنبول، تركّز
+								اهتمامها على المستثمرين العقاريين الأجانب، والراغبين بالتملك في تركيا
+							</Text>
+						</Box>
+					</Box>
+				</Container>
+			</Flex>
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
-					<Box as='article' width={['100%', 3 / 4]} pl={[0, 8]}>
+					<Box as='article' width={['100%', 4 / 5]} pl={[0, 8]}>
 						{!loading ? (
-							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(2,1fr)']}>
+							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(3,1fr)']}>
 								{data?.map(obj => (
 									<PropertyGrid key={obj?.id} data={obj} />
 								))}
@@ -50,7 +86,7 @@ const Properties: NextPage = () => {
 							</Flex>
 						)}
 					</Box>
-					<Box as='aside' width={['100%', 1 / 4]} position='relative'>
+					<Box as='aside' width={['100%', 1 / 5]} position='relative'>
 						<Box
 							position='sticky'
 							top='6rem'
@@ -60,19 +96,7 @@ const Properties: NextPage = () => {
 							borderWidth='1px'
 							borderColor='gray.100'
 							p={6}>
-							<Heading
-								as='h3'
-								mb='2'
-								color='green.500'
-								fontSize={['2xl', '4xl']}
-								textTransform='uppercase'
-								fontFamily='inherit'>
-								دعنا نساعدك
-							</Heading>
-							<Text mb='8' fontFamily='inherit'>
-								تواصل معنا لمساعدتك بإختيار العقار المناسب لك و للعائلة, إذا لم تجد طلبك على الموقع
-								دعنا نطلعك على بعض من أهم عروضنا الحصرية.
-							</Text>
+							filter here
 						</Box>
 					</Box>
 				</Container>

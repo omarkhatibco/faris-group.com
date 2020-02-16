@@ -37,7 +37,7 @@ export const PropertyGrid = ({ data }) => {
 			borderColor='gray.100'
 			borderRadius='0.5rem'
 			transition='all 300ms ease-in-out'
-			boxShadow='sm'
+			boxShadow='md'
 			overflow='hidden'
 			css={css({
 				':hover': {
@@ -77,12 +77,12 @@ export const PropertyGrid = ({ data }) => {
 									justifyContent='flex-start'>
 									<Flex mt={1} flexDirection='column' px={1} alignItems='flex-start'>
 										{data?.payment_methods?.includes('installment') && (
-											<Badge mt={1} fontSize='sm' variantColor='green'>
+											<Badge mt={1} fontSize='xs' variantColor='green'>
 												 قابل للتقسيط
 											</Badge>
 										)}
 										{data?.is_help_in_citizenship && (
-											<Badge mt={1} fontSize='sm' variantColor='green'>
+											<Badge mt={1} fontSize='xs' variantColor='green'>
 												مؤهل للجنسية التركية 🇹🇷
 											</Badge>
 										)}
@@ -120,6 +120,7 @@ export const PropertyGrid = ({ data }) => {
 							mb={4}
 							fontFamily='inherit'
 							overflow='hidden'
+							fontSize='sm'
 							css={css({
 								display: '-webkit-box',
 								'-webkit-line-clamp': '2',
@@ -130,6 +131,7 @@ export const PropertyGrid = ({ data }) => {
 							<Flex flexWrap='wrap' mx={-2} mb={4}>
 								<Box p={2}>
 									<InfoBox
+										isSmall
 										width={['100%', 'auto']}
 										title=' أنواع الشقق (تبدأ من)'
 										icon='building'
@@ -141,6 +143,7 @@ export const PropertyGrid = ({ data }) => {
 								<Box p={2}>
 									{firstAppartmentObj.min_size && (
 										<InfoBox
+											isSmall
 											width={['100%', 'auto']}
 											title='المساحة (تبدأ من)'
 											icon='area'
@@ -151,7 +154,9 @@ export const PropertyGrid = ({ data }) => {
 								</Box>
 							</Flex>
 						)}
-						{firstAppartmentObj?.price && <PropertyPrice firstAppartmentObj={firstAppartmentObj} />}
+						{firstAppartmentObj?.price && (
+							<PropertyPrice isSmall firstAppartmentObj={firstAppartmentObj} />
+						)}
 					</Box>
 				</a>
 			</Link>

@@ -2,14 +2,16 @@
 
 import { Image } from '@chakra-ui/core';
 import { css } from '@emotion/core';
+import { getCdnUrl } from '~utls';
+
 export const BgImage = ({ src, alt }) => {
 	return (
 		<Image
 			css={css({
-				filter: 'blur(6px)',
+				filter: 'blur(4px)',
 			})}
-			src={src}
-			fallbackSrc='/images/about.us.bg.jpg'
+			src={`${getCdnUrl(src)}?quality=100`}
+			fallbackSrc={src}
 			alt={alt}
 			position='absolute'
 			top='0'
@@ -20,6 +22,6 @@ export const BgImage = ({ src, alt }) => {
 			width='100%'
 			objectFit={['cover', 'cover']}
 			// transform='scaleX(-1)'
-			objectPosition='top'></Image>
+			objectPosition='center'></Image>
 	);
 };

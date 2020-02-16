@@ -1,8 +1,8 @@
+import { AspectRatioBox, Button, Flex, Image } from '@chakra-ui/core';
 import { useContext } from 'react';
 import { ConfigContext } from '~components';
-import { AspectRatioBox, Image, Flex, Button } from '@chakra-ui/core';
 
-export const Map = ({ search, ratio, ...rest }) => {
+export const Map = ({ search, ratio, isfirst = false, ...rest }) => {
 	const { mapPlaceholder } = useContext<any>(ConfigContext);
 
 	return (
@@ -20,7 +20,9 @@ export const Map = ({ search, ratio, ...rest }) => {
 						right='0'
 						objectFit='cover'
 					/>
-					<Button variantColor='green'>فتح في برنامج الخرائط</Button>
+					<Button mt={isfirst ? '16' : 0} variantColor='green'>
+						فتح في برنامج الخرائط
+					</Button>
 				</a>
 			</Flex>
 		</AspectRatioBox>

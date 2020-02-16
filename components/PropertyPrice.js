@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ConfigContext, CurrencyContext } from '~components';
 import { formatMoney } from '~utls';
 
-export const PropertyPrice = ({ firstAppartmentObj }) => {
+export const PropertyPrice = ({ firstAppartmentObj, isSmall = false }) => {
 	const { currency: currencyObj } = useContext(ConfigContext);
 	const [currency] = useContext(CurrencyContext);
 	const price = currencyObj
@@ -17,14 +17,14 @@ export const PropertyPrice = ({ firstAppartmentObj }) => {
 		<Box as='section' mr={['0', 'auto']}>
 			<Text
 				mb='2'
-				fontSize='2xl'
+				fontSize={isSmall ? 'xl' : '2xl'}
 				fontWeight='medium'
 				textTransform='uppercase'
 				fontFamily='inherit'
 				lineHeight='1.2'>
 				<Text
 					as='span'
-					fontSize='lg'
+					fontSize={isSmall ? 'md' : 'lg'}
 					color='green.500'
 					display='block'
 					fontFamily='inherit'
@@ -35,7 +35,7 @@ export const PropertyPrice = ({ firstAppartmentObj }) => {
 
 				<Text
 					as='span'
-					fontSize='sm'
+					fontSize={isSmall ? 'xs' : 'sm'}
 					color='green.300'
 					display='block'
 					fontFamily='inherit'

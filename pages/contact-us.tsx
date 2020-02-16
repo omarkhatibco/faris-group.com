@@ -17,8 +17,8 @@ const SocialLinks = dynamic(
 const ContactUs: NextPage = () => {
 	const isMd = useMedia('(max-width: 768px)');
 	return (
-		<Box as='main' width='Full' pt='20'>
-			<Map search='faris group istanbul Turkey' ratio={isMd ? 1 : 4 / 1} />
+		<Box as='main' width='100%'>
+			<Map search='faris group istanbul Turkey' isfirst ratio={isMd ? 1 : 4 / 1} />
 			<Box py='16'>
 				<Container>
 					<Flex flexWrap='wrap'>

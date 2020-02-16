@@ -1,12 +1,10 @@
 import { Box, Flex, Heading, Icon, Image, Text } from '@chakra-ui/core';
 import { useContext } from 'react';
-import { useWindowSize } from 'react-use';
 import { BgImage, ConfigContext, Container, Video } from '~components';
-import { getCdnUrl } from '~utls';
 
 const AboutUs = () => {
 	const { aboutUs } = useContext(ConfigContext);
-	const { width: windowWidth, height: windowHeight } = useWindowSize();
+
 	return (
 		<Flex as='main' w='full' flexDirection='column' justifyItems='center' alignItems='center'>
 			<Flex
@@ -16,10 +14,7 @@ const AboutUs = () => {
 				position='relative'
 				justifyItems='center'
 				alignItems='center'>
-				<BgImage
-					src={`${getCdnUrl(aboutUs?.IntroImage)}?w=${windowWidth}&quality=100`}
-					alt='Istanbul bridge'
-				/>
+				<BgImage src={aboutUs?.IntroImage} alt='Istanbul bridge' />
 				<Container
 					zIndex={1}
 					display='flex'

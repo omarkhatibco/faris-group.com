@@ -13,12 +13,12 @@ export const ActiveLink: React.FC<IProps> = ({ children, width, justifyContent, 
 	return (
 		<Link {...rest}>
 			<Button
+				as='a'
 				width={width}
 				justifyContent={justifyContent}
 				textTransform='uppercase'
 				variant='ghost'
-				variantColor={pathname === rest.href ? 'green' : 'gray'}
-				fontSize=''>
+				variantColor={pathname === rest.href ? 'green' : 'gray'}>
 				{children}
 			</Button>
 		</Link>

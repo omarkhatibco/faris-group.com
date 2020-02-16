@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 
-export const InfoBox = ({ title, icon, value, suffix = null, width }) => {
+export const InfoBox = ({ title, icon, value, suffix = null, width, isSmall = false }) => {
 	return (
 		<Box width={width} pb={[4, 0]}>
 			<Heading
@@ -9,12 +9,12 @@ export const InfoBox = ({ title, icon, value, suffix = null, width }) => {
 				color='green.700'
 				fontWeight='medium'
 				mb={1}
-				fontSize='md'>
+				fontSize={isSmall ? 'sm' : 'md'}>
 				{title}
 			</Heading>
 			<Flex justifyContent='baseline'>
-				<Icon name={icon} size='1.5rem' color='green.500' ml={3} />
-				<Text as='p' fontFamily='inherit' fontSize='lg' fontWeight='bold'>
+				<Icon name={icon} size={isSmall ? '1.25rem' : '1.5rem'} color='green.500' ml={3} />
+				<Text as='p' fontFamily='inherit' fontSize={isSmall ? 'md' : 'lg'} fontWeight='bold'>
 					<Text as='span' fontFamily='inherit'>
 						{value}
 					</Text>
