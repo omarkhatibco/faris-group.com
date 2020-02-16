@@ -37,7 +37,7 @@ export const PropertyGrid = ({ data }) => {
 			borderColor='gray.100'
 			borderRadius='0.5rem'
 			transition='all 300ms ease-in-out'
-			boxShadow='md'
+			boxShadow='sm'
 			overflow='hidden'
 			css={css({
 				':hover': {
