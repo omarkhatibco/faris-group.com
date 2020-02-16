@@ -1,13 +1,11 @@
-import { Box, Flex, Heading, Image, Text } from '@chakra-ui/core';
-import { NextPage } from 'next';
+import { Box, Flex, Heading, Icon, Image, Text } from '@chakra-ui/core';
 import { useContext } from 'react';
 import { useWindowSize } from 'react-use';
-import { CheckList, Office, Planning, Search } from '~assets/svgComponents';
 import { BgImage, ConfigContext, Container, Video } from '~components';
 import { getCdnUrl } from '~utls';
 
-const AboutUs: NextPage = () => {
-	const { aboutUs } = useContext<any>(ConfigContext);
+const AboutUs = () => {
+	const { aboutUs } = useContext(ConfigContext);
 	const { width: windowWidth, height: windowHeight } = useWindowSize();
 	return (
 		<Flex as='main' w='full' flexDirection='column' justifyItems='center' alignItems='center'>
@@ -57,7 +55,7 @@ const AboutUs: NextPage = () => {
 			</Flex>
 
 			<Flex as='section' flexWrap='wrap' width='100%'>
-				<Box width={['100%', '100%', 2 / 5]} height={['50vh', '50vh', 'auto']} position='relative'>
+				<Box width={['100%', 2 / 5]} height={['50vh', 'auto']} position='relative'>
 					<Image
 						src={aboutUs?.ServiceImage}
 						fallbackSrc='/images/our.service.1.jpg'
@@ -72,7 +70,7 @@ const AboutUs: NextPage = () => {
 						height='100%'
 					/>
 				</Box>
-				<Box width={['100%', '100%', 3 / 5]} p={[6, 12]}>
+				<Box width={['100%', 3 / 5]} p={[6, 12]}>
 					<Heading
 						as='h2'
 						fontSize={['xl', '5xl']}
@@ -84,8 +82,7 @@ const AboutUs: NextPage = () => {
 					</Heading>
 					<Flex flexWrap='wrap' mb='4'>
 						<Box width={['100%', 1 / 2]} pl={[0, 4]} mb={[4, 0]}>
-							<Box as={Office} size={16} mb='4' />
-
+							<Icon name='office' size='16' mb='4' />
 							<Heading
 								as='h3'
 								color='green.500'
@@ -101,7 +98,7 @@ const AboutUs: NextPage = () => {
 							</Text>
 						</Box>
 						<Box width={['100%', 1 / 2]} pr={[0, 4]}>
-							<Box as={Planning} size={16} mb='4' />
+							<Icon name='invest' size='16' mb='4' />
 
 							<Heading
 								as='h3'
@@ -120,7 +117,7 @@ const AboutUs: NextPage = () => {
 					</Flex>
 					<Flex flexWrap='wrap'>
 						<Box width={['100%', 1 / 2]} pl={[0, 4]} mb={[4, 0]}>
-							<Box as={Search} size={16} mb='4' />
+							<Icon name='diagram' size='16' mb='4' />
 
 							<Heading
 								as='h3'
@@ -137,7 +134,7 @@ const AboutUs: NextPage = () => {
 							</Text>
 						</Box>
 						<Box width={['100%', 1 / 2]} pr={[0, 4]}>
-							<Box as={CheckList} size={16} mb='4' />
+							<Icon name='board' size='16' mb='4' />
 
 							<Heading
 								as='h3'
@@ -149,19 +146,15 @@ const AboutUs: NextPage = () => {
 								الجولات العقارية
 							</Heading>
 							<Text fontSize='sm' textAlign='justify' fontFamily='inherit'>
-								تشمل خدمات الفارس العقارية المواصلات من وإلى المطار والجسور والأماكن السياحية في
-								اسطنبول من خلال توفيرها سيارات وفانات حديثة وفاخرة مع السائقين المختصين.
+								تشمل خدمات الفارس العقارية المواصلات من و إلى المطار و الجسور والأماكن السياحية في
+								اسطنبول من خلال توفيرها سيارات وفانات حديثة و فاخرة مع السائقين المختصين.
 							</Text>
 						</Box>
 					</Flex>
 				</Box>
 
 				<Flex as='section' flexWrap='wrap' width='100%'>
-					<Box
-						width={['100%', '100%', 4 / 7, 3 / 5]}
-						p={[6, 12]}
-						order={[1, 0]}
-						backgroundColor='gray.50'>
+					<Box width={['100%', 4 / 7, 3 / 5]} p={[6, 12]} order={[1, 0]} backgroundColor='gray.50'>
 						<Heading
 							as='h3'
 							color='green.500'
@@ -206,8 +199,8 @@ const AboutUs: NextPage = () => {
 						</Text>
 					</Box>
 					<Box
-						width={['100%', '100%', 3 / 7, 2 / 5]}
-						height={['50vh', '50vh', 'auto']}
+						width={['100%', 3 / 7, 2 / 5]}
+						height={['50vh', 'auto']}
 						position='relative'
 						order={[0, 1]}>
 						<Image
