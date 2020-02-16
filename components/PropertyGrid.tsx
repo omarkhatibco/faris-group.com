@@ -75,7 +75,12 @@ export const PropertyGrid = ({ data }) => {
 									left='0'
 									right='0'
 									justifyContent='flex-start'>
-									<Flex mt={1} flexDirection='column' alignItems='flex-start'>
+									<Flex mt={1} flexDirection='column' px={1} alignItems='flex-start'>
+										{data?.payment_methods?.includes('installment') && (
+											<Badge mt={1} fontSize='sm' variantColor='green'>
+												 قابل للتقسيط
+											</Badge>
+										)}
 										{data?.is_help_in_citizenship && (
 											<Badge mt={1} fontSize='sm' variantColor='green'>
 												مؤهل للجنسية التركية 🇹🇷
@@ -122,8 +127,8 @@ export const PropertyGrid = ({ data }) => {
 							})}
 							dangerouslySetInnerHTML={{ __html: data?.excerpt?.rendered }}></Box>
 						{firstAppartmentObj && (
-							<Flex flexWrap='wrap' mx={-4} mb={4}>
-								<Box px={4}>
+							<Flex flexWrap='wrap' mx={-2} mb={4}>
+								<Box p={2}>
 									<InfoBox
 										width={['100%', 'auto']}
 										title=' أنواع الشقق (تبدأ من)'
@@ -133,7 +138,7 @@ export const PropertyGrid = ({ data }) => {
 										)}`}
 									/>
 								</Box>
-								<Box px={4}>
+								<Box p={2}>
 									{firstAppartmentObj.min_size && (
 										<InfoBox
 											width={['100%', 'auto']}
