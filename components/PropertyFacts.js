@@ -6,7 +6,7 @@ export const PropertyFacts = ({ data }) => {
 	const payment_methodsAr = data?.payment_methods?.map(key => (key === 'cash' ? 'نقدي' : 'تقسيط'));
 
 	return (
-		<Box>
+		<Box as='section'>
 			<Flex flexWrap='wrap' mx={-4}>
 				{data?.payment_methods && (
 					<Box px={4}>

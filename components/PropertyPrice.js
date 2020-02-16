@@ -14,7 +14,7 @@ export const PropertyPrice = ({ appartments }) => {
 		? (appartments?.[0]?.price / appartments?.[0]?.min_size) * currencyObj[currency]
 		: (appartments?.[0]?.price / appartments?.[0]?.min_size) * 0.16569376809169;
 	return appartments?.length > 0 ? (
-		<Box mr={['0', 'auto']}>
+		<Box as='section' mr={['0', 'auto']}>
 			<Text
 				mb='2'
 				fontSize='2xl'

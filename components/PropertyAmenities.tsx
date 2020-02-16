@@ -5,7 +5,7 @@ export const PropertyAmenities = ({ amenities }) => {
 	const { amenities: allAmenities } = useContext<any>(ConfigContext);
 
 	return amenities?.length > 0 ? (
-		<Box>
+		<Box as='section'>
 			<Heading
 				as='h2'
 				mb={6}

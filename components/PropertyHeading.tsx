@@ -19,7 +19,7 @@ export const PropertyHeading = ({ data }) => {
 	);
 
 	return (
-		<Box>
+		<Box as='section'>
 			<Flex mb={2} alignItems='center' flexWrap='wrap'>
 				<Box width={['100%', 'auto']}>
 					<Heading

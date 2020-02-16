@@ -4,7 +4,7 @@ import { Video } from '.';
 
 export const PropertyVideo = ({ url }) => {
 	return url ? (
-		<Box>
+		<Box as='section'>
 			<Heading
 				as='h2'
 				mb={6}

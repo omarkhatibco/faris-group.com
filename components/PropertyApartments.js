@@ -8,7 +8,7 @@ export const PropertyApartments = ({ appartments }) => {
 	const [currency] = useContext(CurrencyContext);
 	const [overlayImage, setOverlayImage] = useState(null);
 	return appartments?.length > 0 ? (
-		<Box>
+		<Box as='section'>
 			<Heading
 				as='h2'
 				mb={6}

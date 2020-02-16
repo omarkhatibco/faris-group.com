@@ -2,7 +2,7 @@ import { Box, Heading, Link, List, ListIcon, ListItem } from '@chakra-ui/core';
 
 export const PropertyAttachments = ({ attachments }) => {
 	return attachments?.length > 0 ? (
-		<Box>
+		<Box as='section'>
 			<Heading
 				as='h2'
 				mb={6}
