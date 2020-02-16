@@ -62,7 +62,7 @@ export const PropertyFacts = ({ data }) => {
 				)}
 				{data?.is_help_in_citizenship && (
 					<Badge mt={1} fontSize='sm' variantColor='green'>
-						طابو أخضر يساعد في الحصول على الجنسية التركية
+						طابو أخضر يؤهل للجنسية التركية 🇹🇷
 					</Badge>
 				)}
 			</Flex>

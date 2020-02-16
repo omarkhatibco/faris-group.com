@@ -48,7 +48,9 @@ export const PropertyHeading = ({ data }) => {
 						</BreadcrumbItem>
 					</Breadcrumb>
 				</Box>
-				{data?.appartments?.[0]?.price && <PropertyPrice appartments={data?.appartments} />}
+				{data?.appartments?.[0]?.price && (
+					<PropertyPrice firstAppartmentObj={data?.appartments?.[0]} />
+				)}
 			</Flex>
 			<PropertyActions data={data} />
 			<PropertyFacts data={data} />

@@ -1,8 +1,8 @@
 /**jsx @jsx */
-import { Box, Flex, Heading, Spinner, Text } from '@chakra-ui/core';
+import { Box, Flex, Grid, Heading, Spinner, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { Container } from '~components';
+import { Container, PropertyGrid } from '~components';
 import { wp } from '~utls';
 
 const Properties: NextPage = () => {
@@ -13,6 +13,7 @@ const Properties: NextPage = () => {
 		setLoading(true);
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
+		searchParams.append('per_page', '100');
 
 		try {
 			const response: any = await wp
@@ -36,18 +37,20 @@ const Properties: NextPage = () => {
 		<Box as='main' width='Full' pt={[16, 20]}>
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
-					<Box as='article' width={['100%', 3 / 4]} bg='blue' pl={[0, 8]}>
+					<Box as='article' width={['100%', 3 / 4]} pl={[0, 8]}>
 						{!loading ? (
-							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
-								<Spinner size='xl' color='green.500' thickness='3px' />
-							</Flex>
+							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(2,1fr)']}>
+								{data?.map(obj => (
+									<PropertyGrid key={obj?.id} data={obj} />
+								))}
+							</Grid>
 						) : (
 							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
 								<Spinner size='xl' color='green.500' thickness='3px' />
 							</Flex>
 						)}
 					</Box>
-					<Box as='aside' width={['100%', 1 / 4]} bg='red' position='relative'>
+					<Box as='aside' width={['100%', 1 / 4]} position='relative'>
 						<Box
 							position='sticky'
 							top='6rem'

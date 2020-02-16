@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 
-export const InfoBox = ({ title, icon, value, suffix, width }) => {
+export const InfoBox = ({ title, icon, value, suffix = null, width }) => {
 	return (
 		<Box width={width} pb={[4, 0]}>
 			<Heading

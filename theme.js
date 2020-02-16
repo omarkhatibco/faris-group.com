@@ -343,7 +343,7 @@ const customIcons = {
 	},
 };
 
-// console.log({ theme });
+console.log({ theme });
 
 const customTheme = {
 	...theme,

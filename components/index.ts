@@ -23,6 +23,7 @@ export * from './PropertyAttachments';
 export * from './PropertyContactForm';
 export * from './PropertyDescription';
 export * from './PropertyFacts';
+export * from './PropertyGrid';
 export * from './PropertyHeading';
 export * from './PropertyMap';
 export * from './PropertyPrice';

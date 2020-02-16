@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@chakra-ui/core';
-import { PreflightCSS, ConfigProvider, CurrencyProvider, DefaultLayout } from '~components';
+import { ConfigProvider, CurrencyProvider, DefaultLayout, PreflightCSS } from '~components';
 import theme from '../theme';
+
 // import App from 'next/app';
 
 const MyApp = ({ Component, pageProps }) => {

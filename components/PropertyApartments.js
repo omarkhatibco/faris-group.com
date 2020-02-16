@@ -37,7 +37,7 @@ export const PropertyApartments = ({ appartments }) => {
 								<Flex mb='4'>
 									{obj.is_duplex && (
 										<Badge ml={2} variantColor='green'>
-											شقة دوبلكس
+											دوبلكس
 										</Badge>
 									)}
 									{obj.is_villa && (
@@ -137,19 +137,3 @@ export const PropertyApartments = ({ appartments }) => {
 		</Box>
 	) : null;
 };
-
-// <Box width='100'>
-// 	<Image
-// 		borderWidth='1px'
-// 		borderColor='gray.100'
-// 		width='100%'
-// 		height='100%'
-// 		objectFit='cover'
-// 		src={obj.image}
-// 	/>
-// </Box>;
-
-// <Box>صالون{obj.salons_count}</Box>
-// <Box>سعر{obj.baths_count}</Box>
-// <Box>مساحة{obj.min_size}</Box>
-// <Box>سعر{obj.price}</Box>
