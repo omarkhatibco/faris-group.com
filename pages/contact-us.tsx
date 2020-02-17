@@ -3,7 +3,7 @@ import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import { NextPage } from 'next';
 import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
-import useMedia from 'react-use/lib/useMedia';
+import { useMedia } from 'react-use';
 import { ContactForm, Container, Map, SocialLinks } from '~components';
 import { useMounted } from '~utls';
 
