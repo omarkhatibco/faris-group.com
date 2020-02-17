@@ -1,14 +1,11 @@
 /**jsx @jsx */
 import { Box, Flex, Link, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
-import dynamic from 'next/dynamic';
-import { Container } from './';
-
-const SocialLinks = dynamic(() => import('./SocialLinks').then(mod => mod.SocialLinks), {
-	ssr: false,
-});
+import { useMounted } from '~utls';
+import { Container, SocialLinks } from './';
 
 export const Footer: React.FC = () => {
+	const isMounted = useMounted();
 	return (
 		<Box as='footer' bg='gray.50' py='8' borderTop='1px' borderTopColor='gray.100'>
 			<Container>
@@ -33,7 +30,7 @@ export const Footer: React.FC = () => {
 						<br />
 						Turkey
 					</Text>
-					<SocialLinks />
+					{isMounted && <SocialLinks />}
 					<Text fontSize='sm' color='gray.500' my='2' fontFamily='inherit'>
 						جميع الحقوق محفوظة لفارس غروب | تم التطوير من قبل{' '}
 						<Link href='https://loewen.dev' target='_blank'>

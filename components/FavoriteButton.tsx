@@ -1,8 +1,10 @@
 import { Box, IconButton } from '@chakra-ui/core';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import { useLocalStorage } from 'react-use';
+import { useMounted } from '~utls';
 
 export const FavoriteButton = ({ size, id }) => {
+	const isMounted = useMounted();
 	const [favorite, setFavorite] = useLocalStorage('favorite-properties', []);
 
 	const handleFavorite = () => {
@@ -15,14 +17,16 @@ export const FavoriteButton = ({ size, id }) => {
 
 	return (
 		<Box px={2}>
-			<IconButton
-				aria-label='اختر العملة المفضلة'
-				isRound
-				variant={favorite.includes(id) ? 'solid' : 'outline'}
-				variantColor='green'
-				icon={favorite.includes(id) ? MdFavorite : MdFavoriteBorder}
-				onClick={() => handleFavorite()}
-			/>
+			{isMounted && (
+				<IconButton
+					aria-label='اختر العملة المفضلة'
+					isRound
+					variant={favorite.includes(id) ? 'solid' : 'outline'}
+					variantColor='green'
+					icon={favorite.includes(id) ? MdFavorite : MdFavoriteBorder}
+					onClick={() => handleFavorite()}
+				/>
+			)}
 		</Box>
 	);
 };
