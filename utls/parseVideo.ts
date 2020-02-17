@@ -22,7 +22,7 @@ export const parseVideo = async url => {
 
 const getThumbUrl = async (type, videoId) => {
 	if (type === 'youtube') {
-		return `http://i3.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+		return `https://i3.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 	} else if (type === 'vimeo') {
 		try {
 			const response: [] = await ky.get(`https://vimeo.com/api/v2/video/${videoId}.json`).json();

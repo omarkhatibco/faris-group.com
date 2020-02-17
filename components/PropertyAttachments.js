@@ -23,7 +23,12 @@ export const PropertyAttachments = ({ attachments }) => {
 								mr={0}
 								ml={2}
 							/>
-							<Link href={source_url} color='green.700' target='_blank' download>
+							<Link
+								href={source_url}
+								color='green.700'
+								target='_blank'
+								rel='noopener noreferrer'
+								download>
 								{title?.rendered}
 							</Link>
 						</ListItem>

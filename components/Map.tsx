@@ -8,7 +8,7 @@ export const Map = ({ search, ratio, isfirst = false, ...rest }) => {
 	return (
 		<AspectRatioBox ratio={ratio} borderRadius='0.5rem'>
 			<Flex justifyContent='center' alignItems='center' overflow='hidden' {...rest}>
-				<a target='_blank' href={`https://maps.google.com/?q=${search}`}>
+				<a target='_blank' href={`https://maps.google.com/?q=${search}`} rel='noopener noreferrer'>
 					<Image
 						src={mapPlaceholder}
 						width='100%'
