@@ -7,7 +7,7 @@ interface IProps {
 	statusCode: Number;
 }
 
-const ErrorPage: NextPage<IProps> = ({ statusCode }) => {
+const ErrorPage: NextPage<IProps> = () => {
 	return (
 		<Flex
 			as='main'
@@ -29,21 +29,13 @@ const ErrorPage: NextPage<IProps> = ({ statusCode }) => {
 					fontWeight='bold'
 					textAlign='center'
 					fontFamily='inherit'>
-					{statusCode}
+					404
 				</Text>
-				{statusCode === 404 ? (
-					<Heading fontSize='3xl' fontFamily='inherit' textAlign='center'>
-						للأسف لم يتم العثور
-						<br />
-						على الصفحة التي طلبتها
-					</Heading>
-				) : (
-					<Heading fontSize='3xl' fontFamily='inherit' textAlign='center'>
-						يبدو أن الموقع لا يعمل
-						<br />
-						شكراً سلفاً على تواصلك معنا و مساعدتنا في حل المشكلة
-					</Heading>
-				)}
+				<Heading fontSize='3xl' fontFamily='inherit' textAlign='center'>
+					للأسف لم يتم العثور
+					<br />
+					على الصفحة التي طلبتها
+				</Heading>
 			</Box>
 
 			<Link href='/'>
@@ -59,11 +51,6 @@ const ErrorPage: NextPage<IProps> = ({ statusCode }) => {
 			</Link>
 		</Flex>
 	);
-};
-
-ErrorPage.getInitialProps = async ({ res, err }) => {
-	const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-	return { statusCode };
 };
 
 export default ErrorPage;
