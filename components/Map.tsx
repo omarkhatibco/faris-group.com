@@ -19,6 +19,7 @@ export const Map = ({ search, ratio, isfirst = false, ...rest }) => {
 						left='0'
 						right='0'
 						objectFit='cover'
+						alt='خريطة إسطنبول'
 					/>
 					<Button mt={isfirst ? '16' : 0} variantColor='green'>
 						فتح في برنامج الخرائط

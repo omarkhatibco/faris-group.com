@@ -10,8 +10,10 @@ import {
 import Link from 'next/link';
 import { useContext } from 'react';
 import { ConfigContext, PropertyActions, PropertyFacts, PropertyPrice } from '~components';
+import { useMounted } from '~utls';
 
 export const PropertyHeading = ({ data }) => {
+	const isMounted = useMounted();
 	const { locations } = useContext<any>(ConfigContext);
 	const locationObj = locations?.find(({ slug }) => slug === data?.location);
 	const sublocationObj = locationObj?.fgw_sublocations?.find(
@@ -31,29 +33,31 @@ export const PropertyHeading = ({ data }) => {
 						fontFamily='inherit'
 						dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
 
-					<Breadcrumb
-						mb={6}
-						spacing='8px'
-						separator={<Icon color='gray.300' name='chevron-left' />}>
-						<BreadcrumbItem>
-							<Link href='/'>
-								<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
-							</Link>
-						</BreadcrumbItem>
-						<BreadcrumbItem>
-							<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
-						</BreadcrumbItem>
-						<BreadcrumbItem isCurrentPage>
-							<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
-						</BreadcrumbItem>
-					</Breadcrumb>
+					{isMounted && (
+						<Breadcrumb
+							mb={6}
+							spacing='8px'
+							separator={<Icon color='gray.300' name='chevron-left' />}>
+							<BreadcrumbItem>
+								<Link href='/'>
+									<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
+								</Link>
+							</BreadcrumbItem>
+							<BreadcrumbItem>
+								<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
+							</BreadcrumbItem>
+							<BreadcrumbItem isCurrentPage>
+								<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
+							</BreadcrumbItem>
+						</Breadcrumb>
+					)}
 				</Box>
-				{data?.appartments?.[0]?.price && (
+				{data?.appartments?.[0]?.price && isMounted && (
 					<PropertyPrice firstAppartmentObj={data?.appartments?.[0]} />
 				)}
 			</Flex>
 			<PropertyActions data={data} />
-			<PropertyFacts data={data} />
+			{isMounted && <PropertyFacts data={data} />}
 
 			{data && <Box as='hr' my={8}></Box>}
 		</Box>

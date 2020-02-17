@@ -25,7 +25,7 @@ export const PropertyPrice = ({ firstAppartmentObj, isSmall = false }) => {
 				<Text
 					as='span'
 					fontSize={isSmall ? 'md' : 'lg'}
-					color='green.500'
+					color='green.600'
 					display='block'
 					fontFamily='inherit'
 					fontWeight='medium'>
@@ -36,7 +36,7 @@ export const PropertyPrice = ({ firstAppartmentObj, isSmall = false }) => {
 				<Text
 					as='span'
 					fontSize={isSmall ? 'xs' : 'sm'}
-					color='green.300'
+					color='green.700'
 					display='block'
 					fontFamily='inherit'
 					fontWeight='medium'>

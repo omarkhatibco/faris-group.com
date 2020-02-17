@@ -40,6 +40,7 @@ export const Video = ({ url }) => {
 								left='0'
 								right='0'
 								objectFit={['cover', 'cover']}
+								alt='صورة توصف محتوى الفيديو'
 							/>
 						)}
 						<IconButton
