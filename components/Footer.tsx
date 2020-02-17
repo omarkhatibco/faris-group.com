@@ -11,14 +11,13 @@ export const Footer: React.FC = () => {
 			<Container>
 				<Flex flexDirection='column' alignItems='center' justifyContent='center' textAlign='center'>
 					<Text>Faris Group Logo</Text>
-					<Text fontWeight='bold' my='2' textTransform='uppercase' fontFamily='inherit'>
+					<Text fontWeight='bold' my='2' textTransform='uppercase'>
 						للإستشارات العقارية
 					</Text>
 					<Text
 						fontWeight='bold'
 						my='2'
 						color='gray.600'
-						fontFamily='inherit'
 						css={css({
 							direction: 'ltr',
 						})}>
@@ -31,7 +30,7 @@ export const Footer: React.FC = () => {
 						Turkey
 					</Text>
 					{isMounted && <SocialLinks />}
-					<Text fontSize='sm' color='gray.500' my='2' fontFamily='inherit'>
+					<Text fontSize='sm' color='gray.500' my='2'>
 						جميع الحقوق محفوظة لفارس غروب | تم التطوير من قبل{' '}
 						<Link href='https://loewen.dev' target='_blank' rel='noopener noreferrer'>
 							löwen.dev

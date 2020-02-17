@@ -99,26 +99,20 @@ export const PropertyGrid = ({ data }) => {
 							color='green.500'
 							fontSize='2xl'
 							textTransform='uppercase'
-							fontFamily='inherit'
 							dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
 						<Breadcrumb
 							mb={4}
 							spacing='4px'
 							separator={<Icon color='gray.300' name='chevron-left' />}>
 							<BreadcrumbItem>
-								<Text fontFamily='inherit' fontSize='sm'>
-									{locationObj?.title}
-								</Text>
+								<Text fontSize='sm'>{locationObj?.title}</Text>
 							</BreadcrumbItem>
 							<BreadcrumbItem>
-								<Text fontFamily='inherit' fontSize='sm'>
-									{sublocationObj?.title}
-								</Text>
+								<Text fontSize='sm'>{sublocationObj?.title}</Text>
 							</BreadcrumbItem>
 						</Breadcrumb>
 						<Box
 							mb={4}
-							fontFamily='inherit'
 							overflow='hidden'
 							fontSize='sm'
 							css={css({

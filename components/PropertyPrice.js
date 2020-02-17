@@ -20,14 +20,12 @@ export const PropertyPrice = ({ firstAppartmentObj, isSmall = false }) => {
 				fontSize={isSmall ? 'xl' : '2xl'}
 				fontWeight='medium'
 				textTransform='uppercase'
-				fontFamily='inherit'
 				lineHeight='1.2'>
 				<Text
 					as='span'
 					fontSize={isSmall ? 'md' : 'lg'}
 					color='green.600'
 					display='block'
-					fontFamily='inherit'
 					fontWeight='medium'>
 					ابتداءاً من
 				</Text>
@@ -38,7 +36,6 @@ export const PropertyPrice = ({ firstAppartmentObj, isSmall = false }) => {
 					fontSize={isSmall ? 'xs' : 'sm'}
 					color='green.700'
 					display='block'
-					fontFamily='inherit'
 					fontWeight='medium'>
 					{formatMoney(pricePerMeter, currency)}/ متر<sup>٢</sup>
 				</Text>

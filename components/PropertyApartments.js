@@ -9,13 +9,7 @@ export const PropertyApartments = ({ appartments }) => {
 	const [overlayImage, setOverlayImage] = useState(null);
 	return appartments?.length > 0 ? (
 		<Box as='section'>
-			<Heading
-				as='h2'
-				mb={6}
-				color='green.500'
-				fontSize={['xl', '3xl']}
-				textTransform='uppercase'
-				fontFamily='inherit'>
+			<Heading as='h2' mb={6} color='green.500' fontSize={['xl', '3xl']} textTransform='uppercase'>
 				الشقق المتوفرة ({appartments?.length})
 			</Heading>
 

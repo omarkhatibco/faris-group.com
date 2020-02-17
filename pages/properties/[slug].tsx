@@ -57,11 +57,10 @@ const SingleProperties: NextPage<IProps> = ({ data, galleries, attachments }) =>
 								mb='2'
 								color='green.500'
 								fontSize={['2xl', '4xl']}
-								textTransform='uppercase'
-								fontFamily='inherit'>
+								textTransform='uppercase'>
 								دعنا نساعدك
 							</Heading>
-							<Text mb='8' fontFamily='inherit'>
+							<Text mb='8'>
 								تواصل معنا لمساعدتك بإختيار العقار المناسب لك و للعائلة, إذا لم تجد طلبك على الموقع
 								دعنا نطلعك على بعض من أهم عروضنا الحصرية.
 							</Text>

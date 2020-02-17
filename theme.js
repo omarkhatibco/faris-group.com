@@ -378,6 +378,11 @@ const customTheme = {
 		...theme.icons,
 		...customIcons,
 	},
+	fonts: {
+		heading: '"Dubai", Helvetica Neue, sans-serif;',
+		body: '"Dubai", Helvetica Neue, sans-serif;',
+		mono: 'Menlo, monospace',
+	},
 };
 
 export default customTheme;

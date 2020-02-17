@@ -5,7 +5,6 @@ export const InfoBox = ({ title, icon, value, suffix = null, width, isSmall = fa
 		<Box width={width} pb={[4, 0]}>
 			<Heading
 				as='h4'
-				fontFamily='inherit'
 				color='green.700'
 				fontWeight='medium'
 				mb={1}
@@ -14,17 +13,9 @@ export const InfoBox = ({ title, icon, value, suffix = null, width, isSmall = fa
 			</Heading>
 			<Flex justifyContent='baseline'>
 				<Icon name={icon} size={isSmall ? '1.25rem' : '1.5rem'} color='green.500' ml={3} />
-				<Text as='p' fontFamily='inherit' fontSize={isSmall ? 'md' : 'lg'} fontWeight='bold'>
-					<Text as='span' fontFamily='inherit'>
-						{value}
-					</Text>
-					{suffix && (
-						<Text
-							as='span'
-							mr={1}
-							fontFamily='inherit'
-							dangerouslySetInnerHTML={{ __html: suffix }}></Text>
-					)}
+				<Text as='p' fontSize={isSmall ? 'md' : 'lg'} fontWeight='bold'>
+					<Text as='span'>{value}</Text>
+					{suffix && <Text as='span' mr={1} dangerouslySetInnerHTML={{ __html: suffix }}></Text>}
 				</Text>
 			</Flex>
 		</Box>

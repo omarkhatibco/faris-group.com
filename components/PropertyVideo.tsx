@@ -5,13 +5,7 @@ import { Video } from '.';
 export const PropertyVideo = ({ url }) => {
 	return url ? (
 		<Box as='section'>
-			<Heading
-				as='h2'
-				mb={6}
-				color='green.500'
-				fontSize={['xl', '3xl']}
-				textTransform='uppercase'
-				fontFamily='inherit'>
+			<Heading as='h2' mb={6} color='green.500' fontSize={['xl', '3xl']} textTransform='uppercase'>
 				فيديو المشروع
 			</Heading>
 			<Video url={url} />

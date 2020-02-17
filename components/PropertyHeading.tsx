@@ -30,7 +30,6 @@ export const PropertyHeading = ({ data }) => {
 						color='green.500'
 						fontSize='5xl'
 						textTransform='uppercase'
-						fontFamily='inherit'
 						dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
 
 					{isMounted && (

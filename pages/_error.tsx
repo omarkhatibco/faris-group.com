@@ -22,16 +22,10 @@ const ErrorPage: NextPage<IProps> = () => {
 				<Box as={MdBugReport} size='5rem' color='green.500'></Box>
 			</Box>
 			<Box my={4}>
-				<Text
-					as='span'
-					display='block'
-					fontSize='5xl'
-					fontWeight='bold'
-					textAlign='center'
-					fontFamily='inherit'>
+				<Text as='span' display='block' fontSize='5xl' fontWeight='bold' textAlign='center'>
 					404
 				</Text>
-				<Heading fontSize='3xl' fontFamily='inherit' textAlign='center'>
+				<Heading fontSize='3xl' textAlign='center'>
 					للأسف لم يتم العثور
 					<br />
 					على الصفحة التي طلبتها

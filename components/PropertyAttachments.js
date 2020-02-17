@@ -3,13 +3,7 @@ import { Box, Heading, Link, List, ListIcon, ListItem } from '@chakra-ui/core';
 export const PropertyAttachments = ({ attachments }) => {
 	return attachments?.length > 0 ? (
 		<Box as='section'>
-			<Heading
-				as='h2'
-				mb={6}
-				color='green.500'
-				fontSize={['xl', '3xl']}
-				textTransform='uppercase'
-				fontFamily='inherit'>
+			<Heading as='h2' mb={6} color='green.500' fontSize={['xl', '3xl']} textTransform='uppercase'>
 				ملحقات إضافية
 			</Heading>
 			<List spacing={2}>

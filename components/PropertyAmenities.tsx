@@ -6,13 +6,7 @@ export const PropertyAmenities = ({ amenities }) => {
 
 	return amenities?.length > 0 ? (
 		<Box as='section'>
-			<Heading
-				as='h2'
-				mb={6}
-				color='green.500'
-				fontSize={['xl', '3xl']}
-				textTransform='uppercase'
-				fontFamily='inherit'>
+			<Heading as='h2' mb={6} color='green.500' fontSize={['xl', '3xl']} textTransform='uppercase'>
 				مزايا المشروع
 			</Heading>
 			<List

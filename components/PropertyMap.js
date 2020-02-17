@@ -17,8 +17,7 @@ export const PropertyMap = ({ map, distances, location, sublocation }) => {
 					mb={6}
 					color='green.500'
 					fontSize={['xl', '3xl']}
-					textTransform='uppercase'
-					fontFamily='inherit'>
+					textTransform='uppercase'>
 					الموقع
 				</Heading>
 			)}
@@ -42,13 +41,7 @@ export const PropertyMap = ({ map, distances, location, sublocation }) => {
 				</Flex>
 			</Box>
 			{distances?.length > 0 && (
-				<Heading
-					as='h3'
-					mb={4}
-					color='green.500'
-					fontSize='xl'
-					textTransform='uppercase'
-					fontFamily='inherit'>
+				<Heading as='h3' mb={4} color='green.500' fontSize='xl' textTransform='uppercase'>
 					يبعد المشروع عن ...
 				</Heading>
 			)}

@@ -17,22 +17,17 @@ const ContactUs: NextPage = () => {
 				<Container>
 					<Flex flexWrap='wrap'>
 						<Box width={['100%', 2 / 3]} pl={['0', '12']} pb={['12', '0']}>
-							<Heading
-								as='h1'
-								color='green.500'
-								pb='4'
-								textTransform='uppercase'
-								fontFamily='inherit'>
+							<Heading as='h1' color='green.500' pb='4' textTransform='uppercase'>
 								دعنا نتحدث
 							</Heading>
 							<ContactForm />
 						</Box>
 						<Box width={['100%', 1 / 3]}>
-							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='inherit'>
+							<Heading as='h2' color='green.500' textTransform='uppercase'>
 								وسائل التواصل
 							</Heading>
 							{isMounted && <SocialLinks />}
-							<Heading as='h2' color='green.500' textTransform='uppercase' fontFamily='inherit'>
+							<Heading as='h2' color='green.500' textTransform='uppercase'>
 								بيانات الإتصال
 							</Heading>
 							<Stack my='2'>
@@ -40,7 +35,7 @@ const ContactUs: NextPage = () => {
 									<Box ml='4' color='green.200' borderRadius='100%'>
 										<Box as={MdPlace} width='1.5rem' height='1.5rem'></Box>
 									</Box>
-									<Text fontWeight='bold' color='gray.600' fontFamily='inherit'>
+									<Text fontWeight='bold' color='gray.600'>
 										Molla Gürani,
 										<br />
 										Turgut Özal Millet Cd No:72
@@ -54,7 +49,7 @@ const ContactUs: NextPage = () => {
 									<Box ml='4' color='green.200' borderRadius='100%'>
 										<Box as={MdEmail} width='1.5rem' height='1.5rem'></Box>
 									</Box>
-									<Text fontWeight='bold' color='gray.600' fontFamily='inherit'>
+									<Text fontWeight='bold' color='gray.600'>
 										<Link href='mailto:info@faris-group.com'>info@faris-group.com</Link>
 									</Text>
 								</Flex>
@@ -65,7 +60,6 @@ const ContactUs: NextPage = () => {
 									<Text
 										fontWeight='bold'
 										color='gray.600'
-										fontFamily='inherit'
 										css={css({
 											direction: 'ltr',
 										})}>
