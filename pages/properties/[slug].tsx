@@ -2,6 +2,7 @@
 import { Box, Heading, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
 import Router from 'next/router';
+import { useEffect, useState } from 'react';
 import {
 	Container,
 	ImageSlider,
@@ -14,7 +15,7 @@ import {
 	PropertyMap,
 	PropertyVideo,
 } from '~components';
-import { getCdnUrl, wpFetch } from '~utls';
+import { getCdnUrl, wp, wpFetch } from '~utls';
 
 interface IProps {
 	data?: any;
@@ -22,7 +23,55 @@ interface IProps {
 	attachments?: any;
 }
 
-const SingleProperties: NextPage<IProps> = ({ data, galleries, attachments }) => {
+const SingleProperties: NextPage<IProps> = ({ data }) => {
+	const [galleries, setGalleries] = useState(null);
+	const [attachments, setAttachments] = useState(null);
+
+	const getRestData = async () => {
+		try {
+			const gallerySearchParam = new URLSearchParams();
+			gallerySearchParam.append('per_page', '100');
+			gallerySearchParam.append('include', data?.media_gallery?.toString());
+			const apiGalleries: any =
+				data?.media_gallery?.length > 0
+					? await wp('media', {
+							searchParams: gallerySearchParam,
+					  }).json()
+					: [];
+
+			const galleries = [...apiGalleries]
+				?.sort((a, b) => b.source_url - a.source_url)
+				?.map(obj => {
+					const source_url = getCdnUrl(obj?.source_url);
+					return {
+						...obj,
+						source_url,
+					};
+				})
+				?.reverse();
+
+			setGalleries(galleries);
+
+			const attachmentsSearchParam = new URLSearchParams();
+			attachmentsSearchParam.append('per_page', '100');
+			attachmentsSearchParam.append('include', data?.attachments?.toString());
+
+			const attachments: any =
+				data?.attachments?.length > 0
+					? await wp('media', {
+							searchParams: attachmentsSearchParam,
+					  }).json()
+					: null;
+			setAttachments(attachments);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		getRestData();
+	}, []);
+
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
 			{galleries?.length > 0 && <ImageSlider galleries={galleries} />}
@@ -96,40 +145,7 @@ SingleProperties.getInitialProps = async ctx => {
 			redirectOnError();
 		}
 
-		const gallerySearchParam = new URLSearchParams();
-		gallerySearchParam.append('per_page', '100');
-
-		gallerySearchParam.append('include', data?.media_gallery?.toString());
-
-		const apiGalleries: any =
-			data?.media_gallery?.length > 0
-				? await wpFetch('media', {
-						searchParams: gallerySearchParam,
-				  })
-				: [];
-
-		const galleries = [...apiGalleries]
-			?.sort((a, b) => b.source_url - a.source_url)
-			?.map(obj => {
-				const source_url = getCdnUrl(obj?.source_url);
-				return {
-					...obj,
-					source_url,
-				};
-			})
-			?.reverse();
-
-		const attachmentsSearchParam = new URLSearchParams();
-		attachmentsSearchParam.append('per_page', '100');
-		attachmentsSearchParam.append('include', data?.attachments?.toString());
-		const attachments: any =
-			data?.attachments?.length > 0
-				? await wpFetch('media', {
-						searchParams: attachmentsSearchParam,
-				  })
-				: null;
-
-		return { data, attachments, galleries };
+		return { data };
 	} catch (error) {
 		console.log(error);
 		redirectOnError();
