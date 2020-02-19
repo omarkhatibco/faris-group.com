@@ -8,19 +8,18 @@ import {
 	Flex,
 	Heading,
 	Icon,
-	Image,
 	Text,
 	useTheme,
 } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { ConfigContext, InfoBox, PropertyPrice } from '~components';
+import { ConfigContext, Image, InfoBox, PropertyPrice } from '~components';
 import { formatNumber, getCdnUrl } from '~utls';
 
 export const PropertyGrid = ({ data }) => {
 	const theme = useTheme();
-	const { locations } = useContext<any>(ConfigContext);
+	const { locations } = useContext(ConfigContext);
 	const locationObj = locations?.find(({ slug }) => slug === data?.location);
 	const sublocationObj = locationObj?.fgw_sublocations?.find(
 		({ slug }) => slug === data?.sublocation
@@ -117,8 +116,8 @@ export const PropertyGrid = ({ data }) => {
 							fontSize='sm'
 							css={css({
 								display: '-webkit-box',
-								'-webkit-line-clamp': '2',
-								'-webkit-box-orient': 'vertical',
+								WebkitLineClamp: '2',
+								WebkitBoxOrient: 'vertical',
 							})}
 							dangerouslySetInnerHTML={{ __html: data?.excerpt?.rendered }}></Box>
 						{firstAppartmentObj && (

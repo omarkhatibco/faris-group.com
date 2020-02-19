@@ -1,6 +1,7 @@
-import { AspectRatioBox, Box, Flex, IconButton, Image } from '@chakra-ui/core';
+import { AspectRatioBox, Box, Flex, IconButton } from '@chakra-ui/core';
 import { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
+import { Image } from '~components';
 import { getCdnUrl, parseVideo } from '~utls';
 
 export const Video = ({ url }) => {

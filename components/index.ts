@@ -9,6 +9,7 @@ export * from './FavoriteButton';
 export * from './Footer';
 export * from './FrmComponents';
 export * from './Header';
+export * from './Image';
 export * from './ImageSlider';
 export * from './InfoBox';
 export * from './layouts';

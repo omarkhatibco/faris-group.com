@@ -1,11 +1,14 @@
 /**jsx @jsx */
-import { Box, Flex, IconButton, Image } from '@chakra-ui/core';
+import { Box, Flex, IconButton } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import EmblaCarouselReact from 'embla-carousel-react';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
+import { Image } from '~components';
+import { useMounted } from '~utls';
 
 export const ImageSlider = ({ galleries }) => {
+	const isMounted = useMounted();
 	const [embla, setEmbla] = useState(null);
 	const { width: windowWidth, height: windowHeight } = useWindowSize();
 
@@ -20,7 +23,7 @@ export const ImageSlider = ({ galleries }) => {
 
 	return (
 		<Box position='relative'>
-			{galleries && (
+			{isMounted && galleries && (
 				<EmblaCarouselReact
 					emblaRef={setEmbla}
 					options={{ loop: false, align: 'start', dragFree: false, containScroll: true }}>
@@ -32,14 +35,7 @@ export const ImageSlider = ({ galleries }) => {
 						direction='row-reverse'
 						justifyContent='flex-end'
 						height={'60vh'}>
-						{galleries?.map(({ id, source_url, alt_text, media_details }) => {
-							const { width: orginalWidth, height: orginalHeight } = media_details;
-							const widthInPx = (orginalWidth * (windowHeight * 60)) / 100 / orginalHeight;
-
-							parseInt(Number(widthInPx).toFixed(0), 10) > windowWidth
-								? `${source_url}?h=${Number((windowHeight * 60) / 100).toFixed(0)}&quality=100`
-								: `${source_url}?w=${Number(widthInPx).toFixed(0)}&quality=100`;
-
+						{galleries?.map(({ id, source_url, alt_text }) => {
 							return (
 								<Box
 									flex={['0 0 100%', `0 0 45%`]}
@@ -48,7 +44,7 @@ export const ImageSlider = ({ galleries }) => {
 									pl={[0, 1]}
 									key={id}>
 									<Image
-										src={source_url}
+										src={`${source_url}?w=700&quality=100`}
 										height='100%'
 										width='100%'
 										objectFit='cover'

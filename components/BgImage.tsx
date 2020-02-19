@@ -1,7 +1,7 @@
 /**jsx @jsx */
 
-import { Image } from '@chakra-ui/core';
 import { css } from '@emotion/core';
+import { Image } from '~components';
 import { getCdnUrl } from '~utls';
 
 export const BgImage = ({ src, alt }) => {
