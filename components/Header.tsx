@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import Link from 'next/link';
 import React from 'react';
 import { MdFavorite } from 'react-icons/md';
-import { Container, CurrencyConverter, MobileNav } from '~components';
+import { Container, CurrencyConverter } from '~components';
 import { ActiveLink } from './ActiveLink';
 
 export const Header = ({}) => {
@@ -63,7 +63,7 @@ export const Header = ({}) => {
 							</Box>
 						</Flex>
 					</Box>
-					<MobileNav />
+					{/**			<MobileNav /> */}
 				</Flex>
 			</Container>
 		</Box>
