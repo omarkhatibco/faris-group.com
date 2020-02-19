@@ -1,10 +1,12 @@
 import { Box, Heading, List, ListIcon, ListItem } from '@chakra-ui/core';
 import { useContext } from 'react';
 import { ConfigContext } from '~components';
+import { useMounted } from '~utls';
 export const PropertyAmenities = ({ amenities }) => {
+	const isMounted = useMounted();
 	const { amenities: allAmenities } = useContext<any>(ConfigContext);
 
-	return amenities?.length > 0 ? (
+	return isMounted && amenities?.length > 0 ? (
 		<Box as='section'>
 			<Heading as='h2' mb={6} color='green.500' fontSize={['xl', '3xl']} textTransform='uppercase'>
 				مزايا المشروع

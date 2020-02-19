@@ -1,13 +1,14 @@
 import { Badge, Box, Button, Flex, Heading, IconButton, Image } from '@chakra-ui/core';
 import { useContext, useState } from 'react';
 import { ConfigContext, CurrencyContext, InfoBox, Overlay } from '~components';
-import { formatMoney, formatNumber } from '~utls';
+import { formatMoney, formatNumber, useMounted } from '~utls';
 
 export const PropertyApartments = ({ appartments }) => {
+	const isMounted = useMounted();
 	const { currency: currencyObj } = useContext(ConfigContext);
 	const [currency] = useContext(CurrencyContext);
 	const [overlayImage, setOverlayImage] = useState(null);
-	return appartments?.length > 0 ? (
+	return isMounted && appartments?.length > 0 ? (
 		<Box as='section'>
 			<Heading as='h2' mb={6} color='green.500' fontSize={['xl', '3xl']} textTransform='uppercase'>
 				الشقق المتوفرة ({appartments?.length})

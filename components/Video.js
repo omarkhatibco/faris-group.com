@@ -1,7 +1,7 @@
 import { AspectRatioBox, Box, Flex, IconButton, Image } from '@chakra-ui/core';
 import { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
-import { parseVideo } from '~utls';
+import { getCdnUrl, parseVideo } from '~utls';
 
 export const Video = ({ url }) => {
 	const [video, setVideo] = useState({});
@@ -32,7 +32,7 @@ export const Video = ({ url }) => {
 						onClick={() => setShowVideo(true)}>
 						{video?.imageUrl && (
 							<Image
-								src={video?.imageUrl}
+								src={`${getCdnUrl(video?.imageUrl)}?w=700&quality=100`}
 								width='100%'
 								position='absolute'
 								top='0'
