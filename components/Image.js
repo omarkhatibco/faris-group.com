@@ -4,7 +4,7 @@ import { useMounted } from '~utls';
 
 export const Image = props => {
 	const isMounted = useMounted();
-	return isMounted && <Box as={NativeImage} {...props}></Box>;
+	return <Box as={NativeImage} {...props}></Box>;
 };
 
 const NativeImage = ({ htmlWidth, htmlHeight, alt, src, loading = 'lazy', ...props }) => {

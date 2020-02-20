@@ -3,14 +3,10 @@ import { Box, Flex, IconButton } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import EmblaCarouselReact from 'embla-carousel-react';
 import { useEffect, useState } from 'react';
-import { useWindowSize } from 'react-use';
 import { Image } from '~components';
-import { useMounted } from '~utls';
 
 export const ImageSlider = ({ galleries }) => {
-	const isMounted = useMounted();
 	const [embla, setEmbla] = useState(null);
-	const { width: windowWidth, height: windowHeight } = useWindowSize();
 
 	useEffect(() => {
 		if (embla) {
@@ -23,7 +19,7 @@ export const ImageSlider = ({ galleries }) => {
 
 	return (
 		<Box position='relative'>
-			{isMounted && galleries && (
+			{galleries && (
 				<EmblaCarouselReact
 					emblaRef={setEmbla}
 					options={{ loop: false, align: 'start', dragFree: false, containScroll: true }}>

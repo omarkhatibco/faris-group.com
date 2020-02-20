@@ -12,7 +12,7 @@ export const PropertyAmenities = ({ amenities }) => {
 				مزايا المشروع
 			</Heading>
 			<List
-				spacing={2}
+				gridGap={2}
 				display='grid'
 				gridTemplateColumns={['repeat(2,calc(100% / 2))', 'repeat(3,calc(100% / 3))']}>
 				{allAmenities &&

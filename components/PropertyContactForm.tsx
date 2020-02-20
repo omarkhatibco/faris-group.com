@@ -1,6 +1,6 @@
-import { Box, Stack } from '@chakra-ui/core';
-import { Form, Submit, Field, TextareaField, SelectField } from '~components';
-import { MdPhone, MdEmail, MdPerson, MdSubject } from 'react-icons/md';
+import { Box, Grid } from '@chakra-ui/core';
+import { MdEmail, MdPerson, MdPhone, MdSubject } from 'react-icons/md';
+import { Field, Form, SelectField, Submit, TextareaField } from '~components';
 
 export const PropertyContactForm = () => {
 	return (
@@ -9,7 +9,7 @@ export const PropertyContactForm = () => {
 				console.log({ values });
 			}}
 			options={{}}>
-			<Stack spacing='4' shouldWrapChildren>
+			<Grid gridGap={4}>
 				<Field
 					name='name'
 					placeholder='الأسم'
@@ -33,7 +33,7 @@ export const PropertyContactForm = () => {
 					size='md'
 					icon={<Box as={MdPhone} width='1rem' height='1rem' color='green.300' />}
 					isRequired></Field>
-				<SelectField name='whenToCall' isRequired placeholder='أوقات الإتصال المفضلة'>
+				<SelectField py={4} name='whenToCall' isRequired placeholder='أوقات الإتصال المفضلة'>
 					<option value='8-12'>صباحاً من ٨ حتى ١٢ ظهراً</option>
 					<option value='12-18'>بعد الظهر من ١٢ حتى ٦ مساءاً</option>
 					<option value='18-21'>مساءاً من ٦ حتى ٩ مساءاً</option>
@@ -45,7 +45,7 @@ export const PropertyContactForm = () => {
 					icon={<Box as={MdSubject} width='1rem' height='1rem' color='green.300' />}
 					isRequired></TextareaField>
 				<Submit variantColor='green'>إرسال الرسالة</Submit>
-			</Stack>
+			</Grid>
 		</Form>
 	);
 };
