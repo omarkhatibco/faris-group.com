@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
 					{isMounted && <SocialLinks />}
 					<Text fontSize='sm' color='gray.500' my='2'>
 						جميع الحقوق محفوظة لفارس غروب | تم التطوير من قبل{' '}
-						<Link href='https://loewen.dev' target='_blank' rel='noopener noreferrer'>
+						<Link href='https://loewen.dev' isExternal>
 							löwen.dev
 						</Link>
 					</Text>
