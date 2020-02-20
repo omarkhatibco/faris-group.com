@@ -107,7 +107,7 @@ SingleProperties.getInitialProps = async ctx => {
 			searchParams: apiMediaSearchParam,
 		});
 
-		const unsortedGalleries = apiMedia.filter(({ id }) => data?.media_gallery.includes(id));
+		const unsortedGalleries = apiMedia.filter(({ id }) => data?.media_gallery.includes(`${id}`));
 
 		const galleries = [...unsortedGalleries]
 			?.sort((a, b) => b.source_url - a.source_url)
@@ -120,7 +120,7 @@ SingleProperties.getInitialProps = async ctx => {
 			})
 			?.reverse();
 
-		const attachments = apiMedia.filter(({ id }) => data?.attachments.includes(id));
+		const attachments = apiMedia.filter(({ id }) => data?.attachments.includes(`${id}`));
 
 		return { data, attachments, galleries };
 	} catch (error) {
