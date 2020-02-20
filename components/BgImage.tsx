@@ -1,16 +1,18 @@
 /**jsx @jsx */
 
 import { css } from '@emotion/core';
+import { useWindowSize } from 'react-use';
 import { Image } from '~components';
 import { getCdnUrl } from '~utls';
 
 export const BgImage = ({ src, alt }) => {
+	const { width } = useWindowSize();
 	return (
 		<Image
 			css={css({
 				filter: 'blur(4px)',
 			})}
-			src={`${getCdnUrl(src)}?quality=100`}
+			src={`${getCdnUrl(src)}?w=${width}`}
 			fallbackSrc={src}
 			alt={alt}
 			position='absolute'
@@ -20,8 +22,7 @@ export const BgImage = ({ src, alt }) => {
 			right='0'
 			height='100%'
 			width='100%'
-			objectFit={['cover', 'cover']}
-			// transform='scaleX(-1)'
+			objectFit='cover'
 			objectPosition='center'></Image>
 	);
 };
