@@ -11,7 +11,7 @@ export const Header = ({}) => {
 	return (
 		<Box
 			as='header'
-			backgroundColor='rgba(255,255,255,0.5)'
+			backgroundColor='white'
 			py='2'
 			position='fixed'
 			left='0'
@@ -19,7 +19,10 @@ export const Header = ({}) => {
 			top='0'
 			boxShadow='0 6px 6px rgba(0,0,0,.1)'
 			css={css({
-				backdropFilter: 'blur(8px)',
+				'@supports (backdrop-filter: none)': {
+					backdropFilter: 'blur(8px)',
+					backgroundColor: 'rgba(255,255,255,0.5)',
+				},
 			})}
 			zIndex={10}>
 			<Container>
