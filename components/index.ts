@@ -18,6 +18,7 @@ export * from './MapSvg';
 //export * from './MobileNav';
 export * from './Overlay';
 export * from './PreflightCSS';
+export * from './PropertiesFilter';
 export * from './PropertyActions';
 export * from './PropertyAmenities';
 export * from './PropertyApartments';

@@ -3,20 +3,32 @@ import { Box, Flex, Grid, Heading, Spinner, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
-import { BgImage, ConfigContext, Container, PropertyGrid } from '~components';
+import { BgImage, ConfigContext, Container, PropertiesFilter, PropertyGrid } from '~components';
 import { wp } from '~utls';
+
+const defaulFilter = {
+	location: '',
+	sublocation: '',
+	installment: false,
+	is_help_in_citizenship: false,
+	price: { min: 0, max: 0 },
+	size: { min: 0, max: 0 },
+};
 
 const Properties: NextPage = () => {
 	const { properties } = useContext<any>(ConfigContext);
 	const { width: windowWidth, height: windowHeight } = useWindowSize();
 	const [data, setData] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
+	const [filter, setFilter] = useState<any>(defaulFilter);
+
+	console.log(filter);
 
 	const getData = async () => {
 		setLoading(true);
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
-		searchParams.append('per_page', '100');
+		searchParams.append('per_page', '500');
 
 		try {
 			const response: any = await wp
@@ -52,16 +64,11 @@ const Properties: NextPage = () => {
 					alignItems='center'
 					justifyContent='center'>
 					<Box textAlign='center' width={[1 / 2]} pt={32} pb={12}>
-						<Heading
-							as='h1'
-							mb='4'
-							fontSize={['2xl', '5xl']}
-							textTransform='uppercase'
-							textShadow='lg'>
+						<Heading as='h1' mb='4' fontSize={['2xl', '5xl']} textTransform='uppercase'>
 							ابحث عن عقارك
 						</Heading>
 						<Box>
-							<Text textShadow='lg' fontSize={['sm', 'md']}>
+							<Text fontSize={['sm', 'md']}>
 								مجموعة الفارس متخصصة بالاستشارات العقارية والوساطة، مقرها في إسطنبول ، ولديها تعامل
 								في مدن أخرى في تركيا، واتفاقيات عديدة مع شركات الإنشاء الكبرى في إسطنبول، تركّز
 								اهتمامها على المستثمرين العقاريين الأجانب، والراغبين بالتملك في تركيا
@@ -94,8 +101,8 @@ const Properties: NextPage = () => {
 							borderRadius='0.5rem'
 							borderWidth='1px'
 							borderColor='gray.100'
-							p={6}>
-							filter here
+							p={4}>
+							<PropertiesFilter filter={filter} setFilter={setFilter} />
 						</Box>
 					</Box>
 				</Container>

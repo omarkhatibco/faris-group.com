@@ -11,7 +11,6 @@ const Favorites: NextPage = () => {
 	const [favorite] = useLocalStorage('favorite-properties', []);
 	const [data, setData] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
-	console.log(favorite);
 
 	const getData = async () => {
 		if (favorite?.length < 1) return;
