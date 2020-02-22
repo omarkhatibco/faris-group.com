@@ -54,6 +54,8 @@ export const Header = ({}) => {
 							</Box>
 							<Box px={1} as='li'>
 								<IconButton
+									as='a'
+									href='/favorites'
 									aria-label='اختر العملة المفضلة'
 									isRound
 									variant='ghost'
