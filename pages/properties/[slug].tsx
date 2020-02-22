@@ -23,6 +23,7 @@ interface IProps {
 }
 
 const SingleProperties: NextPage<IProps> = ({ data, attachments, galleries }) => {
+	console.log(data);
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
 			{galleries?.length > 0 && <ImageSlider galleries={galleries} />}
@@ -31,15 +32,14 @@ const SingleProperties: NextPage<IProps> = ({ data, attachments, galleries }) =>
 					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
 						<PropertyHeading data={data} />
 						<PropertyDescription data={data} />
-						<PropertyAmenities amenities={data?.amenities} />
+						<PropertyAmenities amenities={data?._embedded && data?._embedded['wp:term'][3]} />
 						<PropertyApartments appartments={data?.appartments} />
 						<PropertyVideo url={data?.oembed} />
 						<PropertyAttachments attachments={attachments} />
 						<PropertyMap
 							map={data?.map}
 							distances={data?.distances}
-							location={data?.location}
-							sublocation={data?.sublocation}
+							location={data?._embedded && data?._embedded['wp:term'][0]}
 						/>
 					</Box>
 					<Box as='aside' width={['100%', 1 / 3]} bg='red' position='relative'>

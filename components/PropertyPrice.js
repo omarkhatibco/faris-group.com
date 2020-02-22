@@ -3,17 +3,16 @@ import { useContext } from 'react';
 import { ConfigContext, CurrencyContext } from '~components';
 import { formatMoney } from '~utls';
 
-export const PropertyPrice = ({ firstAppartmentObj, isSmall = false }) => {
+export const PropertyPrice = ({ price, size, isSmall = false }) => {
 	const { currency: currencyObj } = useContext(ConfigContext);
 	const [currency] = useContext(CurrencyContext);
-	const price = currencyObj
-		? firstAppartmentObj?.price * currencyObj[currency]
-		: firstAppartmentObj?.price * 0.16569376809169;
+	const convertedPrice = currencyObj ? price * currencyObj[currency] : price * 0.16569376809169;
 
 	const pricePerMeter = currencyObj
-		? (firstAppartmentObj?.price / firstAppartmentObj?.min_size) * currencyObj[currency]
-		: (firstAppartmentObj?.price / firstAppartmentObj?.min_size) * 0.16569376809169;
-	return firstAppartmentObj ? (
+		? (price / size) * currencyObj[currency]
+		: (price / size) * 0.16569376809169;
+
+	return price ? (
 		<Box as='section' mr={['0', 'auto']}>
 			<Text
 				mb='2'
@@ -29,7 +28,7 @@ export const PropertyPrice = ({ firstAppartmentObj, isSmall = false }) => {
 					fontWeight='medium'>
 					ابتداءاً من
 				</Text>
-				{formatMoney(price, currency)}
+				{formatMoney(convertedPrice, currency)}
 
 				<Text
 					as='span'

@@ -1,17 +1,15 @@
 /**jsx @jsx */
 
 import { Box, Flex, Grid, Heading } from '@chakra-ui/core';
-import { useContext } from 'react';
-import { ConfigContext, DistanceInfoBox, InfoBox, Map } from '~components';
+import { DistanceInfoBox, InfoBox, Map } from '~components';
 
-export const PropertyMap = ({ map, distances, location, sublocation }) => {
-	const { locations } = useContext(ConfigContext);
-	const locationObj = locations?.find(({ slug }) => slug === location);
-	const sublocationObj = locationObj?.fgw_sublocations?.find(({ slug }) => slug === sublocation);
+export const PropertyMap = ({ map, distances, location }) => {
+	const city = location?.[0];
+	const district = location?.[1];
 
 	return (
 		<Box>
-			{(map || distances || location || sublocation) && (
+			{(map || distances || location) && (
 				<Heading
 					as='h2'
 					mb={6}
@@ -28,14 +26,14 @@ export const PropertyMap = ({ map, distances, location, sublocation }) => {
 				)}
 
 				<Flex mx={-4} mt={2} mb={6}>
-					{locationObj?.title && (
+					{city && (
 						<Box px={4}>
-							<InfoBox title='المدينة' icon='roadSign' value={locationObj?.title} width='auto' />
+							<InfoBox title='المدينة' icon='roadSign' value={city?.name} width='auto' />
 						</Box>
 					)}
-					{sublocationObj?.title && (
+					{district && (
 						<Box px={4}>
-							<InfoBox title='الحي' icon='district' value={sublocationObj?.title} width='auto' />
+							<InfoBox title='الحي' icon='district' value={district?.name} width='auto' />
 						</Box>
 					)}
 				</Flex>

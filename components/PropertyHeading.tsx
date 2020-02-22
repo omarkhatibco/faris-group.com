@@ -8,17 +8,12 @@ import {
 	Icon,
 } from '@chakra-ui/core';
 import Link from 'next/link';
-import { useContext } from 'react';
-import { ConfigContext, PropertyActions, PropertyFacts, PropertyPrice } from '~components';
+import { PropertyActions, PropertyFacts, PropertyPrice } from '~components';
 import { useMounted } from '~utls';
 
 export const PropertyHeading = ({ data }) => {
 	const isMounted = useMounted();
-	const { locations } = useContext<any>(ConfigContext);
-	const locationObj = locations?.find(({ slug }) => slug === data?.location);
-	const sublocationObj = locationObj?.fgw_sublocations?.find(
-		({ slug }) => slug === data?.sublocation
-	);
+	const locations = data?._embedded && data?._embedded['wp:term'][0];
 
 	return (
 		<Box as='section'>
@@ -31,28 +26,24 @@ export const PropertyHeading = ({ data }) => {
 						fontSize='5xl'
 						textTransform='uppercase'
 						dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
-
-					{isMounted && (
-						<Breadcrumb
-							mb={6}
-							spacing='8px'
-							separator={<Icon color='gray.300' name='chevron-left' />}>
-							<BreadcrumbItem>
+					<Breadcrumb
+						mb={6}
+						spacing='8px'
+						separator={<Icon color='gray.300' name='chevron-left' />}>
+						{locations?.map(({ slug, name }) => (
+							<BreadcrumbItem key='slug'>
 								<Link href='/'>
-									<BreadcrumbLink>{locationObj?.title}</BreadcrumbLink>
+									<BreadcrumbLink>{name}</BreadcrumbLink>
 								</Link>
 							</BreadcrumbItem>
-							<BreadcrumbItem>
-								<BreadcrumbLink>{sublocationObj?.title}</BreadcrumbLink>
-							</BreadcrumbItem>
-							<BreadcrumbItem isCurrentPage>
-								<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
-							</BreadcrumbItem>
-						</Breadcrumb>
-					)}
+						))}
+						<BreadcrumbItem isCurrentPage>
+							<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
+						</BreadcrumbItem>
+					</Breadcrumb>
 				</Box>
-				{data?.appartments?.[0]?.price && isMounted && (
-					<PropertyPrice firstAppartmentObj={data?.appartments?.[0]} />
+				{data?.min_price && isMounted && (
+					<PropertyPrice price={data?.min_price} size={data?.min_size} />
 				)}
 			</Flex>
 			<PropertyActions data={data} />
