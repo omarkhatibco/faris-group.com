@@ -24,7 +24,7 @@
 		"@emotion/styled": "^10.0.27",
 		"@formatjs/intl-unified-numberformat": "^3.2.0",
 		"@next/bundle-analyzer": "^9.2.2",
-		"@svgr/cli": "^5.1.0",
+		"@svgr/cli": "^5.2.0",
 		"embla-carousel-react": "^1.2.17",
 		"emotion-theming": "^10.0.27",
 		"isomorphic-unfetch": "^3.0.0",
@@ -36,7 +36,8 @@
 		"react-dom": "^16.12.0",
 		"react-hook-form": "^4.9.8",
 		"react-icons": "^3.9.0",
-		"react-intersection-observer": "^8.25.3",
+		"react-intersection-observer": "^8.26.0",
+		"react-select": "^3.0.8",
 		"react-use": "^13.26.1",
 		"typescript": "^3.8.2",
 		"yup": "^0.28.1"
