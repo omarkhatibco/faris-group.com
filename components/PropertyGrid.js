@@ -134,13 +134,13 @@ export const PropertyGrid = ({ data }) => {
 									/>
 								</Box>
 								<Box p={2}>
-									{firstAppartmentObj.min_size && (
+									{data?.min_size && (
 										<InfoBox
 											isSmall
 											width={['100%', 'auto']}
 											title='المساحة (تبدأ من)'
 											icon='area'
-											value={formatNumber(firstAppartmentObj.min_size)}
+											value={formatNumber(data?.min_size)}
 											suffix='متر<sup>٢</sup>'
 										/>
 									)}
@@ -148,7 +148,7 @@ export const PropertyGrid = ({ data }) => {
 							</Flex>
 						)}
 						{firstAppartmentObj?.price && (
-							<PropertyPrice isSmall firstAppartmentObj={firstAppartmentObj} />
+							<PropertyPrice isSmall price={data?.min_price} size={data?.min_size} />
 						)}
 					</Box>
 				</a>
