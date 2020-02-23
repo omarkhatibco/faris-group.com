@@ -13,17 +13,12 @@ import {
 } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import Link from 'next/link';
-import { useContext } from 'react';
-import { ConfigContext, Image, InfoBox, PropertyPrice } from '~components';
+import { Image, InfoBox, PropertyPrice } from '~components';
 import { formatNumber, getCdnUrl } from '~utls';
 
 export const PropertyGrid = ({ data }) => {
 	const theme = useTheme();
-	const { locations } = useContext(ConfigContext);
-	const locationObj = locations?.find(({ slug }) => slug === data?.location);
-	const sublocationObj = locationObj?.fgw_sublocations?.find(
-		({ slug }) => slug === data?.sublocation
-	);
+	const locations = data?._embedded && data?._embedded['wp:term'][0];
 	const imageObj = data?._embedded && data?._embedded['wp:featuredmedia'][0];
 	const firstAppartmentObj = data?.appartments?.[0];
 
@@ -75,7 +70,7 @@ export const PropertyGrid = ({ data }) => {
 									right='0'
 									justifyContent='flex-start'>
 									<Flex mt={1} flexDirection='column' px={1} alignItems='flex-start'>
-										{data?.payment_methods?.includes('installment') && (
+										{data?.is_installment_available && (
 											<Badge mt={1} fontSize='xs' variantColor='green'>
 												 قابل للتقسيط
 											</Badge>
@@ -103,12 +98,11 @@ export const PropertyGrid = ({ data }) => {
 							mb={4}
 							spacing='4px'
 							separator={<Icon color='gray.300' name='chevron-left' />}>
-							<BreadcrumbItem>
-								<Text fontSize='sm'>{locationObj?.title}</Text>
-							</BreadcrumbItem>
-							<BreadcrumbItem>
-								<Text fontSize='sm'>{sublocationObj?.title}</Text>
-							</BreadcrumbItem>
+							{locations?.map(({ slug, name }) => (
+								<BreadcrumbItem key={slug}>
+									<Text fontSize='sm'>{name}</Text>
+								</BreadcrumbItem>
+							))}
 						</Breadcrumb>
 						<Box
 							mb={4}

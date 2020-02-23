@@ -6,8 +6,8 @@ import {
 	Flex,
 	Heading,
 	Icon,
+	Text,
 } from '@chakra-ui/core';
-import Link from 'next/link';
 import { PropertyActions, PropertyFacts, PropertyPrice } from '~components';
 import { useMounted } from '~utls';
 
@@ -31,10 +31,8 @@ export const PropertyHeading = ({ data }) => {
 						spacing='8px'
 						separator={<Icon color='gray.300' name='chevron-left' />}>
 						{locations?.map(({ slug, name }) => (
-							<BreadcrumbItem key='slug'>
-								<Link href='/'>
-									<BreadcrumbLink>{name}</BreadcrumbLink>
-								</Link>
+							<BreadcrumbItem key={slug}>
+								<Text fontSize='sm'>{name}</Text>
 							</BreadcrumbItem>
 						))}
 						<BreadcrumbItem isCurrentPage>
@@ -46,7 +44,7 @@ export const PropertyHeading = ({ data }) => {
 					<PropertyPrice price={data?.min_price} size={data?.min_size} />
 				)}
 			</Flex>
-			<PropertyActions data={data} />
+			<PropertyActions id={data?.id} hashId={data?.property_hash_id} />
 			{isMounted && <PropertyFacts data={data} />}
 
 			{data && <Box as='hr' my={8}></Box>}

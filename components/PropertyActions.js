@@ -2,20 +2,12 @@ import { Box, Flex, IconButton } from '@chakra-ui/core';
 import { MdCompareArrows, MdShare } from 'react-icons/md';
 import { FavoriteButton, InfoBox } from '~components';
 
-export const PropertyActions = ({ data }) => {
-	const datePart = new Date(Date.parse(data?.date)).getFullYear();
-	const slugPart = data?.slug
-		?.split('-')
-		?.map(word => [...word]?.[0]?.toUpperCase())
-		?.join('');
-
-	const proprtyId = `FG-${datePart || '2020'}-${data?.id || '000'}-${slugPart || 'FG'}`;
-
+export const PropertyActions = ({ id, hashId }) => {
 	return (
 		<Flex flexWrap='wrap' pb={8} alignItems='center' justifyContent='space-between'>
-			{data?.slug && (
+			{hashId && (
 				<Box>
-					<InfoBox title='رقم العقار' icon='fingerPrint' value={proprtyId} />
+					<InfoBox title='رقم العقار' icon='fingerPrint' value={hashId} textUppercase />
 				</Box>
 			)}
 			<Flex mx={-2}>
@@ -37,7 +29,7 @@ export const PropertyActions = ({ data }) => {
 						icon={MdShare}
 					/>
 				</Box>
-				<FavoriteButton id={data?.id} size='xl' />
+				<FavoriteButton id={id} size='xl' />
 			</Flex>
 		</Flex>
 	);

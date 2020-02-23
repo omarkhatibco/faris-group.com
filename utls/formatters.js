@@ -32,8 +32,7 @@ export const formatMoneyPart = (number, currency, currencyDisplay = 'name') => {
 };
 
 export const formatYear = date => {
-	const year = new Date(Date.parse(date)).getFullYear();
-	return formatNumber(year).replace(/٬/g, '');
+	return formatNumber(date).replace(/٬/g, '');
 };
 
 export const formatUnit = (number, unit) => {

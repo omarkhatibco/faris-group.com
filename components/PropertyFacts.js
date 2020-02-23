@@ -3,17 +3,9 @@ import { InfoBox } from '~components';
 import { formatNumber, formatYear } from '~utls';
 
 export const PropertyFacts = ({ data }) => {
-	const payment_methodsAr = data?.payment_methods?.map(key => (key === 'cash' ? 'نقدي' : 'تقسيط'));
-
 	return (
 		<Box as='section'>
 			<Flex flexWrap='wrap' mx={-4}>
-				{data?.payment_methods && (
-					<Box px={4}>
-						<InfoBox title='طرق الدفع' icon='paymentMethod' value={payment_methodsAr?.toString()} />
-					</Box>
-				)}
-
 				{data?.lot_size && (
 					<Box px={4}>
 						<InfoBox
@@ -24,7 +16,6 @@ export const PropertyFacts = ({ data }) => {
 						/>
 					</Box>
 				)}
-
 				{data?.appartment_count && (
 					<Box px={4}>
 						<InfoBox
@@ -44,7 +35,7 @@ export const PropertyFacts = ({ data }) => {
 						<InfoBox
 							title='تاريخ الإنتهاء'
 							icon='calender'
-							value={formatYear(data?.delivery_date)}
+							value={formatNumber(data?.delivery_date)}
 						/>
 					</Box>
 				)}
@@ -55,9 +46,9 @@ export const PropertyFacts = ({ data }) => {
 				)}
 			</Flex>
 			<Flex mt={1} flexDirection='column' alignItems='flex-start'>
-				{data?.payment_methods?.includes('installment') && (
+				{data?.is_installment_available && (
 					<Badge mt={1} fontSize='sm' variantColor='green'>
-						{data?.installment_info}
+						 قابل للتقسيط: {data?.installment_info}
 					</Badge>
 				)}
 				{data?.is_help_in_citizenship && (
