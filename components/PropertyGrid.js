@@ -128,7 +128,7 @@ export const PropertyGrid = ({ data }) => {
 									/>
 								</Box>
 								<Box p={2}>
-									{data?.min_size && (
+									{data?.min_size !== 0 && (
 										<InfoBox
 											isSmall
 											width={['100%', 'auto']}
@@ -141,7 +141,7 @@ export const PropertyGrid = ({ data }) => {
 								</Box>
 							</Flex>
 						)}
-						{firstAppartmentObj?.price && (
+						{firstAppartmentObj?.price !== 0 && (
 							<PropertyPrice isSmall price={data?.min_price} size={data?.min_size} />
 						)}
 					</Box>

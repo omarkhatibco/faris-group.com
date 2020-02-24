@@ -32,5 +32,6 @@ export * from './PropertyHeading';
 export * from './PropertyMap';
 export * from './PropertyPrice';
 export * from './PropertyVideo';
+export * from './RangeField';
 export * from './SocialLinks';
 export * from './Video';

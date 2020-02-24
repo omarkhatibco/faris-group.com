@@ -1,5 +1,6 @@
 import { FormControl, FormLabel } from '@chakra-ui/core';
 import { useState } from 'react';
+import { RangeField } from '~components';
 
 export const SizeFilter = ({ value, onChange }) => {
 	const [val, setVal] = useState({ min: 2, max: 10 });
@@ -8,16 +9,10 @@ export const SizeFilter = ({ value, onChange }) => {
 
 	return (
 		<FormControl>
-			<FormLabel htmlFor='location' textAlign='right' paddingRight='0'>
+			<FormLabel htmlFor='size-min' textAlign='right' paddingRight='0'>
 				المساحة
 			</FormLabel>
-			<InputRange
-				direction='rtl'
-				maxValue={20}
-				minValue={0}
-				value={val}
-				onChange={value => setVal(value)}
-			/>
+			<RangeField name='size' placeholderMin='1' placeholderMax='2' />
 		</FormControl>
 	);
 };

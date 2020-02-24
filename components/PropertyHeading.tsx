@@ -40,7 +40,7 @@ export const PropertyHeading = ({ data }) => {
 						</BreadcrumbItem>
 					</Breadcrumb>
 				</Box>
-				{data?.min_price && isMounted && (
+				{data?.min_price !== 0 && isMounted && (
 					<PropertyPrice price={data?.min_price} size={data?.min_size} />
 				)}
 			</Flex>

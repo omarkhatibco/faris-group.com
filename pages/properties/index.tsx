@@ -77,19 +77,6 @@ const Properties: NextPage = () => {
 			</Flex>
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
-					<Box as='article' width={['100%', 4 / 5]} pl={[0, 8]}>
-						{!loading ? (
-							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(3,1fr)']}>
-								{data?.map(obj => (
-									<PropertyGrid key={obj?.id} data={obj} />
-								))}
-							</Grid>
-						) : (
-							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
-								<Spinner size='xl' color='green.500' thickness='3px' />
-							</Flex>
-						)}
-					</Box>
 					<Box as='aside' width={['100%', 1 / 5]} position='relative'>
 						<Box
 							position='sticky'
@@ -102,6 +89,19 @@ const Properties: NextPage = () => {
 							p={4}>
 							<PropertiesFilter filter={filter} setFilter={setFilter} />
 						</Box>
+					</Box>
+					<Box as='article' width={['100%', 4 / 5]} pr={[0, 8]}>
+						{!loading ? (
+							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(3,1fr)']}>
+								{data?.map(obj => (
+									<PropertyGrid key={obj?.id} data={obj} />
+								))}
+							</Grid>
+						) : (
+							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
+								<Spinner size='xl' color='green.500' thickness='3px' />
+							</Flex>
+						)}
 					</Box>
 				</Container>
 			</Box>
