@@ -1,5 +1,4 @@
 import { ThemeProvider } from '@chakra-ui/core';
-import 'react-input-range/lib/css/index.css';
 import { ConfigProvider, CurrencyProvider, DefaultLayout, PreflightCSS } from '~components';
 import theme from '../theme';
 
