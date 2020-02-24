@@ -1,5 +1,12 @@
 import { Checkbox, CheckboxGroup, FormControl, FormLabel, Grid, Text } from '@chakra-ui/core';
-import { CityFilter, FeaturesFilter, StatusesFilter, TypesFilter } from './filter';
+import {
+	CityFilter,
+	FeaturesFilter,
+	PriceFilter,
+	SizeFilter,
+	StatusesFilter,
+	TypesFilter,
+} from './filter';
 
 export const PropertiesFilter = ({ filter, setFilter }) => {
 	const handleFilter = e => {
@@ -17,16 +24,9 @@ export const PropertiesFilter = ({ filter, setFilter }) => {
 			<TypesFilter value={filter?.location} onChange={handleFilter} />
 			<StatusesFilter value={filter?.location} onChange={handleFilter} />
 			<FeaturesFilter value={filter?.location} onChange={handleFilter} />
-			<FormControl>
-				<FormLabel htmlFor='price' textAlign='right' paddingRight='0'>
-					السعر
-				</FormLabel>
-			</FormControl>
-			<FormControl>
-				<FormLabel htmlFor='size' textAlign='right' paddingRight='0'>
-					المساحة
-				</FormLabel>
-			</FormControl>
+			<PriceFilter value={filter?.location} onChange={handleFilter} />
+			<SizeFilter value={filter?.location} onChange={handleFilter} />
+
 			<FormControl>
 				<FormLabel textAlign='right' paddingRight='0'>
 					مزايا المشروع
