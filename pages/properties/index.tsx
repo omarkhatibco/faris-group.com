@@ -2,13 +2,14 @@
 import { Box, Flex, Grid, Heading, Spinner, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
-import { useWindowSize } from 'react-use';
 import { BgImage, ConfigContext, Container, PropertiesFilter, PropertyGrid } from '~components';
 import { wp } from '~utls';
 
 const defaulFilter = {
-	location: '',
-	sublocation: '',
+	location: {},
+	sublocation: {},
+	type: '',
+	status: '',
 	installment: false,
 	is_help_in_citizenship: false,
 	price: { min: 0, max: 0 },
@@ -17,12 +18,9 @@ const defaulFilter = {
 
 const Properties: NextPage = () => {
 	const { properties } = useContext<any>(ConfigContext);
-	const { width: windowWidth, height: windowHeight } = useWindowSize();
 	const [data, setData] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
 	const [filter, setFilter] = useState<any>(defaulFilter);
-
-	console.log(filter);
 
 	const getData = async () => {
 		setLoading(true);

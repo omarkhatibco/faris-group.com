@@ -1,19 +1,7 @@
-import {
-	Checkbox,
-	CheckboxGroup,
-	FormControl,
-	FormLabel,
-	Grid,
-	Select,
-	Text,
-} from '@chakra-ui/core';
-import { useContext } from 'react';
-import { ConfigContext } from '~components';
+import { Checkbox, CheckboxGroup, FormControl, FormLabel, Grid, Text } from '@chakra-ui/core';
+import { CityFilter, FeaturesFilter, StatusesFilter, TypesFilter } from './filter';
 
 export const PropertiesFilter = ({ filter, setFilter }) => {
-	const { locations, amenities } = useContext<any>(ConfigContext);
-	const selectedLocation = locations?.find(({ slug }) => slug === filter?.location);
-
 	const handleFilter = e => {
 		const key = e.target.id;
 		const value = e.target.value;
@@ -25,34 +13,10 @@ export const PropertiesFilter = ({ filter, setFilter }) => {
 
 	return (
 		<Grid gap={4}>
-			<FormControl>
-				<FormLabel htmlFor='location' textAlign='right' paddingRight='0'>
-					المدينة
-				</FormLabel>
-				<Select
-					focusBorderColor='green.500'
-					id='location'
-					placeholder='اختار المدينة'
-					onChange={handleFilter}>
-					{locations?.map(({ slug, title }) => (
-						<option value={slug}>{title}</option>
-					))}
-				</Select>
-			</FormControl>
-			<FormControl>
-				<FormLabel htmlFor='sublocation' textAlign='right' paddingRight='0'>
-					الحي
-				</FormLabel>
-				<Select
-					focusBorderColor='green.500'
-					id='sublocation'
-					placeholder='اختار الحي'
-					onChange={handleFilter}>
-					{selectedLocation?.fgw_sublocations?.map(({ slug, title }) => (
-						<option value={slug}>{title}</option>
-					))}
-				</Select>
-			</FormControl>
+			<CityFilter value={filter?.location} onChange={handleFilter} />
+			<TypesFilter value={filter?.location} onChange={handleFilter} />
+			<StatusesFilter value={filter?.location} onChange={handleFilter} />
+			<FeaturesFilter value={filter?.location} onChange={handleFilter} />
 			<FormControl>
 				<FormLabel htmlFor='price' textAlign='right' paddingRight='0'>
 					السعر

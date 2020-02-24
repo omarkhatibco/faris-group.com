@@ -15,6 +15,7 @@ export * from './InfoBox';
 export * from './layouts';
 export * from './Map';
 export * from './MapSvg';
+export * from './MultiSelect';
 //export * from './MobileNav';
 export * from './Overlay';
 export * from './PreflightCSS';
