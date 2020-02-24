@@ -30,12 +30,12 @@ export const FeaturesFilter = ({ value, onChange }) => {
 
 	return (
 		<FormControl>
-			<FormLabel htmlFor='location' textAlign='right' paddingRight='0'>
+			<FormLabel htmlFor='features' textAlign='right' paddingRight='0'>
 				المزايا
 			</FormLabel>
 			<MultiSelect
 				isMulti
-				name='location'
+				name='features'
 				options={options}
 				isLoading={isLoading}
 				placeholder='اختر المزايا'

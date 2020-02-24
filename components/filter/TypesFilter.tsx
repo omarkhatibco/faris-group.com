@@ -36,12 +36,12 @@ export const TypesFilter = ({ value, onChange }) => {
 
 	return (
 		<FormControl>
-			<FormLabel htmlFor='location' textAlign='right' paddingRight='0'>
+			<FormLabel htmlFor='type' textAlign='right' paddingRight='0'>
 				النوع
 			</FormLabel>
 			<MultiSelect
 				isMulti
-				name='location'
+				name='types'
 				options={options}
 				isLoading={isLoading}
 				placeholder='اختر النوع'

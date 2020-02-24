@@ -30,11 +30,11 @@ export const StatusesFilter = ({ value, onChange }) => {
 
 	return (
 		<FormControl>
-			<FormLabel htmlFor='location' textAlign='right' paddingRight='0'>
+			<FormLabel htmlFor='status' textAlign='right' paddingRight='0'>
 				الحالة
 			</FormLabel>
 			<MultiSelect
-				name='location'
+				name='status'
 				options={options}
 				isLoading={isLoading}
 				placeholder='اختر الحالة'
