@@ -1,5 +1,6 @@
 /**jsx @jsx */
 import { Box, Flex, Grid, Heading, Spinner, Text } from '@chakra-ui/core';
+import ky from 'ky-universal';
 import { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
 import { BgImage, ConfigContext, Container, PropertiesFilter, PropertyGrid } from '~components';
@@ -19,6 +20,7 @@ const defaulFilter = {
 const Properties: NextPage = () => {
 	const { properties } = useContext<any>(ConfigContext);
 	const [data, setData] = useState<any>(null);
+	const [aggregation, setAggregation] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
 	const [filter, setFilter] = useState<any>(defaulFilter);
 
@@ -42,8 +44,19 @@ const Properties: NextPage = () => {
 		setLoading(false);
 	};
 
+	const getAggregation = async () => {
+		try {
+			const aggregation: any = await await ky.get('/api/aggregation').json();
+
+			setAggregation(aggregation);
+		} catch (error) {
+			console.error({ error });
+		}
+	};
+
 	useEffect(() => {
 		getData();
+		getAggregation();
 	}, []);
 
 	return (
@@ -87,7 +100,7 @@ const Properties: NextPage = () => {
 							borderWidth='1px'
 							borderColor='gray.100'
 							p={4}>
-							<PropertiesFilter filter={filter} setFilter={setFilter} />
+							<PropertiesFilter filter={filter} setFilter={setFilter} aggregation={aggregation} />
 						</Box>
 					</Box>
 					<Box as='article' width={['100%', 4 / 5]} pr={[0, 8]}>

@@ -8,7 +8,7 @@ import {
 	TypesFilter,
 } from './filter';
 
-export const PropertiesFilter = ({ filter, setFilter }) => {
+export const PropertiesFilter = ({ filter, setFilter, aggregation }) => {
 	const handleFilter = e => {
 		const key = e.target.id;
 		const value = e.target.value;
@@ -24,8 +24,8 @@ export const PropertiesFilter = ({ filter, setFilter }) => {
 			<TypesFilter value={filter?.location} onChange={handleFilter} />
 			<StatusesFilter value={filter?.location} onChange={handleFilter} />
 			<FeaturesFilter value={filter?.location} onChange={handleFilter} />
-			<PriceFilter value={filter?.location} onChange={handleFilter} />
-			<SizeFilter value={filter?.location} onChange={handleFilter} />
+			<PriceFilter aggregation={aggregation} value={filter?.location} onChange={handleFilter} />
+			<SizeFilter aggregation={aggregation} value={filter?.location} onChange={handleFilter} />
 
 			<FormControl>
 				<FormLabel textAlign='right' paddingRight='0'>

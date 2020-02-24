@@ -1,6 +1,6 @@
 import { Flex, Input, Text } from '@chakra-ui/core';
 
-export const RangeField = ({ name, placeholderMin, placeholderMax }) => {
+export const RangeField = ({ name, min = 0, max = 1000000 }) => {
 	return (
 		<Flex justifyContent='center' alignItems='center'>
 			<Input
@@ -9,7 +9,9 @@ export const RangeField = ({ name, placeholderMin, placeholderMax }) => {
 				name={name + '-min'}
 				size='sm'
 				variant='filled'
-				placeholder={placeholderMin}
+				min={min}
+				max={max}
+				placeholder={`${min}`}
 				autoCapitalize='off'
 				autoComplete='none'
 				errorBorderColor='red.500'
@@ -24,7 +26,9 @@ export const RangeField = ({ name, placeholderMin, placeholderMax }) => {
 				name={name + '-max'}
 				size='sm'
 				variant='filled'
-				placeholder={placeholderMax}
+				min={min}
+				max={max}
+				placeholder={`${max}`}
 				autoCapitalize='off'
 				autoComplete='none'
 				errorBorderColor='red.500'
