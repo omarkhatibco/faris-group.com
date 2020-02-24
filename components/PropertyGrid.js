@@ -98,11 +98,13 @@ export const PropertyGrid = ({ data }) => {
 							mb={4}
 							spacing='4px'
 							separator={<Icon color='gray.300' name='chevron-left' />}>
-							{locations?.map(({ slug, name }) => (
-								<BreadcrumbItem key={slug}>
-									<Text fontSize='sm'>{name}</Text>
-								</BreadcrumbItem>
-							))}
+							{[...locations]
+								?.sort((a, b) => (a.parent > b.parent ? 1 : -1))
+								?.map(({ slug, name }) => (
+									<BreadcrumbItem key={slug}>
+										<Text fontSize='sm'>{name}</Text>
+									</BreadcrumbItem>
+								))}
 						</Breadcrumb>
 						<Box
 							mb={4}

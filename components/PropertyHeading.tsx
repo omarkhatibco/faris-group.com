@@ -30,11 +30,13 @@ export const PropertyHeading = ({ data }) => {
 						mb={6}
 						spacing='8px'
 						separator={<Icon color='gray.300' name='chevron-left' />}>
-						{locations?.map(({ slug, name }) => (
-							<BreadcrumbItem key={slug}>
-								<Text fontSize='sm'>{name}</Text>
-							</BreadcrumbItem>
-						))}
+						{[...locations]
+							?.sort((a, b) => (a.parent > b.parent ? 1 : -1))
+							?.map(({ slug, name }) => (
+								<BreadcrumbItem key={slug}>
+									<Text fontSize='sm'>{name}</Text>
+								</BreadcrumbItem>
+							))}
 						<BreadcrumbItem isCurrentPage>
 							<BreadcrumbLink>{data?.title?.rendered}</BreadcrumbLink>
 						</BreadcrumbItem>
