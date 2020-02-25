@@ -87,4 +87,3 @@ export const MultiSelect = ({
 		/>
 	);
 };
-// gray[200]

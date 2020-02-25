@@ -343,7 +343,7 @@ const customIcons = {
 	},
 };
 
-console.log({ chakra: theme });
+// console.log({ chakra: theme });
 
 const customTheme = {
 	...theme,
