@@ -35,6 +35,8 @@ export const FeaturesFilter = ({ value, onChange }) => {
 			</FormLabel>
 			<MultiSelect
 				isMulti
+				value={value}
+				onChange={onChange}
 				name='features'
 				options={options}
 				isLoading={isLoading}

@@ -1,34 +1,63 @@
 /**jsx @jsx */
-import { Box, Flex, Grid, Heading, Spinner, Text } from '@chakra-ui/core';
+import {
+	Box,
+	Checkbox,
+	CheckboxGroup,
+	Flex,
+	FormControl,
+	FormLabel,
+	Grid,
+	Heading,
+	Spinner,
+	Text,
+} from '@chakra-ui/core';
 import ky from 'ky-universal';
 import { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
-import { BgImage, ConfigContext, Container, PropertiesFilter, PropertyGrid } from '~components';
+import {
+	BgImage,
+	CityFilter,
+	ConfigContext,
+	Container,
+	FeaturesFilter,
+	PropertyGrid,
+	RangeFilter,
+	StatusesFilter,
+	TypesFilter,
+} from '~components';
 import { wp } from '~utls';
-
-const defaulFilter = {
-	location: {},
-	sublocation: {},
-	type: '',
-	status: '',
-	installment: false,
-	is_help_in_citizenship: false,
-	price: { min: 0, max: 0 },
-	size: { min: 0, max: 0 },
-};
 
 const Properties: NextPage = () => {
 	const { properties } = useContext<any>(ConfigContext);
 	const [data, setData] = useState<any>(null);
 	const [aggregation, setAggregation] = useState<any>(null);
 	const [loading, setLoading] = useState<any>(false);
-	const [filter, setFilter] = useState<any>(defaulFilter);
+	const [location, setLocation] = useState<any>(null);
+	const [types, setTypes] = useState<any>([]);
+	const [status, setStatus] = useState<any>(null);
+	const [features, setFeatures] = useState<any>([]);
+	const [price, setPrice] = useState<any>({ min: '', max: '' });
+	const [size, setSize] = useState<any>({ min: '', max: '' });
 
 	const getData = async () => {
 		setLoading(true);
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
 		searchParams.append('per_page', '500');
+		console.log(price);
+		console.log(size);
+		if (location) {
+			searchParams.append('property_locations', location?.value);
+		}
+		if (types?.length > 0) {
+			searchParams.append('property_types', types?.map(({ value }) => value)?.toString());
+		}
+		if (status) {
+			searchParams.append('property_statuses', status?.value);
+		}
+		if (features?.length > 0) {
+			searchParams.append('property_features', features?.map(({ value }) => value)?.toString());
+		}
 
 		try {
 			const response: any = await wp
@@ -55,9 +84,12 @@ const Properties: NextPage = () => {
 	};
 
 	useEffect(() => {
-		getData();
 		getAggregation();
 	}, []);
+
+	useEffect(() => {
+		getData();
+	}, [location, types, status, features]);
 
 	return (
 		<Box as='main' width='Full'>
@@ -90,7 +122,7 @@ const Properties: NextPage = () => {
 			</Flex>
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
-					<Box as='aside' width={['100%', 1 / 5]} position='relative'>
+					<Box as='aside' width={['100%', 1 / 4]} position='relative'>
 						<Box
 							position='sticky'
 							top='6rem'
@@ -100,10 +132,51 @@ const Properties: NextPage = () => {
 							borderWidth='1px'
 							borderColor='gray.100'
 							p={4}>
-							<PropertiesFilter filter={filter} setFilter={setFilter} aggregation={aggregation} />
+							<Grid gap={4}>
+								<CityFilter value={location} onChange={setLocation} />
+								<TypesFilter value={types} onChange={setTypes} />
+								<StatusesFilter value={status} onChange={setStatus} />
+								<FeaturesFilter value={features} onChange={setFeatures} />
+								<RangeFilter
+									name='price'
+									title='السعر'
+									min={aggregation?.min_price}
+									max={aggregation?.max_price}
+									value={price}
+									onChange={setPrice}
+									handleFilter={getData}
+								/>
+								<RangeFilter
+									name='size'
+									title='المساحة'
+									min={aggregation?.min_size}
+									max={aggregation?.max_size}
+									value={size}
+									onChange={setSize}
+									handleFilter={getData}
+								/>
+
+								<FormControl>
+									<FormLabel textAlign='right' paddingRight='0'>
+										مزايا المشروع
+									</FormLabel>
+									<CheckboxGroup variantColor='green'>
+										<Checkbox value='installment'>
+											<Text as='span' pr={1}>
+												قابل للتقسيط
+											</Text>
+										</Checkbox>
+										<Checkbox value='is_help_in_citizenship'>
+											<Text as='span' pr={1}>
+												مؤهل للجنسية التركية 🇹🇷
+											</Text>
+										</Checkbox>
+									</CheckboxGroup>
+								</FormControl>
+							</Grid>
 						</Box>
 					</Box>
-					<Box as='article' width={['100%', 4 / 5]} pr={[0, 8]}>
+					<Box as='article' width={['100%', 3 / 4]} pr={[0, 8]}>
 						{!loading ? (
 							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(3,1fr)']}>
 								{data?.map(obj => (

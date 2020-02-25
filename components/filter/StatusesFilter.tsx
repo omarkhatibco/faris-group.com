@@ -34,6 +34,8 @@ export const StatusesFilter = ({ value, onChange }) => {
 				الحالة
 			</FormLabel>
 			<MultiSelect
+				value={value}
+				onChange={onChange}
 				name='status'
 				options={options}
 				isLoading={isLoading}

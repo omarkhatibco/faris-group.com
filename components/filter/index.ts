@@ -1,6 +1,5 @@
 export * from './CityFilter';
 export * from './FeaturesFilter';
-export * from './PriceFilter';
-export * from './SizeFilter';
+export * from './RangeFilter';
 export * from './StatusesFilter';
 export * from './TypesFilter';

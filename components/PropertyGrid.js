@@ -122,7 +122,7 @@ export const PropertyGrid = ({ data }) => {
 									<InfoBox
 										isSmall
 										width={['100%', 'auto']}
-										title=' أنواع الشقق (تبدأ من)'
+										title=' أنواع الشقق (من)'
 										icon='building'
 										value={`${formatNumber(firstAppartmentObj.rooms_count)} + ${formatNumber(
 											firstAppartmentObj.salons_count
@@ -134,7 +134,7 @@ export const PropertyGrid = ({ data }) => {
 										<InfoBox
 											isSmall
 											width={['100%', 'auto']}
-											title='المساحة (تبدأ من)'
+											title='المساحة (من)'
 											icon='area'
 											value={formatNumber(data?.min_size)}
 											suffix='متر<sup>٢</sup>'

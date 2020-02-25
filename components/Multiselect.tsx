@@ -8,6 +8,8 @@ export const MultiSelect = ({
 	isMulti = false,
 	isClearable = true,
 	placeholder,
+	value,
+	onChange,
 }) => {
 	const chakraTheme = useTheme();
 
@@ -24,7 +26,10 @@ export const MultiSelect = ({
 				backgroundColor: chakraTheme.colors.gray[100],
 			},
 		}),
-		placeholder: (provided, state) => ({ ...provided, color: chakraTheme.colors.gray[400] }),
+		placeholder: (provided, state) => ({
+			...provided,
+			color: chakraTheme.colors.gray[400],
+		}),
 		control: (provided, state) => ({
 			...provided,
 			backgroundColor: state.isFocused ? chakraTheme.colors.white : chakraTheme.colors.gray[100],
@@ -65,6 +70,8 @@ export const MultiSelect = ({
 	};
 	return (
 		<Select
+			value={value}
+			onChange={onChange}
 			styles={customStyles}
 			isLoading={isLoading}
 			isClearable={isClearable}

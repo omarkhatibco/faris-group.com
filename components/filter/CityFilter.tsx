@@ -40,6 +40,8 @@ export const CityFilter = ({ value, onChange }) => {
 				المدينة
 			</FormLabel>
 			<MultiSelect
+				value={value}
+				onChange={onChange}
 				name='location'
 				options={options}
 				isLoading={isLoading}

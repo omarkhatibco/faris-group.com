@@ -11,8 +11,10 @@
 - [ ] make rest api give galleries url + alt
 - [ ] make rest api give attachment url + name
 
-- [ ] filter: location
-- [ ] filter: type
-- [ ] filter: status
-- [ ] filter: features ?
-- [x] filter: other options, installment citzenship
+- [x] filter: location
+- [x] filter: type
+- [x] filter: status
+- [x] filter: features ?
+- [ ] filter: price
+- [ ] filter: size
+- [ ] filter: other options, installment citzenship
