@@ -1,7 +1,7 @@
 import { FormControl, FormLabel } from '@chakra-ui/core';
 import { useEffect, useState } from 'react';
 import { wp } from '~utls';
-import { MultiSelect } from '../Multiselect';
+import { MultiSelect } from '../z';
 
 export const StatusesFilter = ({ value, onChange }) => {
 	const [options, setOptions] = useState([]);
