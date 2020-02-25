@@ -4,6 +4,7 @@ import { css } from '@emotion/core';
 import EmblaCarouselReact from 'embla-carousel-react';
 import { useEffect, useState } from 'react';
 import { Image } from '~components';
+import { getCdnUrl } from '~utls';
 
 export const ImageSlider = ({ galleries }) => {
 	const [embla, setEmbla] = useState(null);
@@ -31,7 +32,7 @@ export const ImageSlider = ({ galleries }) => {
 						direction='row-reverse'
 						justifyContent='flex-end'
 						height={'60vh'}>
-						{galleries?.map(({ id, source_url, alt_text }) => {
+						{galleries?.map(({ id, src, alt_text }) => {
 							return (
 								<Box
 									flex={['0 0 100%', `0 0 45%`]}
@@ -40,7 +41,7 @@ export const ImageSlider = ({ galleries }) => {
 									pl={[0, 1]}
 									key={id}>
 									<Image
-										src={`${source_url}?w=700&quality=100`}
+										src={`${getCdnUrl(src)}?w=700&quality=100`}
 										height='100%'
 										width='100%'
 										objectFit='cover'

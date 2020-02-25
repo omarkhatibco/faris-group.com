@@ -7,7 +7,7 @@ export const PropertyAttachments = ({ attachments }) => {
 				ملحقات إضافية
 			</Heading>
 			<List spacing={2}>
-				{attachments?.map(({ id, source_url, title, mime_type }, index) => {
+				{attachments?.map(({ id, src, title, mime_type }, index) => {
 					return (
 						<ListItem display='flex' alignItems='center' fontWeight='bold' fontSize='lg' key={id}>
 							<ListIcon
@@ -17,8 +17,8 @@ export const PropertyAttachments = ({ attachments }) => {
 								mr={0}
 								ml={2}
 							/>
-							<Link href={source_url} color='green.700' isExternal download>
-								{title?.rendered}
+							<Link href={src} color='green.700' isExternal download>
+								{title}
 							</Link>
 						</ListItem>
 					);

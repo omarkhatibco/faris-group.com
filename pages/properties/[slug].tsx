@@ -14,7 +14,7 @@ import {
 	PropertyMap,
 	PropertyVideo,
 } from '~components';
-import { getCdnUrl, wpFetch } from '~utls';
+import { wpFetch } from '~utls';
 
 interface IProps {
 	data?: any;
@@ -22,11 +22,11 @@ interface IProps {
 	attachments?: any;
 }
 
-const SingleProperties: NextPage<IProps> = ({ data, attachments, galleries }) => {
+const SingleProperties: NextPage<IProps> = ({ data }) => {
 	console.log(data);
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
-			{galleries?.length > 0 && <ImageSlider galleries={galleries} />}
+			{data?.media_gallery_data?.length > 0 && <ImageSlider galleries={data?.media_gallery_data} />}
 			<Box py={12}>
 				<Container display='flex' flexWrap='wrap'>
 					<Box as='article' width={['100%', 2 / 3]} bg='blue' pl={[0, 8]}>
@@ -35,7 +35,7 @@ const SingleProperties: NextPage<IProps> = ({ data, attachments, galleries }) =>
 						<PropertyAmenities amenities={data?._embedded && data?._embedded['wp:term'][3]} />
 						<PropertyApartments appartments={data?.appartments} />
 						<PropertyVideo url={data?.oembed} />
-						<PropertyAttachments attachments={attachments} />
+						<PropertyAttachments attachments={data?.attachments_data} />
 						<PropertyMap
 							map={data?.map}
 							distances={data?.distances}
@@ -96,33 +96,7 @@ SingleProperties.getInitialProps = async ctx => {
 			redirectOnError();
 		}
 
-		const apiMediaSearchParam = new URLSearchParams();
-		apiMediaSearchParam.append('per_page', '100');
-		apiMediaSearchParam.append(
-			'include',
-			[...data?.media_gallery, ...data?.attachments].toString()
-		);
-
-		const apiMedia: any = await wpFetch('media', {
-			searchParams: apiMediaSearchParam,
-		});
-
-		const unsortedGalleries = apiMedia.filter(({ id }) => data?.media_gallery.includes(`${id}`));
-
-		const galleries = [...unsortedGalleries]
-			?.sort((a, b) => b.source_url - a.source_url)
-			?.map(obj => {
-				const source_url = getCdnUrl(obj?.source_url);
-				return {
-					...obj,
-					source_url,
-				};
-			})
-			?.reverse();
-
-		const attachments = apiMedia.filter(({ id }) => data?.attachments.includes(`${id}`));
-
-		return { data, attachments, galleries };
+		return { data };
 	} catch (error) {
 		console.log(error);
 		redirectOnError();
