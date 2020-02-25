@@ -2,7 +2,6 @@
 import {
 	Box,
 	Checkbox,
-	CheckboxGroup,
 	Flex,
 	FormControl,
 	FormLabel,
@@ -38,6 +37,8 @@ const Properties: NextPage = () => {
 	const [features, setFeatures] = useState<any>([]);
 	const [price, setPrice] = useState<any>({ min: '', max: '' });
 	const [size, setSize] = useState<any>({ min: '', max: '' });
+	const [installment, setInstallment] = useState<any>(false);
+	const [citizenship, setCitizenship] = useState<any>(false);
 
 	const getData = async () => {
 		setLoading(true);
@@ -57,6 +58,16 @@ const Properties: NextPage = () => {
 		}
 		if (features?.length > 0) {
 			searchParams.append('property_features', features?.map(({ value }) => value)?.toString());
+		}
+
+		if (installment) {
+			searchParams.append('filter[meta_query][0][key]', 'is_installment_available');
+			searchParams.append('filter[meta_query][0][value]', '1');
+		}
+
+		if (citizenship) {
+			searchParams.append('filter[meta_query][1][key]', 'is_help_in_citizenship');
+			searchParams.append('filter[meta_query][1][value]', '1');
 		}
 
 		try {
@@ -89,7 +100,7 @@ const Properties: NextPage = () => {
 
 	useEffect(() => {
 		getData();
-	}, [location, types, status, features]);
+	}, [location, types, status, features, installment, citizenship]);
 
 	return (
 		<Box as='main' width='Full'>
@@ -160,18 +171,24 @@ const Properties: NextPage = () => {
 									<FormLabel textAlign='right' paddingRight='0'>
 										مزايا المشروع
 									</FormLabel>
-									<CheckboxGroup variantColor='green'>
-										<Checkbox value='installment'>
+									<Grid gridGap={1}>
+										<Checkbox
+											variantColor='green'
+											isChecked={installment}
+											onChange={e => setInstallment(e.target.checked)}>
 											<Text as='span' pr={1}>
 												قابل للتقسيط
 											</Text>
 										</Checkbox>
-										<Checkbox value='is_help_in_citizenship'>
+										<Checkbox
+											variantColor='green'
+											isChecked={citizenship}
+											onChange={e => setCitizenship(e.target.checked)}>
 											<Text as='span' pr={1}>
 												مؤهل للجنسية التركية 🇹🇷
 											</Text>
 										</Checkbox>
-									</CheckboxGroup>
+									</Grid>
 								</FormControl>
 							</Grid>
 						</Box>
