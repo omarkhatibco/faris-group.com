@@ -91,7 +91,7 @@ export const PropertyGrid = ({ data }) => {
 							transition='all 300ms ease-in-out'
 							className='property-title'
 							color='green.500'
-							fontSize='2xl'
+							fontSize='xl'
 							textTransform='uppercase'
 							dangerouslySetInnerHTML={{ __html: data?.title?.rendered }}></Heading>
 						<Breadcrumb
