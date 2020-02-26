@@ -1,6 +1,7 @@
 /**jsx @jsx */
 import {
 	Box,
+	Button,
 	Checkbox,
 	Flex,
 	FormControl,
@@ -18,22 +19,21 @@ import {
 	CityFilter,
 	ConfigContext,
 	Container,
-	CurrencyContext,
 	FeaturesFilter,
 	PropertyGrid,
-	RangeFilter,
 	RoomsFilter,
 	StatusesFilter,
 	TypesFilter,
 } from '~components';
-import { formatMoneyPart, wp } from '~utls';
+import { wp } from '~utls';
 
 const Properties: NextPage = () => {
-	const [currency] = useContext<any>(CurrencyContext);
-	const { properties, currency: currencyObj } = useContext<any>(ConfigContext);
-	const [data, setData] = useState<any>(null);
-	const [aggregation, setAggregation] = useState<any>(null);
+	const { properties } = useContext<any>(ConfigContext);
 	const [loading, setLoading] = useState<any>(false);
+	const [data, setData] = useState<any>([]);
+	const [page, setPage] = useState<any>(1);
+	const [maxPage, setMaxPage] = useState(0);
+	const [aggregation, setAggregation] = useState<any>(null);
 	const [location, setLocation] = useState<any>(null);
 	const [types, setTypes] = useState<any>([]);
 	const [status, setStatus] = useState<any>(null);
@@ -47,13 +47,16 @@ const Properties: NextPage = () => {
 	const [hasDuplex, setHasDuplex] = useState<any>(false);
 	const [hasPenthouse, setHasPenthouse] = useState<any>(false);
 
+	const hasMore = page <= maxPage;
 	// const currencyName = formatMoneyPart(0, currency)?.find(({ type }) => type === 'currency')?.value;
 
 	const getData = async () => {
 		setLoading(true);
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
-		searchParams.append('per_page', '500');
+		searchParams.append('page', page);
+		searchParams.append('per_page', '5');
+
 		if (location) {
 			searchParams.append('property_locations', location?.value);
 		}
@@ -119,13 +122,21 @@ const Properties: NextPage = () => {
 		// }
 
 		try {
-			const response: any = await wp
+			const newData: any = await wp
 				.get('property', {
 					searchParams,
+					hooks: {
+						afterResponse: [
+							(input, options, response) => {
+								setMaxPage(parseInt(response.headers.get('X-WP-TotalPages'), 10));
+							},
+						],
+					},
 				})
 				.json();
 
-			setData(response);
+			setData([...data, ...newData]);
+			setPage(page + 1);
 		} catch (error) {
 			console.error({ error });
 		}
@@ -302,6 +313,11 @@ const Properties: NextPage = () => {
 							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
 								<Spinner size='xl' color='green.500' thickness='3px' />
 							</Flex>
+						)}
+						{hasMore && (
+							<Button variantColor='green' isLoading={loading} onClick={getData}>
+								المزيد
+							</Button>
 						)}
 					</Box>
 				</Container>
