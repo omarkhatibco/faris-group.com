@@ -14,6 +14,7 @@ import {
 import ky from 'ky-universal';
 import { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
+import { animated, useTransition } from 'react-spring';
 import {
 	BgImage,
 	CityFilter,
@@ -50,11 +51,21 @@ const Properties: NextPage = () => {
 	const hasMore = page <= maxPage;
 	// const currencyName = formatMoneyPart(0, currency)?.find(({ type }) => type === 'currency')?.value;
 
-	const getData = async () => {
+	const transitions = useTransition(data, item => item.id, {
+		from: { opacity: 0, height: 0 },
+		enter: { opacity: 1, height: 'auto' },
+		leave: { display: 'none' },
+		trail: 200,
+		unique: true,
+		reset: true,
+	});
+
+	const getData = async (isReset = false) => {
 		setLoading(true);
+
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
-		searchParams.append('page', page);
+		searchParams.append('page', isReset ? 1 : page);
 		searchParams.append('per_page', '5');
 
 		if (location) {
@@ -134,9 +145,13 @@ const Properties: NextPage = () => {
 					},
 				})
 				.json();
+			if (isReset) {
+				setData([...newData]);
+			} else {
+				setData([...data, ...newData]);
+			}
 
-			setData([...data, ...newData]);
-			setPage(page + 1);
+			setPage(isReset ? 2 : page + 1);
 		} catch (error) {
 			console.error({ error });
 		}
@@ -159,6 +174,10 @@ const Properties: NextPage = () => {
 
 	useEffect(() => {
 		getData();
+	}, []);
+
+	useEffect(() => {
+		getData(true);
 	}, [
 		location,
 		types,
@@ -303,21 +322,26 @@ const Properties: NextPage = () => {
 						</Box>
 					</Box>
 					<Box as='article' width={['100%', 3 / 4]} pr={[0, 8]}>
-						{!loading ? (
-							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(3,1fr)']}>
-								{data?.map(obj => (
-									<PropertyGrid key={obj?.id} data={obj} />
-								))}
-							</Grid>
-						) : (
+						{data?.length === 0 && loading && (
 							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
 								<Spinner size='xl' color='green.500' thickness='3px' />
 							</Flex>
 						)}
+						{data?.length > 0 && (
+							<Grid gridGap={8} gridTemplateColumns={['repeat(1,1fr)', 'repeat(3,1fr)']}>
+								{transitions.map(({ item, props, key }) => (
+									<animated.div key={key} style={props}>
+										<PropertyGrid key={item?.id} data={item} />
+									</animated.div>
+								))}
+							</Grid>
+						)}
 						{hasMore && (
-							<Button variantColor='green' isLoading={loading} onClick={getData}>
-								المزيد
-							</Button>
+							<Flex justifyContent='center' mt={4}>
+								<Button variantColor='green' isLoading={loading} onClick={() => getData()}>
+									تحميل المزيد
+								</Button>
+							</Flex>
 						)}
 					</Box>
 				</Container>

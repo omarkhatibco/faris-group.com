@@ -27,6 +27,7 @@ export const PropertyGrid = ({ data }) => {
 			cursor='pointer'
 			as='article'
 			width='100%'
+			height='100%'
 			borderWidth='1px'
 			borderColor='gray.100'
 			borderRadius='0.5rem'
