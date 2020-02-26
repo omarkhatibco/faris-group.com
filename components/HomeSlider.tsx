@@ -6,19 +6,18 @@ import { HomeSlide } from '~components';
 import { useInterval, wp } from '~utls';
 
 export const HomeSlider = () => {
-	const [loading, setLoading] = useState<any>(false);
 	const [data, setData] = useState<any>([]);
 	const [embla, setEmbla] = useState(null);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState([]);
+	const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+	const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
 
 	const scrollTo = useCallback(index => embla.scrollTo(index), [embla]);
 	const scrollPrev = useCallback(() => embla.scrollPrev(), [embla]);
 	const scrollNext = useCallback(() => embla.scrollNext(), [embla]);
 
 	const getData = async (isReset = false) => {
-		setLoading(true);
-
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
 		searchParams.append('per_page', '5');
@@ -33,7 +32,6 @@ export const HomeSlider = () => {
 		} catch (error) {
 			console.error({ error });
 		}
-		setLoading(false);
 	};
 
 	useEffect(() => {
@@ -43,6 +41,8 @@ export const HomeSlider = () => {
 	useEffect(() => {
 		const onSelect = () => {
 			setSelectedIndex(embla.selectedScrollSnap());
+			setPrevBtnEnabled(embla.canScrollPrev());
+			setNextBtnEnabled(embla.canScrollNext());
 		};
 		if (embla) {
 			embla.on('init', () => {
@@ -58,7 +58,6 @@ export const HomeSlider = () => {
 	}, [embla]);
 
 	useInterval(() => {
-		console.log(selectedIndex);
 		if (selectedIndex === 0) {
 			scrollTo(scrollSnaps.length - 1);
 		} else {
@@ -110,7 +109,8 @@ export const HomeSlider = () => {
 						isRound
 						size='lg'
 						pointerEvents='all'
-						onClick={() => embla.scrollNext()}
+						isDisabled={!nextBtnEnabled}
+						onClick={() => scrollNext()}
 					/>
 					<IconButton
 						variant='solid'
@@ -120,7 +120,8 @@ export const HomeSlider = () => {
 						isRound
 						size='lg'
 						pointerEvents='all'
-						onClick={() => embla.scrollPrev()}
+						isDisabled={!prevBtnEnabled}
+						onClick={() => scrollPrev()}
 					/>
 				</Flex>
 			)}

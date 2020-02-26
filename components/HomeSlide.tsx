@@ -16,7 +16,6 @@ import { Image, InfoBox, PropertyPrice } from '~components';
 import { formatNumber, getCdnUrl } from '~utls';
 
 export const HomeSlide = ({ data }) => {
-	console.log({ data });
 	const locations = data?._embedded && data?._embedded['wp:term'][0];
 	const imageObj = data?._embedded && data?._embedded['wp:featuredmedia'][0];
 	const firstAppartmentObj = data?.appartments?.[0];
