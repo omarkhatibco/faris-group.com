@@ -18,12 +18,9 @@ import { wpFetch } from '~utls';
 
 interface IProps {
 	data?: any;
-	galleries?: any;
-	attachments?: any;
 }
 
 const SingleProperties: NextPage<IProps> = ({ data }) => {
-	console.log(data);
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
 			{data?.media_gallery_data?.length > 0 && <ImageSlider galleries={data?.media_gallery_data} />}

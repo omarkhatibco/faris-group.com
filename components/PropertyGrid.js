@@ -143,7 +143,7 @@ export const PropertyGrid = ({ data }) => {
 								</Box>
 							</Flex>
 						)}
-						{firstAppartmentObj?.price !== 0 && (
+						{data?.min_price !== '0' && (
 							<PropertyPrice isSmall price={data?.min_price} size={data?.min_size} />
 						)}
 					</Box>
