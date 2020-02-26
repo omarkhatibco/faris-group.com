@@ -39,23 +39,21 @@ const Properties: NextPage = () => {
 	const [status, setStatus] = useState<any>(null);
 	const [roomTypes, setRoomTypes] = useState<any>(null);
 	const [features, setFeatures] = useState<any>([]);
-	const [price, setPrice] = useState<any>({ min: '', max: '' });
-	const [size, setSize] = useState<any>({ min: '', max: '' });
+	// const [price, setPrice] = useState<any>({ min: '', max: '' });
+	// const [size, setSize] = useState<any>({ min: '', max: '' });
 	const [installment, setInstallment] = useState<any>(false);
 	const [citizenship, setCitizenship] = useState<any>(false);
 	const [hasVilla, setHasVilla] = useState<any>(false);
 	const [hasDuplex, setHasDuplex] = useState<any>(false);
 	const [hasPenthouse, setHasPenthouse] = useState<any>(false);
 
-	const currencyName = formatMoneyPart(0, currency)?.find(({ type }) => type === 'currency')?.value;
+	// const currencyName = formatMoneyPart(0, currency)?.find(({ type }) => type === 'currency')?.value;
 
 	const getData = async () => {
 		setLoading(true);
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
 		searchParams.append('per_page', '500');
-		console.log(price);
-		console.log(size);
 		if (location) {
 			searchParams.append('property_locations', location?.value);
 		}
@@ -109,16 +107,16 @@ const Properties: NextPage = () => {
 		// 	searchParams.append('filter[meta_query][8][compare]', '<=');
 		// }
 
-		if (!!size?.min) {
-			searchParams.append('filter[meta_query][9][key]', 'min_size');
-			searchParams.append('filter[meta_query][9][value]', size?.min);
-			searchParams.append('filter[meta_query][9][compare]', '>=');
-		}
-		if (!!size?.max) {
-			searchParams.append('filter[meta_query][10][key]', 'max_size');
-			searchParams.append('filter[meta_query][10][value]', size?.max);
-			searchParams.append('filter[meta_query][10][compare]', '<=');
-		}
+		// if (!!size?.min) {
+		// 	searchParams.append('filter[meta_query][9][key]', 'min_size');
+		// 	searchParams.append('filter[meta_query][9][value]', size?.min);
+		// 	searchParams.append('filter[meta_query][9][compare]', '>=');
+		// }
+		// if (!!size?.max) {
+		// 	searchParams.append('filter[meta_query][10][key]', 'max_size');
+		// 	searchParams.append('filter[meta_query][10][value]', size?.max);
+		// 	searchParams.append('filter[meta_query][10][compare]', '<=');
+		// }
 
 		try {
 			const response: any = await wp
@@ -214,7 +212,8 @@ const Properties: NextPage = () => {
 									types={aggregation?.rooms_type}
 								/>
 
-								{/* 		<RangeFilter
+								{/*
+								<RangeFilter
 									name='price'
 									title={`السعر (${currencyName})`}
 									min={Number(aggregation?.min_price * currencyObj[currency] || 0).toFixed(0)}
@@ -222,7 +221,7 @@ const Properties: NextPage = () => {
 									value={price}
 									onChange={setPrice}
 									handleFilter={getData}
-								/> */}
+								/>
 								<RangeFilter
 									name='size'
 									title='المساحة (متر مربع)'
@@ -232,6 +231,7 @@ const Properties: NextPage = () => {
 									onChange={setSize}
 									handleFilter={getData}
 								/>
+								*/}
 
 								<FormControl>
 									<FormLabel textAlign='right' paddingRight='0'>
