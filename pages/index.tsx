@@ -1,12 +1,13 @@
-import { Spinner, Flex } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/core';
 import { NextPage } from 'next';
+import { HomeSlider, OurServiceSection } from '~components';
 
 const HomePage: NextPage = () => {
 	return (
-		<Flex as='main' width='Full' height='50vh' justifyContent='center' alignItems='center'>
-			<Spinner color='blau.500' />
-			Home
-		</Flex>
+		<Box as='main' width='Full'>
+			<HomeSlider />
+			<OurServiceSection />
+		</Box>
 	);
 };
 

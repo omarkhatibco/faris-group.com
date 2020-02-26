@@ -16,7 +16,7 @@ export const PropertyPrice = ({ price, size, isSmall = false }) => {
 		<Box as='section' mr={['0', 'auto']}>
 			<Text
 				mb='2'
-				fontSize={isSmall ? 'xl' : '2xl'}
+				fontSize={isSmall ? 'xl' : ['xl', 'xl', '2xl']}
 				fontWeight='medium'
 				textTransform='uppercase'
 				lineHeight='1.2'>

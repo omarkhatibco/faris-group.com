@@ -205,6 +205,7 @@ const Properties: NextPage = () => {
 					display='flex'
 					flexWrap='wrap'
 					alignItems='center'
+					width='100%'
 					justifyContent='center'>
 					<Box textAlign='center' width={[1 / 2]} pt={32} pb={12}>
 						<Heading as='h1' mb='4' fontSize={['2xl', '5xl']} textTransform='uppercase'>
@@ -212,9 +213,7 @@ const Properties: NextPage = () => {
 						</Heading>
 						<Box>
 							<Text fontSize={['sm', 'md']}>
-								مجموعة الفارس متخصصة بالاستشارات العقارية والوساطة، مقرها في إسطنبول ، ولديها تعامل
-								في مدن أخرى في تركيا، واتفاقيات عديدة مع شركات الإنشاء الكبرى في إسطنبول، تركّز
-								اهتمامها على المستثمرين العقاريين الأجانب، والراغبين بالتملك في تركيا
+								ابحث عن عقارك مع مجموعة الفارس بالمواصفات التي ترغب بها{' '}
 							</Text>
 						</Box>
 					</Box>

@@ -16,6 +16,7 @@ export const ImageSlider = ({ galleries }) => {
 				embla.changeOptions({ startIndex });
 			});
 		}
+		return () => embla && embla.destroy();
 	}, [embla]);
 
 	return (

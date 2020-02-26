@@ -113,7 +113,7 @@ export const PropertyGrid = ({ data }) => {
 							fontSize='sm'
 							css={css({
 								display: '-webkit-box',
-								WebkitLineClamp: '2',
+								WebkitLineClamp: 2,
 								WebkitBoxOrient: 'vertical',
 							})}
 							dangerouslySetInnerHTML={{ __html: data?.excerpt?.rendered }}></Box>

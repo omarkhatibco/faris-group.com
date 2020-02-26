@@ -4,4 +4,5 @@ export * from './formatters';
 export * from './getCdnUrl';
 export * from './orderTaxonomyByParent';
 export * from './parseVideo';
+export * from './useInterval';
 export * from './useMounted';

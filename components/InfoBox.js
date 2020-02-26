@@ -16,12 +16,17 @@ export const InfoBox = ({
 				color='green.700'
 				fontWeight='medium'
 				mb={1}
-				fontSize={isSmall ? 'sm' : 'md'}>
+				fontSize={isSmall ? 'sm' : ['sm', 'sm', 'md']}>
 				{title}
 			</Heading>
 			<Flex justifyContent='baseline'>
-				<Icon name={icon} size={isSmall ? '1.25rem' : '1.5rem'} color='green.500' ml={3} />
-				<Text as='p' fontSize={isSmall ? 'md' : 'lg'} fontWeight='bold'>
+				<Icon
+					name={icon}
+					size={isSmall ? '1.25rem' : ['1.25rem', '1.25rem', '1.5rem']}
+					color='green.500'
+					ml={3}
+				/>
+				<Text as='p' fontSize={isSmall ? 'md' : ['md', 'md', 'lg']} fontWeight='bold'>
 					<Text as='span' textTransform={textUppercase ? 'uppercase' : 'none'}>
 						{value}
 					</Text>
