@@ -2,7 +2,7 @@ import { Button } from '@chakra-ui/core';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export const ActiveLink = ({ children, href, ...rest }) => {
+export const ActiveLink = ({ children, href, size = 'md', ...rest }) => {
 	const { pathname } = useRouter();
 	return (
 		<Link href={href} {...rest}>
@@ -12,6 +12,7 @@ export const ActiveLink = ({ children, href, ...rest }) => {
 				textTransform='uppercase'
 				variant='ghost'
 				href={href}
+				size={size}
 				variantColor={pathname === href ? 'green' : 'gray'}>
 				{children}
 			</Button>

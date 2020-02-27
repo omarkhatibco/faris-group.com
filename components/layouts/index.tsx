@@ -1,5 +1,5 @@
-import { Box, Flex, Stack } from '@chakra-ui/core';
-import { Header, Footer } from '~components';
+import { Box } from '@chakra-ui/core';
+import { Footer, Header } from '~components';
 interface IProps {
 	children: React.ReactNode;
 }

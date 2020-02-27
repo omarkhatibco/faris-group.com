@@ -1,7 +1,8 @@
 # TODO
 
-- [ ] Logo Header
-- [ ] Logo Footer
+- [x] Logo Header
+- [x] Logo Footer
+- [x] favicons
 - [ ] SEO
 - [ ] Mobile Menu
 - [ ] contact us Form make it work

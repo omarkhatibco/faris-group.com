@@ -1,75 +1,78 @@
-import React from 'react';
 import {
-	Flex,
 	Box,
-	Image,
-	Stack,
 	Drawer,
 	DrawerBody,
-	DrawerOverlay,
-	DrawerContent,
 	DrawerCloseButton,
-	useDisclosure,
-	DrawerHeader,
+	DrawerContent,
+	DrawerOverlay,
+	Flex,
+	Heading,
 	IconButton,
+	useDisclosure,
 } from '@chakra-ui/core';
-import { ActiveLink } from './ActiveLink';
+import React from 'react';
 import { FiMenu } from 'react-icons/fi';
+import { CurrencyConverterMobile } from '~components';
+import { ActiveLink } from './ActiveLink';
 // Burger Menu
 export const MobileNav: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
 	return (
-		<>
+		<React.Fragment>
 			<Flex display={['flex', 'flex', 'flex', 'none']}>
 				<Box ref={btnRef} onClick={onOpen}>
-					<IconButton aria-label='Burger Menu' icon={FiMenu} background='transparent' size='lg' />
+					<IconButton aria-label='القائمة' icon={FiMenu} background='transparent' size='lg' />
 				</Box>
 			</Flex>
-			<Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef} size='lg'>
+			<Drawer isOpen={isOpen} placement='bottom' onClose={onClose} finalFocusRef={btnRef} size='lg'>
 				<DrawerOverlay />
 				<DrawerContent>
 					<DrawerCloseButton size='lg' />
-
-					<DrawerBody width='100%' alignSelf='center' display='inline-flex'>
-						<Stack as='nav' width='100%' my='auto' display='flex' flexDir='column'>
-							<Image
-								src='https://www.faris-group.com/wp-content/uploads/2019/05/fg-web.png'
-								maxHeight='24'
-								objectFit='cover'
-							/>
-							<Box
+					<DrawerBody width='100vw' minHeight='100vh' display='flex' alignItems='center'>
+						<Box as='nav' width='100%'>
+							<Flex
 								as='ul'
 								listStyleType='none'
+								textAlign='center'
 								width='100%'
-								display='flex'
-								flexDir='column'
-								alignItems='flex-start'>
-								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
-									<ActiveLink width='100%' href='/' justifyContent='flex-start'>
-										Home
+								flexDirection='column'>
+								<Box px={1} borderBottom='1px solid' borderBottomColor='gray.100' py='2' as='li'>
+									<ActiveLink size='lg' href='/'>
+										الرئيسية
 									</ActiveLink>
 								</Box>
-								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
-									<ActiveLink width='100%' href='/about-us' justifyContent='flex-start'>
-										About Us
+								<Box px={1} borderBottom='1px solid' borderBottomColor='gray.100' py='2' as='li'>
+									<ActiveLink size='lg' href='/about-us'>
+										من نحن
 									</ActiveLink>
 								</Box>
-								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
-									<ActiveLink width='100%' href='/properties' justifyContent='flex-start'>
-										Properties
+								<Box px={1} borderBottom='1px solid' borderBottomColor='gray.100' py='2' as='li'>
+									<ActiveLink size='lg' href='/properties'>
+										العقارات
 									</ActiveLink>
 								</Box>
-								<Box as='li' width='100%' borderBottom='1px' borderBottomColor='#ccc'>
-									<ActiveLink width='100%' href='/contact-us' justifyContent='flex-start'>
-										Contact Us
+								<Box px={1} borderBottom='1px solid' borderBottomColor='gray.100' py='2' as='li'>
+									<ActiveLink size='lg' href='/contact-us'>
+										تواصل معنا
 									</ActiveLink>
 								</Box>
+								<Box px={1} borderBottom='1px solid' borderBottomColor='gray.100' py='2' as='li'>
+									<ActiveLink size='lg' href='/favorites'>
+										المفضلة
+									</ActiveLink>
+								</Box>
+							</Flex>
+							<Box px={1} py='4'>
+								<Heading as='h6' color='green.500' fontSize='md' mb={2} textAlign='center'>
+									محول العملات
+								</Heading>
+								<CurrencyConverterMobile />
 							</Box>
-						</Stack>
+						</Box>
 					</DrawerBody>
 				</DrawerContent>
 			</Drawer>
-		</>
+		</React.Fragment>
 	);
 };

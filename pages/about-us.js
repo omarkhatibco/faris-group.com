@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/core';
 import { useContext } from 'react';
 import { BgImage, ConfigContext, Container, Image, OurServiceSection, Video } from '~components';
+import { getCdnUrl } from '~utls';
 
 const AboutUs = () => {
 	const { aboutUs } = useContext(ConfigContext);
@@ -77,7 +78,7 @@ const AboutUs = () => {
 					position='relative'
 					order={[0, 1]}>
 					<Image
-						src={aboutUs?.whyUsImage}
+						src={getCdnUrl(aboutUs?.whyUsImage)}
 						alt='turkey flag on Dolmabahçe Sarayı'
 						objectFit='cover'
 						position='absolute'

@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 import { useContext } from 'react';
 import { ConfigContext, Image } from '~components';
+import { getCdnUrl } from '~utls';
 
 export const OurServiceSection = () => {
 	const { aboutUs } = useContext(ConfigContext);
@@ -8,7 +9,7 @@ export const OurServiceSection = () => {
 		<Flex as='section' flexWrap='wrap' width='100%'>
 			<Box width={['100%', 2 / 5]} height={['50vh', 'auto']} position='relative'>
 				<Image
-					src={aboutUs?.ServiceImage}
+					src={getCdnUrl(aboutUs?.ServiceImage)}
 					alt='Modern real estate'
 					objectFit='cover'
 					position='absolute'

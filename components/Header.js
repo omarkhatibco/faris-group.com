@@ -1,10 +1,10 @@
 /**jsx @jsx */
-import { Box, Flex, IconButton, Image } from '@chakra-ui/core';
+import { Box, Flex, IconButton } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import Link from 'next/link';
 import React from 'react';
 import { MdFavorite } from 'react-icons/md';
-import { Container, CurrencyConverter } from '~components';
+import { Container, CurrencyConverter, LogoSvg, MobileNav } from '~components';
 import { ActiveLink } from './ActiveLink';
 
 export const Header = ({}) => {
@@ -29,12 +29,7 @@ export const Header = ({}) => {
 				<Flex justifyContent='space-between' alignItems='center'>
 					<Box w={['50%']}>
 						<Link href='/'>
-							<Image
-								src='https://www.faris-group.com/wp-content/uploads/2019/05/fg-web.png'
-								maxHeight='16'
-								alt='faris group logo'
-								cursor='pointer'
-							/>
+							<LogoSvg width='11rem' />
 						</Link>
 					</Box>
 
@@ -68,7 +63,7 @@ export const Header = ({}) => {
 							</Box>
 						</Flex>
 					</Box>
-					{/**			<MobileNav /> */}
+					<MobileNav />
 				</Flex>
 			</Container>
 		</Box>

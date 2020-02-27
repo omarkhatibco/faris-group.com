@@ -2,7 +2,7 @@
 import { Box, Flex, Link, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import { useMounted } from '~utls';
-import { Container, SocialLinks } from './';
+import { Container, LogoSymbolSvg, SocialLinks } from './';
 
 export const Footer: React.FC = () => {
 	const isMounted = useMounted();
@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
 		<Box as='footer' bg='gray.50' py='8' borderTop='1px' borderTopColor='gray.100'>
 			<Container>
 				<Flex flexDirection='column' alignItems='center' justifyContent='center' textAlign='center'>
-					<Text>Faris Group Logo</Text>
+					<LogoSymbolSvg width='4rem' />
 					<Text fontWeight='bold' my='2' textTransform='uppercase'>
 						للإستشارات العقارية
 					</Text>
