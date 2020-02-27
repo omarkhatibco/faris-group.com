@@ -29,7 +29,7 @@ export const MobileNav: React.FC = () => {
 				<DrawerOverlay />
 				<DrawerContent>
 					<DrawerCloseButton size='lg' />
-					<DrawerBody width='100vw' minHeight='100vh' display='flex' alignItems='center'>
+					<DrawerBody width='100vw' minHeight='90vh' display='flex' alignItems='center'>
 						<Box as='nav' width='100%'>
 							<Flex
 								as='ul'
