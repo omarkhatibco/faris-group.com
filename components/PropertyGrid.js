@@ -34,6 +34,7 @@ export const PropertyGrid = ({ data }) => {
 			transition='all 300ms ease-in-out'
 			boxShadow='md'
 			overflow='hidden'
+			backgroundColor='white'
 			css={css({
 				':hover': {
 					boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
@@ -47,7 +48,7 @@ export const PropertyGrid = ({ data }) => {
 			})}>
 			<Link as={`/properties/${data?.slug}`} href='/properties/[slug]'>
 				<a>
-					<Box>
+					<Box as='article'>
 						<AspectRatioBox ratio={16 / 9} borderRadius='0.5rem'>
 							<Flex justifyContent='center' alignItems='center' overflow='hidden'>
 								<Image

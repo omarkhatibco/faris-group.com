@@ -21,6 +21,8 @@ export const HomeSlider = () => {
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
 		searchParams.append('per_page', '5');
+		searchParams.append('filter[meta_query][0][key]', 'is_featured_slider');
+		searchParams.append('filter[meta_query][0][value]', '1');
 
 		try {
 			const data: any = await wp
@@ -63,10 +65,10 @@ export const HomeSlider = () => {
 		} else {
 			scrollPrev();
 		}
-	}, 4000);
+	}, 8000);
 
 	return (
-		<Box position='relative'>
+		<Box as='section' borderBottom='1px solid' borderBottomColor='gray.100' position='relative'>
 			{data.length > 0 && (
 				<EmblaCarouselReact
 					emblaRef={setEmbla}

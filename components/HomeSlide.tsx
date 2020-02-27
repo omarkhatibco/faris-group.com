@@ -46,7 +46,7 @@ export const HomeSlide = ({ data }) => {
 							width='100%'
 							height='100%'
 							objectFit='cover'
-							src={`${getCdnUrl(data?.media_gallery_data?.[0]?.src)}?quality=100`}
+							src={`${getCdnUrl(imageObj?.source_url)}?quality=100`}
 						/>
 					</Box>
 					<Box display={['none', 'none', 'block']} width={['100%', '100%', '35%']}>
@@ -54,7 +54,7 @@ export const HomeSlide = ({ data }) => {
 							width='100%'
 							height='100%'
 							objectFit='cover'
-							src={`${getCdnUrl(data?.media_gallery_data?.[1]?.src)}?quality=100`}
+							src={`${getCdnUrl(imageObj?.source_url)}?quality=100`}
 						/>
 					</Box>
 				</Flex>

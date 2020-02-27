@@ -192,7 +192,7 @@ const Properties: NextPage = () => {
 	]);
 
 	return (
-		<Box as='main' width='Full'>
+		<Box width='Full'>
 			<Flex
 				width='100%'
 				overflow='hidden'
@@ -212,9 +212,7 @@ const Properties: NextPage = () => {
 							ابحث عن عقارك
 						</Heading>
 						<Box>
-							<Text fontSize={['sm', 'md']}>
-								ابحث عن عقارك مع مجموعة الفارس بالمواصفات التي ترغب بها{' '}
-							</Text>
+							<Text fontSize={['sm', 'md']}>ابحث عن عقارك بالمواصفات التي ترغب بها</Text>
 						</Box>
 					</Box>
 				</Container>
@@ -320,7 +318,7 @@ const Properties: NextPage = () => {
 							</Grid>
 						</Box>
 					</Box>
-					<Box as='article' width={['100%', 3 / 4]} pr={[0, 8]}>
+					<Box as='main' width={['100%', 3 / 4]} pr={[0, 8]}>
 						{data?.length === 0 && loading && (
 							<Flex height='100%' py={8} justifyContent='center' alignItems='center'>
 								<Spinner size='xl' color='green.500' thickness='3px' />

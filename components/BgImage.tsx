@@ -5,7 +5,7 @@ import { useWindowSize } from 'react-use';
 import { Image } from '~components';
 import { getCdnUrl } from '~utls';
 
-export const BgImage = ({ src, alt }) => {
+export const BgImage = ({ src, alt, zIndex = 0 }) => {
 	const { width } = useWindowSize();
 	return (
 		<Image
@@ -23,6 +23,7 @@ export const BgImage = ({ src, alt }) => {
 			height='100%'
 			width='100%'
 			objectFit='cover'
+			zIndex={zIndex}
 			objectPosition='center'></Image>
 	);
 };
