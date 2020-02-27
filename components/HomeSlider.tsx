@@ -1,4 +1,4 @@
-import { Box, Flex, IconButton } from '@chakra-ui/core';
+import { Box, Flex, IconButton, Spinner } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import EmblaCarouselReact from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
@@ -7,6 +7,7 @@ import { useInterval, wp } from '~utls';
 
 export const HomeSlider = () => {
 	const [data, setData] = useState<any>([]);
+	const [loading, setLoading] = useState<any>(false);
 	const [embla, setEmbla] = useState(null);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState([]);
@@ -17,7 +18,8 @@ export const HomeSlider = () => {
 	const scrollPrev = useCallback(() => embla.scrollPrev(), [embla]);
 	const scrollNext = useCallback(() => embla.scrollNext(), [embla]);
 
-	const getData = async (isReset = false) => {
+	const getData = async () => {
+		setLoading(true);
 		const searchParams = new URLSearchParams();
 		searchParams.append('_embed', '');
 		searchParams.append('per_page', '5');
@@ -34,6 +36,7 @@ export const HomeSlider = () => {
 		} catch (error) {
 			console.error({ error });
 		}
+		setLoading(false);
 	};
 
 	useEffect(() => {
@@ -69,7 +72,12 @@ export const HomeSlider = () => {
 
 	return (
 		<Box as='section' borderBottom='1px solid' borderBottomColor='gray.100' position='relative'>
-			{data.length > 0 && (
+			{loading && (
+				<Flex height='70vh' py={20} justifyContent='center' alignItems='center'>
+					<Spinner size='xl' color='green.500' thickness='3px' />
+				</Flex>
+			)}
+			{!loading && data.length > 0 && (
 				<EmblaCarouselReact
 					emblaRef={setEmbla}
 					options={{ loop: false, align: 'start', dragFree: false, containScroll: true }}>
