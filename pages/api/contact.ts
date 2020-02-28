@@ -8,7 +8,7 @@ export default async (req, res) => {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				body: new URLSearchParams(body),
-			}).catch(e => res.status(500).json({ message: 'internal server error', e }));
+			}).catch(e => console.log(e));
 			const contactJson = await contact.json();
 			res.status(contact.status).json(contactJson);
 		} else {
