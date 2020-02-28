@@ -1,15 +1,36 @@
-import { Box, Stack } from '@chakra-ui/core';
-import { Form, Submit, Field, TextareaField } from '~components';
-import { MdPhone, MdEmail, MdPerson, MdSubject } from 'react-icons/md';
+import { Box, Grid } from '@chakra-ui/core';
+import ky from 'ky-universal';
+import { MdEmail, MdPerson, MdPhone, MdSubject } from 'react-icons/md';
+import { Field, Form, Submit, TextareaField, useToast } from '~components';
 
 export const ContactForm = () => {
+	const toast = useToast();
 	return (
 		<Form
-			onSubmit={values => {
-				console.log({ values });
+			onSubmit={async (values, reset) => {
+				try {
+					await ky.post('/api/contact', {
+						body: new URLSearchParams(values),
+					});
+					toast({
+						title: 'تم إرسال الرسالة بنجاح',
+						status: 'success',
+						duration: 9000,
+						isClosable: true,
+					});
+					reset();
+				} catch (error) {
+					console.log(error);
+					toast({
+						title: 'لم يتم إرسال الرسالة',
+						status: 'error',
+						duration: 9000,
+						isClosable: true,
+					});
+				}
 			}}
 			options={{}}>
-			<Stack spacing='6' shouldWrapChildren>
+			<Grid gridGap='6'>
 				<Field
 					name='name'
 					placeholder='الأسم'
@@ -40,7 +61,7 @@ export const ContactForm = () => {
 					icon={<Box as={MdSubject} width='1rem' height='1rem' color='green.300' />}
 					isRequired></TextareaField>
 				<Submit variantColor='green'>إرسال الرسالة</Submit>
-			</Stack>
+			</Grid>
 		</Form>
 	);
 };

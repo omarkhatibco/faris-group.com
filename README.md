@@ -3,7 +3,8 @@
 - [x] Logo Header
 - [x] Logo Footer
 - [x] favicons
-- [ ] SEO
 - [x] Mobile Menu
-- [ ] contact us Form make it work
-- [ ] contact us EndPoint
+- [x] contact us Form make it work
+- [x] contact us EndPoint
+- [ ] SEO
+- [ ] Lighthouse optomize

@@ -61,7 +61,7 @@ const SingleProperties: NextPage<IProps> = ({ data }) => {
 								تواصل معنا لمساعدتك بإختيار العقار المناسب لك و للعائلة, إذا لم تجد طلبك على الموقع
 								دعنا نطلعك على بعض من أهم عروضنا الحصرية.
 							</Text>
-							<PropertyContactForm />
+							<PropertyContactForm id={data?.id} />
 						</Box>
 					</Box>
 				</Container>

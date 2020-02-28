@@ -1,12 +1,34 @@
 import { Box, Grid } from '@chakra-ui/core';
+import ky from 'ky-universal';
 import { MdEmail, MdPerson, MdPhone, MdSubject } from 'react-icons/md';
-import { Field, Form, SelectField, Submit, TextareaField } from '~components';
+import { Field, Form, SelectField, Submit, TextareaField, useToast } from '~components';
 
-export const PropertyContactForm = () => {
+export const PropertyContactForm = ({ id }) => {
+	const toast = useToast();
+
 	return (
 		<Form
-			onSubmit={values => {
-				console.log({ values });
+			onSubmit={async (values, reset) => {
+				try {
+					await ky.post('/api/contact', {
+						body: new URLSearchParams({ ...values, url: window.location.href, id }),
+					});
+					toast({
+						title: 'تم إرسال الرسالة بنجاح',
+						status: 'success',
+						duration: 9000,
+						isClosable: true,
+					});
+					reset();
+				} catch (error) {
+					console.log(error);
+					toast({
+						title: 'لم يتم إرسال الرسالة',
+						status: 'error',
+						duration: 9000,
+						isClosable: true,
+					});
+				}
 			}}
 			options={{}}>
 			<Grid gridGap={4}>
