@@ -5,13 +5,13 @@ export const RoomsFilter = ({ value, onChange, types }) => {
 	const options = types ? [...types]?.sort()?.map(type => ({ value: type, label: type })) : [];
 	return (
 		<FormControl>
-			<FormLabel htmlFor='status' textAlign='right' paddingRight='0'>
+			<FormLabel htmlFor='rooms' textAlign='right' paddingRight='0'>
 				الغرف
 			</FormLabel>
 			<MultiSelect
 				value={value}
 				onChange={onChange}
-				name='status'
+				name='rooms'
 				options={options}
 				isLoading={!types}
 				placeholder='اختر نوع الغرف'
