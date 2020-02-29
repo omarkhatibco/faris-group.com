@@ -2,6 +2,7 @@
 import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
 import { ContactForm, Container, Map, SocialLinks } from '~components';
 
@@ -67,6 +68,7 @@ const ContactUs: NextPage = () => {
 					</Flex>
 				</Container>
 			</Box>
+			<NextSeo title='اتصل بنا' description='إذا كان لديك اسفسارات لا تتردد بالإتصال بنا أو محادثتنا على شبكات التواصل الإجتماعي.' />
 		</Box>
 	);
 };

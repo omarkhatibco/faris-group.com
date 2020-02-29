@@ -22,12 +22,7 @@ export const OurServiceSection = () => {
 				/>
 			</Box>
 			<Box width={['100%', 3 / 5]} p={[6, 12]}>
-				<Heading
-					as='h2'
-					fontSize={['xl', '5xl']}
-					color='green.500'
-					textTransform='uppercase'
-					mb='4'>
+				<Heading as='h2' fontSize={['xl', '5xl']} color='green.500' mb='4'>
 					خدماتنا
 				</Heading>
 				<Flex flexWrap='wrap' mb='4'>
