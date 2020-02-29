@@ -29,6 +29,8 @@ import {
 import { wp } from '~utls';
 
 const Properties: NextPage = () => {
+	const [isFilterOpened, setIsFilterOpened] = useState(false);
+
 	const { properties } = useContext<any>(ConfigContext);
 	const [loading, setLoading] = useState<any>(false);
 	const [data, setData] = useState<any>([]);
@@ -207,72 +209,90 @@ const Properties: NextPage = () => {
 							borderColor='gray.100'
 							p={4}
 							mb={[8, 0]}>
-							<Grid gap={4}>
-								<CityFilter value={location} onChange={setLocation} />
-								<TypesFilter value={types} onChange={setTypes} />
-								<StatusesFilter value={status} onChange={setStatus} />
-								<FeaturesFilter value={features} onChange={setFeatures} />
-								<RoomsFilter
-									value={roomTypes}
-									onChange={setRoomTypes}
-									types={aggregation?.rooms_type}
-								/>
-								<FormControl>
-									<FormLabel textAlign='right' paddingRight='0'>
-										نوع الشقق
-									</FormLabel>
-									<Grid gridGap={1}>
-										<Checkbox
-											variantColor='green'
-											isChecked={hasDuplex}
-											onChange={e => setHasDuplex(e.target.checked)}>
-											<Text as='span' pr={1}>
-												دوبلكس
-											</Text>
-										</Checkbox>
-										<Checkbox
-											variantColor='green'
-											isChecked={hasVilla}
-											onChange={e => setHasVilla(e.target.checked)}>
-											<Text as='span' pr={1}>
-												فيلا
-											</Text>
-										</Checkbox>
-										<Checkbox
-											variantColor='green'
-											isChecked={hasPenthouse}
-											onChange={e => setHasPenthouse(e.target.checked)}>
-											<Text as='span' pr={1}>
-												بنتهاوس
-											</Text>
-										</Checkbox>
-									</Grid>
-								</FormControl>
+							<Flex
+								justifyContent='stretch'
+								display={['flex', 'none']}
+								transition=' all 150ms ease-in-out'
+								pb={isFilterOpened ? 8 : 0}>
+								<Button
+									variantColor='green'
+									width='100%'
+									onClick={() => setIsFilterOpened(!isFilterOpened)}>
+									تصفية البحث
+								</Button>
+							</Flex>
+							<Box
+								height='auto'
+								overflow='hidden'
+								maxHeight={isFilterOpened ? '1000px' : ['0', '1000px']}
+								transition=' all 150ms ease-in-out'>
+								<Grid gap={4}>
+									<CityFilter value={location} onChange={setLocation} />
+									<TypesFilter value={types} onChange={setTypes} />
+									<StatusesFilter value={status} onChange={setStatus} />
+									<FeaturesFilter value={features} onChange={setFeatures} />
+									<RoomsFilter
+										value={roomTypes}
+										onChange={setRoomTypes}
+										types={aggregation?.rooms_type}
+									/>
+									<FormControl>
+										<FormLabel textAlign='right' paddingRight='0'>
+											نوع الشقق
+										</FormLabel>
+										<Grid gridGap={1}>
+											<Checkbox
+												variantColor='green'
+												isChecked={hasDuplex}
+												onChange={e => setHasDuplex(e.target.checked)}>
+												<Text as='span' pr={1}>
+													دوبلكس
+												</Text>
+											</Checkbox>
+											<Checkbox
+												variantColor='green'
+												isChecked={hasVilla}
+												onChange={e => setHasVilla(e.target.checked)}>
+												<Text as='span' pr={1}>
+													فيلا
+												</Text>
+											</Checkbox>
+											<Checkbox
+												variantColor='green'
+												isChecked={hasPenthouse}
+												onChange={e => setHasPenthouse(e.target.checked)}>
+												<Text as='span' pr={1}>
+													بنتهاوس
+												</Text>
+											</Checkbox>
+										</Grid>
+									</FormControl>
 
-								<FormControl>
-									<FormLabel textAlign='right' paddingRight='0'>
-										مزايا المشروع
-									</FormLabel>
-									<Grid gridGap={1}>
-										<Checkbox
-											variantColor='green'
-											isChecked={installment}
-											onChange={e => setInstallment(e.target.checked)}>
-											<Text as='span' pr={1}>
-												قابل للتقسيط
-											</Text>
-										</Checkbox>
-										<Checkbox
-											variantColor='green'
-											isChecked={citizenship}
-											onChange={e => setCitizenship(e.target.checked)}>
-											<Text as='span' pr={1}>
-												مؤهل للجنسية التركية 🇹🇷
-											</Text>
-										</Checkbox>
-									</Grid>
-								</FormControl>
-							</Grid>
+									<FormControl>
+										<FormLabel textAlign='right' paddingRight='0'>
+											مزايا المشروع
+										</FormLabel>
+										<Grid gridGap={1}>
+											<Checkbox
+												variantColor='green'
+												isChecked={installment}
+												onChange={e => setInstallment(e.target.checked)}>
+												<Text as='span' pr={1}>
+													قابل للتقسيط
+												</Text>
+											</Checkbox>
+											<Checkbox
+												variantColor='green'
+												isChecked={citizenship}
+												onChange={e => setCitizenship(e.target.checked)}>
+												<Text as='span' pr={1}>
+													مؤهل للجنسية التركية 🇹🇷
+												</Text>
+											</Checkbox>
+										</Grid>
+									</FormControl>
+								</Grid>
+							</Box>
 						</Box>
 					</Box>
 					<Box as='main' width={['100%', 3 / 4]} pr={[0, 8]}>
