@@ -29,7 +29,9 @@ export const Header = ({}) => {
 				<Flex justifyContent='space-between' alignItems='center'>
 					<Box w={['50%']}>
 						<Link href='/'>
-							<LogoSvg width='11rem' />
+							<a>
+								<LogoSvg width='11rem' />
+							</a>
 						</Link>
 					</Box>
 
