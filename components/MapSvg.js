@@ -1,7 +1,12 @@
 import { Box } from '@chakra-ui/core';
 
 export const MapSvg = props => (
-	<Box as='svg' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 666.667' {...props}>
+	<Box
+		as='svg'
+		xmlns='http://www.w3.org/2000/svg'
+		preserveAspectRatio='xMinYMin slice'
+		viewBox='0 0 1000 666.667'
+		{...props}>
 		<path fill='#e5fbf8' d='M1000 666.667H0V0h1000z'></path>
 		<path
 			fill='#fff'

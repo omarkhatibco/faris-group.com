@@ -51,7 +51,7 @@ export const PropertyMap = ({ map, distances, location }) => {
 			</Grid>
 			{map && (
 				<Box mt={4} mb={8}>
-					<Map search={map?.address} ratio={16 / 9} borderRadius='0.5rem' boxShadow='lg' />
+					<Map search={map?.address} ratio='56.25%' borderRadius='0.5rem' boxShadow='lg' />
 				</Box>
 			)}
 		</Box>

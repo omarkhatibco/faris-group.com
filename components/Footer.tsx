@@ -1,11 +1,9 @@
 /**jsx @jsx */
 import { Box, Flex, Link, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
-import { useMounted } from '~utls';
 import { Container, LogoSymbolSvg, SocialLinks } from './';
 
 export const Footer: React.FC = () => {
-	const isMounted = useMounted();
 	return (
 		<Box as='footer' bg='gray.50' py='8' borderTop='1px' borderTopColor='gray.100'>
 			<Container>
@@ -29,9 +27,9 @@ export const Footer: React.FC = () => {
 						<br />
 						Turkey
 					</Text>
-					{isMounted && <SocialLinks />}
+					<SocialLinks />
 					<Text fontSize='sm' color='gray.500' my='2'>
-						جميع الحقوق محفوظة لفارس غروب | تم التطوير من قبل{' '}
+						جميع الحقوق محفوظة لمجموعة الفارس | تم التطوير من قبل{' '}
 						<Link href='https://loewen.dev' isExternal>
 							löwen.dev
 						</Link>

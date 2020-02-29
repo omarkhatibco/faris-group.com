@@ -110,28 +110,6 @@ const Properties: NextPage = () => {
 			searchParams.append('filter[meta_query][9][compare]', 'Like');
 		}
 
-		// if (!!price?.min) {
-		// 	searchParams.append('filter[meta_query][7][key]', 'min_price');
-		// 	searchParams.append('filter[meta_query][7][value]', `${price?.min * currencyObj[currency]}`);
-		// 	searchParams.append('filter[meta_query][7][compare]', '>=');
-		// }
-		// if (!!price?.max) {
-		// 	searchParams.append('filter[meta_query][8][key]', 'max_price');
-		// 	searchParams.append('filter[meta_query][8][value]', `${price?.max * currencyObj[currency]}`);
-		// 	searchParams.append('filter[meta_query][8][compare]', '<=');
-		// }
-
-		// if (!!size?.min) {
-		// 	searchParams.append('filter[meta_query][9][key]', 'min_size');
-		// 	searchParams.append('filter[meta_query][9][value]', size?.min);
-		// 	searchParams.append('filter[meta_query][9][compare]', '>=');
-		// }
-		// if (!!size?.max) {
-		// 	searchParams.append('filter[meta_query][10][key]', 'max_size');
-		// 	searchParams.append('filter[meta_query][10][value]', size?.max);
-		// 	searchParams.append('filter[meta_query][10][compare]', '<=');
-		// }
-
 		try {
 			const newData: any = await wp
 				.get('property', {
@@ -227,7 +205,8 @@ const Properties: NextPage = () => {
 							borderRadius='0.5rem'
 							borderWidth='1px'
 							borderColor='gray.100'
-							p={4}>
+							p={4}
+							mb={[8, 0]}>
 							<Grid gap={4}>
 								<CityFilter value={location} onChange={setLocation} />
 								<TypesFilter value={types} onChange={setTypes} />
@@ -238,28 +217,6 @@ const Properties: NextPage = () => {
 									onChange={setRoomTypes}
 									types={aggregation?.rooms_type}
 								/>
-
-								{/*
-								<RangeFilter
-									name='price'
-									title={`السعر (${currencyName})`}
-									min={Number(aggregation?.min_price * currencyObj[currency] || 0).toFixed(0)}
-									max={Number(aggregation?.max_price * currencyObj[currency] || 1000000).toFixed(0)}
-									value={price}
-									onChange={setPrice}
-									handleFilter={getData}
-								/>
-								<RangeFilter
-									name='size'
-									title='المساحة (متر مربع)'
-									min={aggregation?.min_size}
-									max={aggregation?.max_size}
-									value={size}
-									onChange={setSize}
-									handleFilter={getData}
-								/>
-								*/}
-
 								<FormControl>
 									<FormLabel textAlign='right' paddingRight='0'>
 										نوع الشقق

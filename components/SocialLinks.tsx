@@ -2,6 +2,7 @@ import { IconButton, Link, Stack } from '@chakra-ui/core';
 import { useContext } from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ConfigContext } from '~components';
+import { useMounted } from '~utls';
 
 const getIcon = type => {
 	switch (type) {
@@ -23,9 +24,10 @@ const getIcon = type => {
 	}
 };
 export const SocialLinks = () => {
+	const isMounted = useMounted();
 	const { social } = useContext<any>(ConfigContext);
 
-	return (
+	return isMounted ? (
 		<Stack my='2' isInline>
 			{social?.map(({ type, link }, index) => (
 				<Link key={index} href={link?.url} isExternal>
@@ -40,5 +42,5 @@ export const SocialLinks = () => {
 				</Link>
 			))}
 		</Stack>
-	);
+	) : null;
 };

@@ -3,16 +3,12 @@ import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import { NextPage } from 'next';
 import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
-import { useMedia } from 'react-use';
 import { ContactForm, Container, Map, SocialLinks } from '~components';
-import { useMounted } from '~utls';
 
 const ContactUs: NextPage = () => {
-	const isMounted = useMounted();
-	const isMd = useMedia('(max-width: 768px)');
 	return (
 		<Box as='main' width='100%'>
-			<Map search='faris group istanbul Turkey' isfirst ratio={isMd ? 1 : 4 / 1} />
+			<Map search='faris group istanbul Turkey' isfirst ratio={['100%', '25%']} />
 			<Box py='16'>
 				<Container>
 					<Flex flexWrap='wrap'>
@@ -26,7 +22,7 @@ const ContactUs: NextPage = () => {
 							<Heading as='h2' color='green.500' textTransform='uppercase'>
 								وسائل التواصل
 							</Heading>
-							{isMounted && <SocialLinks />}
+							<SocialLinks />
 							<Heading as='h2' color='green.500' textTransform='uppercase'>
 								بيانات الإتصال
 							</Heading>
