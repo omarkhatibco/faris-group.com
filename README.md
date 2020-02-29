@@ -8,3 +8,4 @@
 - [x] contact us EndPoint
 - [ ] SEO
 - [ ] Lighthouse optomize
+- [ ] fix filter by responsive

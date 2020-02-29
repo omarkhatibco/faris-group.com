@@ -1897,10 +1897,10 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/node@^13.7.6":
-  version "13.7.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.6.tgz#cb734a7c191472ae6a2b3a502b4dfffcea974113"
-  integrity sha512-eyK7MWD0R1HqVTp+PtwRgFeIsemzuj4gBFSQxfPHY5iMjS7474e5wq+VFgTcdpyHeNxyKSaetYAjdMLJlKoWqA==
+"@types/node@^13.7.7":
+  version "13.7.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.7.tgz#1628e6461ba8cc9b53196dfeaeec7b07fa6eea99"
+  integrity sha512-Uo4chgKbnPNlxQwoFmYIwctkQVkMMmsAoGGU4JKwLuvBefF0pCq4FybNSnfkfRCpC7ZW7kttcC/TrRtAJsvGtg==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -8458,10 +8458,10 @@ react-focus-lock@^2.2.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-hook-form@^4.9.8:
-  version "4.9.8"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-4.9.8.tgz#eb3630d76d90b19fe2fd40383a5b6975dce668a6"
-  integrity sha512-oOeTZe4MomOyoPzJ5k69kg2xukdDE02jkoH6kSH9anUq5GjD2gL6TGQGhjA2deV4JYjM7c1XD4Mwinxoqc407w==
+react-hook-form@^4.10.1:
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-4.10.1.tgz#abd24888cb9db95a4760fd3b0750eea84d644dee"
+  integrity sha512-ZXEa4YbHqUKxuuTGSVa36NjL7bhIcFEPmXxvq1p/Bq1EAo1cUlgZxcFV7MbAQiK4Nw2+1qg8Oz0mZIITTM8y/g==
 
 react-icons@^3.9.0:
   version "3.9.0"
@@ -8531,10 +8531,10 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-use@^13.26.3:
-  version "13.26.3"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.26.3.tgz#d278bb0f8c995c3684a15de2026fbb51bd04df02"
-  integrity sha512-81I+p1F7LFxdkGM3qiLjF9NUi2mTupvaiN76IAWL5JMY7BHTGSk6PFdzByqJrxnTJ/RBrbIVttmqvYKHOz/9Tw==
+react-use@^13.26.4:
+  version "13.26.4"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.26.4.tgz#9f68ae1b44496626db447be502e62f0dd482103c"
+  integrity sha512-Bv/XvJREnkyGhbPKOzI1Agtg68MBS8EwL0o16qEJk/Z0d4NbWf/zZGgKSa8IzwaI0BBE0mk0zvSMe/RJR+IFYA==
   dependencies:
     "@types/js-cookie" "2.2.5"
     "@xobotyi/scrollbar-width" "1.9.3"
@@ -10153,10 +10153,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.8.2:
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.2.tgz#91d6868aaead7da74f493c553aeff76c0c0b1d5a"
-  integrity sha512-EgOVgL/4xfVrCMbhYKUQTdF37SQn4Iw73H5BgCrF1Abdun7Kwy/QZsE/ssAy0y4LxBbvua3PIbFsbRczWWnDdQ==
+typescript@^3.8.3:
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
+  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
 
 unfetch@4.1.0, unfetch@^4.0.0:
   version "4.1.0"
