@@ -2,11 +2,13 @@
 import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import { NextPage } from 'next';
-import { NextSeo } from 'next-seo';
+import { CorporateContactJsonLd, NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
 import { ContactForm, Container, Map, SocialLinks } from '~components';
 
 const ContactUs: NextPage = () => {
+	const { asPath } = useRouter();
 	return (
 		<Box as='main' width='100%'>
 			<Map search='faris group istanbul Turkey' isfirst ratio={['100%', '25%']} />
@@ -68,7 +70,31 @@ const ContactUs: NextPage = () => {
 					</Flex>
 				</Container>
 			</Box>
-			<NextSeo title='اتصل بنا' description='إذا كان لديك اسفسارات لا تتردد بالإتصال بنا أو محادثتنا على شبكات التواصل الإجتماعي.' />
+			<NextSeo
+				title='اتصل بنا'
+				description='إذا كان لديك اسفسارات لا تتردد بالإتصال بنا أو محادثتنا على شبكات التواصل الإجتماعي.'
+				openGraph={{
+					url: `https://faris-group.com${asPath}`,
+				}}
+			/>
+			<CorporateContactJsonLd
+				logo='https://faris-group.com/social/logo.png'
+				url='https://faris-group.com/'
+				contactPoint={[
+					{
+						telephone: '+90 555 8888 483',
+						contactType: 'Istanbul Office',
+						areaServed: ['TR', 'DZ', 'BH', 'EG', 'IQ', 'JO', 'KW', 'LB', 'SA', 'SY', 'AE', 'YE'],
+						availableLanguage: ['English', 'Turkish', 'Arabic'],
+					},
+					{
+						telephone: '+90 555 000 88 82',
+						contactType: 'Gaziantep Office',
+						areaServed: 'TR',
+						availableLanguage: ['English', 'Turkish', 'Arabic'],
+					},
+				]}
+			/>
 		</Box>
 	);
 };

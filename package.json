@@ -42,6 +42,7 @@
 		"react-select": "^3.0.8",
 		"react-spring": "^8.0.27",
 		"react-use": "^13.26.4",
+		"string-strip-html": "^4.3.16",
 		"toasted-notes": "^3.2.0",
 		"typescript": "^3.8.3",
 		"yup": "^0.28.1"

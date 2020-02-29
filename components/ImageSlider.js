@@ -33,7 +33,7 @@ export const ImageSlider = ({ galleries }) => {
 						direction='row-reverse'
 						justifyContent='flex-end'
 						height={'60vh'}>
-						{galleries?.map(({ id, src, alt_text }) => {
+						{galleries?.map(({ id, src, width, height, alt }) => {
 							return (
 								<Box
 									flex={['0 0 100%', `0 0 45%`]}
@@ -43,10 +43,12 @@ export const ImageSlider = ({ galleries }) => {
 									key={id}>
 									<Image
 										src={`${getCdnUrl(src)}?w=700&quality=100`}
+										htmlWidth={width}
+										htmlHeight={height}
 										height='100%'
 										width='100%'
 										objectFit='cover'
-										alt={alt_text}
+										alt={alt}
 									/>
 								</Box>
 							);

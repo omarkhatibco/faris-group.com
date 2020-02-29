@@ -1,12 +1,15 @@
 /**jsx @jsx */
 import { Box, Flex, Grid, Heading, Spinner, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { useLocalStorage } from 'react-use';
 import { BgImage, ConfigContext, Container, PropertyGrid } from '~components';
 import { wp } from '~utls';
 
 const Favorites: NextPage = () => {
+	const { asPath } = useRouter();
 	const { properties } = useContext<any>(ConfigContext);
 	const [favorite] = useLocalStorage('favorite-properties', []);
 	const [data, setData] = useState<any>(null);
@@ -90,6 +93,15 @@ const Favorites: NextPage = () => {
 					</Box>
 				</Container>
 			</Box>
+			<NextSeo
+				title='المفضلة'
+				description={
+					'هنا يمكنك حفظ العقارات التي لديك إهتمام بها لمراجعتها و الإطلاع عليها في وقت لاحق.'
+				}
+				openGraph={{
+					url: `https://faris-group.com${asPath}`,
+				}}
+			/>
 		</Box>
 	);
 };

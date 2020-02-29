@@ -1,9 +1,8 @@
 import { ThemeProvider } from '@chakra-ui/core';
-import { ConfigProvider, CurrencyProvider, DefaultLayout, PreflightCSS } from '~components';
-import theme from '../theme';
-import SEO from '../next-seo.config';
 import { DefaultSeo } from 'next-seo';
-
+import { ConfigProvider, CurrencyProvider, DefaultLayout, PreflightCSS } from '~components';
+import SEO from '../next-seo.config';
+import theme from '../theme';
 
 // import App from 'next/app';
 
@@ -12,6 +11,7 @@ const MyApp = ({ Component, pageProps }) => {
 		<ThemeProvider theme={theme}>
 			<PreflightCSS />
 			<DefaultSeo {...SEO} />
+
 			<CurrencyProvider>
 				<ConfigProvider>
 					<DefaultLayout>

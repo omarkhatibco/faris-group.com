@@ -1,7 +1,9 @@
 /**jsx @jsx */
 import { Box, Heading, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
-import Router from 'next/router';
+import { NextSeo } from 'next-seo';
+import Router, { useRouter } from 'next/router';
+import stripHtml from 'string-strip-html';
 import {
 	Container,
 	ImageSlider,
@@ -21,6 +23,8 @@ interface IProps {
 }
 
 const SingleProperties: NextPage<IProps> = ({ data }) => {
+	const { asPath } = useRouter();
+
 	return (
 		<Box as='main' width='Full' pt={[16, 20]}>
 			{data?.media_gallery_data?.length > 0 && <ImageSlider galleries={data?.media_gallery_data} />}
@@ -66,6 +70,19 @@ const SingleProperties: NextPage<IProps> = ({ data }) => {
 					</Box>
 				</Container>
 			</Box>
+			<NextSeo
+				title={stripHtml(data?.title?.rendered)}
+				description={stripHtml(data?.excerpt?.rendered)}
+				openGraph={{
+					url: `https://faris-group.com${asPath}`,
+					images: data?.media_gallery_data?.map(({ src, alt, width, height }) => ({
+						url: src,
+						width,
+						height,
+						alt,
+					})),
+				}}
+			/>
 		</Box>
 	);
 };

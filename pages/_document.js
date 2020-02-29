@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html>
+			<Html lang='ar' dir='rtl'>
 				<Head>
 					<link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon.png' />
 					<link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png' />

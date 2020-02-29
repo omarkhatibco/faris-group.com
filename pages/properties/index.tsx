@@ -13,6 +13,8 @@ import {
 } from '@chakra-ui/core';
 import ky from 'ky-universal';
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { animated, useTransition } from 'react-spring';
 import {
@@ -29,6 +31,7 @@ import {
 import { wp } from '~utls';
 
 const Properties: NextPage = () => {
+	const { asPath } = useRouter();
 	const [isFilterOpened, setIsFilterOpened] = useState(false);
 
 	const { properties } = useContext<any>(ConfigContext);
@@ -320,6 +323,15 @@ const Properties: NextPage = () => {
 					</Box>
 				</Container>
 			</Box>
+			<NextSeo
+				title='العقارات'
+				description={
+					'ابحث عن عقارك بالمواصفات التي ترغب بها, يمكنك تخصيص بحثك بالنسبة للعديد من العناصر مثل المدينة و المنطقة أو نوع العقار كتجاري او سكني او حسب بعض المزايا المتوافرة في العقار أو عدد و توزيع الغرف'
+				}
+				openGraph={{
+					url: `https://faris-group.com${asPath}`,
+				}}
+			/>
 		</Box>
 	);
 };

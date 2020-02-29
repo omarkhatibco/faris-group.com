@@ -1,10 +1,12 @@
 import { Box, Flex, Grid, Heading, Text } from '@chakra-ui/core';
-import { NextSeo } from 'next-seo';
+import { LogoJsonLd, NextSeo, SocialProfileJsonLd } from 'next-seo';
+import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { BgImage, ConfigContext, Container, Image, OurServiceSection, Video } from '~components';
 import { getCdnUrl } from '~utls';
 
 const AboutUs = () => {
+	const { asPath } = useRouter();
 	const { aboutUs } = useContext(ConfigContext);
 
 	const description =
@@ -101,7 +103,23 @@ const AboutUs = () => {
 					/>
 				</Box>
 			</Flex>
-			<NextSeo title='من نحن' description={description} />
+			<NextSeo
+				title='من نحن'
+				openGraph={{
+					url: `https://faris-group.com/${asPath}`,
+				}}
+			/>
+			<LogoJsonLd logo='https://faris-group.com/social/logo.png' url='https://faris-group.com/' />
+			<SocialProfileJsonLd
+				type='Organization'
+				name='مجموعة الفارس'
+				url='https://faris-group.com/'
+				sameAs={[
+					'https://www.facebook.com/farisgrouptr/',
+					'https://www.instagram.com/farisgrouptr/',
+					'https://twitter.com/farisgrouptr',
+				]}
+			/>
 		</Flex>
 	);
 };

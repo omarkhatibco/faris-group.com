@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/core';
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { MdBugReport } from 'react-icons/md';
 
@@ -43,6 +44,7 @@ const ErrorPage: NextPage<IProps> = () => {
 					العودة للصفحة الرئيسية
 				</Button>
 			</Link>
+			<NextSeo title='لم يتم العثور على الصفحة' noindex={true} nofollow={true} />
 		</Flex>
 	);
 };
