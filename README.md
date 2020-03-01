@@ -8,8 +8,8 @@
 - [x] contact us EndPoint
 - [x] SEO
 - [x] fix filter by responsive
+- [x] fix breadcrumb
 - [ ] Lighthouse optomize
 - [ ] add sticky whatsapp button
-- [x] fix breadcrumb
-- [x] add breadcrumb Json Data
+- [ ] fix icons
 - [ ] fix data Live

@@ -5,12 +5,12 @@ import { NextSeo } from 'next-seo';
 import Router, { useRouter } from 'next/router';
 import stripHtml from 'string-strip-html';
 import {
+	ContactForm,
 	Container,
 	ImageSlider,
 	PropertyAmenities,
 	PropertyApartments,
 	PropertyAttachments,
-	PropertyContactForm,
 	PropertyDescription,
 	PropertyHeading,
 	PropertyMap,
@@ -65,7 +65,7 @@ const SingleProperties: NextPage<IProps> = ({ data }) => {
 								تواصل معنا لمساعدتك بإختيار العقار المناسب لك و للعائلة, إذا لم تجد طلبك على الموقع
 								دعنا نطلعك على بعض من أهم عروضنا الحصرية.
 							</Text>
-							<PropertyContactForm id={data?.id} />
+							<ContactForm id={data?.id} isPropertyContactForm />
 						</Box>
 					</Box>
 				</Container>

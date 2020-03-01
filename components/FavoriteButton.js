@@ -1,5 +1,4 @@
 import { Box, IconButton } from '@chakra-ui/core';
-import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import { useLocalStorage } from 'react-use';
 import { useMounted } from '~utls';
 
@@ -23,7 +22,7 @@ export const FavoriteButton = ({ size, id }) => {
 					isRound
 					variant={favorite.includes(id) ? 'solid' : 'outline'}
 					variantColor='green'
-					icon={favorite.includes(id) ? MdFavorite : MdFavoriteBorder}
+					icon={favorite.includes(id) ? 'love' : 'loveOutline'}
 					onClick={() => handleFavorite()}
 				/>
 			)}

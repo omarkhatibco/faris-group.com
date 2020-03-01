@@ -31,7 +31,6 @@ export * from './PropertyActions';
 export * from './PropertyAmenities';
 export * from './PropertyApartments';
 export * from './PropertyAttachments';
-export * from './PropertyContactForm';
 export * from './PropertyDescription';
 export * from './PropertyFacts';
 export * from './PropertyGrid';

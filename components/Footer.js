@@ -1,9 +1,9 @@
 /**jsx @jsx */
-import { Box, Flex, Link, Text } from '@chakra-ui/core';
+import { Box, Flex, IconButton, Link, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
-import { Container, LogoSymbolSvg, SocialLinks } from './';
+import { Container, LogoSymbolSvg, SocialLinks } from '.';
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
 	return (
 		<Box as='footer' bg='gray.50' py='8' borderTop='1px' borderTopColor='gray.100'>
 			<Container>
@@ -36,6 +36,35 @@ export const Footer: React.FC = () => {
 					</Text>
 				</Flex>
 			</Container>
+			<Box
+				position='fixed'
+				top='0'
+				right='0'
+				left='0'
+				bottom='0'
+				width='100%'
+				height='100%'
+				pointerEvents='none'>
+				<Flex
+					p={8}
+					width='100%'
+					height='100%'
+					justifyContent='flex-end'
+					alignItems='flex-end'
+					zIndex={4}
+					pointerEvents='none'>
+					<IconButton
+						as={Link}
+						href='s'
+						isExternal
+						color='social.whatsapp'
+						size='lg'
+						icon='whatsapp'
+						isRound
+						pointerEvents='auto'
+					/>
+				</Flex>
+			</Box>
 		</Box>
 	);
 };

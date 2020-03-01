@@ -1,14 +1,8 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/core';
-import { NextPage } from 'next';
+import { Box, Button, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
-import { MdBugReport } from 'react-icons/md';
 
-interface IProps {
-	statusCode: Number;
-}
-
-const ErrorPage: NextPage<IProps> = () => {
+const ErrorPage = () => {
 	return (
 		<Flex
 			as='main'
@@ -20,7 +14,7 @@ const ErrorPage: NextPage<IProps> = () => {
 			justifyContent='center'
 			alignItems='center'>
 			<Box backgroundColor='gray.100' padding={8} borderRadius='100%'>
-				<Box as={MdBugReport} size='5rem' color='green.500'></Box>
+				<Icon name='bug' size='5rem' color='green.500'></Icon>
 			</Box>
 			<Box my={4}>
 				<Text as='span' display='block' fontSize='5xl' fontWeight='bold' textAlign='center'>

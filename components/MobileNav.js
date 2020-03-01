@@ -11,18 +11,17 @@ import {
 	useDisclosure,
 } from '@chakra-ui/core';
 import React from 'react';
-import { FiMenu } from 'react-icons/fi';
 import { CurrencyConverterMobile } from '~components';
 import { ActiveLink } from './ActiveLink';
-// Burger Menu
-export const MobileNav: React.FC = () => {
+
+export const MobileNav = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
 	return (
 		<React.Fragment>
 			<Flex display={['flex', 'flex', 'flex', 'none']}>
 				<Box ref={btnRef} onClick={onOpen}>
-					<IconButton aria-label='القائمة' icon={FiMenu} background='transparent' size='lg' />
+					<IconButton aria-label='القائمة' icon='burger' background='transparent' size='lg' />
 				</Box>
 			</Flex>
 			<Drawer isOpen={isOpen} placement='bottom' onClose={onClose} finalFocusRef={btnRef} size='lg'>

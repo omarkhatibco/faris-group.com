@@ -1,6 +1,5 @@
 import { AspectRatioBox, Box, Flex, IconButton } from '@chakra-ui/core';
 import { useEffect, useState } from 'react';
-import { FaPlay } from 'react-icons/fa';
 import { Image } from '~components';
 import { getCdnUrl, parseVideo } from '~utls';
 
@@ -49,7 +48,7 @@ export const Video = ({ url }) => {
 							isRound
 							aria-label='عرض الفيديو'
 							variantColor='green'
-							icon={FaPlay}
+							icon='playBtn'
 						/>
 					</Flex>
 				</AspectRatioBox>

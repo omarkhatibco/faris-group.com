@@ -3,7 +3,6 @@ import { Box, Flex, IconButton } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import Link from 'next/link';
 import React from 'react';
-import { MdFavorite } from 'react-icons/md';
 import { Container, CurrencyConverter, LogoSvg, MobileNav } from '~components';
 import { ActiveLink } from './ActiveLink';
 
@@ -57,7 +56,7 @@ export const Header = ({}) => {
 									isRound
 									variant='ghost'
 									variantColor='green'
-									icon={MdFavorite}
+									icon='love'
 								/>
 							</Box>
 							<Box px={2} as='li'>
