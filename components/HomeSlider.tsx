@@ -114,7 +114,7 @@ export const HomeSlider = () => {
 					<IconButton
 						variant='solid'
 						variantColor='green'
-						aria-label='Send email'
+						aria-label='التالي'
 						icon='chevron-right'
 						isRound
 						size='lg'
@@ -125,7 +125,7 @@ export const HomeSlider = () => {
 					<IconButton
 						variant='solid'
 						variantColor='green'
-						aria-label='Send email'
+						aria-label='السابق'
 						icon='chevron-left'
 						isRound
 						size='lg'

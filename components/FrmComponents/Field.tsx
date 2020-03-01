@@ -63,7 +63,7 @@ export const Field: React.FC<IProps> = ({
 						<IconButton
 							variant='ghost'
 							variantColor='green'
-							aria-label='Show Password'
+							aria-label='عرض كلمة السر'
 							icon={show ? 'view-off' : 'view'}
 							onClick={() => setShow(!show)}
 						/>

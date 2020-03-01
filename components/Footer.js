@@ -56,6 +56,7 @@ export const Footer = () => {
 					<Link href='https://api.whatsapp.com/send?phone=+905437700511' isExternal>
 						<IconButton
 							boxShadow='lg'
+							aria-label='اتصل بنا عن طريق الواتساب'
 							color='social.whatsapp'
 							size='lg'
 							icon='whatsapp'

@@ -42,7 +42,7 @@ export const RangeField = ({ value, onChange, name, handleFilter, min = 0, max =
 				size='sm'
 				mr={2}
 				variantColor='green'
-				aria-label='فلتر'
+				aria-label='تصفية'
 				onClick={() => handleFilter()}
 				icon='chevron-left'
 			/>

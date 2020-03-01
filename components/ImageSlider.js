@@ -72,7 +72,7 @@ export const ImageSlider = ({ galleries }) => {
 					<IconButton
 						variant='solid'
 						variantColor='green'
-						aria-label='Send email'
+						aria-label='التالي'
 						icon='chevron-right'
 						isRound
 						size='lg'
@@ -82,7 +82,7 @@ export const ImageSlider = ({ galleries }) => {
 					<IconButton
 						variant='solid'
 						variantColor='green'
-						aria-label='Send email'
+						aria-label='السابق'
 						icon='chevron-left'
 						isRound
 						size='lg'
