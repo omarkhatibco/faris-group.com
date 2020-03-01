@@ -1,20 +1,24 @@
 import { ThemeProvider } from '@chakra-ui/core';
-import { PreflightCSS } from '~components';
+import { DefaultSeo } from 'next-seo';
+import { ConfigProvider, CurrencyProvider, DefaultLayout, PreflightCSS } from '~components';
+import SEO from '../next-seo.config';
 import theme from '../theme';
+
 // import App from 'next/app';
 
-const MyApp = ({ Component, pageProps, error }) => {
-	const { Layout, isProtected } = Component;
+const MyApp = ({ Component, pageProps }) => {
 	return (
 		<ThemeProvider theme={theme}>
 			<PreflightCSS />
-			{Layout ? (
-				<Layout>
-					<Component {...pageProps} error={error} />
-				</Layout>
-			) : (
-				<Component {...pageProps} />
-			)}
+			<DefaultSeo {...SEO} />
+
+			<CurrencyProvider>
+				<ConfigProvider>
+					<DefaultLayout>
+						<Component {...pageProps} />
+					</DefaultLayout>
+				</ConfigProvider>
+			</CurrencyProvider>
 		</ThemeProvider>
 	);
 };

@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es6",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -22,5 +22,5 @@
 		"typeRoots": ["node_modules/@types", "src/@types"]
 	},
 	"exclude": ["node_modules", "__tests__", ".next"],
-	"include": ["next-env.d.ts", "@types/*.d.ts", "**/*.ts", "**/*.tsx"]
+	"include": ["next-env.d.ts", "@types/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
 }

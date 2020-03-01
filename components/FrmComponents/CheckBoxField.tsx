@@ -1,5 +1,4 @@
-import { useFormContext } from 'react-hook-form';
-
+import { useFormContext, ErrorMessage } from 'react-hook-form';
 import { Box, Checkbox, FormErrorMessage, FormControl } from '@chakra-ui/core';
 
 interface IProps {
@@ -11,7 +10,7 @@ interface IProps {
 export const CheckBoxField: React.FC<IProps> = ({ name, isRequired, children }) => {
 	const { register, errors } = useFormContext();
 
-	const { message } = (errors && errors[name]) || {};
+	const isError = errors?.[name];
 
 	const registerObj = {
 		required: isRequired ? 'Pflichtfeld' : false,
@@ -25,12 +24,14 @@ export const CheckBoxField: React.FC<IProps> = ({ name, isRequired, children }) 
 				ref={register(registerObj)}
 				aria-invalid={Boolean(errors && errors[name])}
 				isInvalid={Boolean(errors && errors[name])}
-				variantColor='blau'>
+				variantColor='green'>
 				{children}
 			</Checkbox>
-			{message && (
+			{isError && (
 				<FormControl isInvalid={Boolean(errors && errors[name])}>
-					<FormErrorMessage mt='1'>{message}</FormErrorMessage>
+					<FormErrorMessage mt='1'>
+						<ErrorMessage as='span' name={name} errors={errors} />
+					</FormErrorMessage>
 				</FormControl>
 			)}
 		</Box>

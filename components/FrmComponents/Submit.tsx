@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 import { Button, ButtonProps } from '@chakra-ui/core';
 
-interface IProps {
+interface IProps extends ButtonProps {
 	children: React.ReactNode;
 }
 type SubmitProps = IProps & ButtonProps;

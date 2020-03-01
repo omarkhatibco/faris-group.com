@@ -1,4 +1,4 @@
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, ErrorMessage } from 'react-hook-form';
 import { FormControl, FormLabel, FormErrorMessage, FormHelperText } from '@chakra-ui/core';
 
 interface IProps {
@@ -19,7 +19,7 @@ export const MyCustomFormControl: React.FC<IProps> = ({
 	isDisabled,
 }) => {
 	const { errors } = useFormContext();
-	const { message } = (errors && errors[name]) || {};
+	const isError = errors?.[name];
 
 	return (
 		<FormControl
@@ -32,8 +32,10 @@ export const MyCustomFormControl: React.FC<IProps> = ({
 				</FormLabel>
 			)}
 			{children}
-			{message ? (
-				<FormErrorMessage mt='1'>{message}</FormErrorMessage>
+			{isError ? (
+				<FormErrorMessage mt='1'>
+					<ErrorMessage as='span' name={name} errors={errors} />
+				</FormErrorMessage>
 			) : (
 				helperText && <FormHelperText>{helperText}</FormHelperText>
 			)}

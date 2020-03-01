@@ -1,6 +1,9 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const withPlugins = require('next-compose-plugins');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfiguration = {
 	webpack: config => {
@@ -17,9 +20,9 @@ const nextConfiguration = {
 		return config;
 	},
 	env: {
-		BACKEND_URL: isProduction ? 'http://localhost:3001/' : 'http://localhost:3001/',
+		BACKEND_URL: isProduction ? 'https://api.faris-group.xyz' : 'https://api.faris-group.xyz',
 	},
 	target: 'serverless',
 };
 
-module.exports = withPlugins([], nextConfiguration);
+module.exports = withPlugins([[withBundleAnalyzer]], nextConfiguration);

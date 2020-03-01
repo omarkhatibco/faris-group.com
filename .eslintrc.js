@@ -8,7 +8,7 @@ module.exports = {
 	],
 	plugins: ['react-hooks'],
 	parserOptions: {
-		ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+		ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
 		sourceType: 'module', // Allows for the use of imports
 		ecmaFeatures: {
 			jsx: true, // Allows for the parsing of JSX
@@ -23,6 +23,7 @@ module.exports = {
 
 		// Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
 		// e.g. "@typescript-eslint/explicit-function-return-type": "off",
+		'@typescript-eslint/prefixWithI': 'always',
 	},
 	settings: {
 		react: {

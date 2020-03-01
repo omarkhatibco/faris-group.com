@@ -1,34 +1,31 @@
+import { IconButton, Input, InputGroup, InputProps, InputRightElement } from '@chakra-ui/core';
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Validate } from 'react-hook-form/dist/types';
-
-import { InputGroup, Input, InputRightElement, InputLeftAddon, IconButton } from '@chakra-ui/core';
 import { MyCustomFormControl } from './FormControl';
 
-interface IProps {
+interface IProps extends InputProps {
 	name: string;
 	type?: string;
 	autoComplete?: string;
 	placeholder?: string;
 	label?: string;
 	helperText?: string;
-	isRequired?: boolean;
-	isDisabled?: boolean;
-	isReadOnly?: boolean;
 	validate?: Validate;
-	bg?: string;
+	icon?: React.ReactNode;
 }
 
 export const Field: React.FC<IProps> = ({
 	name,
 	type = 'text',
 	autoComplete = 'none',
+	size,
 	placeholder,
 	isRequired,
 	isDisabled,
 	isReadOnly,
 	validate,
-	bg,
+	icon,
 }) => {
 	const [show, setShow] = useState<boolean>(false);
 
@@ -36,12 +33,14 @@ export const Field: React.FC<IProps> = ({
 
 	const registerObj = {
 		validate,
-		required: isRequired ? 'Pflichtfeld' : false,
+		required: isRequired ? true : false,
 	};
 
 	return (
 		<MyCustomFormControl name={name} isRequired={isRequired} isDisabled={isDisabled}>
-			<InputGroup>
+			<InputGroup size={size}>
+				{icon && <InputRightElement children={icon} />}
+
 				<Input
 					type={show ? 'text' : type}
 					id={name}
@@ -50,21 +49,21 @@ export const Field: React.FC<IProps> = ({
 					aria-describedby={`${name}-helper-text`}
 					placeholder={isRequired ? `${placeholder}*` : placeholder}
 					ref={register(registerObj)}
-					bg={bg}
 					autoCapitalize='off'
 					isInvalid={Boolean(errors && errors[name])}
 					isReadOnly={isReadOnly}
 					autoComplete={autoComplete}
+					pr={10}
 					errorBorderColor='red.500'
-					focusBorderColor='blau.500'
+					focusBorderColor='green.500'
 				/>
 
 				{type === 'password' && (
 					<InputRightElement width='2.5rem'>
 						<IconButton
 							variant='ghost'
-							variantColor='blau'
-							aria-label='Password zeigen'
+							variantColor='green'
+							aria-label='عرض كلمة السر'
 							icon={show ? 'view-off' : 'view'}
 							onClick={() => setShow(!show)}
 						/>

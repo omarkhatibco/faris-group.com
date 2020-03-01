@@ -1,11 +1,17 @@
-import { Spinner } from '@chakra-ui/core';
-import { AppPage } from '~@types/global';
-import { DefaultLayout } from '~components/layouts';
+import { Box } from '@chakra-ui/core';
+import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import { HomeSlider, OurServiceSection, RandomProperties } from '~components';
 
-const HomePage: AppPage = () => {
-	return <Spinner color='blau.500' />;
+const HomePage: NextPage = () => {
+	return (
+		<Box as='main' width='Full'>
+			<HomeSlider />
+			<RandomProperties />
+			<OurServiceSection />
+			<NextSeo title='للإستشارات العقارية' />
+		</Box>
+	);
 };
-
-HomePage.Layout = DefaultLayout;
 
 export default HomePage;
