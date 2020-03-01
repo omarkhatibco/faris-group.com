@@ -9,7 +9,7 @@
 - [x] SEO
 - [x] fix filter by responsive
 - [x] fix breadcrumb
+- [x] fix icons
 - [ ] Lighthouse optomize
 - [ ] add sticky whatsapp button
-- [ ] fix icons
 - [ ] fix data Live

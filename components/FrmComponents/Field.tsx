@@ -53,7 +53,7 @@ export const Field: React.FC<IProps> = ({
 					isInvalid={Boolean(errors && errors[name])}
 					isReadOnly={isReadOnly}
 					autoComplete={autoComplete}
-					pr={8}
+					pr={10}
 					errorBorderColor='red.500'
 					focusBorderColor='green.500'
 				/>

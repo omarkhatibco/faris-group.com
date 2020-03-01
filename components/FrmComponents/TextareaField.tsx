@@ -1,8 +1,7 @@
+import { InputGroup, InputProps, InputRightElement, Textarea } from '@chakra-ui/core';
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Validate } from 'react-hook-form/dist/types';
-
-import { InputGroup, Textarea, InputRightElement, InputProps } from '@chakra-ui/core';
 import { MyCustomFormControl } from './FormControl';
 
 interface IProps extends InputProps {
@@ -58,7 +57,7 @@ export const TextareaField: React.FC<IProps> = ({
 					focusBorderColor='green.500'
 					resize='vertical'
 					minHeight='10rem'
-					paddingRight={icon ? (size === 'md' ? '8' : 12) : '4'}
+					paddingRight={icon ? (size === 'md' ? 10 : 10) : '4'}
 					paddingTop={size === 'md' ? '2' : '3'}
 				/>
 			</InputGroup>

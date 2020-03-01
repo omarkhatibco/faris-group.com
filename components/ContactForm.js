@@ -1,6 +1,5 @@
-import { Box, Grid } from '@chakra-ui/core';
+import { Grid, Icon } from '@chakra-ui/core';
 import ky from 'ky-universal';
-import { MdEmail, MdPerson, MdPhone, MdSubject } from 'react-icons/md';
 import { Field, Form, SelectField, Submit, TextareaField, useToast } from '~components';
 
 export const ContactForm = ({ isPropertyContactForm = false, id = 0 }) => {
@@ -37,7 +36,7 @@ export const ContactForm = ({ isPropertyContactForm = false, id = 0 }) => {
 					placeholder='الأسم'
 					autoComplete='on'
 					size={size}
-					icon={<Box as={MdPerson} width='1rem' height='1rem' color='green.300' />}
+					icon={<Icon name='person' size='0.75em' color='green.500' />}
 					isRequired></Field>
 				<Field
 					name='email'
@@ -45,7 +44,7 @@ export const ContactForm = ({ isPropertyContactForm = false, id = 0 }) => {
 					placeholder='البريد الإلكتروني'
 					autoComplete='on'
 					size={size}
-					icon={<Box as={MdEmail} width='1rem' height='1rem' color='green.300' />}
+					icon={<Icon name='email' size='0.75em' color='green.500' />}
 					isRequired></Field>
 				<Field
 					name='mobile'
@@ -53,7 +52,7 @@ export const ContactForm = ({ isPropertyContactForm = false, id = 0 }) => {
 					placeholder='رقم الهاتف'
 					autoComplete='on'
 					size={size}
-					icon={<Box as={MdPhone} width='1rem' height='1rem' color='green.300' />}
+					icon={<Icon name='phone' size='0.75em' color='green.500' />}
 					isRequired></Field>
 				{isPropertyContactForm && (
 					<SelectField py={4} name='whenToCall' isRequired placeholder='أوقات الإتصال المفضلة'>
@@ -66,7 +65,7 @@ export const ContactForm = ({ isPropertyContactForm = false, id = 0 }) => {
 					name='message'
 					placeholder={isPropertyContactForm ? 'تصوراتك لمواصفات العقار' : 'نص الرسالة'}
 					size={size}
-					icon={<Box as={MdSubject} width='1rem' height='1rem' color='green.300' />}
+					icon={<Icon name='chat' size='0.75em' color='green.500' />}
 					isRequired></TextareaField>
 				<Submit variantColor='green'>إرسال الرسالة</Submit>
 			</Grid>

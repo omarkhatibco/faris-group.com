@@ -1,6 +1,6 @@
+import { Select } from '@chakra-ui/core';
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Select } from '@chakra-ui/core';
 import { MyCustomFormControl } from './FormControl';
 
 export const SelectField = props => {

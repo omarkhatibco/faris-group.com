@@ -1,13 +1,11 @@
 /**jsx @jsx */
-import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/core';
+import { Box, Flex, Heading, Icon, Link, Stack, Text } from '@chakra-ui/core';
 import { css } from '@emotion/core';
-import { NextPage } from 'next';
 import { CorporateContactJsonLd, NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { MdEmail, MdPhone, MdPlace } from 'react-icons/md';
 import { ContactForm, Container, Map, SocialLinks } from '~components';
 
-const ContactUs: NextPage = () => {
+const ContactUs = () => {
 	const { asPath } = useRouter();
 	return (
 		<Box as='main' width='100%'>
@@ -31,9 +29,7 @@ const ContactUs: NextPage = () => {
 							</Heading>
 							<Stack my='2'>
 								<Flex my='1' justifyContent='flex-start' alignItems='flex-start'>
-									<Box ml='4' color='green.200' borderRadius='100%'>
-										<Box as={MdPlace} width='1.5rem' height='1.5rem'></Box>
-									</Box>
+									<Icon name='location' ml={4} color='green.500' mt={1} />
 									<Text fontWeight='bold' color='gray.600'>
 										Molla Gürani,
 										<br />
@@ -45,17 +41,13 @@ const ContactUs: NextPage = () => {
 									</Text>
 								</Flex>
 								<Flex my='1' justifyContent='flex-start' alignItems='flex-start'>
-									<Box ml='4' color='green.200' borderRadius='100%'>
-										<Box as={MdEmail} width='1.5rem' height='1.5rem'></Box>
-									</Box>
+									<Icon name='email' ml={4} color='green.500' mt={1} />
 									<Text fontWeight='bold' color='gray.600'>
 										<Link href='mailto:info@faris-group.com'>info@faris-group.com</Link>
 									</Text>
 								</Flex>
 								<Flex my='1' justifyContent='flex-start' alignItems='flex-start'>
-									<Box ml='4' color='green.200' borderRadius='100%'>
-										<Box as={MdPhone} width='1.5rem' height='1.5rem'></Box>
-									</Box>
+									<Icon name='phone' ml={4} color='green.500' mt={1} />
 									<Text
 										fontWeight='bold'
 										color='gray.600'
