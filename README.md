@@ -10,6 +10,6 @@
 - [x] fix filter by responsive
 - [x] fix breadcrumb
 - [x] fix icons
+- [x] add sticky whatsapp button
 - [ ] Lighthouse optomize
-- [ ] add sticky whatsapp button
 - [ ] fix data Live

@@ -46,23 +46,23 @@ export const Footer = () => {
 				height='100%'
 				pointerEvents='none'>
 				<Flex
-					p={8}
+					p={[4, 8]}
 					width='100%'
 					height='100%'
 					justifyContent='flex-end'
 					alignItems='flex-end'
 					zIndex={4}
 					pointerEvents='none'>
-					<IconButton
-						as={Link}
-						href='s'
-						isExternal
-						color='social.whatsapp'
-						size='lg'
-						icon='whatsapp'
-						isRound
-						pointerEvents='auto'
-					/>
+					<Link href='https://api.whatsapp.com/send?phone=+905437700511' isExternal>
+						<IconButton
+							boxShadow='lg'
+							color='social.whatsapp'
+							size='lg'
+							icon='whatsapp'
+							isRound
+							pointerEvents='auto'
+						/>
+					</Link>
 				</Flex>
 			</Box>
 		</Box>

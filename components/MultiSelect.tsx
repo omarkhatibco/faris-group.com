@@ -45,7 +45,6 @@ export const MultiSelect = ({
 			color: chakraTheme.colors.black,
 		}),
 		indicatorSeparator: (provided, state) => {
-			// console.log({ provided, state });
 			return {
 				...provided,
 				backgroundColor: chakraTheme.colors.gray[400],

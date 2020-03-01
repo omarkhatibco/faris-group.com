@@ -23,18 +23,16 @@ export const SocialLinks = () => {
 	return (
 		<Stack my='2' isInline>
 			{social?.map(({ type, url }, index) => (
-				<IconButton
-					as={Link}
-					key={index}
-					href={url}
-					isExternal
-					variant='ghost'
-					size='lg'
-					color={`social.${type}`}
-					aria-label={`${type} رابط`}
-					isRound
-					icon={type}
-				/>
+				<Link key={index} href={url} isExternal>
+					<IconButton
+						variant='ghost'
+						size='lg'
+						color={`social.${type}`}
+						aria-label={`${type} رابط`}
+						isRound
+						icon={type}
+					/>
+				</Link>
 			))}
 		</Stack>
 	);
