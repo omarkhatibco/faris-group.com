@@ -15,10 +15,9 @@
 - [ ] fix data Live
 
 - [ ] english translation
-- [ ] arabic - fonts
-- [ ] remove youtube
-- [ ] link to adress
-- [ ] remove price when it's zero
+- [x] arabic - fonts (no better font available)
+- [x] remove youtube
+- [x] link to address
+- [x] remove price when it's zero
 - [ ] animations
-- [ ] statistics
 - [ ] move website + fistk.com

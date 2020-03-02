@@ -13,10 +13,10 @@ const social = [
 		type: 'instagram',
 		url: 'https://www.instagram.com/farisgrouptr/',
 	},
-	{
-		type: 'youtube',
-		url: 'https://youtube.com/',
-	},
+	// {
+	// 	type: 'youtube',
+	// 	url: 'https://youtube.com/',
+	// },
 ];
 
 export const SocialLinks = () => {

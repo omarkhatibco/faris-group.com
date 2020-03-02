@@ -1,6 +1,6 @@
 /**jsx @jsx */
 
-import { Box, Flex, Grid, Heading } from '@chakra-ui/core';
+import { Box, Flex, Grid, Heading, Link } from '@chakra-ui/core';
 import { DistanceInfoBox, InfoBox, Map } from '~components';
 
 export const PropertyMap = ({ map, distances, location }) => {
@@ -22,7 +22,16 @@ export const PropertyMap = ({ map, distances, location }) => {
 
 			<Box>
 				{map?.address && (
-					<InfoBox title='العنوان' icon='marker' value={map?.address} width='100%' />
+					<InfoBox
+						title='العنوان'
+						icon='marker'
+						value={
+							<Link href={`https://maps.google.com/?q=${map?.address}`} isExternal>
+								{map?.address}
+							</Link>
+						}
+						width='100%'
+					/>
 				)}
 
 				<Flex mx={-4} mt={2} mb={6}>
