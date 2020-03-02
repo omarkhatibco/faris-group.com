@@ -32,7 +32,9 @@ export const Video = ({ url }) => {
 						onClick={() => setShowVideo(true)}>
 						{video?.imageUrl && (
 							<Image
-								src={`${getCdnUrl(video?.imageUrl)}?w=700&quality=100`}
+								src={`${
+									video?.type === 'youtube' ? getCdnUrl(video?.imageUrl) : video?.imageUrl
+								}?w=700&quality=100`}
 								width='100%'
 								position='absolute'
 								top='0'

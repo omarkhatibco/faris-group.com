@@ -9,7 +9,6 @@ export const PropertyVideo = ({ url }) => {
 				فيديو المشروع
 			</Heading>
 			<Video url={url} />
-
 			<Box as='hr' my={8}></Box>
 		</Box>
 	) : null;

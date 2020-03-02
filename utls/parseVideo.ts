@@ -15,6 +15,7 @@ export const parseVideo = async url => {
 	const videoUrl = await getVideoUrl(type, id);
 
 	return {
+		type,
 		videoUrl,
 		imageUrl,
 	};
