@@ -35,7 +35,7 @@ export const PropertyFacts = ({ data }) => {
 						<InfoBox
 							title='تاريخ الإنتهاء'
 							icon='calender'
-							value={formatNumber(data?.delivery_date)}
+							value={formatYear(data?.delivery_date)}
 						/>
 					</Box>
 				)}
