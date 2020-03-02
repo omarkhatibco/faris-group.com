@@ -13,3 +13,12 @@
 - [x] add sticky whatsapp button
 - [ ] Lighthouse optomize
 - [ ] fix data Live
+
+- [ ] english translation
+- [ ] arabic - fonts
+- [ ] remove youtube
+- [ ] link to adress
+- [ ] remove price when it's zero
+- [ ] animations
+- [ ] statistics
+- [ ] move website + fistk.com
