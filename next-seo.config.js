@@ -7,11 +7,11 @@ export default {
 	openGraph: {
 		type: 'website',
 		locale: 'ar_AE',
-		url: 'https://faris-groupcom-git-next.omarkhatibco.now.sh/',
+		url: 'https://faris-group.com/',
 		site_name: 'مجموعة الفارس',
 		images: [
 			{
-				url: 'https://faris-groupcom-git-next.omarkhatibco.now.sh/social/facebook-g.png',
+				url: 'https://faris-group.com/social/facebook-g.png',
 				width: 1200,
 				height: 630,
 				alt: 'شعار مجموعة الفارس على خلفية مموهة لمبنى طابقي حديث',
