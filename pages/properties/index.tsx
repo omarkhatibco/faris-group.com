@@ -329,8 +329,10 @@ const Properties: NextPage = () => {
 					'ابحث عن عقارك بالمواصفات التي ترغب بها, يمكنك تخصيص بحثك بالنسبة للعديد من العناصر مثل المدينة و المنطقة أو نوع العقار كتجاري او سكني او حسب بعض المزايا المتوافرة في العقار أو عدد و توزيع الغرف'
 				}
 				openGraph={{
+					title: 'العقارات',
 					url: `https://faris-group.com${asPath}`,
 				}}
+				canonical={`https://www.faris-group.com${asPath}`}
 			/>
 		</Box>
 	);

@@ -9,7 +9,12 @@ const HomePage: NextPage = () => {
 			<HomeSlider />
 			<RandomProperties />
 			<OurServiceSection />
-			<NextSeo title='للإستشارات العقارية' />
+			<NextSeo
+				title='للإستشارات العقارية'
+				openGraph={{
+					title: 'للإستشارات العقارية',
+				}}
+			/>
 		</Box>
 	);
 };

@@ -73,7 +73,9 @@ const SingleProperties: NextPage<IProps> = ({ data }) => {
 			<NextSeo
 				title={stripHtml(data?.title?.rendered)}
 				description={stripHtml(data?.excerpt?.rendered)}
+				canonical={`https://www.faris-group.com${asPath}`}
 				openGraph={{
+					title: stripHtml(data?.title?.rendered),
 					url: `https://faris-group.com${asPath}`,
 					images: data?.media_gallery_data?.map(({ src, alt, width, height }) => ({
 						url: src,
