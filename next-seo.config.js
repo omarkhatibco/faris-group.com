@@ -6,7 +6,7 @@ export default {
 	description,
 	canonical: 'https://www.faris-group.com',
 	facebook: {
-		appId: 811128792732260,
+		appId: '811128792732260',
 	},
 	openGraph: {
 		type: 'website',
