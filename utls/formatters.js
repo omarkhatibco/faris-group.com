@@ -8,7 +8,7 @@ if (typeof Intl.NumberFormat.__addLocaleData === 'function') {
 export const formatNumber = number => {
 	return new Intl.NumberFormat('ar-SY', {
 		minimumFractionDigits: 0,
-		maximumFractionDigits: 0,
+		maximumFractionDigits: 1,
 	}).format(number);
 };
 
