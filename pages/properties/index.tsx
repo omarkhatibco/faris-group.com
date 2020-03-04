@@ -225,7 +225,7 @@ const Properties: NextPage = () => {
 							</Flex>
 							<Box
 								height='auto'
-								overflow='hidden'
+								overflow={['hidden', 'visible']}
 								maxHeight={isFilterOpened ? '1000px' : ['0', '1000px']}
 								transition=' all 150ms ease-in-out'>
 								<Grid gap={4}>
