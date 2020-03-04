@@ -11,7 +11,7 @@ export default {
 		site_name: 'مجموعة الفارس',
 		images: [
 			{
-				url: 'https://faris-group.com/social/facebook-g.png',
+				url: 'https://faris-group.com/social/facebook-og.png',
 				width: 1200,
 				height: 630,
 				alt: 'شعار مجموعة الفارس على خلفية مموهة لمبنى طابقي حديث',
