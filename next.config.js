@@ -20,7 +20,7 @@ const nextConfiguration = {
 		return config;
 	},
 	env: {
-		BACKEND_URL: isProduction ? 'https://api.faris-group.xyz' : 'https://api.faris-group.xyz',
+		BACKEND_URL: isProduction ? 'https://api.faris-group.com' : 'https://api.faris-group.com',
 	},
 	target: 'serverless',
 };
