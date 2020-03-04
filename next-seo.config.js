@@ -4,6 +4,10 @@ const description =
 export default {
 	titleTemplate: 'مجموعة الفارس | %s',
 	description,
+	canonical: 'https://www.faris-group.com',
+	facebook: {
+		appId: 811128792732260,
+	},
 	openGraph: {
 		type: 'website',
 		locale: 'ar_AE',
