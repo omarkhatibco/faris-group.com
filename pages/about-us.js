@@ -106,7 +106,6 @@ const AboutUs = () => {
 			<NextSeo
 				title='من نحن'
 				openGraph={{
-					title: 'من نحن',
 					url: `https://faris-group.com${asPath}`,
 				}}
 				canonical={`https://www.faris-group.com${asPath}`}

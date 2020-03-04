@@ -66,7 +66,6 @@ const ContactUs = () => {
 				title='اتصل بنا'
 				description='إذا كان لديك اسفسارات لا تتردد بالإتصال بنا أو محادثتنا على شبكات التواصل الإجتماعي.'
 				openGraph={{
-					title: 'اتصل بنا',
 					url: `https://faris-group.com${asPath}`,
 				}}
 				canonical={`https://www.faris-group.com${asPath}`}

@@ -99,7 +99,6 @@ const Favorites: NextPage = () => {
 					'هنا يمكنك حفظ العقارات التي لديك إهتمام بها لمراجعتها و الإطلاع عليها في وقت لاحق.'
 				}
 				openGraph={{
-					title: 'المفضلة',
 					url: `https://faris-group.com${asPath}`,
 				}}
 				canonical={`https://www.faris-group.com${asPath}`}
