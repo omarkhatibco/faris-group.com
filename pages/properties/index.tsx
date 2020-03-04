@@ -11,7 +11,6 @@ import {
 	Spinner,
 	Text,
 } from '@chakra-ui/core';
-import ky from 'ky-universal';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
@@ -28,7 +27,7 @@ import {
 	StatusesFilter,
 	TypesFilter,
 } from '~components';
-import { wp } from '~utls';
+import { api, wp } from '~utls';
 
 const Properties: NextPage = () => {
 	const { asPath } = useRouter();
@@ -143,7 +142,7 @@ const Properties: NextPage = () => {
 
 	const getAggregation = async () => {
 		try {
-			const aggregation: any = await await ky.get('/api/aggregation').json();
+			const aggregation: any = await await api.get('aggregation').json();
 
 			setAggregation(aggregation);
 		} catch (error) {

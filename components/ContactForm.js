@@ -1,6 +1,6 @@
 import { Grid, Icon } from '@chakra-ui/core';
-import ky from 'ky-universal';
 import { Field, Form, SelectField, Submit, TextareaField, useToast } from '~components';
+import { api } from '~utls';
 
 export const ContactForm = ({ isPropertyContactForm = false, id = 0 }) => {
 	const size = isPropertyContactForm ? 'md' : 'lg';
@@ -9,7 +9,7 @@ export const ContactForm = ({ isPropertyContactForm = false, id = 0 }) => {
 		<Form
 			onSubmit={async (values, reset) => {
 				try {
-					await ky.post('/api/contact', {
+					await api.post('contact', {
 						body: new URLSearchParams({ ...values, url: window.location.href, id }),
 					});
 					toast({

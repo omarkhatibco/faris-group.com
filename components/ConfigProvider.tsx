@@ -1,7 +1,7 @@
 // import { api } from '~utls';
-import ky from 'ky-universal';
 import React, { createContext, useEffect } from 'react';
 import { useLocalStorage } from 'react-use';
+import { api } from '~utls';
 interface IProps {
 	children: React.ReactNode;
 }
@@ -13,7 +13,7 @@ export const ConfigProvider: React.FC<IProps> = ({ children }) => {
 
 	const getConfig = async () => {
 		try {
-			const config: any = await ky.get('/api/config').json();
+			const config: any = await api.get('config').json();
 			setConfig(config);
 		} catch (error) {
 			console.error(error);
