@@ -19,6 +19,62 @@ class MyDocument extends Document {
 					<meta name='msapplication-TileColor' content='#ffffff' />
 					<meta name='msapplication-config' content='/favicons/browserconfig.xml' />
 					<meta name='theme-color' content='#ffffff' />
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Bold.woff'
+						as='font'
+						type='font/woff'
+						crossorigin
+					/>
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Bold.woff2'
+						as='font'
+						type='font/woff2'
+						crossorigin
+					/>
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Light.woff'
+						as='font'
+						type='font/woff'
+						crossorigin
+					/>
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Light.woff2'
+						as='font'
+						type='font/woff2'
+						crossorigin
+					/>
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Medium.woff'
+						as='font'
+						type='font/woff'
+						crossorigin
+					/>
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Medium.woff2'
+						as='font'
+						type='font/woff2'
+						crossorigin
+					/>
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Regular.woff'
+						as='font'
+						type='font/woff'
+						crossorigin
+					/>
+					<link
+						rel='preload'
+						href='fonts/DubaiW23-Regular.woff2'
+						as='font'
+						type='font/woff2'
+						crossorigin
+					/>
 				</Head>
 				<body>
 					<Main />
