@@ -80,7 +80,7 @@ const SingleProperties: NextPage<IProps> = ({ data }) => {
 						url: src,
 						width,
 						height,
-						alt,
+						alt: `${alt}`,
 					})),
 				}}
 			/>
