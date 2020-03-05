@@ -24,32 +24,32 @@ export const PreflightCSS: React.FC = () => {
 						font-style: normal;
 						font-weight: 300;
 						font-display: swap;
-						src: url(../fonts/DubaiW23-Light.woff2) format('woff2'),
-							url(../fonts/DubaiW23-Light.woff) format('woff');
+						src: url('/fonts/DubaiW23-Light.woff2') format('woff2'),
+							url('/fonts/DubaiW23-Light.woff') format('woff');
 					}
 					@font-face {
 						font-family: 'Dubai';
 						font-style: normal;
 						font-weight: 400;
 						font-display: swap;
-						src: url(../fonts/DubaiW23-Regular.woff2) format('woff2'),
-							url(../fonts/DubaiW23-Regular.woff) format('woff');
+						src: url('/fonts/DubaiW23-Regular.woff2') format('woff2'),
+							url('/fonts/DubaiW23-Regular.woff') format('woff');
 					}
 					@font-face {
 						font-family: 'Dubai';
 						font-style: normal;
 						font-weight: 500;
 						font-display: swap;
-						src: url(../fonts/DubaiW23-Medium.woff2) format('woff2'),
-							url(../fonts/DubaiW23-Medium.woff) format('woff');
+						src: url('/fonts/DubaiW23-Medium.woff2') format('woff2'),
+							url('/fonts/DubaiW23-Medium.woff') format('woff');
 					}
 					@font-face {
 						font-family: 'Dubai';
 						font-style: normal;
 						font-weight: 700;
 						font-display: swap;
-						src: url(../fonts/DubaiW23-Bold.woff2) format('woff2'),
-							url(../fonts/DubaiW23-Bold.woff) format('woff');
+						src: url('/fonts/DubaiW23-Bold.woff2') format('woff2'),
+							url('/fonts/DubaiW23-Bold.woff') format('woff');
 					}
 				`}
 			/>
