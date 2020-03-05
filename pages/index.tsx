@@ -9,7 +9,7 @@ const HomePage: NextPage = () => {
 			<HomeSlider />
 			<RandomProperties />
 			<OurServiceSection />
-			<NextSeo title='للإستشارات العقارية' />
+			<NextSeo />
 		</Box>
 	);
 };
