@@ -16,7 +16,7 @@ import {
 	PropertyMap,
 	PropertyVideo,
 } from '~components';
-import { wpFetch } from '~utls';
+import { getCdnUrl, wpFetch } from '~utls';
 
 interface IProps {
 	data?: any;
@@ -77,7 +77,7 @@ const SingleProperties: NextPage<IProps> = ({ data }) => {
 				openGraph={{
 					url: `https://faris-group.com${asPath}`,
 					images: data?.media_gallery_data?.map(({ src, alt, width, height }) => ({
-						url: src,
+						url: getCdnUrl(src),
 						width,
 						height,
 						alt: `${alt}`,
