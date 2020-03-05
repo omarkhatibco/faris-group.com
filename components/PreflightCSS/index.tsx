@@ -14,9 +14,10 @@ export const PreflightCSS: React.FC = () => {
 					body {
 						direction: rtl;
 						scroll-behavior: smooth;
-						font-family: 'Dubai', Helvetica Neue, sans-serif;
+						font-family: 'Dubai', Helvetica, sans-serif;
 						-webkit-font-smoothing: antialiased;
 						-moz-osx-font-smoothing: grayscale;
+						-webkit-text-size-adjust: 100%;
 					}
 
 					@font-face {
