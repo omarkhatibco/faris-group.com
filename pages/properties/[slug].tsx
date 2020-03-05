@@ -23,6 +23,7 @@ interface IProps {
 }
 
 const SingleProperties: NextPage<IProps> = ({ data }) => {
+	const imageObj = data?._embedded && data?._embedded['wp:featuredmedia'][0];
 	const { asPath } = useRouter();
 
 	return (
@@ -76,12 +77,14 @@ const SingleProperties: NextPage<IProps> = ({ data }) => {
 				canonical={`https://www.faris-group.com${asPath}`}
 				openGraph={{
 					url: `https://faris-group.com${asPath}`,
-					images: data?.media_gallery_data?.map(({ src, alt, width, height }) => ({
-						url: getCdnUrl(src),
-						width,
-						height,
-						alt: `${alt}`,
-					})),
+					images: [
+						{
+							url: getCdnUrl(imageObj?.source_url),
+							width: imageObj?.media_details?.width,
+							height: imageObj?.media_details?.height,
+							alt: imageObj?.alt_text,
+						},
+					],
 				}}
 			/>
 		</Box>
