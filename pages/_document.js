@@ -24,28 +24,28 @@ class MyDocument extends Document {
 						href='/fonts/DubaiW23-Bold.woff2'
 						as='font'
 						type='font/woff2'
-						crossorigin
+						crossOrigin
 					/>
 					<link
 						rel='preload'
 						href='/fonts/DubaiW23-Light.woff2'
 						as='font'
 						type='font/woff2'
-						crossorigin
+						crossOrigin
 					/>
 					<link
 						rel='preload'
 						href='/fonts/DubaiW23-Medium.woff2'
 						as='font'
 						type='font/woff2'
-						crossorigin
+						crossOrigin
 					/>
 					<link
 						rel='preload'
 						href='/fonts/DubaiW23-Regular.woff2'
 						as='font'
 						type='font/woff2'
-						crossorigin
+						crossOrigin
 					/>
 				</Head>
 				<body>
