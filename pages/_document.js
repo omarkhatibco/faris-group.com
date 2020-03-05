@@ -21,23 +21,9 @@ class MyDocument extends Document {
 					<meta name='theme-color' content='#ffffff' />
 					<link
 						rel='preload'
-						href='fonts/DubaiW23-Bold.woff'
-						as='font'
-						type='font/woff'
-						crossorigin
-					/>
-					<link
-						rel='preload'
 						href='fonts/DubaiW23-Bold.woff2'
 						as='font'
 						type='font/woff2'
-						crossorigin
-					/>
-					<link
-						rel='preload'
-						href='fonts/DubaiW23-Light.woff'
-						as='font'
-						type='font/woff'
 						crossorigin
 					/>
 					<link
@@ -49,23 +35,9 @@ class MyDocument extends Document {
 					/>
 					<link
 						rel='preload'
-						href='fonts/DubaiW23-Medium.woff'
-						as='font'
-						type='font/woff'
-						crossorigin
-					/>
-					<link
-						rel='preload'
 						href='fonts/DubaiW23-Medium.woff2'
 						as='font'
 						type='font/woff2'
-						crossorigin
-					/>
-					<link
-						rel='preload'
-						href='fonts/DubaiW23-Regular.woff'
-						as='font'
-						type='font/woff'
 						crossorigin
 					/>
 					<link
