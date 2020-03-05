@@ -11,8 +11,8 @@
 - [x] fix breadcrumb
 - [x] fix icons
 - [x] add sticky whatsapp button
-- [ ] Lighthouse optomize
-- [ ] fix data Live
+- [x] Lighthouse optomize
+- [x] fix data Live
 
 - [ ] english translation
 - [x] arabic - fonts (no better font available)
