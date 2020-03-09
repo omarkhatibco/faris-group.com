@@ -54,7 +54,7 @@ export const PropertyGrid = ({ data }) => {
 								<Image
 									transition='all 300ms ease-in-out'
 									className='property-image'
-									src={`${getCdnUrl(imageObj?.source_url)}?w=400&quality=100`}
+									src={`${getCdnUrl(imageObj?.source_url)}&w=400`}
 									width='100%'
 									height='100%'
 									position='absolute'

@@ -123,7 +123,7 @@ export const PropertyApartments = ({ appartments }) => {
 						cursor='pointer'
 						borderRadius='0.5rem'
 						boxShadow='lg'
-						src={`${overlayImage}?w=1200&quality=100`}
+						src={`${overlayImage}&w=1200`}
 						objectFit='cover'
 						mx='auto'
 					/>

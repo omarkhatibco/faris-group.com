@@ -1,8 +1,8 @@
 /**jsx @jsx */
-
+import { Image } from '@chakra-ui/core';
 import { css } from '@emotion/core';
 import { useWindowSize } from 'react-use';
-import { Image } from '~components';
+// import { Image } from '~components';
 import { getCdnUrl } from '~utls';
 
 export const BgImage = ({ src, alt, zIndex = 0 }) => {
@@ -12,7 +12,7 @@ export const BgImage = ({ src, alt, zIndex = 0 }) => {
 			css={css({
 				filter: 'blur(4px)',
 			})}
-			src={`${getCdnUrl(src)}?w=${width}`}
+			src={`${getCdnUrl(src)}&w=${width}&q=20`}
 			fallbackSrc={src}
 			alt={alt}
 			position='absolute'

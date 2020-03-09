@@ -9,7 +9,7 @@ export const OurServiceSection = () => {
 		<Flex as='section' flexWrap='wrap' width='100%'>
 			<Box width={['100%', 2 / 5]} height={['50vh', 'auto']} position='relative'>
 				<Image
-					src={getCdnUrl(aboutUs?.ServiceImage)}
+					src={`${getCdnUrl(aboutUs?.ServiceImage)}&w=600`}
 					alt='Modern real estate'
 					objectFit='cover'
 					position='absolute'
