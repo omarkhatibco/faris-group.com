@@ -47,6 +47,8 @@ class MyDocument extends Document {
 						type='font/woff2'
 						crossOrigin='true'
 					/>
+					<link rel='preconnect' href='https://images.weserv.nl' />
+					<link rel='preconnect' href='https://api.faris-group.com' />
 				</Head>
 				<body>
 					<Main />
