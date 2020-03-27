@@ -18,7 +18,7 @@ export const Header = ({}) => {
 			top='0'
 			boxShadow='0 6px 6px rgba(0,0,0,.1)'
 			css={css({
-				'@supports (backdrop-filter: none)': {
+				'@supports (backdropFilter: none) or (--webkit-backdrop-filter: none)': {
 					backdropFilter: 'blur(8px)',
 					backgroundColor: 'rgba(255,255,255,0.5)',
 				},

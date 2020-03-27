@@ -32,7 +32,7 @@ export const Video = ({ url }) => {
 						onClick={() => setShowVideo(true)}>
 						{video?.imageUrl && (
 							<Image
-								src={`${video?.imageUrl}`}
+								src={video?.imageUrl}
 								width='100%'
 								position='absolute'
 								top='0'

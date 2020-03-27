@@ -1,9 +1,7 @@
 import { Box } from '@chakra-ui/core';
 import { useInView } from 'react-intersection-observer';
-import { useMounted } from '~utls';
 
 export const Image = props => {
-	const isMounted = useMounted();
 	return <Box as={NativeImage} {...props}></Box>;
 };
 
@@ -21,7 +19,7 @@ const NativeImage = ({ htmlWidth, htmlHeight, alt, src, loading = 'lazy', ...pro
 			height={htmlHeight}
 			alt={alt}
 			loading={loading}
-			src={inView ? src : ''}
+			src={inView && src ? src : ''}
 			{...props}
 		/>
 	);

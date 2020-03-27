@@ -59,7 +59,7 @@ export const HomeSlider = () => {
 			embla.on('select', onSelect);
 			onSelect();
 		}
-		return () => embla && embla.destroy();
+		// return () => embla && embla.destroy();
 	}, [embla]);
 
 	useInterval(() => {

@@ -16,7 +16,7 @@ export const ImageSlider = ({ galleries }) => {
 				embla.changeOptions({ startIndex });
 			});
 		}
-		return () => embla && embla.destroy();
+		// return () => embla && embla.destroy();
 	}, [embla]);
 
 	return (
@@ -42,7 +42,7 @@ export const ImageSlider = ({ galleries }) => {
 									pl={[0, 1]}
 									key={id}>
 									<Image
-										src={`${getCdnUrl(src)}&w=700`}
+										src={getCdnUrl(src, 'w=700')}
 										htmlWidth={width}
 										htmlHeight={height}
 										height='100%'

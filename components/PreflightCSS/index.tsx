@@ -52,6 +52,12 @@ export const PreflightCSS: React.FC = () => {
 						src: url('/fonts/DubaiW23-Bold.woff2') format('woff2'),
 							url('/fonts/DubaiW23-Bold.woff') format('woff');
 					}
+
+					.line-clamp {
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+					}
 				`}
 			/>
 		</>

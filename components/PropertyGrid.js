@@ -54,7 +54,7 @@ export const PropertyGrid = ({ data }) => {
 								<Image
 									transition='all 300ms ease-in-out'
 									className='property-image'
-									src={`${getCdnUrl(imageObj?.source_url)}&w=400`}
+									src={getCdnUrl(imageObj?.source_url, 'w=400')}
 									width='100%'
 									height='100%'
 									position='absolute'
@@ -112,11 +112,7 @@ export const PropertyGrid = ({ data }) => {
 							mb={4}
 							overflow='hidden'
 							fontSize='sm'
-							css={css({
-								display: '-webkit-box',
-								WebkitLineClamp: 2,
-								WebkitBoxOrient: 'vertical',
-							})}
+							className='line-clamp'
 							dangerouslySetInnerHTML={{ __html: data?.excerpt?.rendered }}></Box>
 						{firstAppartmentObj && (
 							<Flex flexWrap='wrap' mx={-2} mb={4}>

@@ -46,7 +46,7 @@ export const HomeSlide = ({ data }) => {
 							width='100%'
 							height='100%'
 							objectFit='cover'
-							src={`${getCdnUrl(imageObj?.source_url)}?q=100`}
+							src={getCdnUrl(imageObj?.source_url, 'q=100')}
 						/>
 					</Box>
 					<Box display={['none', 'none', 'block']} width={['100%', '100%', '35%']}>
@@ -54,7 +54,7 @@ export const HomeSlide = ({ data }) => {
 							width='100%'
 							height='100%'
 							objectFit='cover'
-							src={`${getCdnUrl(imageObj?.source_url)}&q=100`}
+							src={getCdnUrl(imageObj?.source_url, 'q=100')}
 						/>
 					</Box>
 				</Flex>
@@ -68,7 +68,7 @@ export const HomeSlide = ({ data }) => {
 					<Box
 						css={css({
 							backgroundColor: 'rgba(255,255,255,1)',
-							'@supports (backdrop-filter: none)': {
+							'@supports (backdropFilter: none) or (--webkit-backdrop-filter: none)': {
 								backdropFilter: 'blur(16px)',
 								backgroundColor: 'rgba(255,255,255,0.8)',
 							},

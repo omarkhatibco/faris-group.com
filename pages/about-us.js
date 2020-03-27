@@ -90,7 +90,7 @@ const AboutUs = () => {
 					position='relative'
 					order={[0, 1]}>
 					<Image
-						src={`${getCdnUrl(aboutUs?.whyUsImage)}&w=600`}
+						src={getCdnUrl(aboutUs?.whyUsImage, 'w=600')}
 						alt='turkey flag on Dolmabahçe Sarayı'
 						objectFit='cover'
 						position='absolute'

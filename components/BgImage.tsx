@@ -11,7 +11,7 @@ export const BgImage = ({ src, alt, zIndex = 0 }) => {
 			css={css({
 				filter: 'blur(4px)',
 			})}
-			src={`${getCdnUrl(src)}&w=${width}&q=20`}
+			src={getCdnUrl(src, `w=${width}&q=20`)}
 			fallbackSrc={src}
 			alt={alt}
 			position='absolute'
@@ -23,6 +23,7 @@ export const BgImage = ({ src, alt, zIndex = 0 }) => {
 			width='100%'
 			objectFit='cover'
 			zIndex={zIndex}
-			objectPosition='center'></Image>
+			objectPosition='center'
+		/>
 	);
 };

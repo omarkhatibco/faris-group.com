@@ -1,6 +1,9 @@
-export const getCdnUrl = url => {
+export const getCdnUrl = (url, params = null) => {
 	if (!url) {
-		return '';
+		return null;
 	}
-	return url.replace(/^(http|https):\/\//g, 'https://images.weserv.nl/?li&url=');
+	return url.replace(
+		/^(http|https):\/\//g,
+		`https://images.weserv.nl/?li${params ? '&' + params : ''}&url=`
+	);
 };
